@@ -56,6 +56,9 @@ if [ "$device" = "MacbookPro2014" ]; then
     sudo systemctl enable mbpfan
 fi
 
+# System files
+sudo mv ./system/pacman.conf                        /etc/pacman.conf
+
 # Custom Desktop Entries
 sudo mv ./system/syncthing.desktop                  /usr/share/applications/syncthing.desktop
 sudo mv ./system/spotify_player.desktop             /usr/share/applications/spotify_player.desktop
