@@ -35,7 +35,8 @@ sudo mv target/release/eww $HOME/.local/bin
 chmod +x $HOME/.local/bin/eww
 
 # Mac Specific
-if [ "$device" = "MacbookPro2014" ]; then
+device=$(cat /sys/class/dmi/id/product_name)
+if echo "$device" | grep -q "MacBook"; then
     # System files
     sudo mv ./system/hid_apple.conf                     /etc/modprobe.d/hid_apple.conf
     sudo mv ./system/30-touchpad.conf                   /etc/X11/xorg.conf.d/30-touchpad.conf
@@ -43,6 +44,11 @@ if [ "$device" = "MacbookPro2014" ]; then
     
     # Services
     sudo systemctl enable mbpfan
+
+    # Regenerate initramfs
+    # mkinitcpio -p linux                               # Didn't work for me so;
+    sudo pacman -S linux  
+    # sudo dracut --regenerate-all --force              # Use this on non-Arch based distros
 fi
 
 # System files
