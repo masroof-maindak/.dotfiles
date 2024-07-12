@@ -1,0 +1,74 @@
+Xft.dpi:        192
+Xft.antialias:  1
+Xft.hinting:    1
+Xft.autohint:   0
+Xft.hintstyle:  hintslight
+Xft.rgba:       rgb
+Xft.lcdfilter:  lcddefault
+Xcursor.theme:  Umbrella-vr2
+Xcursor.size:   64
+
+! st.font: JetBrains Mono Nerd Font:size=11
+st.font: IBM Plex Mono:size=10
+! st.font: Maple Mono:size=10
+! st.font: azuki_font:size=12
+
+st.borderpx: 25
+! st.borderpx: 55
+st.alpha: 1
+
+! special
+*background: #242015
+*foreground: #ebe0bb
+! black
+*color0:  #242015
+*color8:  #856A5D
+! red
+*color1:  #96294d
+*color9:  #a82d56
+! green
+*color2:  #7a7653
+*color10: #736f4e
+! yellow
+*color3:  #db930d
+*color11: #e69a0e
+! blue
+*color4:  #91506c
+*color12: #80465f
+! magenta
+*color5:  #C1666B
+*color13: #b05d61
+! cyan
+*color6:  #508991
+*color14: #61A0A8
+! white
+*color7:  #9F8875
+*color15: #ebe0bb
+
+/*! special*/
+/**background: #F1E3D1*/
+/**foreground: #64513E*/
+/*! black*/
+/**color0:  #64513E*/
+/**color8:  #83715f*/
+/*! red*/
+/**color1:  #993333*/
+/**color9:  #993333*/
+/*! green*/
+/**color2:  #7d7e56*/
+/**color10: #7d7e56*/
+/*! yellow*/
+/**color3:  #d09700*/
+/**color11: #d09700*/
+/*! blue*/
+/**color4:  #bf7979*/
+/**color12: #bf7979*/
+/*! magenta*/
+/**color5:  #9e5881*/
+/**color13: #9e5881*/
+/*! cyan*/
+/**color6:  #75858c*/
+/**color14: #75858c*/
+/*! white*/
+/**color7:  #b5a492*/
+/**color15: #f1e3d1*/

@@ -1,0 +1,212 @@
+&[ $LF_LEVEL -eq 1 ] || lf -remote "send $id echoerr \"Warning: You're in a nested lf instance!\""
+
+set shell bash
+set shellopts '-eu'
+set mouse
+set ratios 2:5:7
+set info size
+set period 1
+set ifs "\n"
+set scrolloff 10
+
+
+#___
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id
+&ctpvquit $id
+
+
+#___
+# preview pane is `dim` insead of `underline`
+set cursorpreviewfmt "\033[7;2m"
+
+
+#___
+# use enter for shell commands
+map <enter> shell
+
+
+#___
+# show the result of execution of previous commands
+map ` !true
+
+
+#___
+# Toggle hidden files with backspace
+map <backspace2> set hidden!
+
+
+#___
+# execute current file (must be executable)
+map x $$f
+map X !$f
+
+#___?
+# dedicated keys for file opener actions
+map o &mimeopen $f
+map O $mimeopen --ask $f
+cmd open &{{
+    case $(file --mime-type -Lb $f) in
+        text/*) lf -remote "send $id \$$EDITOR \$fx";;
+        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
+
+#___
+map p : paste;clear
+map <esc> :{{unselect; clear;}}
+
+
+#___
+# mkdir command
+map a :push %mkdir<space>
+
+
+#___
+# Drag files
+cmd drag ${{
+  dragon-drop $fx
+}}
+map RA :drag
+
+
+#___
+# Select/Jump to file/folder
+cmd fzf_jump ${{
+  res="$(find . -maxdepth 8 | fzf --reverse --header='Jump...')"
+  if [ -f "$res" ]; then
+    cmd="select"
+  elif [ -d "$res" ]; then
+    cmd="cd"
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+map <c-f> :fzf_jump
+
+
+#___
+# Search contents of files inside current directory
+cmd fzf_search ${{
+    RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+    res="$(
+        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
+            fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+            --ansi --layout=reverse --header 'Search in files' \
+            | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
+    )"
+    [ -n "$res" ] && lf -remote "send $id select \"$res\""
+}}
+map gs :fzf_search
+
+
+#___
+# delete
+cmd delete ${{
+    set -f
+    printf "$fx\n"
+    printf "delete? [Y/n]: "
+    read ans
+    [ "$ans" = "n" ] || rm -rf $fx
+}}
+map D :delete
+
+
+#___
+# set wallpaper
+cmd setwall ${{
+    feh --bg-fill "$f"
+}}
+
+cmd setwallTile ${{
+    feh --bg-tile "$f"
+}}
+
+map WAL :setwall
+map WAT :setwallTile
+
+
+#___
+cmd toggle_preview %{{
+    if [ "$lf_preview" = "true" ]; then
+        lf -remote "send $id :set preview false; set ratios 1:5"
+    else
+        lf -remote "send $id :set preview true; set ratios 1:2:3"
+    fi
+}}
+map zp toggle_preview
+
+
+#___
+# Edit config
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+map C edit-config
+
+
+#___
+# Move in parent directory
+cmd move-parent &{{
+    dironly="setlocal '$(dirname "$PWD")' dironly"
+    lf -remote "send $id :updir; $dironly true; $1; $dironly false; open"
+}}
+map J move-parent down
+map K move-parent up
+
+
+#___
+# Copy file's path
+cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
+map <c-c> :yank-path
+
+#___
+# extract
+cmd extract ${{
+    set -f
+    case $f in
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
+        *.tar.gz|*.tgz) tar xzvf $f;;
+        *.tar.xz|*.txz) tar xJvf $f;;
+        *.zip) unzip $f;;
+        *.rar) unrar x $f;;
+        *.7z) 7z x $f;;
+    esac
+}}
+map <c-x> extract
+
+
+#___
+# New folder with selected items
+cmd newfold ${{
+    set -f
+    printf "Directory name: "
+    read newd
+    mkdir -- "$newd"
+    mv -- $fx "$newd"
+}}
+map <a-n> newfold
+
+
+#___
+# compress targz
+cmd tar ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    tar czf $1.tar.gz $1
+    rm -rf $1
+}}
+
+
+#___
+# compress zip
+cmd zip ${{
+	set -f
+    mkdir $1
+    cp -r $fx $1
+    zip -r $1.zip $1
+    rm -rf $1
+}}

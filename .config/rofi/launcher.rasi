@@ -1,0 +1,90 @@
+configuration {
+    terminal:                   "st";
+	modi:                       "drun";
+    show-icons:                 false;
+	drun-display-format:        "{name}";
+}
+
+* {
+    font:                       "Maple Mono 18";
+    background:     #211d13;
+    foreground:     #5f4e41;
+    selected:       #ebe0bb;
+}
+
+window {
+    transparency:                "real";
+    location:                    north;
+    anchor:                      north;
+    fullscreen:                  false;
+    width:                       2560;
+    x-offset:                    0px;
+    y-offset:                    0px;
+    enabled:                     true;
+    border:                      0px;
+    cursor:                      "default";
+    background-color:            @background;
+}
+
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    background-color:            transparent;
+    orientation:                 horizontal;
+    children:                    [ "inputbar", "listbox" ];
+}
+
+inputbar {
+    enabled:                     false;
+}
+
+listbox {
+    spacing:                     10px;
+    padding:                     12px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "message", "listview" ];
+}
+
+listview {
+    enabled:                     true;
+    columns:                     10;
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    reverse:                     false;
+    fixed-columns:               true;
+    spacing:                     15px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      "default";
+}
+
+element {
+    enabled:                     true;
+    padding:                     5px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+}
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+element normal.urgent {
+    text-color:                  @foreground;
+}
+element normal.active {
+    text-color:                  @foreground;
+}
+element selected.normal {
+    text-color:                  @selected;
+}
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}

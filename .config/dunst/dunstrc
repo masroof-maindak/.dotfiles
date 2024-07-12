@@ -1,0 +1,22 @@
+[global]
+frame_color = "#db930d"
+background = "#242015"
+foreground = "#ebe0bb"
+separator_color = frame
+font = IBM Plex Sans
+
+min_icon_size = 80
+max_icon_size = 80
+padding = 12
+horizontal_padding = 12
+width = (300, 500)
+origin = top-right
+scale = 2
+frame_width = 2
+
+progress_bar = true
+sort = yes
+alignment = center
+
+[urgency_critical]
+frame_color = "#a82d56"
