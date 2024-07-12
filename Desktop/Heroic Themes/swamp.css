@@ -1,4 +1,6 @@
 body.swamp {
+    --neutral-06: #d2c3a4;
+    --text-log: #a82d56;
     --accent: #b57614;
     --accent-overlay: #db930d;
     --navbar-accent: #ebe0bb;
@@ -28,6 +30,11 @@ body.swamp {
     --anticheat-supported: #736f4e;
     --anticheat-planned: #b05d61;
     --text-title: #ebe0bb;
+    --text-default: var(--text-title);
+    --text-secondary: #d2c3a4;
+    --text-tertiary: #3a3124;
+    --brand-text-01: #ebe0bb;
+
     --icons-background: #3A3124;
     --action-icon: #ebe0bb;
     --action-icon-hover: #c1666b;
