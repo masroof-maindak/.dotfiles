@@ -7,7 +7,6 @@ brightnessctl                    \
 xorg-xinit                       \
 upower                           \
 linux-headers                    \
-bcwc-pcie-git                    \
 mbpfan-git                       \
 cpupower-gui                     \
 stow                 	 	     \
