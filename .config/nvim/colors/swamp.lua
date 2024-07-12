@@ -13,7 +13,7 @@ if vim.o.background == "light" then
     base08 = "#D09700", -- Variables
     base09 = "#64513E", -- numbers
     base0A = "#993333", -- Classes
-    base0B = "#D08D6A", -- Strings
+    base0B = "#908D6A", -- Strings
     base0C = "#d09700", -- Support
     base0D = "#BF7979", -- Functions
     base0E = "#9E5581", -- Keywords
