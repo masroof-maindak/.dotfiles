@@ -15,8 +15,7 @@ cd ..
 rm -rf st
 
 # Make hardcoded directories
-mkdir -p "$HOME"/{Screenshots,Desktop,Downloads,Music,Pictures/Wallpapers}
-mkdir -p "$HOME"/.local/bin
+mkdir -p "$HOME"/{Screenshots,Desktop,Downloads,Music,Pictures/Wallpapers,.local/bin}
 mkdir -p "$HOME"/Documents/{uni,prgrms,Vault}
 
 # Symlink dotfiles
@@ -42,13 +41,15 @@ if [ "$device" = "MacbookPro2014" ]; then
     sudo mv ./system/30-touchpad.conf                   /etc/X11/xorg.conf.d/30-touchpad.conf
     sudo mv ./system/org.rnd2.cpupower_gui.desktop      /usr/share/applications/org.rnd2.cpupower_gui.desktop
     
-    # Enable mbpfan and NetworkManager service
-    sudo systemctl enable NetworkManager
+    # Services
     sudo systemctl enable mbpfan
 fi
 
 # System files
 sudo mv ./system/pacman.conf                        /etc/pacman.conf
+
+# Services
+sudo systemctl enable NetworkManager
 
 # Custom Desktop Entries
 sudo mv ./system/syncthing.desktop                  /usr/share/applications/syncthing.desktop
@@ -71,14 +72,6 @@ cd ..
 mv firefox/* "$HOME"/mozilla/firefox/*.default-release/chrome/
 cd ../..
 rm -rf swamp.nvim
-
-# Git SSH setup
-ssh-keygen -t rsa -b 4096 -C "mujtaba.asim.amin@gmail.com" -f $HOME/.ssh/id_rsa -N ""
-eval "$(ssh-agent -s)"
-ssh-add $HOME/.ssh/id_rsa
-cat $HOME/.ssh/id_rsa.pub > $HOME/paste-me-into-github-settings
-git config --global user.name "masroof-maindak"
-git config --global user.email "mujtaba.asim.amin@gmail.com"
 
 # Install spotify-player
 git clone https://github.com/aome510/spotify-player.git $HOME/Documents/Programs/spotify-player

@@ -4,7 +4,6 @@ paru -S --skipreview --noconfirm \
 reflector                        \
 broadcom-wl                      \
 brightnessctl                    \
-networkmanager                   \
 xorg-xinit                       \
 upower                           \
 linux-headers                    \
@@ -27,6 +26,7 @@ ffmpeg                           \
 mpv                              \
 
 # Networking and torrent
+networkmanager                   \
 qbittorrent                      \
 syncthing                        \
 
