@@ -27,6 +27,11 @@ git config --global user.email "<email-to-commit-from>"
 
 #### TODO:
 
+- [ ] Alacritty - Swamp Ports
+- [ ] foot - Swamp ports
+- [ ] Heroic + Dunst - Swamp Light
+- [ ] Bootstrap.sh - Papirus folders
+- [ ] Swamp Light - Phocus + Discord
 - [ ] Test Bootstrap.sh
 - [ ] Better way to install GTK theme?
 - [ ] Can we stow system files directly to /usr/... ?
