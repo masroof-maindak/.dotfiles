@@ -29,7 +29,7 @@ git config --global user.email "<email-to-commit-from>"
 
 - [ ] Alacritty - Swamp Ports
 - [ ] foot - Swamp ports
-- [ ] Heroic + Dunst - Swamp Light
+- [ ] Dunst - Swamp Light
 - [ ] Bootstrap.sh - Papirus folders
 - [ ] Swamp Light - Phocus + Discord
 - [ ] Test Bootstrap.sh

@@ -1,0 +1,42 @@
+body.swamp-light {
+    --neutral-06: #786653;
+    --text-log: #993333;
+    --accent: #D09700;
+    --accent-overlay: #D09700;
+    --navbar-accent: #64513E;
+    --background: #211d13;
+    --body-background: #f1e3d1;
+    --background-darker: var(--body-background);
+    --current-background: var(--body-background);
+    --navbar-background: #ddcebc;
+    --navbar-active-background: #f1e3d1;
+    --gradient-body-background: linear-gradient(
+        90deg, var(--background-darker) -32px,
+        var(--body-background) 64px,
+        var(--body-background) 100%
+    );
+    --input-background: #ddcebc;
+    --modal-background: var(--body-background);
+    --modal-border: var(--body-background);
+    --success: #908D6A;
+    --success-hover: #908D6A;
+    --primary: #9E5581;
+    --primary-hover: #9E5581;
+    --danger: #993333;
+    --danger-hover: #993333;
+    --anticheat-denied: #993333;
+    --anticheat-broken: #D09700;
+    --anticheat-running: #75858C;
+    --anticheat-supported: #908D6A;
+    --anticheat-planned: #BF7979;
+    --text-title: #64513E;
+    --text-default: var(--text-title);
+    --text-secondary: #786653;
+    --text-tertiary: #DDCEBC;
+    --brand-text-01: #64513E;
+    --icons-background: #ddcebc;
+    --action-icon: #64513E;
+    --action-icon-hover: #BF7979;
+    --action-icon-active: #75858C;
+    --icon-disabled: #C9B9A7;
+}
