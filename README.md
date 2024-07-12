@@ -13,11 +13,21 @@ chmod +x bootstrap.sh
 
 Then, I'll want to get my Obsidian Vault. Start Syncthing and set it up to sync the `~/Documents/Vault` directory with my phone.
 
+### SSH
+
+```bash
+ssh-keygen -t ed25519 -C "<email@example.com>" -f $HOME/.ssh/id_ed25519 -N "<passphrase - empty possible>"
+eval "$(ssh-agent -s)"
+ssh-add $HOME/.ssh/id_ed25519
+cat $HOME/.ssh/id_ed25519.pub > $HOME/ssh-pub-key
+
+git config --global user.name "masroof-maindak"
+git config --global user.email "<email-to-commit-from>"
+```
+
 #### TODO:
 
 - [ ] Test Bootstrap.sh
-- [ ] Enable NetworkManager required?
 - [ ] Better way to install GTK theme?
-- [ ] Git setup
-- [ ] Delete this repo and clean start
 - [ ] Can we stow system files directly to /usr/... ?
+- [ ] Delete this repo and clean start
