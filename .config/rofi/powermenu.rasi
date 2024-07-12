@@ -1,8 +1,4 @@
-@import "colours.rasi"
-
-* {
-    font:                       "Maple Mono 18";
-}
+@import "useropts.rasi"
 
 window {
     location:                    north;
