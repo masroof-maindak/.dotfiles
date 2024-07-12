@@ -4,8 +4,8 @@ alias cur="cd ~/Documents/wrk/nayavpn"
 alias cur2="cd ~/Documents/wrk2/EducationVerse-App-Backend/"
 
 # Git
-alias amend="commit --amend"
-alias graph="log --graph --oneline --all"
+alias gam="commit --amend"
+alias gdag="git log --graph --oneline --all"
 alias g="git"
 alias ga="git add"
 alias gaa="git add --all"
