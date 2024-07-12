@@ -12,11 +12,17 @@ berryc draw_text false
 berryc set_font "Maple Mono-10"
 berryc decorate_new true
 
+## Swamp Dark
 bgc="242015"
 normal="3a3124"
 accent="db930d"
 textMain="242015"
 textOther="db930d"
+
+## Swamp Light
+bgc="F1E3D1"
+normal="64513E"
+accent="64513E"
 
 # Set decoration colors
 berryc focus_color         $bgc
