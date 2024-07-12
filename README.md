@@ -28,7 +28,7 @@ git config --global user.email "<email-to-commit-from>"
 #### TODO:
 
 - [ ] Alacritty - Swamp Ports
-- [ ] foot - Swamp ports
+- [ ] Obsidian - Swamp Ports
 - [ ] Dunst - Swamp Light
 - [ ] Bootstrap.sh - Papirus folders
 - [ ] Swamp Light - Phocus + Discord
