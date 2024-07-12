@@ -7,6 +7,7 @@ config.font = wezterm.font("IBM Plex Mono")
 -- config.font = wezterm.font('azuki_font')
 config.line_height = 1.25
 config.color_scheme = "swamp-light"
+config.color_scheme = "swamp"
 config.font_size = 10
 
 -- config.background = {{
@@ -76,8 +77,8 @@ config.color_schemes = {
 		selection_fg = "#a3927f",
 		selection_bg = "#D2C3B0",
 
-		ansi = { "#64513e", "#993333", "#7d7e56", "#da9e01", "#bf7979", "#9e5581", "#75858c", "#D2C3B0" },
-		brights = { "#64513e", "#993333", "#7d7e56", "#da9e01", "#bf7979", "#9e5581", "#75858c", "#f1e3d1" },
+		ansi = { "#64513e", "#993333", "#908D6A", "#da9e01", "#bf7979", "#9e5581", "#75858c", "#D2C3B0" },
+		brights = { "#64513e", "#993333", "#908D6A", "#da9e01", "#bf7979", "#9e5581", "#75858c", "#f1e3d1" },
 	},
 	["swamp"] = {
 		foreground = "#ebe0bb",
