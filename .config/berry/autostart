@@ -46,5 +46,5 @@ berryc name_desktop 9 "j"
 sxhkd -c $HOME/.config/berry/sxhkdrc &
 ~/.fehbg &
 xset s 480 dpms 600 600 600 &
-$HOME/.config/polybar/launch.sh &
+$HOME/.config/polybar/scripts/launch.sh &
 dunst &

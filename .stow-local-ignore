@@ -3,6 +3,7 @@ makefile
 
 bootstrap.sh
 pkgInstall.sh
+system
 
 \.git
 \.gitignore
