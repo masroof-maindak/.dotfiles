@@ -26,11 +26,11 @@ config.show_new_tab_button_in_tab_bar = false
 config.tab_bar_at_bottom = true
 config.tab_max_width = 50
 
-BG = "#f1e3d1"
-activeFG = "#c9b9a7"
-activeBG = "#786653"
-inactiveFG = "#786653"
-inactiveBG = "#ddcebc"
+local BG = "#f1e3d1"
+local activeFG = "#c9b9a7"
+local activeBG = "#786653"
+local inactiveFG = "#786653"
+local inactiveBG = "#ddcebc"
 if config.color_scheme == "swamp" then
 	BG = "#242015"
 	activeFG = "#242015"
