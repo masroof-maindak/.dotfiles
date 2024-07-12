@@ -1,0 +1,152 @@
+# Spawn terminal 
+super + Return
+  wezterm
+
+# Spawn terminal (floating)
+super + shift + Return
+  bspc rule -a \* -o state=floating center=true rectangle=1000x600+0+0 && wezterm
+
+# Spawn terminal (dimensions)
+super + shift + ctrl + Return
+  bspc rule -a \* -o state=floating rectangle=$(slop) && st
+
+# rofi
+super + {e,d}
+  $HOME/.config/rofi/scripts/{powermenu.sh,launcher.sh}
+
+# Applications
+super + {w, b, v}
+  {thunar, firefox, code}
+
+# Screenshots - shotgun
+super + {_,shift + }p
+  {shotgun $(slop -f "-i %i -g %g"), shotgun} - | tee ~/Screenshots/$(date +%F_%T).png | xclip -t 'image/png' -selection clipboard
+
+# Vol
+XF86Audio{Lower,Raise}Volume
+  amixer -D pulse sset Master 5%{-,+}
+
+XF86AudioMute
+  amixer set Master toggle
+
+# Media
+XF86Audio{Next,Prev,Play}
+  playerctl {next, previous, play-pause}
+
+# Brightness
+XF86MonBrightness{Up,Down}
+  brightnessctl set 5%{+,-}
+
+XF86KbdBrightness{Up,Down}
+  brightnessctl --device='smc::kbd_backlight' set 5%{+,-}
+
+# restart bspwm & sxhkd
+super + shift + {r, q}
+  {pkill -USR1 -x sxhkd, bspc wm -r}
+
+
+#
+# bspwm hotkeys
+#
+
+# Center a floating window
+super + c
+  $HOME/.config/bspwm/centerWindow.sh
+
+# close
+super + q
+  bspc node -c
+
+# Make split ratios equal
+super + {equal,minus}
+	bspc node @/ --{equalize,balance}
+
+# rotate desktop
+super + r
+	bspc node @/ --rotate 90
+
+#
+# Focusing
+#
+
+# Cycle the next/previous window in the current workspace
+super + {_,shift + }semicolon
+	bspc node -f {next,prev}.local.!hidden.window
+
+# Cycle between workspaces
+super + {_,shift +}Tab
+	bspc desktop -f {next, prev}.occupied
+
+# Cycle between workspaces while bringing along the current window
+super + control + {_,shift +}Tab
+  bspc node -d {next,prev}.local --follow
+
+
+#
+# move/resize
+#
+
+# swap the current node and the biggest window
+super + ctrl + Return
+	bspc node -s biggest.window
+
+# move/focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus/send to the given desktop and not follow
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# send to a given desktop and follow focus
+super + ctrl + {1-9,0}
+  bspc node -d '^{1-9,10}' --follow
+
+# move a floating window
+super + {y,u,i,o}
+	bspc node -v {-30 0,0 30,0 -30,30 0}
+
+# grow a tiled window 
+super + ctrl + {h,j,k,l}
+  bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# shrink a tiled window 
+super + ctrl + shift + {h,j,k,l}
+  bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# Toggle between resize and move mode
+super + x
+  $HOME/.config/bspwm/pointer1mode.sh
+  
+#
+# state/flags
+#
+
+# set the node flags
+super + s
+	bspc node -g sticky
+
+# set the window state
+super + {n,shift + n,shift + space,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+
+#
+# preselect
+#
+
+# preselect the direction
+alt + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# cancel the preselection for the focused node
+alt + Escape
+	bspc node -p cancel
+
+# preselect the ratio
+alt + shift + {1-9}
+    bspc node -o 0.{1-9}

@@ -1,0 +1,8 @@
+makefile
+^/README.*
+
+bootstrap.sh
+pkgInstall.sh
+
+\.git
+\.gitignore

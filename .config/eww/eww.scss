@@ -1,0 +1,40 @@
+$drkHrd: #211d13;
+$mainBG: #242015;
+$base01: #3a3124;
+$base02: #4d3f32;
+$base03: #5f4e41;
+$base04: #b8a58c;
+$base05: #d2c3a4;
+$mainFG: #ebe0bb;
+$green:  #717653;
+$red:    #a82d56;
+$blue:   #508991;
+$pink:   #c1666b;
+$purple: #91506c;
+$accent: #db930d;
+
+$mainBG: #f1e3d1;
+$base01: #ddcebc;
+$base02: #c9b9a7;
+$base03: #c2b2a0;
+$base04: #786653;
+$mainFG: #64513e;
+$accent: #d09700;
+$green: #908D6A;
+$red: #993333;
+
+* {
+  all: unset;
+  color: $base04;
+  font-family: "IBM Plex Sans";
+  /* font-size: 14px; */
+}
+
+tooltip {
+  font-weight: 500;
+  background: $base01;
+  border: 3px solid $drkHrd;
+  padding: 10px 20px;
+}
+
+@import "./src/scss/topbar.scss";

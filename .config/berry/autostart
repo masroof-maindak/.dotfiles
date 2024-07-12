@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Set decoration geometry
+berryc border_width 4
+berryc inner_border_width 4
+berryc title_height 35
+berryc edge_gap 10 74 10 10
+berryc edge_lock false
+
+# Text
+berryc draw_text false
+berryc set_font "Maple Mono-10"
+berryc decorate_new true
+
+bgc="242015"
+normal="3a3124"
+accent="db930d"
+textMain="242015"
+textOther="db930d"
+
+# Set decoration colors
+berryc focus_color         $bgc
+berryc unfocus_color       $bgc
+berryc inner_focus_color   $accent
+berryc inner_unfocus_color $normal 
+berryc text_focus_color    $textMain
+berryc text_unfocus_color  $textOther
+
+# Other options
+berryc smart_place "true"
+berryc focus_follows_pointer "false"
+
+# Desktop names
+berryc name_desktop 0 "a"
+berryc name_desktop 1 "b"
+berryc name_desktop 2 "c"
+berryc name_desktop 3 "d"
+berryc name_desktop 4 "e"
+berryc name_desktop 5 "f"
+berryc name_desktop 6 "g"
+berryc name_desktop 7 "h"
+berryc name_desktop 8 "i"
+berryc name_desktop 9 "j"
+
+# Start sxhkd and other programs
+sxhkd -c $HOME/.config/berry/sxhkdrc &
+~/.fehbg &
+xset s 480 dpms 600 600 600 &
+$HOME/.config/polybar/launch.sh &
+dunst &
