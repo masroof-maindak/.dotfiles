@@ -1,3 +1,6 @@
 // Change the name of the colour scheme here
 
 @import "Colour Schemes/swampLight.rasi"
+* {
+	font: "IBM Plex Sans Bold 20";
+}

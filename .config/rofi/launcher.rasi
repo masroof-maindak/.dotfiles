@@ -5,11 +5,7 @@ configuration {
 	drun-display-format:        "{name}";
 }
 
-@import "colours.rasi"
-
-* {
-    font:                       "Maple Mono 18";
-}
+@import "useropts.rasi"
 
 window {
     transparency:                "real";
