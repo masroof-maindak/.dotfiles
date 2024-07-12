@@ -5,11 +5,10 @@ configuration {
 	drun-display-format:        "{name}";
 }
 
+@import "colours.rasi"
+
 * {
     font:                       "Maple Mono 18";
-    background:     #211d13;
-    foreground:     #5f4e41;
-    selected:       #ebe0bb;
 }
 
 window {
