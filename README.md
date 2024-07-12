@@ -19,3 +19,4 @@ Then, I'll want to get my Obsidian Vault. Set up syncthing to sync the `~/Docume
 - [ ] Better way to install GTK theme
 - [ ] Git setup
 - [ ] Delete this repo and clean start
+- [ ] Can we stow system files directly to /usr/... ?
