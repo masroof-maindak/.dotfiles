@@ -15,18 +15,9 @@ cd ..
 rm -rf st
 
 # Make hardcoded directories
-mkdir -p "$HOME"/Pictures/Wallpapers
+mkdir -p "$HOME"/{Screenshots,Desktop,Downloads,Music,Pictures/Wallpapers}
 mkdir -p "$HOME"/.local/bin
-
-mkdir -p "$HOME"/Screenshots
-mkdir -p "$HOME"/Desktop
-mkdir -p "$HOME"/Downloads
-mkdir -p "$HOME"/Music
-mkdir -p "$HOME"/Pictures
-
-mkdir -p "$HOME"/Documents/uni
-mkdir -p "$HOME"/Documents/prgrms
-mkdir -p "$HOME"/Documents/Vault
+mkdir -p "$HOME"/Documents/{uni,prgrms,Vault}
 
 # Symlink dotfiles
 stow .
