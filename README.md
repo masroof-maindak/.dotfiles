@@ -28,9 +28,9 @@ git config --global user.email "<email>"
 ### Other Software
 
 ***Firefox***:
-- Configure flags in `about:config` from the GUI
-    - _toolkit.legacyUserProfileCustomizations.stylesheets_ => _true_
-- Get dots from repository
+- Sign in, sync bookmarks, open tabs, history and passwords
+- Add extensions and configure telemetry settings
+- Follow instructions in Firefox Userchrome repository and clone dots
 ```bash
 cd ~/.mozilla/firefox/*.default-release/
 git clone https://github.com/masroof-maindak/chrome
@@ -39,7 +39,6 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO:
 
-- [ ] Firefox - unhide URL bar search suggestions
 - [ ] Obsidian - Swamp Light 'Dark Hard' -> second background & text marked with `like so.`
 - [ ] Lutgen - PR Swamp Light
 - [ ] Test Bootstrap.sh
