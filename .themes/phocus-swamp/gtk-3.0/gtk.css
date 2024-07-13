@@ -377,6 +377,10 @@ dialog filechooser treeview, messagedialog filechooser treeview {
   background: #242015;
 }
 
+filechooser {
+  color: #ebe0bb;
+}
+
 entry {
   padding: 0.2em;
   border-radius: 0em;
