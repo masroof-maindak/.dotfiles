@@ -1,6 +1,6 @@
-#!/usr/bin/sh
+#!/bin/bash
 
-function() print_yellow() {
+print_yellow() {
     echo -e "\033[1;33m$1\033[0m"
 }
 
@@ -49,8 +49,8 @@ fi
 git clone https://github.com/elkowar/eww ~/Documents/Programs/eww
 cd ~/Documents/Programs/eww || exit
 cargo build -r --no-default-features --features $display_server
-sudo mv target/release/eww $HOME/.local/bin
-chmod +x $HOME/.local/bin/eww
+sudo mv target/release/eww "$HOME"/.local/bin
+chmod +x "$HOME"/.local/bin/eww
 
 # Mac Specific
 device=$(cat /sys/class/dmi/id/product_name)
@@ -101,11 +101,11 @@ chmod +x "$HOME"/.config/berry/autostart
 
 # Install spotify-player
 print_yellow "Installing spotify-player"
-git clone https://github.com/aome510/spotify-player.git $HOME/Documents/Programs/spotify-player
-cd $HOME/Documents/Programs/spotify-player || exit
+git clone https://github.com/aome510/spotify-player.git "$HOME"/Documents/Programs/spotify-player
+cd "$HOME"/Documents/Programs/spotify-player || exit
 cargo build -r --features lyric-finder,notify
-mv target/release/spotify_player $HOME/.local/bin/spotify_player
-chmod +x $HOME/.local/bin/spotify_player
+mv target/release/spotify_player "$HOME"/.local/bin/spotify_player
+chmod +x "$HOME"/.local/bin/spotify_player
 
 # Papirus Icon Theme
 print_yellow "Installing Papirus Icon Theme"
