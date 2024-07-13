@@ -22,7 +22,8 @@ rm -rf st
 
 # Make hardcoded directories
 print_yellow "Making directories"
-mkdir -p "$HOME"/{Screenshots,Desktop,Downloads,Music,Pictures/Wallpapers,.local/bin,.themes,.icons}
+mkdir -p "$HOME"/{Screenshots,Desktop,Downloads,Music,Pictures/Wallpapers}
+mkdir -p "$HOME"/{.local/bin,.themes,.icons,.config}
 mkdir -p "$HOME"/Documents/{uni,prgrms,Vault}
 
 # Symlink dotfiles
