@@ -4,7 +4,7 @@ To get started following a minimal Arch installation:
 
 ```bash
 git clone https://github.com/masroof-maindak/dotfiles ~/.dotfiles/
-cd .dotfiles
+cd .dotfiles || exit
 chmod +x bootstrap.sh
 ./bootstrap.sh
 ```
@@ -29,14 +29,23 @@ git config --global user.email "<email-to-commit-from>"
 
 ***Vencord***: `sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"`
 
+***Firefox***:
+- Configure flags in `about:config` from the GUI
+    - _toolkit.legacyUserProfileCustomizations.stylesheets_ => true
+- Get dots from repository
+```bash
+cd ~/.mozilla/firefox/*.default-release/
+git clone https://github.com/masroof-maindak/chrome
+```
+- Maybe also go through [this repo](https://github.com/SpitFire-666/Firefox-Stuff)
+
 #### TODO:
 
-- [ ] Obsidian - Swamp Light Port
 - [ ] Dunst - Swamp Light
 - [ ] Phocus - Swamp Light
+- [ ] Place Phocus GTK themes in .themes & stow
+- [ ] Obsidian - Swamp Light Port
 - [ ] Discord - Swamp Light
 - [ ] Test Bootstrap.sh
-- [ ] Better way to install GTK theme - place in .themes instead
-- [ ] New repo for Firefox dots
-- [ ] Can we stow system files directly to /usr/... ?
-- [ ] Delete this repo and clean start
+- [ ] Firefox dots -> init repo `masroof-maindak/chrome`
+- [ ] Delete this repo and start clean
