@@ -7,7 +7,7 @@ config.font = wezterm.font("IBM Plex Mono")
 -- config.font = wezterm.font('azuki_font')
 config.line_height = 1.25
 config.color_scheme = "swamp-light"
-config.color_scheme = "swamp"
+-- config.color_scheme = "swamp"
 config.font_size = 10
 
 -- config.background = {{
