@@ -34,6 +34,7 @@ neovim                           \
 visual-studio-code-bin           \
 jq                               \
 obsidian                         \
+tldr                             \
 
 # Web browser
 firefox                          \
