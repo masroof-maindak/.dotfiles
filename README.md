@@ -39,5 +39,8 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO:
 
+- [ ] Firefox - unhide URL bar search suggestions
+- [ ] Obsidian - Swamp Light 'Dark Hard' -> second background & text marked with `like so.`
+- [ ] Lutgen - PR Swamp Light
 - [ ] Test Bootstrap.sh
 - [ ] Delete this repo and start clean
