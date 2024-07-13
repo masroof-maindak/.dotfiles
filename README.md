@@ -41,6 +41,7 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO:
 
+- [ ] Move scripts to .local/bin/
 - [ ] Obsidian - Swamp Light Port
 - [ ] Discord - Swamp Light
 - [ ] Test Bootstrap.sh
