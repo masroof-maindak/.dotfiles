@@ -41,7 +41,6 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO:
 
-- [ ] Obsidian - Swamp Light Port
 - [ ] Discord - Swamp Light
 - [ ] Test Bootstrap.sh
 - [ ] Delete this repo and start clean
