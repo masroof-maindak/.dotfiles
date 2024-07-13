@@ -65,7 +65,7 @@ noto-fonts-emoji                 \
 ttf-nerd-fonts-symbols           \
 
 # Communication
-discord                          \
+vesktop-bin                      \
 
 # Command line utilities
 ripgrep                          \
