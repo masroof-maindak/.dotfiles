@@ -39,9 +39,8 @@ git clone https://github.com/masroof-maindak/chrome
 ```
 - Maybe also go through [this repo](https://github.com/SpitFire-666/Firefox-Stuff)
 
-#### TODO:
+### TODO:
 
-- [ ] Dunst - Swamp Light
 - [ ] Phocus - Swamp Light
 - [ ] Place Phocus GTK themes in .themes & stow
 - [ ] Obsidian - Swamp Light Port
