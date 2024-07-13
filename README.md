@@ -16,13 +16,13 @@ Then, I'll want to get my Obsidian Vault. Start Syncthing and set it up to sync 
 ### SSH
 
 ```bash
-ssh-keygen -t ed25519 -C "<email@example.com>" -f $HOME/.ssh/id_ed25519 -N "<passphrase - empty possible>"
+ssh-keygen -t ed25519 -C "<email>" -f $HOME/.ssh/id_ed25519 -N "<password>"
 eval "$(ssh-agent -s)"
 ssh-add $HOME/.ssh/id_ed25519
 cat $HOME/.ssh/id_ed25519.pub > $HOME/ssh-pub-key
 
 git config --global user.name "masroof-maindak"
-git config --global user.email "<email-to-commit-from>"
+git config --global user.email "<email>"
 ```
 
 ### Other Software
@@ -31,7 +31,7 @@ git config --global user.email "<email-to-commit-from>"
 
 ***Firefox***:
 - Configure flags in `about:config` from the GUI
-    - _toolkit.legacyUserProfileCustomizations.stylesheets_ => true
+    - _toolkit.legacyUserProfileCustomizations.stylesheets_ => _true_
 - Get dots from repository
 ```bash
 cd ~/.mozilla/firefox/*.default-release/
@@ -41,8 +41,9 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO:
 
+- [ ] GTK Theme - Fix white text
+- [ ] Firefox dots -> init repo `masroof-maindak/chrome`
 - [ ] Obsidian - Swamp Light Port
 - [ ] Discord - Swamp Light
 - [ ] Test Bootstrap.sh
-- [ ] Firefox dots -> init repo `masroof-maindak/chrome`
 - [ ] Delete this repo and start clean
