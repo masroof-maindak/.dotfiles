@@ -4,6 +4,7 @@ makefile
 bootstrap.sh
 pkgInstall.sh
 system
+.themes/phocus-make_colours.scss
 
 \.git
 \.gitignore

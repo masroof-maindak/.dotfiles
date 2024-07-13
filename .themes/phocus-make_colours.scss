@@ -1,0 +1,86 @@
+@use 'sass:color';
+
+$surface-dark: #211d13;
+$surface-strongest: #242015;
+$surface-strong: color.scale($surface-strongest, $lightness: 0%);;
+$surface-moderate: color.scale($surface-strongest, $lightness: +5%);
+$surface-weak: color.scale($surface-strongest, $lightness: +7.5%);//#3A3124;
+$surface-weakest: color.scale($surface-strongest, $lightness: +10%);
+
+$white-moderate: rgba(255, 255, 255, 0.34);
+$white-weak: rgba(255, 255, 255, 0.14);
+$white-weakest: rgba(255, 255, 255, 0.06);
+$white-strongest: #F1E9D0;
+$white-strong: #ebe0bb;
+
+$black-strongest: rgba(0, 0, 0, 1);
+$black-strong: rgba(0, 0, 0, 0.87);
+$black-moderate: rgba(0, 0, 0, 0.42);
+$black-weak: rgba(0, 0, 0, 0.15);
+$black-weakest: rgba(0, 0, 0, 0.06);
+
+$red-normal: #96294d;
+$red-light: #a82d56;
+$orange-normal: #b06733;
+$orange-light: #ba6d36;
+$yellow-normal: #db930d;
+$yellow-light: #e79a0e;
+$green-normal: #7a7653;
+$green-light: #746f4e;
+$cyan-normal: #508991;
+$cyan-light: #61a0a8;
+$blue-normal: #91506c;
+$blue-light: #80465f;
+$purple-normal: #c1666b;
+$purple-light: #b05d61;
+$pink-normal: #e16286;
+$pink-light: #f3869b;
+
+$accent-primary: $yellow-normal;
+$accent-secondary: $red-light;
+
+@define-color borders #{"" +$surface-strong};
+
+// Swamp Light
+// @use 'sass:color';
+
+// $surface-dark: #C9B9A7;
+// $surface-strongest: #F1E3D1;
+// $surface-strong: color.scale($surface-strongest, $lightness: 0%);;
+// $surface-moderate: color.scale($surface-strongest, $lightness: -5%);
+// $surface-weak: color.scale($surface-strongest, $lightness: -7.5%);//#3A3124;
+// $surface-weakest: color.scale($surface-strongest, $lightness: -10%);
+
+// $white-weakest: #B5A492;
+// $white-weak: #A0907D;
+// $white-moderate: #8C7B68;
+// $white-strong: #64513E;
+// $white-strongest: #786653;
+
+// $black-strongest: rgba(0, 0, 0, 1);
+// $black-strong: rgba(0, 0, 0, 0.87);
+// $black-moderate: rgba(0, 0, 0, 0.42);
+// $black-weak: rgba(0, 0, 0, 0.15);
+// $black-weakest: rgba(0, 0, 0, 0.06);
+
+// $red-normal: #993333;
+// $red-light: #993333;
+// $orange-normal: #D09700;
+// $orange-light: #D09700;
+// $yellow-normal: #D09700;
+// $yellow-light: #D09700;
+// $green-normal: #908D6A;
+// $green-light: #908D6A;
+// $cyan-normal: #75858C;
+// $cyan-light: #75858C;
+// $blue-normal: #75858C;
+// $blue-light: #75858C;
+// $purple-normal: #9E5581;
+// $purple-light: #9E5581;
+// $pink-normal: #BF7979;
+// $pink-light: #BF7979;
+
+// $accent-primary: $yellow-normal;
+// $accent-secondary: $green-light;
+
+// @define-color borders #{"" +$surface-strong};
