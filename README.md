@@ -27,8 +27,6 @@ git config --global user.email "<email>"
 
 ### Other Software
 
-***Vencord***: `sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"`
-
 ***Firefox***:
 - Configure flags in `about:config` from the GUI
     - _toolkit.legacyUserProfileCustomizations.stylesheets_ => _true_
@@ -41,6 +39,5 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO:
 
-- [ ] Discord - Swamp Light
 - [ ] Test Bootstrap.sh
 - [ ] Delete this repo and start clean
