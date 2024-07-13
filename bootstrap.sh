@@ -85,3 +85,7 @@ cd $HOME/Documents/Programs/spotify-player || exit
 cargo build -r --features lyric-finder,notify
 mv target/release/spotify_player $HOME/.local/bin/spotify_player
 chmod +x $HOME/.local/bin/spotify_player
+
+# Papirus Icon Theme
+wget -qO- https://git.io/papirus-icon-theme-install | sh
+wget -qO- https://git.io/papirus-folders-install | sh

@@ -25,14 +25,18 @@ git config --global user.name "masroof-maindak"
 git config --global user.email "<email-to-commit-from>"
 ```
 
+### Other Software
+
+***Vencord***: `sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"`
+
 #### TODO:
 
-- [ ] Alacritty - Swamp Ports
-- [ ] Obsidian - Swamp Ports
+- [ ] Obsidian - Swamp Light Port
 - [ ] Dunst - Swamp Light
-- [ ] Bootstrap.sh - Papirus folders
-- [ ] Swamp Light - Phocus + Discord
+- [ ] Phocus - Swamp Light
+- [ ] Discord - Swamp Light
 - [ ] Test Bootstrap.sh
-- [ ] Better way to install GTK theme?
+- [ ] Better way to install GTK theme - place in .themes instead
+- [ ] New repo for Firefox dots
 - [ ] Can we stow system files directly to /usr/... ?
 - [ ] Delete this repo and clean start
