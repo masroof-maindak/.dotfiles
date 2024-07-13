@@ -41,8 +41,6 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO:
 
-- [ ] GTK Theme - Fix white text
-- [ ] Firefox dots -> init repo `masroof-maindak/chrome`
 - [ ] Obsidian - Swamp Light Port
 - [ ] Discord - Swamp Light
 - [ ] Test Bootstrap.sh
