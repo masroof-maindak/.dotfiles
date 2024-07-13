@@ -41,7 +41,6 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO:
 
-- [ ] Phocus - Swamp Light + move to `~/.themes`
 - [ ] Obsidian - Swamp Light Port
 - [ ] Discord - Swamp Light
 - [ ] Test Bootstrap.sh
