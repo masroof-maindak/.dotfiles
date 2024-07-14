@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Set decoration geometry
-berryc border_width 4
-berryc inner_border_width 4
-berryc title_height 35
+berryc border_width 6
+berryc inner_border_width 6
+berryc title_height 0
 berryc edge_gap 10 74 10 10
 berryc edge_lock false
 
@@ -21,8 +21,8 @@ textOther="db930d"
 
 ## Swamp Light
 bgc="F1E3D1"
-normal="64513E"
-accent="64513E"
+normal="c9b9a7"
+accent="c9b9a7"
 
 # Set decoration colors
 berryc focus_color         $bgc
@@ -49,8 +49,6 @@ berryc name_desktop 8 "i"
 berryc name_desktop 9 "j"
 
 # Start sxhkd and other programs
-sxhkd -c $HOME/.config/berry/sxhkdrc &
-~/.fehbg &
-xset s 480 dpms 600 600 600 &
-$HOME/.config/polybar/scripts/launch.sh &
-dunst &
+sxhkd -c "$HOME"/.config/berry/sxhkdrc &
+"$HOME"/.local/bin/common_apps.sh
+"$HOME"/.config/polybar/scripts/launch.sh &
