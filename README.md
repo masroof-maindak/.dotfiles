@@ -1,6 +1,6 @@
 ### Init
 
-To get started following a minimal Arch installation:
+To get started following a minimal Arch install:
 
 ```bash
 git clone https://github.com/masroof-maindak/dotfiles ~/.dotfiles/
@@ -36,9 +36,3 @@ cd ~/.mozilla/firefox/*.default-release/
 git clone https://github.com/masroof-maindak/chrome
 ```
 - Maybe also go through [this repo](https://github.com/SpitFire-666/Firefox-Stuff)
-
-### TODO:
-
-- [ ] Lutgen - PR Swamp Light
-- [ ] Test Bootstrap.sh
-- [ ] Delete this repo and start clean
