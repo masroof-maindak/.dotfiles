@@ -3,13 +3,13 @@
 # Set decoration geometry
 berryc border_width 6
 berryc inner_border_width 6
-berryc title_height 0
-berryc edge_gap 10 74 10 10
+berryc title_height 50
+berryc edge_gap 20 100 20 20
 berryc edge_lock false
 
 # Text
-berryc draw_text false
-berryc set_font "Maple Mono-10"
+berryc draw_text true
+berryc set_font "IBM Plex Sans-11"
 berryc decorate_new true
 
 ## Swamp Dark
@@ -23,6 +23,8 @@ textOther="db930d"
 bgc="F1E3D1"
 normal="c9b9a7"
 accent="c9b9a7"
+textMain="64513e"
+textOther="64513e"
 
 # Set decoration colors
 berryc focus_color         $bgc
