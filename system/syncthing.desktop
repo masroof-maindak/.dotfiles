@@ -2,3 +2,5 @@
 Type=Application
 Name=syncthing
 Exec=st -c Syncthing -e syncthing
+# Exec=foot -a Spotify -T Syncthing -e syncthing
+Terminal=true
