@@ -2,3 +2,5 @@
 Type=Application
 Name=Spotify
 Exec=st -c Spotify -e spotify_player
+# Exec=foot -a Spotify -T Spotify -e spotify_player
+Terminal=true
