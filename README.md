@@ -4,7 +4,7 @@ To get started following a minimal Arch installation:
 
 ```bash
 git clone https://github.com/masroof-maindak/dotfiles ~/.dotfiles/
-cd .dotfiles || exit
+cd .dotfiles
 chmod +x bootstrap.sh
 ./bootstrap.sh
 ```
@@ -27,7 +27,7 @@ git config --global user.email "<email>"
 
 ### Other Software
 
-***Firefox***:
+***Firefox***
 - Sign in, sync bookmarks, open tabs, history and passwords
 - Add extensions and configure telemetry settings
 - Follow instructions in Firefox Userchrome repository and clone dots
@@ -39,7 +39,7 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO:
 
-- [ ] Obsidian - Swamp Light 'Dark Hard' -> second background & text marked with `like so.`
+- [ ] Obsidian - Swamp Light 'Dark Hard' -> second background & text marked `like so`.
 - [ ] Lutgen - PR Swamp Light
 - [ ] Test Bootstrap.sh
 - [ ] Delete this repo and start clean
