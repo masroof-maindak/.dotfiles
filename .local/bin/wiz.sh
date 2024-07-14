@@ -1,4 +1,3 @@
-
 #!/bin/sh
 
 # Original script: https://github.com/depsterr/mfetch
