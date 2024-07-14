@@ -4,7 +4,7 @@ To get started following a minimal Arch install:
 
 ```bash
 git clone https://github.com/masroof-maindak/dotfiles ~/.dotfiles/
-cd .dotfiles
+cd ~/.dotfiles
 chmod +x bootstrap.sh
 ./bootstrap.sh
 ```

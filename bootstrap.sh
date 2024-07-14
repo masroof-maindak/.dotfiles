@@ -22,9 +22,9 @@ rm -rf st
 
 # Make hardcoded directories
 print_yellow "Making directories"
-mkdir -p "$HOME"/{Screenshots,Desktop,Downloads,Music,Pictures/Wallpapers}
+mkdir -p "$HOME"/{Screenshots,Desktop,Documents,Downloads,Music,Pictures/Wallpapers}
 mkdir -p "$HOME"/{.local/bin,.themes,.icons,.config/vesktop/settings}
-mkdir -p "$HOME"/Documents/{uni,prgrms,Vault}
+mkdir -p "$HOME"/Documents/{uni,prgrms,Vault,wrk,book}
 
 # Symlink dotfiles
 print_yellow "Symlinking dotfiles"
@@ -47,11 +47,12 @@ read -r wayland
 if [ "$wayland" = "y" ]; then
     display_server="wayland"
 fi
-git clone https://github.com/elkowar/eww ~/Documents/Programs/eww
-cd ~/Documents/Programs/eww || exit
+git clone https://github.com/elkowar/eww ~/Documents/prgrms/eww
+cd ~/Documents/prgrms/eww || exit
 cargo build -r --no-default-features --features $display_server
 sudo mv target/release/eww "$HOME"/.local/bin
 chmod +x "$HOME"/.local/bin/eww
+cd ~/.dotfiles/ || exit
 
 # Mac Specific
 device=$(cat /sys/class/dmi/id/product_name)
@@ -102,11 +103,12 @@ chmod +x "$HOME"/.config/berry/autostart
 
 # Install spotify-player
 print_yellow "Installing spotify-player"
-git clone https://github.com/aome510/spotify-player.git "$HOME"/Documents/Programs/spotify-player
-cd "$HOME"/Documents/Programs/spotify-player || exit
+git clone https://github.com/aome510/spotify-player.git "$HOME"/Documents/prgrms/spotify-player
+cd "$HOME"/Documents/prgrms/spotify-player || exit
 cargo build -r --features lyric-finder,notify
 mv target/release/spotify_player "$HOME"/.local/bin/spotify_player
 chmod +x "$HOME"/.local/bin/spotify_player
+cd ~/.dotfiles/ || exit
 
 # Papirus Icon Theme
 print_yellow "Installing Papirus Icon Theme"
