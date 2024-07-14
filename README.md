@@ -39,7 +39,6 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO:
 
-- [ ] Obsidian - Swamp Light 'Dark Hard' -> second background & text marked `like so`.
 - [ ] Lutgen - PR Swamp Light
 - [ ] Test Bootstrap.sh
 - [ ] Delete this repo and start clean
