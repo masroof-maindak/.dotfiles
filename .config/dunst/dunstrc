@@ -9,7 +9,7 @@
 	width = (300, 500)
 	origin = top-right
 	scale = 2
-	frame_width = 2
+	frame_width = 4
 
 	progress_bar = true
 	sort = yes
