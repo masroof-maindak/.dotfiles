@@ -26,6 +26,7 @@ alias grep="rg"
 alias dd="dragon-drop"
 alias v="nvim"
 alias p="pacman"
+alias py="python"
 alias l="lfcd"
 
 # Builtins
