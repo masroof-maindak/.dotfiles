@@ -1,7 +1,9 @@
 set completion-ignore-case on
 set show-all-if-ambiguous on
 set mark-directories on
+set skip-completed-text on
 
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 
+Control-o: "chng-prmpt\015"
