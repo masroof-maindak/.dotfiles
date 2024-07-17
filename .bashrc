@@ -6,9 +6,10 @@ PROMPT_COMMAND='PS1X=$(perl -p -e "s|^${HOME}|~|;s|([^/])[^/]*/|$""1/|g" <<<${PW
 PROMPT1='\[\e[91;1m\]${PS1X}\[\e[0m\] % '
 # ---
 parse_git_branch() {
-  git branch 2>/dev/null | sed -n '/\* /s///p'
+  git branch 2>/dev/null | sed -n '/\* /s///p' | sed 's/^/ (/;s/$/)/'
 }
-PROMPT2="\[\033[01;34m\]\w \[\033[01;33m\]\$(parse_git_branch)\[\033[00m\]% "
+
+PROMPT2="\[\033[01;34m\]\w\[\033[01;33m\]\$(parse_git_branch)\[\033[00m\] % "
 export PS1=$PROMPT1
 
 # Unlimited history
@@ -32,7 +33,7 @@ serve () {
     if [[ $port =~ ^[0-9]+$ ]]; then
         python -m http.server "$port"
     else
-        echo "Usage: serve [port_number]"
+        echo "Usage: serve <port_number>"
         return 1
     fi
 }
@@ -43,4 +44,5 @@ chng-prmpt () {
     else
         export PS1=$PROMPT1
     fi
+	c
 }
