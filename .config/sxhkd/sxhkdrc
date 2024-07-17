@@ -1,6 +1,6 @@
 # Spawn terminal 
 super + Return
-  wezterm
+  st
 
 # Spawn terminal (floating)
 super + shift + Return
