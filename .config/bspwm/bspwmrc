@@ -2,7 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 xsetroot -cursor_name left_ptr &
-"$HOME"/.local/bin/common_apps.sh
+"$HOME"/.local/bin/startup.sh
 /usr/lib/polkit-1/polkitd &
 eww open topbar &
 

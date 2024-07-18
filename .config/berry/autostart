@@ -52,5 +52,5 @@ berryc name_desktop 9 "j"
 
 # Start sxhkd and other programs
 sxhkd -c "$HOME"/.config/berry/sxhkdrc &
-"$HOME"/.local/bin/common_apps.sh
+"$HOME"/.local/bin/startup.sh
 "$HOME"/.config/polybar/scripts/launch.sh &
