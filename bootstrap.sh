@@ -100,6 +100,7 @@ chmod +x "$HOME"/.config/eww/scripts/*
 chmod +x "$HOME"/.config/polybar/scripts/*
 chmod +x "$HOME"/.config/rofi/scripts/*
 chmod +x "$HOME"/.config/berry/autostart
+chmod +x "$HOME"/.local/bin/*
 
 # Install spotify-player
 print_yellow "Installing spotify-player"
