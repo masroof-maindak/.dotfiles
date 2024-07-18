@@ -8,7 +8,6 @@ PROMPT1='\[\e[91;1m\]${PS1X}\[\e[0m\] % '
 parse_git_branch() {
   git branch 2>/dev/null | sed -n '/\* /s///p' | sed 's/^/ (/;s/$/)/'
 }
-
 PROMPT2="\[\033[01;34m\]\w\[\033[01;33m\]\$(parse_git_branch)\[\033[00m\] % "
 export PS1=$PROMPT1
 
@@ -45,4 +44,12 @@ chng-prmpt () {
         export PS1=$PROMPT1
     fi
 	c
+}
+
+fzchk () {
+	if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+        git checkout $(git branch | fzf)
+    else
+        echo "Not a git repository"
+    fi
 }
