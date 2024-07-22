@@ -70,7 +70,7 @@ set mouse=a
 set cursorline
 
 " Always show sign column
-set signcolumn=yes
+set signcolumn=auto
 
 " Undo files
 set undofile
@@ -82,3 +82,29 @@ set smartcase
 " Line wrap
 set nowrap
 
+" Syntax highlighting
+syntax enable
+
+colo habamax
+
+" Auto indentation
+set autoindent
+set smartindent
+
+" Show matching parentheses
+set showmatch
+
+" Search highlighting
+set hlsearch
+
+" Persistent undo
+set undofile
+
+" Faster scrolling
+set lazyredraw
+
+" Incremental search
+set incsearch
+
+" Command-line completion
+set wildmenu
