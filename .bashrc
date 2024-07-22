@@ -43,7 +43,7 @@ chng-prmpt() {
 	else
 		export PS1=$PROMPT1
 	fi
-	c
+	clear
 }
 
 fzchk() {
@@ -52,4 +52,54 @@ fzchk() {
 	else
 		echo "Not a git repository"
 	fi
+}
+
+# to() {
+#     local base_dir=""
+#
+#     case $1 in
+#         scr) base_dir="$HOME/Screenshots";;
+#         mus) base_dir="$HOME/Music";;
+#         vid) base_dir="$HOME/Videos";;
+#         pic) base_dir="$HOME/Pictures";;
+#         dow) base_dir="$HOME/Downloads";;
+#         doc) base_dir="$HOME/Documents";;
+#         dot) base_dir="$HOME/.dotfiles";;
+#         uni) base_dir="$HOME/Documents/uni";;
+#         cfg) base_dir="$HOME/.config";;
+#         *) echo "Unknown base directory: $1"; return 1;;
+#     esac
+#
+#     shift
+#     local target_dir="$base_dir/$*"
+#
+#     if [ -d "$target_dir" ]; then
+#         cd "$target_dir"
+#     else
+#         echo "Directory does not exist: $target_dir"
+#         return 1
+#     fi
+# }
+
+
+to() {
+    local base_dir=""
+    local sub_path=""
+    for arg in "$@"; do
+        if [[ -n "${DIRS[$arg]}" ]]; then
+            base_dir="${DIRS[$arg]}"
+            sub_path=""
+        else
+            sub_path+="/$arg"
+        fi
+    done
+
+    local path="$base_dir$sub_path"
+
+    if [ -d "$path" ]; then
+        cd "$path"
+    else
+        echo "Directory does not exist: $path"
+        return 1
+    fi
 }

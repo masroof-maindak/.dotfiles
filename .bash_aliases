@@ -1,7 +1,21 @@
-alias wrk="cd ~/Documents/wrk/"
-alias wrk2="cd ~/Documents/wrk2/"
-alias cur="cd ~/Documents/wrk/nayavpn"
-alias cur2="cd ~/Documents/wrk2/EducationVerse-App-Backend/"
+# Directories
+declare -A DIRS=(
+    [cur]="$HOME/Documents/wrk/nayavpn"
+    [cur2]="$HOME/Documents/wrk2/EducationVerse-App-Backend/"
+
+	[dow]="$HOME/Downloads"
+	[doc]="$HOME/Documents"
+	[des]="$HOME/Desktop"
+	[scr]="$HOME/Screenshots"
+	[mus]="$HOME/Music"
+	[vid]="$HOME/Videos"
+	[dot]="$HOME/.dotfiles"
+	[cfg]="$HOME/.config"
+)
+
+for key in "${!DIRS[@]}"; do
+    alias $key="cd ${DIRS[$key]}"
+done
 
 # Git
 alias gam="commit --amend"
@@ -34,24 +48,13 @@ alias ls="ls -hN --color=auto --group-directories-first"
 alias c="clear"
 alias q="exit"
 
-# Directories
-alias scr="cd ~/Screenshots/"
-alias dow="cd ~/Downloads/"
-alias doc="cd ~/Documents/"
-alias dev="cd ~/Documents/dev/"
-alias uni="cd ~/Documents/uni/"
-alias dot="cd ~/.dotfiles/"
-alias cfg="cd ~/.config/"
-
 # Startx
 alias bsp="startx ~/.xinitrc bspwm"
 alias ber="startx ~/.xinitrc berry"
-alias i3wm="startx ~/.xinitrc i3"
 
 # Configs
 alias brc="v ~/.bashrc"
 alias bsc="v ~/.config/bspwm/bspwmrc"
-alias i3c="v ~/.config/i3/config"
 alias sxc="v ~/.config/sxhkd/sxhkdrc"
 
 # Functions
