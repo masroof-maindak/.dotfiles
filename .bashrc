@@ -54,34 +54,6 @@ fzchk() {
 	fi
 }
 
-# to() {
-#     local base_dir=""
-#
-#     case $1 in
-#         scr) base_dir="$HOME/Screenshots";;
-#         mus) base_dir="$HOME/Music";;
-#         vid) base_dir="$HOME/Videos";;
-#         pic) base_dir="$HOME/Pictures";;
-#         dow) base_dir="$HOME/Downloads";;
-#         doc) base_dir="$HOME/Documents";;
-#         dot) base_dir="$HOME/.dotfiles";;
-#         uni) base_dir="$HOME/Documents/uni";;
-#         cfg) base_dir="$HOME/.config";;
-#         *) echo "Unknown base directory: $1"; return 1;;
-#     esac
-#
-#     shift
-#     local target_dir="$base_dir/$*"
-#
-#     if [ -d "$target_dir" ]; then
-#         cd "$target_dir"
-#     else
-#         echo "Directory does not exist: $target_dir"
-#         return 1
-#     fi
-# }
-
-
 to() {
     local base_dir=""
     local sub_path=""
@@ -102,4 +74,16 @@ to() {
         echo "Directory does not exist: $path"
         return 1
     fi
+}
+
+jrnl() {
+	local today=$(date +'%m-%d')
+	local vault_path=${DIRS["vlt"]}
+	local file_path="${vault_path}/03 - Journal/$(date +'%m - %b')/${today}.md"
+	echo $file_path
+	if [[ ! -f "$file_path" ]]; then
+		echo "File doesn't exist yet..."
+		return 1
+	fi
+	$EDITOR "$file_path"
 }
