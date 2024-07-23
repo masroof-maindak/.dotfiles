@@ -80,7 +80,6 @@ jrnl() {
 	local today=$(date +'%m-%d')
 	local vault_path=${DIRS["vlt"]}
 	local file_path="${vault_path}/03 - Journal/$(date +'%m - %b')/${today}.md"
-	echo $file_path
 	if [[ ! -f "$file_path" ]]; then
 		echo "File doesn't exist yet..."
 		return 1
