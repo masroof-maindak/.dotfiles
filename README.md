@@ -2,7 +2,7 @@
 
 ```bash
 # After a minimal Arch install...
-git clone --recurse-submodules https://github.com/masroof-maindak/dotfiles ~/.dotfiles/
+git clone --recurse-submodules https://github.com/masroof-maindak/.dotfiles ~/.dotfiles/
 cd ~/.dotfiles
 chmod +x bootstrap.sh
 ./bootstrap.sh
@@ -11,13 +11,12 @@ chmod +x bootstrap.sh
 ### SSH Setup
 
 ```bash
-# NOTE: Safe way to sync these from a backup?
+
+# TODO: Move these to bootstrap.sh(?)
 ssh-keygen -t ed25519 -C "<email>" -f $HOME/.ssh/id_ed25519 -N "<password>"
 eval "$(ssh-agent -s)"
 ssh-add $HOME/.ssh/id_ed25519
-cat $HOME/.ssh/id_ed25519.pub > $HOME/ssh-pub-key
 
-# TODO: Move this to bootstrap.sh
 git config --global user.name "masroof-maindak"
 git config --global user.email "<email>"
 ```
