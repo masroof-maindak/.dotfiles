@@ -3,6 +3,8 @@ declare -A DIRS=(
     [cur]="$HOME/Documents/wrk/nayavpn"
     [cur2]="$HOME/Documents/wrk2/EducationVerse-App-Backend/"
 
+	[vlt]="$HOME/Documents/Vault"
+	[uni]="$HOME/Documents/uni"
 	[dow]="$HOME/Downloads"
 	[doc]="$HOME/Documents"
 	[des]="$HOME/Desktop"
@@ -49,13 +51,13 @@ alias c="clear"
 alias q="exit"
 
 # Startx
-alias bsp="startx ~/.xinitrc bspwm"
-alias ber="startx ~/.xinitrc berry"
+alias bsp="startx $HOME/.xinitrc bspwm"
+alias ber="startx $HOME/.xinitrc berry"
 
 # Configs
-alias brc="v ~/.bashrc"
-alias bsc="v ~/.config/bspwm/bspwmrc"
-alias sxc="v ~/.config/sxhkd/sxhkdrc"
+alias brc="$EDITOR $HOME/.bashrc"
+alias bsc="$EDITOR $HOME/.config/bspwm/bspwmrc"
+alias sxc="$EDITOR $HOME/.config/sxhkd/sxhkdrc"
 
 # Functions
 alias pubip='curl ipinfo.io/ip'
