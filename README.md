@@ -2,8 +2,8 @@
 
 ```bash
 # After a minimal Arch install...
-cd && git clone --recurse-submodules https://github.com/masroof-maindak/.dotfiles ~/.dotfiles/
-cd ~/.dotfiles
+cd && git clone --recurse-submodules https://github.com/masroof-maindak/.dotfiles
+cd .dotfiles
 chmod +x bootstrap.sh
 ./bootstrap.sh
 ```
