@@ -44,11 +44,13 @@ alias v="nvim"
 alias p="pacman"
 alias py="python"
 alias l="lfcd"
+alias dk="docker"
 
 # Builtins
 alias ls="ls -hN --color=auto --group-directories-first"
 alias c="clear"
 alias q="exit"
+alias mkdir="mkdir -p"
 
 # Startx
 alias bsp="startx $HOME/.xinitrc bspwm"
