@@ -2,23 +2,10 @@
 
 ```bash
 # After a minimal Arch install...
-git clone --recurse-submodules https://github.com/masroof-maindak/.dotfiles ~/.dotfiles/
+cd && git clone --recurse-submodules https://github.com/masroof-maindak/.dotfiles ~/.dotfiles/
 cd ~/.dotfiles
 chmod +x bootstrap.sh
 ./bootstrap.sh
-```
-
-### SSH Setup
-
-```bash
-
-# TODO: Move these to bootstrap.sh(?)
-ssh-keygen -t ed25519 -C "<email>" -f $HOME/.ssh/id_ed25519 -N "<password>"
-eval "$(ssh-agent -s)"
-ssh-add $HOME/.ssh/id_ed25519
-
-git config --global user.name "masroof-maindak"
-git config --global user.email "<email>"
 ```
 
 ### Other Software
@@ -37,4 +24,3 @@ git clone https://github.com/masroof-maindak/chrome
 ***Obsidian***
 
 - Start Syncthing and set it up to sync the `~/Documents/Vault` directory with my phone.
-
