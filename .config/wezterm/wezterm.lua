@@ -1,11 +1,11 @@
 local wezterm = require("wezterm")
 local config = {}
 
--- config.font = wezterm.font('CozetteHiDpi')
+config.font = wezterm.font('CozetteHiDpi')
 -- config.font = wezterm.font('Maple Mono')
-config.font = wezterm.font("IBM Plex Mono")
+-- config.font = wezterm.font('IBM Plex Mono')
 -- config.font = wezterm.font('azuki_font')
-config.line_height = 1.125
+config.line_height = 1.25
 config.color_scheme = "swamp-light"
 -- config.color_scheme = "swamp"
 config.font_size = 10
@@ -16,7 +16,7 @@ config.font_size = 10
 --         width= "36",
 --     }
 -- }
-config.window_padding = { left = 15, right = 15, top = 15, bottom = 15 }
+config.window_padding = { left = 25, right = 25, top = 25, bottom = 25 }
 config.window_close_confirmation = "NeverPrompt"
 
 config.enable_tab_bar = true

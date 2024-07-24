@@ -8,10 +8,7 @@ Xft.lcdfilter:  lcddefault
 Xcursor.theme:  Umbrella-vr2
 Xcursor.size:   64
 
-! st.font: JetBrains Mono Nerd Font:size=11
 st.font: IBM Plex Mono:size=10
-! st.font: Maple Mono:size=10
-! st.font: azuki_font:size=12
 
 st.borderpx: 25
 ! st.borderpx: 55
