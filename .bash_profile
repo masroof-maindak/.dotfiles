@@ -14,6 +14,8 @@ export EDITOR=nvim
 export VISUAL=nvim
 export SUDOEDITOR=nvim
 
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/.ripgreprc"
+
 # Add to path
 [[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && export PATH="$HOME/.local/bin:$PATH"
 [[ ":$PATH:" != *":$(go env GOPATH)/bin:"* ]] && export PATH="$(go env GOPATH)/bin:$PATH"
