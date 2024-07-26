@@ -66,9 +66,6 @@ set termguicolors
 " Enable mouse support for all modes
 set mouse=a
 
-" Highlight current line
-set cursorline
-
 " Always show sign column
 set signcolumn=auto
 
@@ -108,3 +105,6 @@ set incsearch
 
 " Command-line completion
 set wildmenu
+
+" Better scrolling
+set scrolloff=6
