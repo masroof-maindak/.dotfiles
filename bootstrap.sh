@@ -25,6 +25,7 @@ print_yellow "Making directories"
 mkdir -p "$HOME"/{Screenshots,Desktop,Documents,Downloads,Music,Pictures/Wallpapers}
 mkdir -p "$HOME"/{.local/bin,.themes,.icons,.config/vesktop/settings}
 mkdir -p "$HOME"/Documents/{uni,prgrms,Vault,wrk,book}
+sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
 # Symlink dotfiles
 print_yellow "Symlinking dotfiles"
@@ -65,9 +66,9 @@ if echo "$device" | grep -q "MacBook"; then
 
 	# System files
 	print_yellow "Copying system files"
-	sudo mv ./system/hid_apple.conf /etc/modprobe.d/hid_apple.conf
-	sudo mv ./system/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
-	sudo mv ./system/org.rnd2.cpupower_gui.desktop /usr/share/applications/org.rnd2.cpupower_gui.desktop
+	sudo cp ./system/hid_apple.conf /etc/modprobe.d/hid_apple.conf
+	sudo cp ./system/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
+	sudo cp ./system/org.rnd2.cpupower_gui.desktop /usr/share/applications/org.rnd2.cpupower_gui.desktop
 
 	# Services
 	print_yellow "Enabling services"
@@ -82,7 +83,8 @@ fi
 
 # System files
 print_yellow "Copying system files"
-sudo mv ./system/pacman.conf /etc/pacman.conf
+sudo cp ./system/pacman.conf /etc/pacman.conf
+sudo cp ./system/skip-username.conf /etc/systemd/system/getty@tty1.service.d/skip-username.conf
 
 # Services
 print_yellow "Enabling services"
@@ -90,8 +92,8 @@ sudo systemctl enable NetworkManager
 
 # Custom Desktop Entries
 print_yellow "Copying desktop entries"
-sudo mv ./system/syncthing.desktop /usr/share/applications/syncthing.desktop
-sudo mv ./system/spotify_player.desktop /usr/share/applications/spotify_player.desktop
+sudo cp ./system/syncthing.desktop /usr/share/applications/syncthing.desktop
+sudo cp ./system/spotify_player.desktop /usr/share/applications/spotify_player.desktop
 
 # Make scripts executable
 print_yellow "Making scripts executable"
