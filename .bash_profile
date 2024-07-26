@@ -14,12 +14,17 @@ export EDITOR=nvim
 export VISUAL=nvim
 export SUDOEDITOR=nvim
 
+export GOPATH="$HOME/.go"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/.ripgreprc"
 
-# Add to path
-[[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && export PATH="$HOME/.local/bin:$PATH"
-[[ ":$PATH:" != *":$(go env GOPATH)/bin:"* ]] && export PATH="$(go env GOPATH)/bin:$PATH"
-[[ ":$PATH:" != *":$HOME/.cargo/bin:"* ]] && export PATH="$HOME/.cargo/bin:$PATH"
+# PATH entries
+add_to_path() {
+	[[ ":$PATH:" != *":$1:"* ]] && export PATH="$1:$PATH"
+}
+
+add_to_path "$HOME/.local/bin"
+add_to_path "$(go env GOPATH)/bin"
+add_to_path "$HOME/.cargo/bin"
 
 # Source bashrc
 [[ -f ~/.bashrc ]] && . ~/.bashrc
