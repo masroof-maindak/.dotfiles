@@ -86,3 +86,13 @@ jrnl() {
 	fi
 	$EDITOR "$file_path"
 }
+
+# Autologin
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+  read -p "Do you want to log in to the graphical interface? (y/n): " choice
+  if [[ "$choice" == [Yy] ]]; then
+    exec startx
+  else
+    echo "Login cancelled."
+  fi
+fi

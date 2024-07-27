@@ -3,7 +3,8 @@ local config = {}
 
 -- config.font = wezterm.font('CozetteHiDpi')
 -- config.font = wezterm.font('Maple Mono')
-config.font = wezterm.font('IBM Plex Mono')
+-- config.font = wezterm.font('IBM Plex Mono')
+config.font = wezterm.font('Cartograph CF')
 -- config.font = wezterm.font('azuki_font')
 config.line_height = 1.0
 config.color_scheme = "swamp-light"
