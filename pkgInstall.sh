@@ -9,6 +9,7 @@ upower                           \
 linux-headers                    \
 cpupower-gui                     \
 stow                 	 	     \
+downgrade						 \
 
 # Window Managers
 bspwm                            \
