@@ -2,15 +2,13 @@ local wezterm = require("wezterm")
 local config = {}
 
 -- config.font = wezterm.font('CozetteHiDpi')
--- config.font = wezterm.font('Maple Mono')
--- config.font = wezterm.font('IBM Plex Mono')
-config.font = wezterm.font('Cartograph CF')
--- config.font = wezterm.font('azuki_font')
-config.line_height = 1.0
+config.font = wezterm.font('GohuFont')
+-- config.font = wezterm.font('2xberry')
+-- config.font = wezterm.font('orp')
+config.line_height = 1.25
 config.color_scheme = "swamp-light"
 -- config.color_scheme = "swamp"
-config.font_size = 10
-
+config.font_size = 12
 -- config.background = {{
 --         source = {File = '/home/maindak/Desktop/termTile.png'},
 --         height= "36",

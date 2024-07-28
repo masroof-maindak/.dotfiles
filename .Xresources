@@ -9,7 +9,7 @@ Xcursor.theme:  Umbrella-vr2
 Xcursor.size:   64
 
 /* st.font: IBM Plex Mono:size=10 */
-st.font: Cartograph CF:size=10
+st.font: GohuFont:size=5
 
 st.borderpx: 25
 ! st.borderpx: 55
