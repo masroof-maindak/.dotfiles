@@ -1,0 +1,20 @@
+#!/bin/sh
+# bdf2otb
+
+usage() {
+	cat <<-EOF
+		usage: ${0##*/} <bdf fonts>
+	EOF
+
+	exit 1
+}
+
+[ "$1" ] || usage
+
+for i; do
+	[ -f "$i" ] || usage
+
+	fonttosfnt -v -m 2 \
+		-o "${i%.bdf}.otb" \
+		-- "$i"
+done
