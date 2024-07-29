@@ -1,10 +1,7 @@
 local wezterm = require("wezterm")
 local config = {}
 
--- config.font = wezterm.font('CozetteHiDpi')
-config.font = wezterm.font('GohuFont')
--- config.font = wezterm.font('2xberry')
--- config.font = wezterm.font('orp')
+config.font = wezterm.font_with_fallback({ "GohuFont", "CozetteHiDpi" })
 config.line_height = 1.25
 config.color_scheme = "swamp-light"
 -- config.color_scheme = "swamp"
