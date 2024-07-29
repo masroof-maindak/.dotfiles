@@ -44,3 +44,6 @@ bspc rule -a feh state=floating
 bspc rule -a Zathura state=tiled
 bspc rule -a Cpupower-gui state=floating
 bspc rule -a Lxappearance state=floating
+
+# "$HOME"/.config/bspwm/border_on_focused.sh
+"$HOME"/.config/bspwm/border_on_floating.sh
