@@ -1,10 +1,11 @@
 .workspacesWidget {
+    margin: 2px 0px;
     .workspacesBox {
         margin: 1px;
         min-height: 8px;
         min-width: 8px;
     }
-    
+
     .activeWorkspace {
         background-color: $accent;
     }
