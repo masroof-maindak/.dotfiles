@@ -19,23 +19,12 @@ for key in "${!DIRS[@]}"; do
     alias $key="cd ${DIRS[$key]}"
 done
 
-# Git
-alias gam="commit --amend"
-alias gdag="git log --graph --oneline --all"
+# Git - More in config
 alias g="git"
-alias ga="git add"
-alias gaa="git add --all"
-alias gac="git add . && git commit -m"
-alias gc="git commit"
-alias gcl="git clone"
-alias gcm="git commit -m"
 alias gco="fzchk"
-alias gl="git pull"
-alias gp="git push"
-alias grev="git revert"
-alias grm="git rm"
 alias gs="git status"
 alias gss="git status -s"
+alias git-list="git config --list | grep alias"
 
 # Software
 alias grep="rg"

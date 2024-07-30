@@ -1,0 +1,29 @@
+[user]
+	email = mujtaba.asim.amin@gmail.com
+	name = masroof-maindak
+[init]
+	defaultBranch = main
+[alias]
+	a = add
+	ac = !git add . && git commit -m
+	am = commit --amend
+	c = commit -m
+	cm = commit -am
+	co = checkout
+	cob = checkout -b
+	cl = clone
+	b = branch
+	ba = branch -a
+	d = diff
+	l = pull
+	p = push
+	s = status
+	ss = status -s
+	st = stash
+	stl = stash list
+	stp = stash pop
+	undo = reset --soft HEAD^
+	dag = log --graph --oneline --all
+	last = log -1 HEAD
+	fuckit = reset --hard
+	nuke = branch -D

@@ -125,12 +125,3 @@ read -s -p "Password: " password
 ssh-keygen -t ed25519 -C "$email" -f $HOME/.ssh/id_ed25519 -N "$password"
 eval "$(ssh-agent -s)"
 ssh-add $HOME/.ssh/id_ed25519
-
-# Configure Git
-print_yellow "Configuring Git"
-read -p "Do you want to configure git with the email above? (y/n): " configure_git
-if [ "$configure_git" = "n" ]; then
-	read -p "Enter the email for git configuration: " email
-fi
-git config --global user.email "$email"
-git config --global user.name "masroof-maindak"
