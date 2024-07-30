@@ -86,3 +86,7 @@ jrnl() {
 	fi
 	$EDITOR "$file_path"
 }
+
+please() {
+	sudo $(history -p !!)
+}
