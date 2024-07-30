@@ -1,11 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
-on=$(bspc config border_width)
-off=0
+FLOATING_BORDER_WIDTH=10
+BORDER_WIDTH=0
 
-bspc query -N -n .floating.window | xargs -I {node} bspc config -n {node} border_width "$on"
-bspc query -N -n .!floating.window | xargs -I {node} bspc config -n {node} border_width "$off"
-
-while read -r _ _ _ node state status; do
-	[[ "$state" == "floating" ]] && bspc config -n "$node" border_width "${!status}"
-done < <(bspc subscribe node_state)
+bspc subscribe node_state | while read msg monitor desktop wid state value ; do
+if [ $state = "floating" ] ; then
+    if [ $value = "on" ] ; then
+        bspc config -n $wid border_width $FLOATING_BORDER_WIDTH
+    else
+        bspc config -n $wid border_width $BORDER_WIDTH
+    fi
+fi
+done
