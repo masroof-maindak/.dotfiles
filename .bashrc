@@ -55,25 +55,25 @@ fzchk() {
 }
 
 to() {
-    local base_dir=""
-    local sub_path=""
-    for arg in "$@"; do
-        if [[ -n "${DIRS[$arg]}" ]]; then
-            base_dir="${DIRS[$arg]}"
-            sub_path=""
-        else
-            sub_path+="/$arg"
-        fi
-    done
+	local base_dir=""
+	local sub_path=""
+	for arg in "$@"; do
+		if [[ -n "${DIRS[$arg]}" ]]; then
+			base_dir="${DIRS[$arg]}"
+			sub_path=""
+		else
+			sub_path+="/$arg"
+		fi
+	done
 
-    local path="$base_dir$sub_path"
+	local path="$base_dir$sub_path"
 
-    if [ -d "$path" ]; then
-        cd "$path"
-    else
-        echo "Directory does not exist: $path"
-        return 1
-    fi
+	if [ -d "$path" ]; then
+		cd "$path"
+	else
+		echo "Directory does not exist: $path"
+		return 1
+	fi
 }
 
 jrnl() {
@@ -86,13 +86,3 @@ jrnl() {
 	fi
 	$EDITOR "$file_path"
 }
-
-# Autologin
-if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-  read -p "Do you want to log in to the graphical interface? (y/n): " choice
-  if [[ "$choice" == [Yy] ]]; then
-    exec startx
-  else
-    echo "Login cancelled."
-  fi
-fi
