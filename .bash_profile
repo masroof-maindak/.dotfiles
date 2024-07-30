@@ -13,6 +13,7 @@ export TERMINAL=st
 export EDITOR=nvim
 export VISUAL=nvim
 export SUDOEDITOR=nvim
+export MANPAGER='nvim +Man!'
 
 export GOPATH="$HOME/.go"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/.ripgreprc"
