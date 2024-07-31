@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # Set decoration geometry
-berryc border_width 6
-berryc inner_border_width 6
-berryc title_height 50
-berryc edge_gap 20 100 20 20
-berryc edge_lock false
+berryc border_width 			0
+berryc inner_border_width 		1
+berryc title_height 			50
+berryc edge_gap 				20 100 20 20
+berryc edge_lock 				false
 
 # Text
-berryc draw_text true
-berryc set_font "IBM Plex Sans-11"
-berryc decorate_new true
+berryc draw_text 				true
+berryc set_font 				"CozetteHiDpi-13"
+berryc decorate_new 			true
 
 ## Swamp Dark
 bgc="242015"
@@ -24,31 +24,31 @@ bgc="F1E3D1"
 normal="c9b9a7"
 accent="c9b9a7"
 textMain="64513e"
-textOther="64513e"
+textOther="c9b9a7"
 
 # Set decoration colors
-berryc focus_color         $bgc
-berryc unfocus_color       $bgc
-berryc inner_focus_color   $accent
-berryc inner_unfocus_color $normal 
-berryc text_focus_color    $textMain
-berryc text_unfocus_color  $textOther
+berryc focus_color         		$bgc
+berryc unfocus_color       		$bgc
+berryc inner_focus_color   		$accent
+berryc inner_unfocus_color 		$normal
+berryc text_focus_color    		$textMain
+berryc text_unfocus_color  		$textOther
 
 # Other options
-berryc smart_place "true"
-berryc focus_follows_pointer "false"
+berryc smart_place 				"true"
+berryc focus_follows_pointer	"false"
 
 # Desktop names
-berryc name_desktop 0 "a"
-berryc name_desktop 1 "b"
-berryc name_desktop 2 "c"
-berryc name_desktop 3 "d"
-berryc name_desktop 4 "e"
-berryc name_desktop 5 "f"
-berryc name_desktop 6 "g"
-berryc name_desktop 7 "h"
-berryc name_desktop 8 "i"
-berryc name_desktop 9 "j"
+berryc name_desktop 0			"0000"
+berryc name_desktop 1			"0001"
+berryc name_desktop 2			"0010"
+berryc name_desktop 3			"0011"
+berryc name_desktop 4			"0100"
+berryc name_desktop 5			"0101"
+berryc name_desktop 6			"0110"
+berryc name_desktop 7			"0111"
+berryc name_desktop 8			"1000"
+berryc name_desktop 9			"1001"
 
 # Start sxhkd and other programs
 sxhkd -c "$HOME"/.config/berry/sxhkdrc &
