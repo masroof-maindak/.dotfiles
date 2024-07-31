@@ -5,14 +5,14 @@ config.font = wezterm.font_with_fallback({ "GohuFont", "CozetteHiDpi" })
 config.line_height = 1.25
 config.color_scheme = "swamp-light"
 -- config.color_scheme = "swamp"
-config.font_size = 12
+-- config.font_size = 12
 -- config.background = {{
 --         source = {File = '/home/maindak/Desktop/termTile.png'},
 --         height= "36",
 --         width= "36",
 --     }
 -- }
-config.window_padding = { left = 25, right = 25, top = 25, bottom = 25 }
+config.window_padding = { left = 15, right = 15, top = 15, bottom = 15 }
 config.window_close_confirmation = "NeverPrompt"
 
 config.enable_tab_bar = true
