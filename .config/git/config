@@ -1,8 +1,10 @@
 [user]
 	email = mujtaba.asim.amin@gmail.com
 	name = masroof-maindak
+
 [init]
 	defaultBranch = main
+
 [alias]
 	a = add
 	ac = !git add . && git commit -m
@@ -27,3 +29,6 @@
 	last = log -1 HEAD
 	fuckit = reset --hard
 	nuke = branch -D
+
+[core]
+	editor = nvim
