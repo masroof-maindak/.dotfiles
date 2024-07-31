@@ -11,8 +11,7 @@ Xcursor.size:   64
 /* st.font: IBM Plex Mono:size=10 */
 st.font: GohuFont:size=5
 
-st.borderpx: 25
-! st.borderpx: 55
+st.borderpx: 15
 st.alpha: 1
 
 /*! special*/
