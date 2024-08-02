@@ -1,24 +1,7 @@
 #!/bin/bash
+source utils.sh
 
-print_yellow() {
-	echo -e "\033[1;33m$1\033[0m"
-}
-
-# Install paru
-print_yellow "Installing paru"
-git clone https://aur.archlinux.org/paru.git
-cd paru || exit
-makepkg -si
-cd ..
-rm -rf paru
-
-# Install st
-print_yellow "Installing st"
-git clone https://github.com/siduck/st
-cd st || exit
-sudo make && sudo make install
-cd ..
-rm -rf st
+install_paru
 
 # Make hardcoded directories
 print_yellow "Making directories"
@@ -31,29 +14,19 @@ sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 print_yellow "Symlinking dotfiles"
 stow .
 
+choose_display_server
+
+install_rust
+
 # Install packages
-print_yellow "Installing packages"
-chmod +x packageInstall.sh
-./packageInstall.sh
-
-# Install Rust
-print_yellow "Installing Rust"
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
-
-# Install Eww for X11
-print_yellow "Installing Eww"
-display_server="x11"
-echo "Is this going to be a Wayland session? (y/n)"
-read -r wayland
-if [ "$wayland" = "y" ]; then
-	display_server="wayland"
+installList "base"
+if [ "$display_server" = "x11" ]; then
+	installList "x11"
+else
+	installList "wayland"
 fi
-git clone https://github.com/elkowar/eww "$HOME"/Documents/prgrms/eww
-cd "$HOME"/Documents/prgrms/eww || exit
-cargo build -r --no-default-features --features $display_server
-sudo mv target/release/eww "$HOME"/.local/bin
-chmod +x "$HOME"/.local/bin/eww
-cd "$HOME"/.dotfiles/ || exit
+
+install_eww
 
 # Mac Specific
 device=$(cat /sys/class/dmi/id/product_name)
@@ -66,9 +39,8 @@ if echo "$device" | grep -q "MacBook"; then
 
 	# System files
 	print_yellow "Copying system files"
-	sudo cp ./system/hid_apple.conf /etc/modprobe.d/hid_apple.conf
-	sudo cp ./system/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
-	sudo cp ./system/org.rnd2.cpupower_gui.desktop /usr/share/applications/org.rnd2.cpupower_gui.desktop
+	sudo cp ./system/Macbook/hid_apple.conf /etc/modprobe.d/hid_apple.conf
+	sudo cp ./system/Macbook/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 
 	# Services
 	print_yellow "Enabling services"
@@ -92,8 +64,9 @@ sudo systemctl enable NetworkManager
 
 # Custom Desktop Entries
 print_yellow "Copying desktop entries"
-sudo cp ./system/syncthing.desktop /usr/share/applications/syncthing.desktop
-sudo cp ./system/spotify_player.desktop /usr/share/applications/spotify_player.desktop
+sudo cp ./system/Desktop/syncthing.desktop /usr/share/applications/syncthing.desktop
+sudo cp ./system/Desktop/spotify_player.desktop /usr/share/applications/spotify_player.desktop
+sudo cp ./system/Desktop/org.rnd2.cpupower_gui.desktop /usr/share/applications/org.rnd2.cpupower_gui.desktop
 
 # Make scripts executable
 print_yellow "Making scripts executable"
@@ -104,24 +77,8 @@ chmod +x "$HOME"/.config/rofi/scripts/*
 chmod +x "$HOME"/.config/berry/autostart
 chmod +x "$HOME"/.local/bin/*
 
-# Install spotify-player
-print_yellow "Installing spotify-player"
-git clone https://github.com/aome510/spotify-player.git "$HOME"/Documents/prgrms/spotify-player
-cd "$HOME"/Documents/prgrms/spotify-player || exit
-cargo build -r --features lyric-finder,notify
-mv target/release/spotify_player "$HOME"/.local/bin/spotify_player
-chmod +x "$HOME"/.local/bin/spotify_player
-cd "$HOME"/.dotfiles/ || exit
+install_spotify_player
 
-# Papirus Icon Theme
-print_yellow "Installing Papirus Icon Theme"
-wget -qO- https://git.io/papirus-icon-theme-install | sh
-wget -qO- https://git.io/papirus-folders-install | sh
+set_up_papirus
 
-# SSH
-print_yellow "Generating an SSH key"
-read -p "Email: " email
-read -s -p "Password: " password
-ssh-keygen -t ed25519 -C "$email" -f $HOME/.ssh/id_ed25519 -N "$password"
-eval "$(ssh-agent -s)"
-ssh-add $HOME/.ssh/id_ed25519
+set_up_ssh
