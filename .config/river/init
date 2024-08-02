@@ -1,32 +1,25 @@
 #!/bin/sh
-# See the river(1), riverctl(1), and rivertile(1) man pages for complete docs.
+riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 
 # waybar -c ~/.config/waybar/config_river &
-# eww daemon &
 dunst &
-# swww-daemon  &
+swww-daemon  &
 kanshi &
 foot --server &
 
 riverctl xcursor-theme Umbrella-vr2 24
 
-# Configure trackpad
-for pad in $(riverctl list-inputs | grep -i touchpad )
-do
-	riverctl input $pad events enabled
-	riverctl input $pad events disabled-on-external-mouse
-	riverctl input $pad tap enabled
-	riverctl input $pad click-method clickfinger
-	riverctl input $pad tap-button-map left-right-middle
-	riverctl input $pad disable-while-typing enabled
-done
+riverctl input pointer-1452-602-bcm5974 events enabled
+riverctl input pointer-1452-602-bcm5974 events disabled-on-external-mouse
+riverctl input pointer-1452-602-bcm5974 tap enabled
+riverctl input pointer-1452-602-bcm5974 click-method clickfinger
+riverctl input pointer-1452-602-bcm5974 tap-button-map left-right-middle
+riverctl input pointer-1452-602-bcm5974 disable-while-typing enabled
 
-# Start foot in tiled or floating mode
 riverctl map normal Super Return spawn 'foot'
 riverctl map normal Super+Shift Return spawn 'foot -a floatyFoot'
 
-# Rofi + Eww
-riverctl map normal Super D spawn '~/.config/rofi/scripts/launcher.sh'
+riverctl map normal Super D spawn '~/.config/rofi/scripts/launcher.sh -w'
 
 # Screenshots
 riverctl map normal Super P spawn 'grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Screenshots/$(date +%F_%T).png'
@@ -57,7 +50,6 @@ riverctl map normal Super Comma focus-output previous
 riverctl map normal Super+Shift Period send-to-output next
 riverctl map normal Super+Shift Comma send-to-output previous
 
-# Super+Return to bump the active window to the top of the layout stack
 # swap with highest master
 riverctl map normal Super+Control Return zoom
 
@@ -148,9 +140,10 @@ do
     riverctl map $mode None XF86AudioMute         spawn 'amixer sset Master toggle'
     riverctl map -repeat $mode None XF86AudioRaiseVolume  spawn 'amixer sset Master 1%+'
     riverctl map -repeat $mode None XF86AudioLowerVolume  spawn 'amixer sset Master 1%-'
-	riverctl map -repeat $mode None XF86KbdBrightnessUp brightnessctl --device='smc::kbd_backlight' set 5%+
-	riverctl map -repeat $mode None XF86KbdBrightnessDown brightnessctl --device='smc::kbd_backlight' set 5%-
-XF86KbdBrightness{Up,Down}
+	riverctl map -repeat $mode None XF86KbdBrightnessUp spawn 'brightnessctl --device='smc::kbd_backlight' set 5%+'
+	riverctl map -repeat $mode None XF86KbdBrightnessDown spawn 'brightnessctl --device='smc::kbd_backlight' set 5%-'
+	riverctl map -repeat $mode None XF86MonBrightnessUp spawn 'brightnessctl set 5%+'
+	riverctl map -repeat $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
 
     riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
     riverctl map $mode None XF86AudioPlay  spawn 'playerctl play-pause'
