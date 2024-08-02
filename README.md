@@ -24,3 +24,10 @@ git clone https://github.com/masroof-maindak/chrome
 ***Obsidian***
 
 - Start Syncthing and set it up to sync the `~/Documents/Vault` directory with my phone.
+
+### TODO
+
+- Fix Rofi + Electron apps launching in Xwayland
+- River config rewrite
+- cpupower-gui -> cpupower & remove desktop + package list entry
+- Test
