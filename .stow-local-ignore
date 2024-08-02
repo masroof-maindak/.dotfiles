@@ -2,7 +2,7 @@ makefile
 ^/README.*
 
 bootstrap.sh
-pkgInstall.sh
+utils.sh
 system
 .themes/phocus-make_colours.scss
 
