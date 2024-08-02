@@ -3,12 +3,12 @@
 #
 
 # Env Vars
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
+# export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# export GDK_SCALE=2
+# export GDK_DPI_SCALE=0.5
 
-export TERM=st
-export TERMINAL=st
+# export TERM=st
+# export TERMINAL=st
 
 export EDITOR=nvim
 export VISUAL=nvim
@@ -17,6 +17,8 @@ export MANPAGER='nvim +Man!'
 
 export GOPATH="$HOME/.go"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/.ripgreprc"
+
+export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 # PATH entries
 add_to_path() {
