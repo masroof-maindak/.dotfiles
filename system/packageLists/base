@@ -1,0 +1,81 @@
+# System utilities
+reflector
+broadcom-wl
+brightnessctl
+upower
+linux-headers
+cpupower-gui
+stow
+downgrade
+
+# Audio and multimedia
+playerctl
+pulseaudio
+pulseaudio-alsa
+alsa-utils
+ffmpeg
+mpv
+
+# Networking and torrent
+networkmanager
+qbittorrent
+syncthing
+
+# Development and text editors
+npm
+neovim
+visual-studio-code-bin
+jq
+obsidian
+tldr
+
+# Web browser
+firefox
+
+# Notification and desktop utilities
+dunst
+thunar
+imagemagick
+
+# Images
+lutgen-git
+gthumb
+ueberzug
+
+# PDF and document viewers
+zathura
+zathura-pdf-mupdf
+
+# Fonts
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+ttf-nerd-fonts-symbols
+
+# Communication
+vesktop-bin
+
+# Command line utilities
+ripgrep
+fzf
+bat
+yt-dlp
+lf
+
+# Terminal
+wezterm
+
+# Archive utilities
+unzip
+zip
+atool
+tar
+
+# Wine
+wine
+wine-mono
+winetricks
+
+# Miscellaneous
+dragon-drop
+ctpv-git
