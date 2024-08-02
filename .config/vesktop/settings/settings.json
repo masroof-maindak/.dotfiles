@@ -606,9 +606,6 @@
         "VoiceDownload": {
             "enabled": false
         },
-        "WatchTogetherAdblock": {
-            "enabled": false
-        },
         "WebKeybinds": {
             "enabled": true
         },
@@ -618,6 +615,9 @@
         "WebContextMenus": {
             "enabled": true,
             "addBack": true
+        },
+        "YoutubeAdblock": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -630,6 +630,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1720906320835
+        "settingsSyncVersion": 1722549447511
     }
 }
