@@ -27,7 +27,7 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO
 
-- Fix Rofi + Electron apps launching in Xwayland
+- Fix Electron apps launching in Xwayland
 - River config rewrite
 - cpupower-gui -> cpupower & remove desktop + package list entry
 - Test
