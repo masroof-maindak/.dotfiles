@@ -3,10 +3,10 @@
 #
 
 # Env Vars
+# NOTE: Can I somehow only load the below if it's an X11 session?
 # export QT_AUTO_SCREEN_SCALE_FACTOR=1
 # export GDK_SCALE=2
 # export GDK_DPI_SCALE=0.5
-
 # export TERM=st
 # export TERMINAL=st
 
@@ -19,6 +19,8 @@ export GOPATH="$HOME/.go"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/.ripgreprc"
 
 export ELECTRON_OZONE_PLATFORM_HINT=auto
+
+export SWWW_TRANSITION=none
 
 # PATH entries
 add_to_path() {
