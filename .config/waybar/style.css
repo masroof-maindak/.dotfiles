@@ -25,21 +25,26 @@
 }
 
 #custom-spr {
-    margin: 12px 25px;
-    color: @muted;
+    margin: 7px 10px;
+	color: @muted;
+}
+
+tooltip {
+	background: @background-color-alt;
+	border: 1px solid @accent;
+	color: @color;
 }
 
 #mpris {
-    margin: 0px 20px;
+    margin: 0px 15px;
 }
 
 #clock {
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
-/*workspaces/tags*/
 #tags {
-    margin-left: 28px;
+    margin-left: 10px;
 }
 
 #tags button {
@@ -49,7 +54,6 @@
     margin-left: 2px;
 }
 
-/* River */
 /*default colour*/
 #tags button {
     color: @muted;

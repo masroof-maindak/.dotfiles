@@ -1,5 +1,6 @@
 {
     "position": "top",
+	"reload_style_on_change": true,
     "layer": "top",
     "margin": "5px 5px 0px 5px",
     "modules-left": [
@@ -11,10 +12,38 @@
         "mpris"
     ],
     "modules-right": [
+		"battery",
+        "custom/spr",
         "pulseaudio",
         "custom/spr",
         "clock"
     ],
+
+	"river/tags": {
+		/* "tag-labels": [
+			"0000",
+			"0001",
+			"0010",
+			"0011",
+			"0100",
+			"0101",
+			"0110",
+			"0111",
+			"1000",
+		], */
+	},
+
+	"river/window": {
+		"format": "§ {}",
+		"max-length": 20,
+	},
+	
+	"battery": {
+		"format": "{icon} {capacity}%",
+		"interval": 60,
+		"format-icons": ["", "", "", "", ""],
+	},
+
     "mpris": {
       "format": "{title} by {artist}",
         "ignored-players": [
@@ -23,18 +52,33 @@
     },
 
     "clock": {
-        "format": "{:%I:%M %p}"
+		"interval": 60,
+        "format": " {:%I:%M %p}",
+		"tooltip-format": "{:%Y-%m-%d}",
     },
 
     "pulseaudio": {
-        "format": "vol {volume}%",
+        "format": "{icon} {volume}%",
         "format-muted": "muted",
         "tooltip-format": "{volume}",
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "on-click-right": "pavucontrol"
+        "on-click-right": "pavucontrol",
+
+		"format-icons": {
+			 "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+			 "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+			 "headphones": "",
+			 "handsfree": "",
+			 "headset": "",
+			 "phone": "",
+			 "phone-muted": "",
+			 "portable": "",
+			 "car": "",
+			 "default": ["", ""]
+		},
     },
 
     "custom/spr": {
-      "format": "|"
+      "format": " "
     }
 }
