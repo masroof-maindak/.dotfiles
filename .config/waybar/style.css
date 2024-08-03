@@ -1,0 +1,71 @@
+*{
+    all: unset;
+}
+
+@define-color color #ebe0bb;
+@define-color background-color #242015;
+@define-color background-color-alt #3a3124;
+@define-color accent #db930d;
+@define-color urgent #a82d56;
+@define-color muted #856a5d;
+
+@define-color color #64513e;
+@define-color background-color #f1e3d1;
+@define-color background-color-alt #ddcebc;
+@define-color accent #bf7979;
+@define-color urgent #993333;
+@define-color muted #c9b9a7;
+
+#waybar {
+    color: @color;
+    background-color: @background-color;
+    font-family: "CozetteHiDpi";
+    font-size: 13px;
+    border: 1px solid @muted;
+}
+
+#custom-spr {
+    margin: 12px 25px;
+    color: @muted;
+}
+
+#mpris {
+    margin: 0px 20px;
+}
+
+#clock {
+    margin-right: 20px;
+}
+
+/*workspaces/tags*/
+#tags {
+    margin-left: 28px;
+}
+
+#tags button {
+    padding: 1px 2px;
+    border-radius: 0px;
+    margin: 0px 0px;
+    margin-left: 2px;
+}
+
+/* River */
+/*default colour*/
+#tags button {
+    color: @muted;
+}
+
+/*some are occupied*/
+#tags button.occupied {
+    color: @color;
+}
+
+/*some are focused*/
+#tags button.focused {
+    color: @accent;
+}
+
+/*some are urgent*/
+#tags button.urgent {
+    color: @urgent;
+}
