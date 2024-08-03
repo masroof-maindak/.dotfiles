@@ -28,7 +28,10 @@ git clone https://github.com/masroof-maindak/chrome
 ### TODO
 
 - Fix Electron apps launching in Xwayland
-- Update lf for Wayland -> feh/xclip + images
-- River config rewrite
+- Fix xdg-desktop-portal-wlr screensharing - possibly stems from the first two lines in the `init` file not working
+- Update lf for Wayland -> images (preview & opening)
+- Clipboard manager w/ Eww?
 - cpupower-gui -> cpupower & remove desktop + package list entry
+- River config rewrite
+- Clean up X11 garbage
 - Test
