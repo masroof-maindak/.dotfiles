@@ -1,0 +1,40 @@
+{
+    "position": "top",
+    "layer": "top",
+    "margin": "5px 5px 0px 5px",
+    "modules-left": [
+        "river/tags",
+        "custom/spr",
+        "river/window"
+    ],
+    "modules-center": [
+        "mpris"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "custom/spr",
+        "clock"
+    ],
+    "mpris": {
+      "format": "{title} by {artist}",
+        "ignored-players": [
+            "firefox"
+        ]
+    },
+
+    "clock": {
+        "format": "{:%I:%M %p}"
+    },
+
+    "pulseaudio": {
+        "format": "vol {volume}%",
+        "format-muted": "muted",
+        "tooltip-format": "{volume}",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+
+    "custom/spr": {
+      "format": "|"
+    }
+}
