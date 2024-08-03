@@ -11,6 +11,7 @@
 	:wm-ignore false
 	:stacking "bg"
 	:windowtype "dock"
+	:monitor 0
 	:class "topbar_window"
 	:namespace "eww bar"
 	:geometry (geometry :y -5 :width 1270 :anchor "bottom center")
