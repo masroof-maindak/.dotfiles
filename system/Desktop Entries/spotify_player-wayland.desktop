@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Spotify
+Exec=foot -a Spotify -T Spotify -e spotify_player
+Terminal=true

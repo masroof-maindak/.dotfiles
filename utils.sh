@@ -1,5 +1,7 @@
 #!/bin/bash
 
+display_server="x11"
+
 print_yellow() {
 	echo -e "\033[1;33m$1\033[0m"
 }
@@ -22,7 +24,6 @@ install_st() {
 	rm -rf st
 }
 
-display_server="x11"
 choose_display_server() {
 	echo "Is this going to be a Wayland session? (y/n)"
 	read -r flag
