@@ -66,9 +66,7 @@ map a :push %mkdir<space>
 
 #___
 # Drag files
-cmd drag ${{
-  dragon-drop $fx
-}}
+cmd drag dragon-drop $fx
 map RA :drag
 
 
@@ -159,7 +157,8 @@ map K move-parent up
 
 #___
 # Copy file's path
-cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
+# cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
+cmd yank-path $printf '%s' "$f" | wl-copy
 map <c-c> :yank-path
 
 #___
