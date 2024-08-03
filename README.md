@@ -28,6 +28,7 @@ git clone https://github.com/masroof-maindak/chrome
 ### TODO
 
 - Fix Electron apps launching in Xwayland
+- Update lf for Wayland -> feh/xclip + images
 - River config rewrite
 - cpupower-gui -> cpupower & remove desktop + package list entry
 - Test
