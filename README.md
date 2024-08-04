@@ -14,7 +14,7 @@ chmod +x bootstrap.sh
 
 - Sign in, sync bookmarks, open tabs, history and passwords
 - Add extensions and configure telemetry settings
-- Follow instructions in Firefox Userchrome repository and clone dots
+- Follow instructions in Firefox User-chrome repository and clone dots
 ```bash
 cd ~/.mozilla/firefox/*.default-release/
 git clone https://github.com/masroof-maindak/chrome
@@ -23,19 +23,17 @@ git clone https://github.com/masroof-maindak/chrome
 
 ***Obsidian***
 
-- Start Syncthing and set it up to sync the `~/Documents/Vault` directory with my phone.
+- Start `Syncthing` and set it up to sync the `~/Documents/Vault` directory with my phone.
 
 ### TODO
 
-- Fix xdg-desktop-portal-wlr screensharing
-	- possibly stems from the first two lines in the `init` file not working
+- Fix `xdg-desktop-portal-wlr` screen-sharing - first two lines in river's `init`
 - Audio not working
-- Update lf for Wayland -> image preview
-- Find image viewer, or fix invisible imv window?
-	- Invisible Wezterm too
+- Image previews in `lf` using foot
 - Clipboard manager w/ Eww?
-- cpupower-gui -> cpupower & remove desktop + package list entry
+- `cpupower-gui` -> `cpupower` & remove desktop + package list entry
 
-- Clean up X11 garbage
+- Clean up `X11` garbage
 - Test
-- Automate wlsunset
+- Automate `wlsunset`
+- Alternative to eog...?

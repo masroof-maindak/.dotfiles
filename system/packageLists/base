@@ -40,7 +40,6 @@ imagemagick
 # Images
 lutgen-git
 gthumb
-ueberzug
 
 # PDF and document viewers
 zathura
@@ -61,9 +60,6 @@ fzf
 bat
 yt-dlp
 lf
-
-# Terminal
-wezterm
 
 # Archive utilities
 unzip
