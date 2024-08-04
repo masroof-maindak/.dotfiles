@@ -2,8 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 xsetroot -cursor_name left_ptr &
-"$HOME"/.local/bin/startup.sh
-/usr/lib/polkit-1/polkitd &
+"$HOME"/.local/bin/startup-x.sh
 eww open topbar &
 
 bspc monitor -d 0000 0001 0010 0011 0100 0101 0110 0111 1000 1001
