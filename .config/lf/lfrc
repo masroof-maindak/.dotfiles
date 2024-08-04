@@ -66,7 +66,7 @@ map a :push %mkdir<space>
 
 #___
 # Drag files
-cmd drag dragon-drop $fx
+cmd drag $dragon-drop $fx
 map RA :drag
 
 
