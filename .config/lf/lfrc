@@ -113,16 +113,11 @@ map D :delete
 
 #___
 # set wallpaper
-cmd setwall ${{
-    feh --bg-fill "$f"
-}}
-
-cmd setwallTile ${{
-    feh --bg-tile "$f"
-}}
+cmd setwall $swww img "$f"
+# cmd setwallTile $feh --bg-tile "$f"
 
 map WAL :setwall
-map WAT :setwallTile
+# map WAT :setwallTile
 
 
 #___
