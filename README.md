@@ -27,11 +27,14 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO
 
-- Fix Electron apps launching in Xwayland
-- Fix xdg-desktop-portal-wlr screensharing - possibly stems from the first two lines in the `init` file not working
-- Update lf for Wayland -> images (preview & opening)
+- Fix Electron apps launching in Xwayland,
+- Fix xdg-desktop-portal-wlr screensharing
+	- possibly stems from the first two lines in the `init` file not working
+- Audio not working
+- Update lf for Wayland -> image preview
+- Find image viewer, or fix invisible imv window?
+	- Invisible Wezterm too
 - Clipboard manager w/ Eww?
 - cpupower-gui -> cpupower & remove desktop + package list entry
-- River config rewrite
 - Clean up X11 garbage
 - Test
