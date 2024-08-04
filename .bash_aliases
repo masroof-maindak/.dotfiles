@@ -24,7 +24,7 @@ alias g="git"
 alias gco="fzchk"
 alias gs="git status"
 alias gss="git status -s"
-alias git-list="git config --list | grep alias"
+alias gitls="git config --list | grep alias"
 
 # Software
 alias grep="rg"
