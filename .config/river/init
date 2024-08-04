@@ -5,7 +5,7 @@ riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_
 
 kanshi -c ~/.config/kanshi/config-macbook13inch &
 waybar -c ~/.config/waybar/config-macbook13inch &
-swww-daemon  &
+swww-daemon &
 dunst &
 foot --server &
 
@@ -19,8 +19,8 @@ riverctl input pointer-1452-602-bcm5974 tap-button-map left-right-middle
 riverctl input pointer-1452-602-bcm5974 disable-while-typing enabled
 riverctl input pointer-1452-602-bcm5974 pointer-accel 0.3
 
-riverctl map normal Super Return spawn 'foot'
-riverctl map normal Super+Shift Return spawn 'foot -a floatyFoot'
+riverctl map normal Super Return spawn 'footclient'
+riverctl map normal Super+Shift Return spawn 'footclient -a floatyFoot'
 
 riverctl map normal Super D spawn '~/.config/rofi/scripts/launcher.sh -w'
 
@@ -92,23 +92,22 @@ riverctl map-pointer normal Super BTN_RIGHT resize-view
 # Super + Middle Mouse Button to toggle float
 riverctl map-pointer normal Super BTN_MIDDLE toggle-float
 
-for i in $(seq 1 9)
-do
-    tags=$((1 << ($i - 1)))
+for i in $(seq 1 9); do
+	tags=$((1 << ($i - 1)))
 
-    # Super+[1-9] to focus tag [0-8]
-    # move to tag i
-    riverctl map normal Super $i set-focused-tags $tags
+	# Super+[1-9] to focus tag [0-8]
+	# move to tag i
+	riverctl map normal Super $i set-focused-tags $tags
 
-    # Super+Shift+[1-9] to tag active window with tag [0-8]
-    # send to tag i
-    riverctl map normal Super+Shift $i set-view-tags $tags
+	# Super+Shift+[1-9] to tag active window with tag [0-8]
+	# send to tag i
+	riverctl map normal Super+Shift $i set-view-tags $tags
 
-    # Super+Control+[1-9] to toggle focus of tag [0-8]
-    riverctl map normal Super+Control $i toggle-focused-tags $tags
+	# Super+Control+[1-9] to toggle focus of tag [0-8]
+	riverctl map normal Super+Control $i toggle-focused-tags $tags
 
-    # Super+Shift+Control+[1-9] to toggle tag [0-8] of active window
-    riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
+	# Super+Shift+Control+[1-9] to toggle tag [0-8] of active window
+	riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
 done
 
 all_tags=$(((1 << 32) - 1))
@@ -123,10 +122,10 @@ riverctl map normal Super Space toggle-float
 riverctl map normal Super F toggle-fullscreen
 
 # master t/r/b/l
-riverctl map normal Super Up    send-layout-cmd rivertile "main-location top"
+riverctl map normal Super Up send-layout-cmd rivertile "main-location top"
 riverctl map normal Super Right send-layout-cmd rivertile "main-location right"
-riverctl map normal Super Down  send-layout-cmd rivertile "main-location bottom"
-riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
+riverctl map normal Super Down send-layout-cmd rivertile "main-location bottom"
+riverctl map normal Super Left send-layout-cmd rivertile "main-location left"
 
 # Declare a passthrough mode. This mode has only a single mapping to return to
 # normal mode. This makes it useful for testing a nested wayland compositor
@@ -138,20 +137,19 @@ riverctl map passthrough Super F11 enter-mode normal
 
 # Various media key mapping examples for both normal and locked mode which do
 # not have a modifier
-for mode in normal locked
-do
-    riverctl map $mode None XF86AudioMute         spawn 'amixer sset Master toggle'
-    riverctl map -repeat $mode None XF86AudioRaiseVolume  spawn 'amixer sset Master 1%+'
-    riverctl map -repeat $mode None XF86AudioLowerVolume  spawn 'amixer sset Master 1%-'
+for mode in normal locked; do
+	riverctl map $mode None XF86AudioMute spawn 'amixer sset Master toggle'
+	riverctl map -repeat $mode None XF86AudioRaiseVolume spawn 'amixer sset Master 1%+'
+	riverctl map -repeat $mode None XF86AudioLowerVolume spawn 'amixer sset Master 1%-'
 	riverctl map -repeat $mode None XF86KbdBrightnessUp spawn 'brightnessctl --device='smc::kbd_backlight' set 5%+'
 	riverctl map -repeat $mode None XF86KbdBrightnessDown spawn 'brightnessctl --device='smc::kbd_backlight' set 5%-'
 	riverctl map -repeat $mode None XF86MonBrightnessUp spawn 'brightnessctl set 5%+'
 	riverctl map -repeat $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
 
-    riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
-    riverctl map $mode None XF86AudioPlay  spawn 'playerctl play-pause'
-    riverctl map $mode None XF86AudioPrev  spawn 'playerctl previous'
-    riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
+	riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
+	riverctl map $mode None XF86AudioPlay spawn 'playerctl play-pause'
+	riverctl map $mode None XF86AudioPrev spawn 'playerctl previous'
+	riverctl map $mode None XF86AudioNext spawn 'playerctl next'
 done
 
 # Set backuround and border color
@@ -177,10 +175,10 @@ riverctl rule-add -app-id thunar ssd
 riverctl rule-add -app-id imv ssd
 
 # initial tags
-riverctl rule-add -app-id code tags 1
-riverctl rule-add -app-id firefox tags 2
-riverctl rule-add -app-id Spotify tags 3
-riverctl rule-add -app-id discord tags 4
+riverctl rule-add -app-id code-url-handler tags 1		# (0001 AKA tag 1)
+riverctl rule-add -app-id firefox tags 2				# (0010 AKA tag 2)
+riverctl rule-add -app-id Spotify -title Spotify tags 4 # (0100 AKA tag 3)
+riverctl rule-add -app-id vesktop tags 8				# (1000 AKA tag 4)
 
 riverctl attach-mode bottom
 riverctl border-width 1
