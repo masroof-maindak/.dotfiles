@@ -1,8 +1,8 @@
 {
-    "position": "top",
+    "position": "bottom",
 	"reload_style_on_change": true,
     "layer": "top",
-    "margin": "5px 5px 0px 5px",
+    "margin": "0px 5px 5px 5px",
     "modules-left": [
         "river/tags",
         "custom/spr",
