@@ -27,7 +27,6 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO
 
-- Fix Electron apps launching in Xwayland,
 - Fix xdg-desktop-portal-wlr screensharing
 	- possibly stems from the first two lines in the `init` file not working
 - Audio not working
@@ -36,5 +35,7 @@ git clone https://github.com/masroof-maindak/chrome
 	- Invisible Wezterm too
 - Clipboard manager w/ Eww?
 - cpupower-gui -> cpupower & remove desktop + package list entry
+
 - Clean up X11 garbage
 - Test
+- Automate wlsunset
