@@ -1,13 +1,12 @@
 #!/bin/sh
 # TODO: fix these
 riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
-riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 
-kanshi -c ~/.config/kanshi/config-macbook13inch &
-waybar -c ~/.config/waybar/config-macbook13inch &
-swww-daemon &
-dunst &
-foot --server &
+riverctl spawn "kanshi -c ~/.config/kanshi/config-macbook13inch"
+riverctl spawn "waybar -c ~/.config/waybar/config-macbook13inch"
+riverctl spawn "swww-daemon"
+riverctl spawn "dunst"
+riverctl spawn "foot --server"
 
 riverctl xcursor-theme Umbrella-vr2 24
 
