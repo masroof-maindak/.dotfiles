@@ -17,6 +17,7 @@ riverctl input pointer-1452-602-bcm5974 tap enabled
 riverctl input pointer-1452-602-bcm5974 click-method clickfinger
 riverctl input pointer-1452-602-bcm5974 tap-button-map left-right-middle
 riverctl input pointer-1452-602-bcm5974 disable-while-typing enabled
+riverctl input pointer-1452-602-bcm5974 pointer-accel 0.3
 
 riverctl map normal Super Return spawn 'foot'
 riverctl map normal Super+Shift Return spawn 'foot -a floatyFoot'
