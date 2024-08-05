@@ -10,9 +10,10 @@ downgrade
 
 # Audio and multimedia
 playerctl
-pulseaudio
-pulseaudio-alsa
 alsa-utils
+pipewire
+pipewire-pulse
+wireplumber
 ffmpeg
 mpv
 

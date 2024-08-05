@@ -28,7 +28,6 @@ git clone https://github.com/masroof-maindak/chrome
 ### TODO
 
 - Fix `xdg-desktop-portal-wlr` screen-sharing - first two lines in river's `init`
-- Audio not working
 - Image previews in `lf` using foot
 - Clipboard manager w/ Eww?
 - `cpupower-gui` -> `cpupower` & remove desktop + package list entry

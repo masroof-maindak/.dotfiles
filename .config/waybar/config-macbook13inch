@@ -14,7 +14,7 @@
     "modules-right": [
 		"battery",
         "custom/spr",
-        "pulseaudio",
+        "wireplumber",
         "custom/spr",
         "clock"
     ],
@@ -57,7 +57,7 @@
 		"tooltip-format": "{:%Y-%m-%d}",
     },
 
-    "pulseaudio": {
+    "wireplumber": {
         "format": "{icon} {volume}%",
         "format-muted": "muted",
         "tooltip-format": "{volume}",
