@@ -56,9 +56,9 @@ sudo systemctl enable NetworkManager
 
 # Custom Desktop Entries
 print_yellow "Copying desktop entries"
-sudo cp ./system/Desktop\ Entries/syncthing.desktop 									/usr/share/applications/syncthing.desktop
-sudo cp ./system/Desktop\ Entries/spotify_player-${display_server}.desktop 			/usr/share/applications/spotify_player.desktop
-sudo cp ./system/Desktop\ Entries/org.rnd2.cpupower_gui-${display_server}.desktop	/usr/share/applications/org.rnd2.cpupower_gui.desktop
+sudo cp ./system/Desktop\ Entries/syncthing.desktop 				/usr/share/applications/syncthing.desktop
+sudo cp ./system/Desktop\ Entries/spotify_player.desktop 			/usr/share/applications/spotify_player.desktop
+sudo cp ./system/Desktop\ Entries/org.rnd2.cpupower_gui.desktop		/usr/share/applications/org.rnd2.cpupower_gui.desktop
 
 # Make scripts executable
 print_yellow "Making scripts executable"
