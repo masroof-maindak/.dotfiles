@@ -47,7 +47,7 @@ st.alpha: 1
 *foreground: #64513E
 ! black
 *color0:  #64513E
-*color8:  #83715f
+*color8:  #8C7B68
 ! red
 *color1:  #993333
 *color9:  #993333
@@ -67,5 +67,5 @@ st.alpha: 1
 *color6:  #75858c
 *color14: #75858c
 ! white
-*color7:  #b5a492
+*color7:  #C9B9A7
 *color15: #f1e3d1

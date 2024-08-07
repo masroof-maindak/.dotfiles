@@ -67,14 +67,14 @@ config.color_schemes = {
 	["swamp-light"] = {
 		background = "#f1e3d1",
 		foreground = "#64513e",
-		cursor_fg = "#c2b2a0",
-		cursor_border = "#a3927f",
-		cursor_bg = "#83715f",
-		selection_fg = "#a3927f",
-		selection_bg = "#D2C3B0",
+		cursor_fg = "#C9B9A7",
+		cursor_border = "#A0907D",
+		cursor_bg = "#8C7B68",
+		selection_fg = "#A0907D",
+		selection_bg = "#DDCEBC",
 
-		ansi = { "#64513e", "#993333", "#908D6A", "#da9e01", "#bf7979", "#9e5581", "#75858c", "#D2C3B0" },
-		brights = { "#64513e", "#993333", "#908D6A", "#da9e01", "#bf7979", "#9e5581", "#75858c", "#f1e3d1" },
+		ansi = { "#64513e", "#993333", "#908D6A", "#da9e01", "#bf7979", "#9e5581", "#75858c", "#DDCEBC" },
+		brights = { "#8C7B68", "#993333", "#908D6A", "#da9e01", "#bf7979", "#9e5581", "#75858c", "#f1e3d1" },
 	},
 	["swamp"] = {
 		foreground = "#ebe0bb",
