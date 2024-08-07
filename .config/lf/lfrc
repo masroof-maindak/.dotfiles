@@ -3,7 +3,7 @@
 set shell bash
 set shellopts '-eu'
 set mouse
-set ratios 2:5:7
+set sixel
 set info size
 set period 1
 set ifs "\n"
@@ -38,9 +38,9 @@ map <backspace2> set hidden!
 
 
 #___
-# execute current file (must be executable)
-map x $$f
-map X !$f
+# execute current file (must be executable) ...
+map x $$f # and close terminal
+map X !$f # and stay in terminal
 
 #___?
 # dedicated keys for file opener actions
@@ -87,6 +87,7 @@ map <c-f> :fzf_jump
 #___
 # Search contents of files inside current directory
 cmd fzf_search ${{
+
     RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
     res="$(
         FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
@@ -95,6 +96,7 @@ cmd fzf_search ${{
             | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
     )"
     [ -n "$res" ] && lf -remote "send $id select \"$res\""
+
 }}
 map gs :fzf_search
 
