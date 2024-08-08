@@ -5,15 +5,12 @@ set shellopts '-eu'
 set mouse
 set sixel
 set info size:time
-set ratios 2:4:6
+set ratios 1:2:3
 set ifs "\n"
 set scrolloff 8
 set autoquit
-
 set relativenumber
 set number
-# set period 1 # polling time
-
 set statfmt "\033[7;31m %p \033[32m %c \033[33m %u %g \033[34m %s \033[35m %t |\033[36m %l |\033[0m"
 
 
@@ -25,27 +22,12 @@ set cleaner ctpvclear
 
 
 #___
-# preview pane is `dim` insead of `underline`
+# Selected item in preview pane
 set cursorpreviewfmt "\033[7;90m"
 
 
 #___
-# use enter for shell commands
-map <enter> shell
-
-
-#___
-# show the result of execution of previous commands
-map ` !true
-
-
-#___
-# Toggle hidden files with backspace
-map <backspace2> set hidden!
-
-
-#___
-# execute current file (must be executable) ...
+# execute current file (must be executable)
 map x $$f
 map X !$f # and wait for key press
 
@@ -62,28 +44,37 @@ cmd open &{{
 
 
 #___
-map p : paste;clear
+# Miscellaneous binds
+map ` !true
+map p :paste; clear
+map r :rename; reload
+map V :invert-below
+map <enter> shell
+map <backspace2> set hidden!
 map <esc> :{{unselect; clear;}}
-
+map <c-space> :toggle; up
 
 #___
-# mkdir/touch command
+map m
+map ms mark-save
+map ml mark-load
+map mr mark-remove
+
+#___
 cmd mkdir %mkdir "$@"
-map a push :mkdir<space>
-
 cmd touch %touch "$@"
-map + push :touch<space>
+map mk push :mkdir<space>
+map mf push :touch<space>
 
 
 #___
-# Drag files
 cmd drag $dragon-drop -a -s 72 $fx
-map RA :drag
+map R drag
 
 
 #___
 # Select/Jump to file/folder
-cmd fzf_jump ${{
+cmd fzf-jump ${{
   res="$(find . -maxdepth 8 | fzf --reverse --header='Jump...')"
   if [ -f "$res" ]; then
     cmd="select"
@@ -92,7 +83,7 @@ cmd fzf_jump ${{
   fi
   lf -remote "send $id $cmd \"$res\""
 }}
-map <c-f> :fzf_jump
+map <c-f> :fzf-jump
 
 
 #___
@@ -101,10 +92,10 @@ cmd fzf_search ${{
 
     RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
     res="$(
-        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
-            fzf --bind "change:reload:$RG_PREFIX {q} || true" \
-            --ansi --layout=reverse --header 'Search in files' \
-            | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
+        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" 			  	\
+		fzf --bind "change:reload:$RG_PREFIX {q} || true" 	\
+		--ansi --layout=reverse --header 'Search in files'	\
+		| cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
     )"
     [ -n "$res" ] && lf -remote "send $id select \"$res\""
 
@@ -113,7 +104,6 @@ map gs :fzf_search
 
 
 #___
-# delete
 cmd delete ${{
     set -f
     printf "$fx\n"
@@ -125,59 +115,61 @@ map D :delete
 
 
 #___
-# set wallpaper
+#TODO: can I do tiling walls with swww?
 cmd setwall $swww img "$f"
-map WAL :setwall
-
 # cmd setwallTile $feh --bg-tile "$f"
+map WAL :setwall
 # map WAT :setwallTile
 
 
 #___
-cmd toggle_preview %{{
+cmd toggle-preview %{{
     if [ "$lf_preview" = "true" ]; then
         lf -remote "send $id :set preview false; set ratios 1:5"
     else
         lf -remote "send $id :set preview true; set ratios 1:2:3"
     fi
 }}
-map zp toggle_preview
+map zp :toggle-preview
 
 
 #___
-# Edit config
 cmd edit-config ${{
     $EDITOR ~/.config/lf/lfrc
     lf -remote "send $id source ~/.config/lf/lfrc"
 }}
-map C edit-config
+map C :edit-config
 
 
 #___
-# Move in parent directory
-cmd move-parent &{{
+cmd move-parent-dir &{{
     dironly="setlocal '$(dirname "$PWD")' dironly"
     lf -remote "send $id :updir; $dironly true; $1; $dironly false; open"
 }}
-map J move-parent down
-map K move-parent up
+map J :move-parent-dir down
+map K :move-parent-dir up
 
 
 #___
 # Copying
 cmd yank-path $printf '%s' "$f" | wl-copy
-cmd yank-contents $wl-copy < "$f"
-cmd yank-image ${{
+cmd yank-file ${{
     mime_type=$(file --mime-type -b $f)
-    [ "$mime_type" = "image/png" ] && cat $f | wl-copy --type image/png || magick $f png:- | wl-copy --type image/png
+	case &{mime_type} in
+		image/png) wl-copy -t image/png < "$f" ;;
+		image/*) magick "$f" png:- | wl-copy -t image/png ;;
+		*) wl-copy < "$f" ;;
+	esac
+	notify-send "File copied."
 }}
 
-map y
-map yy :copy
-map yf :yank-contents
-map yi :yank-image
-map yp :yank-path
+map Y :yank-file
+map <c-c> :yank-path
 
+
+#___
+# Open new terminal
+# TODO
 
 #___
 # extract
@@ -195,23 +187,25 @@ cmd extract ${{
 	esac
 	[ $? -eq 0 ] && lf -remote "send $id :reload"
 }}
-map <c-x> extract
+
+map <c-x> :extract
 
 
 #___
 # New folder with selected items
-cmd newfold ${{
+cmd new-folder ${{
     set -f
     printf "Directory name: "
     read newd
     mkdir -- "$newd"
     mv -- $fx "$newd"
 }}
-map <a-n> newfold
+
+map <a-n> :new-folder
 
 
 #___
-# compress targz
+# Compress
 cmd tar ${{
     set -f
     mkdir $1
@@ -220,17 +214,18 @@ cmd tar ${{
     rm -rf $1
 }}
 
-
-#___
-# compress zip
 cmd zip ${{
 	set -f
-    mkdir $1
-    cp -r $fx $1
-    zip -r $1.zip $1
-    rm -rf $1
+	echo $1
+	mkdir $1
+	cp -r $fx $1
+	zip -r $1.zip $1
+	rm -rf $1
 }}
 
+map c
+map cz push :zip<space>
+map ct push :tar<space>
 
 #___
 # Bulk rename files in $EDITOR
@@ -257,7 +252,7 @@ cmd bulk-rename ${{
     rm -- "$old" "$new"
     lf -remote "send $id unselect"
 }}
-map BR bulk-rename
+map BR :bulk-rename
 
 
 #___
@@ -265,4 +260,4 @@ map BR bulk-rename
 cmd follow-link %{{
 	lf -remote "send $id select \"$(readlink -- "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
 }}
-map gL follow-link
+map gl :follow-link
