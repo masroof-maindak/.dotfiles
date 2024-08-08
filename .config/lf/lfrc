@@ -31,7 +31,7 @@ set cursorpreviewfmt "\033[7;90m"
 map x $$f
 map X !$f # and wait for key press
 
-#___ TODO: look into this sometime.
+#___
 # dedicated keys for file opener actions
 map o &mimeopen $f
 map O $mimeopen --ask $f
@@ -53,6 +53,7 @@ map <enter> shell
 map <backspace2> set hidden!
 map <esc> :{{unselect; clear;}}
 map <c-space> :toggle; up
+map WAL $swww img "$f"
 
 #___
 map m
@@ -112,14 +113,6 @@ cmd delete ${{
     [ "$ans" = "n" ] || rm -rf $fx
 }}
 map D :delete
-
-
-#___
-#TODO: can I do tiling walls with swww?
-cmd setwall $swww img "$f"
-# cmd setwallTile $feh --bg-tile "$f"
-map WAL :setwall
-# map WAT :setwallTile
 
 
 #___
