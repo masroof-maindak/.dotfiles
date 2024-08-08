@@ -60,7 +60,7 @@ install_spotify_player() {
 	print_yellow "Installing spotify-player"
 	git clone https://github.com/aome510/spotify-player.git "$HOME"/Documents/prgrms/spotify-player
 	cd "$HOME"/Documents/prgrms/spotify-player || exit
-	cargo build -r --features lyric-finder,notify
+	cargo build -r --no-default-features --features lyric-finder,notify,sixel,pulseaudio-backend,streaming,media-control
 	mv target/release/spotify_player "$HOME"/.local/bin/spotify_player
 	chmod +x "$HOME"/.local/bin/spotify_player
 	cd "$HOME"/.dotfiles/ || exit
