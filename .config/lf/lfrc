@@ -4,10 +4,17 @@ set shell bash
 set shellopts '-eu'
 set mouse
 set sixel
-set info size
-set period 1
+set info size:time
+set ratios 2:4:6
 set ifs "\n"
-set scrolloff 10
+set scrolloff 8
+set autoquit
+
+set relativenumber
+set number
+# set period 1 # polling time
+
+set statfmt "\033[7;31m %p \033[32m %c \033[33m %u %g \033[34m %s \033[35m %t |\033[36m %l |\033[0m"
 
 
 #___
@@ -19,7 +26,7 @@ set cleaner ctpvclear
 
 #___
 # preview pane is `dim` insead of `underline`
-set cursorpreviewfmt "\033[7;2m"
+set cursorpreviewfmt "\033[7;90m"
 
 
 #___
@@ -39,10 +46,10 @@ map <backspace2> set hidden!
 
 #___
 # execute current file (must be executable) ...
-map x $$f # and close terminal
-map X !$f # and stay in terminal
+map x $$f
+map X !$f # and wait for key press
 
-#___?
+#___ TODO: look into this sometime.
 # dedicated keys for file opener actions
 map o &mimeopen $f
 map O $mimeopen --ask $f
@@ -60,13 +67,17 @@ map <esc> :{{unselect; clear;}}
 
 
 #___
-# mkdir command
-map a :push %mkdir<space>
+# mkdir/touch command
+cmd mkdir %mkdir "$@"
+map a push :mkdir<space>
+
+cmd touch %touch "$@"
+map + push :touch<space>
 
 
 #___
 # Drag files
-cmd drag $dragon-drop $fx
+cmd drag $dragon-drop -a -s 72 $fx
 map RA :drag
 
 
@@ -116,9 +127,9 @@ map D :delete
 #___
 # set wallpaper
 cmd setwall $swww img "$f"
-# cmd setwallTile $feh --bg-tile "$f"
-
 map WAL :setwall
+
+# cmd setwallTile $feh --bg-tile "$f"
 # map WAT :setwallTile
 
 
@@ -153,23 +164,36 @@ map K move-parent up
 
 
 #___
-# Copy file's path
-# cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
+# Copying
 cmd yank-path $printf '%s' "$f" | wl-copy
-map <c-c> :yank-path
+cmd yank-contents $wl-copy < "$f"
+cmd yank-image ${{
+    mime_type=$(file --mime-type -b $f)
+    [ "$mime_type" = "image/png" ] && cat $f | wl-copy --type image/png || magick $f png:- | wl-copy --type image/png
+}}
+
+map y
+map yy :copy
+map yf :yank-contents
+map yi :yank-image
+map yp :yank-path
+
 
 #___
 # extract
 cmd extract ${{
-    set -f
-    case $f in
-        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
-        *.tar.gz|*.tgz) tar xzvf $f;;
-        *.tar.xz|*.txz) tar xJvf $f;;
-        *.zip) unzip $f;;
-        *.rar) unrar x $f;;
-        *.7z) 7z x $f;;
-    esac
+	set -f
+	case $f in
+		*.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf "$f" ;;
+		*.tar.gz|*.tgz) tar xzvf "$f" ;;
+		*.tar.xz|*.txz) tar xJvf "$f" ;;
+		*.tar.zst|*.tzst) tar -xvf "$f" ;;
+		*.zip) unzip "$f" ;;
+		*.rar) unrar x "$f" ;;
+		*.7z) 7z x "$f" ;;
+		*) notify-send "Failed to extract '$f'..." ;;
+	esac
+	[ $? -eq 0 ] && lf -remote "send $id :reload"
 }}
 map <c-x> extract
 
@@ -206,3 +230,39 @@ cmd zip ${{
     zip -r $1.zip $1
     rm -rf $1
 }}
+
+
+#___
+# Bulk rename files in $EDITOR
+cmd bulk-rename ${{
+    old="$(mktemp)"
+    new="$(mktemp)"
+    if [ -n "$fs" ]; then
+        fs="$(basename -a -- $fs)"
+    else
+        fs="$(ls)"
+    fi
+    printf '%s\n' "$fs" > "$old"
+    printf '%s\n' "$fs" > "$new"
+    $EDITOR "$new"
+    [ "$(wc -l < "$new")" -ne "$(wc -l < "$old")" ] && exit
+    paste "$old" "$new" | while IFS= read -r names; do
+        src="$(printf '%s' "$names" | cut -f1)"
+        dst="$(printf '%s' "$names" | cut -f2)"
+        if [ "$src" = "$dst" ] || [ -e "$dst" ]; then
+            continue
+        fi
+        mv -- "$src" "$dst"
+    done
+    rm -- "$old" "$new"
+    lf -remote "send $id unselect"
+}}
+map BR bulk-rename
+
+
+#___
+# Follow symlink to original file
+cmd follow-link %{{
+	lf -remote "send $id select \"$(readlink -- "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+}}
+map gL follow-link
