@@ -37,6 +37,7 @@ firefox
 dunst
 thunar
 imagemagick
+perl-file-mimeinfo
 
 # Images
 lutgen-git
