@@ -1,7 +1,6 @@
 # Directories
 declare -A DIRS=(
-    [cur]="$HOME/Documents/wrk/nayavpn"
-    [cur2]="$HOME/Documents/wrk2/EducationVerse-App-Backend/"
+    [edu]="$HOME/Documents/wrk2/EducationVerse-App-Backend/"
 
 	[vlt]="$HOME/Documents/Vault"
 	[uni]="$HOME/Documents/uni"
@@ -28,7 +27,7 @@ alias gitls="git config --list | grep alias"
 
 # Software
 alias grep="rg"
-alias dd="dragon-drop"
+alias dd="dragon-drop -a -s 72"
 alias v="nvim"
 alias p="pacman"
 alias py="python"
@@ -52,6 +51,6 @@ alias sxc="$EDITOR $HOME/.config/sxhkd/sxhkdrc"
 
 # Functions
 alias pubip='curl ipinfo.io/ip'
-alias copy='xclip -selection clipboard <'
+alias copy='wl-copy <'
 alias pkg="pacman -Q | wc -l"
 alias bt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage"
