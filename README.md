@@ -27,11 +27,10 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO
 
-- Fix `xdg-desktop-portal-wlr` screen-sharing - first two lines in river's `init`
-- Clipboard manager w/ Eww?
-- `cpupower-gui` -> `cpupower` & remove desktop + package list entry
-
-- Clean up `X11` garbage
-- Test
-- Automate `wlsunset`
-- Alternative to eog...?
+- [ ] lf: fix statfmt
+- [ ] Fix `xdg-desktop-portal-wlr` screen-sharing - first two lines in river's `init`
+- [ ] Clipboard manager w/ Eww?
+- [ ] `cpupower-gui` -> `cpupower` & remove desktop + package list entry
+- [ ] Test bootstrap.sh
+- [ ] Automate `wlsunset`
+- [ ] Better bar
