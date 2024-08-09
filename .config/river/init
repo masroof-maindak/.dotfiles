@@ -1,5 +1,7 @@
 #!/bin/sh
-# TODO: fix these
+
+# FIXME
+riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 riverctl spawn "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
 
 riverctl spawn "kanshi -c ~/.config/kanshi/config-macbook13inch"
@@ -138,8 +140,8 @@ riverctl map passthrough Super F11 enter-mode normal
 # not have a modifier
 for mode in normal locked; do
 	riverctl map $mode None XF86AudioMute spawn 'amixer sset Master toggle'
-	riverctl map -repeat $mode None XF86AudioRaiseVolume spawn 'amixer sset Master 1%+'
-	riverctl map -repeat $mode None XF86AudioLowerVolume spawn 'amixer sset Master 1%-'
+	riverctl map -repeat $mode None XF86AudioRaiseVolume spawn 'amixer sset Master 2%+'
+	riverctl map -repeat $mode None XF86AudioLowerVolume spawn 'amixer sset Master 2%-'
 	riverctl map -repeat $mode None XF86KbdBrightnessUp spawn 'brightnessctl --device='smc::kbd_backlight' set 5%+'
 	riverctl map -repeat $mode None XF86KbdBrightnessDown spawn 'brightnessctl --device='smc::kbd_backlight' set 5%-'
 	riverctl map -repeat $mode None XF86MonBrightnessUp spawn 'brightnessctl set 5%+'
