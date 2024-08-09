@@ -37,7 +37,7 @@ map o &mimeopen $f
 map O $mimeopen --ask $f
 cmd open &{{
     case $(file --mime-type -Lb $f) in
-        text/*) lf -remote "send $id \$$EDITOR \$fx";;
+        text/*|application/json|application/javascript) lf -remote "send $id \$$EDITOR \$fx";;
         *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
@@ -159,10 +159,6 @@ cmd yank-file ${{
 map Y :yank-file
 map <c-c> :yank-path
 
-
-#___
-# Open new terminal
-# TODO
 
 #___
 # extract
