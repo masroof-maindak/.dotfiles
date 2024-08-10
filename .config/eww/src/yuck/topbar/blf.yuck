@@ -4,7 +4,7 @@
         :onclick "redshift ${filter == 'off' ? "-O 3700" : "-x"} && eww update filter=${filter == 'off' ? "on" : "off"}"
         (box
           	(label
-          	    :class "icons big_icon"
+          	    :class "icons"
           	    :text "${filter == 'off' ? '󰨀' : '󰧿'}"))))
 
 (defvar filter "off")
