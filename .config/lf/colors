@@ -41,12 +41,12 @@
 # fi      00      # FILE
 
 # file types (with matching order)
-ln      01;36   # LINK
+ln      00;36   # LINK
 or      31;01   # ORPHAN
 tw      34      # STICKY_OTHER_WRITABLE
 ow      34      # OTHER_WRITABLE
 st      01;34   # STICKY
-di      01;34   # DIR
+di      00;34   # DIR
 pi      33      # FIFO
 so      01;35   # SOCK
 bd      33;01   # BLK
@@ -105,55 +105,55 @@ fi      00      # FILE
 *.esd   01;31
 
 # image formats (dircolors defaults)
-*.jpg   01;35
-*.jpeg  01;35
-*.mjpg  01;35
-*.mjpeg 01;35
-*.gif   01;35
-*.bmp   01;35
-*.pbm   01;35
-*.pgm   01;35
-*.ppm   01;35
-*.tga   01;35
-*.xbm   01;35
-*.xpm   01;35
-*.tif   01;35
-*.tiff  01;35
-*.png   01;35
-*.svg   01;35
-*.svgz  01;35
-*.mng   01;35
-*.pcx   01;35
-*.mov   01;35
-*.mpg   01;35
-*.mpeg  01;35
-*.m2v   01;35
-*.mkv   01;35
-*.webm  01;35
-*.ogm   01;35
-*.mp4   01;35
-*.m4v   01;35
-*.mp4v  01;35
-*.vob   01;35
-*.qt    01;35
-*.nuv   01;35
-*.wmv   01;35
-*.asf   01;35
-*.rm    01;35
-*.rmvb  01;35
-*.flc   01;35
-*.avi   01;35
-*.fli   01;35
-*.flv   01;35
-*.gl    01;35
-*.dl    01;35
-*.xcf   01;35
-*.xwd   01;35
-*.yuv   01;35
-*.cgm   01;35
-*.emf   01;35
-*.ogv   01;35
-*.ogx   01;35
+*.jpg   00;35
+*.jpeg  00;35
+*.mjpg  00;35
+*.mjpeg 00;35
+*.gif   00;35
+*.bmp   00;35
+*.pbm   00;35
+*.pgm   00;35
+*.ppm   00;35
+*.tga   00;35
+*.xbm   00;35
+*.xpm   00;35
+*.tif   00;35
+*.tiff  00;35
+*.png   00;35
+*.svg   00;35
+*.svgz  00;35
+*.mng   00;35
+*.pcx   00;35
+*.mov   00;35
+*.mpg   00;35
+*.mpeg  00;35
+*.m2v   00;35
+*.mkv   00;35
+*.webm  00;35
+*.ogm   00;35
+*.mp4   00;35
+*.m4v   00;35
+*.mp4v  00;35
+*.vob   00;35
+*.qt    00;35
+*.nuv   00;35
+*.wmv   00;35
+*.asf   00;35
+*.rm    00;35
+*.rmvb  00;35
+*.flc   00;35
+*.avi   00;35
+*.fli   00;35
+*.flv   00;35
+*.gl    00;35
+*.dl    00;35
+*.xcf   00;35
+*.xwd   00;35
+*.yuv   00;35
+*.cgm   00;35
+*.emf   00;35
+*.ogv   00;35
+*.ogx   00;35
 
 # audio formats (dircolors defaults)
 *.aac   00;36
