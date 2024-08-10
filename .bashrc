@@ -93,6 +93,7 @@ jrnl() {
 # Find in vault
 fiv() {
 	vlt
-	$EDITOR "$(fzf)"
-	cd -
+	file="$(fd --type f --extension md --exclude '.*' | fzf --prompt "Vault: ")"
+	[ -n "$file" ] && $EDITOR "$file"
+	cd - >/dev/null
 }
