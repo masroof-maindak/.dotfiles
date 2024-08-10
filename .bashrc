@@ -1,7 +1,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Prompt
+# Prompts
 PROMPT_COMMAND='PS1X=$(perl -p -e "s|^${HOME}|~|;s|([^/])[^/]*/|$""1/|g" <<<${PWD})'
 PROMPT1='\[\e[91;1m\]${PS1X}\[\e[0m\] $ '
 # ---
@@ -37,7 +37,7 @@ serve() {
 	fi
 }
 
-chng-prmpt() {
+toggle-prompt() {
 	if [ "$PS1" = "$PROMPT1" ]; then
 		export PS1=$PROMPT2
 	else
@@ -46,6 +46,7 @@ chng-prmpt() {
 	clear
 }
 
+# Fuzzy Checkout
 fzchk() {
 	if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
 		git checkout $(git branch | fzf)
@@ -54,6 +55,7 @@ fzchk() {
 	fi
 }
 
+# Shitty bash zoxide...
 to() {
 	local base_dir=""
 	local sub_path=""
@@ -76,6 +78,7 @@ to() {
 	fi
 }
 
+# Open today's journal entry
 jrnl() {
 	local today=$(date +'%m-%d')
 	local vault_path=${DIRS["vlt"]}
@@ -85,4 +88,11 @@ jrnl() {
 		return 1
 	fi
 	$EDITOR "$file_path"
+}
+
+# Find in vault
+fiv() {
+	vlt
+	$EDITOR "$(fzf)"
+	cd -
 }
