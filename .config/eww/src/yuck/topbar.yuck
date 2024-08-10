@@ -1,4 +1,4 @@
-(include "./src/yuck/topbar/workspaces.yuck")
+(include "./src/yuck/topbar/tags-river.yuck")
 (include "./src/yuck/topbar/time_module.yuck")
 (include "./src/yuck/topbar/pointerMode.yuck")
 (include "./src/yuck/topbar/battery.yuck")
@@ -8,14 +8,11 @@
 (include "./src/yuck/topbar/blf.yuck")
 
 (defwindow topbar []
-	:wm-ignore false
-	:stacking "bg"
-	:windowtype "dock"
 	:monitor 0
 	:class "topbar_window"
 	:namespace "eww bar"
-	:geometry (geometry :y -5 :width 1270 :anchor "bottom center")
-	:reserve (struts :distance "94px" :side "bottom") ; distance = (real)height + y*2 (margin)
+	:exclusive true
+	:geometry (geometry :width 1280 :anchor "bottom center")
 	(box
   	  	:class "topbar_box"
   	  	:orientation "h"

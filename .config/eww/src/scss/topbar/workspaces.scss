@@ -6,15 +6,23 @@
         min-width: 8px;
     }
 
-    .activeWorkspace {
+    .urgent {
+        background-color: $red;
+    }
+
+    .focused {
+        background-color: $pink;
+    }
+
+    .occupied {
         background-color: $accent;
     }
 
-    .inactiveWorkspace {
+    .active {
         background-color: $base03;
     }
 
-    .emptyWorkspace {
+    .default {
         background-color: $base01;
     }
 }
