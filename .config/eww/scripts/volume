@@ -10,7 +10,7 @@ icon() {
             echo ""
         fi
     else
-        echo ""
+        echo "ﱝ"
     fi
 }
 
