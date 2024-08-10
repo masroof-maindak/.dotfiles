@@ -2,14 +2,14 @@
 	separator_color = frame
 	font = IBM Plex Sans
 
-	min_icon_size = 80
-	max_icon_size = 80
-	padding = 12
-	horizontal_padding = 12
+	min_icon_size = 64
+	max_icon_size = 64
+	padding = 8
+	horizontal_padding = 8
 	width = (300, 500)
 	origin = top-right
 	scale = 2
-	frame_width = 4
+	frame_width = 1
 
 	progress_bar = true
 	sort = yes
@@ -19,7 +19,7 @@
 	# background = "#3A3124"
 	# foreground = "#ebe0bb"
 	frame_color = "#B5A492"
-	background = "#DDCEBC"
+	background = "#f1e3d1"
 	foreground = "#64513E"
 
 [urgency_critical]
