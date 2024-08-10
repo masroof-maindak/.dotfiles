@@ -11,7 +11,10 @@ set scrolloff 8
 set autoquit
 set relativenumber
 set number
-set statfmt "\033[7;31m %p \033[32m %c \033[33m %u %g \033[34m %s \033[35m %t |\033[36m %l |\033[0m"
+set tabstop 4
+set timefmt "_2 Jan '06"
+set statfmt "\033[1;31m %p |\033[33m %u;%g |\033[34m %S |\033[35m %t |\033[36m %l |\033[0m"
+set promptfmt "\033[1;33m%d"
 
 
 #___
@@ -30,6 +33,7 @@ set cursorpreviewfmt "\033[7;90m"
 # execute current file (must be executable)
 map x $$f
 map X !$f # and wait for key press
+
 
 #___
 # dedicated keys for file opener actions
@@ -55,21 +59,23 @@ map <esc> :{{unselect; clear;}}
 map <c-space> :toggle; up
 map WAL $swww img "$f"
 
+
 #___
 map m
 map ms mark-save
 map ml mark-load
 map mr mark-remove
 
+
 #___
 cmd mkdir %mkdir "$@"
 cmd touch %touch "$@"
-map mk push :mkdir<space>
+map md push :mkdir<space>
 map mf push :touch<space>
 
 
 #___
-cmd drag $dragon-drop -a -s 72 $fx
+cmd drag $dragon-drop -x -a -s 72 $fx
 map R drag
 
 
@@ -84,6 +90,7 @@ cmd fzf-jump ${{
   fi
   lf -remote "send $id $cmd \"$res\""
 }}
+
 map <c-f> :fzf-jump
 
 
@@ -101,6 +108,7 @@ cmd fzf_search ${{
     [ -n "$res" ] && lf -remote "send $id select \"$res\""
 
 }}
+
 map gs :fzf_search
 
 
@@ -112,6 +120,7 @@ cmd delete ${{
     read ans
     [ "$ans" = "n" ] || rm -rf $fx
 }}
+
 map D :delete
 
 
@@ -123,6 +132,7 @@ cmd toggle-preview %{{
         lf -remote "send $id :set preview true; set ratios 1:2:3"
     fi
 }}
+
 map zp :toggle-preview
 
 
@@ -131,6 +141,7 @@ cmd edit-config ${{
     $EDITOR ~/.config/lf/lfrc
     lf -remote "send $id source ~/.config/lf/lfrc"
 }}
+
 map C :edit-config
 
 
@@ -139,6 +150,7 @@ cmd move-parent-dir &{{
     dironly="setlocal '$(dirname "$PWD")' dironly"
     lf -remote "send $id :updir; $dironly true; $1; $dironly false; open"
 }}
+
 map J :move-parent-dir down
 map K :move-parent-dir up
 
@@ -148,7 +160,7 @@ map K :move-parent-dir up
 cmd yank-path $printf '%s' "$f" | wl-copy
 cmd yank-file ${{
     mime_type=$(file --mime-type -b $f)
-	case &{mime_type} in
+	case {mime_type} in
 		image/png) wl-copy -t image/png < "$f" ;;
 		image/*) magick "$f" png:- | wl-copy -t image/png ;;
 		*) wl-copy < "$f" ;;
@@ -241,6 +253,7 @@ cmd bulk-rename ${{
     rm -- "$old" "$new"
     lf -remote "send $id unselect"
 }}
+
 map BR :bulk-rename
 
 
@@ -249,4 +262,5 @@ map BR :bulk-rename
 cmd follow-link %{{
 	lf -remote "send $id select \"$(readlink -- "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
 }}
+
 map gl :follow-link
