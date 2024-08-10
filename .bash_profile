@@ -1,7 +1,3 @@
-#
-# ~/.bash_profile
-#
-
 # Env Vars
 # NOTE: Can I somehow only load the below if it's an X11 session?
 # export QT_AUTO_SCREEN_SCALE_FACTOR=1
@@ -19,7 +15,7 @@ export GOPATH="$HOME/.go"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/.ripgreprc"
 
 export ELECTRON_OZONE_PLATFORM_HINT=auto
-
+export FZF_DEFAULT_OPTS="--reverse --margin 2 --prompt \"fzf: \""
 export SWWW_TRANSITION=none
 
 # PATH entries
