@@ -1,7 +1,7 @@
 configuration {
-    terminal:                   "st";
-	font: 						"IBM Plex Sans Bold 20";
+    terminal:                   "foot";
 	modi:                       "drun";
+	font: 						"IBM Plex Sans Bold 10";
     show-icons:                 false;
 	drun-display-format:        "{name}";
 }
@@ -13,7 +13,7 @@ window {
     location:                    north;
     anchor:                      north;
     fullscreen:                  false;
-    width:                       2560;
+    width:                       1280;
     x-offset:                    0px;
     y-offset:                    0px;
     enabled:                     true;
@@ -36,7 +36,7 @@ inputbar {
 
 listbox {
     spacing:                     10px;
-    padding:                     12px;
+    padding:                     5px;
     background-color:            transparent;
     orientation:                 vertical;
     children:                    [ "message", "listview" ];
@@ -51,7 +51,7 @@ listview {
     scrollbar:                   false;
     reverse:                     false;
     fixed-columns:               true;
-    spacing:                     15px;
+    spacing:                     10px;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      "default";
@@ -59,7 +59,7 @@ listview {
 
 element {
     enabled:                     true;
-    padding:                     5px;
+    padding:                     0px;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      pointer;

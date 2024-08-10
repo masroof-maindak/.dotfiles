@@ -8,12 +8,9 @@ ans="$(echo -e "$logout\n$reboot\n$shutdown" | rofi -dmenu -theme $HOME/.config/
 
 case ${ans} in
     $shutdown)
-		systemctl poweroff
-        ;;
+		systemctl poweroff ;;
     $reboot)
-		systemctl reboot
-        ;;
+		systemctl reboot ;;
     $logout)
-		bspc quit
-        ;;
+		riverctl exit ;;
 esac
