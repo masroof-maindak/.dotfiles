@@ -10,7 +10,7 @@ riverctl spawn "swww-daemon"
 riverctl spawn "dunst"
 riverctl spawn "foot --server"
 
-riverctl xcursor-theme Umbrella-vr2 24
+riverctl xcursor-theme phinger-cursors-light 24
 
 riverctl input pointer-1452-602-bcm5974 events enabled
 riverctl input pointer-1452-602-bcm5974 events disabled-on-external-mouse
