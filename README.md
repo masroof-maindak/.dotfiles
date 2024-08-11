@@ -21,6 +21,12 @@ git clone https://github.com/masroof-maindak/chrome
 ```
 - Maybe also go through [this repo](https://github.com/SpitFire-666/Firefox-Stuff)
 
+***Source***
+
+- Source `utils.sh` and run relevant functions for whatever is required
+- Miscellaneous utilities for river: `cargo install --git https://github.com/stefur/flow flow`
+- lf: `env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest`
+
 ***Obsidian***
 
 - Start `Syncthing` and set it up to sync the `~/Documents/Vault` directory with my phone.
@@ -32,4 +38,3 @@ git clone https://github.com/masroof-maindak/chrome
 - [ ] `cpupower-gui` -> `cpupower` & remove desktop + package list entry
 - [ ] Test bootstrap.sh
 - [ ] Automate `wlsunset`
-- [ ] Better bar
