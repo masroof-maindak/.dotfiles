@@ -1,7 +1,5 @@
 #!/bin/bash
 
-display_server="x11"
-
 print_yellow() {
 	echo -e "\033[1;33m$1\033[0m"
 }
@@ -24,14 +22,6 @@ install_st() {
 	rm -rf st
 }
 
-choose_display_server() {
-	echo "Is this going to be a Wayland session? (y/n)"
-	read -r flag
-	if [ "$flag" = "y" ]; then
-		display_server="wayland"
-	fi
-}
-
 install_rust() {
 	print_yellow "Installing Rust"
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
@@ -50,7 +40,7 @@ install_eww() {
 	print_yellow "Installing Eww"
 	git clone https://github.com/elkowar/eww "$HOME"/Documents/prgrms/eww
 	cd "$HOME"/Documents/prgrms/eww || exit
-	cargo build -r --no-default-features --features $display_server
+	cargo build -r --no-default-features --features wayland
 	sudo mv target/release/eww "$HOME"/.local/bin
 	chmod +x "$HOME"/.local/bin/eww
 	cd "$HOME"/.dotfiles/ || exit
