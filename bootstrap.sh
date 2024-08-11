@@ -13,15 +13,11 @@ sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 print_yellow "Symlinking dotfiles"
 stow .
 
-choose_display_server
-
 install_rust
 
 # Install packages
 installList "base"
-installList $display_server
-
-install_eww
+installList "wayland"
 
 # Mac Specific
 device=$(cat /sys/class/dmi/id/product_name)
@@ -68,8 +64,6 @@ chmod +x "$HOME"/.config/polybar/scripts/*
 chmod +x "$HOME"/.config/rofi/scripts/*
 chmod +x "$HOME"/.config/berry/autostart
 chmod +x "$HOME"/.local/bin/*
-
-install_spotify_player
 
 set_up_papirus
 
