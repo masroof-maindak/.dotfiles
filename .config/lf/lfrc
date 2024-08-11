@@ -14,7 +14,7 @@ set number
 set tabstop 4
 set timefmt "_2 Jan '06"
 set statfmt "\033[1;31m %p |\033[33m %u;%g |\033[34m %S |\033[35m %t |\033[36m %l |\033[0m"
-set promptfmt "\033[1;33m%d"
+set promptfmt "\033[1;33m%d %S %f"
 
 
 #___
