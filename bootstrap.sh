@@ -66,5 +66,3 @@ chmod +x "$HOME"/.config/berry/autostart
 chmod +x "$HOME"/.local/bin/*
 
 set_up_papirus
-
-set_up_ssh
