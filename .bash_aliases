@@ -40,15 +40,6 @@ alias c="clear"
 alias q="exit"
 alias mkdir="mkdir -p"
 
-# Startx
-alias bsp="startx $HOME/.xinitrc bspwm"
-alias ber="startx $HOME/.xinitrc berry"
-
-# Configs
-alias brc="$EDITOR $HOME/.bashrc"
-alias bsc="$EDITOR $HOME/.config/bspwm/bspwmrc"
-alias sxc="$EDITOR $HOME/.config/sxhkd/sxhkdrc"
-
 # Functions
 alias pubip='curl ipinfo.io/ip'
 alias copy='wl-copy <'
