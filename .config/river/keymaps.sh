@@ -88,7 +88,8 @@ riverctl map -repeat normal Super+Alt+Shift L resize horizontal 10
 
 ## Mouse
 # Move
-riverctl map-pointer normal Super BTN_LEFT move-view
+riverctl map normal Super X spawn '$HOME/.config/river/pointer_action.sh'
+riverctl map-pointer normal Super BTN_LEFT resize-view
 
 # Resize
 riverctl map-pointer normal Super BTN_RIGHT resize-view
