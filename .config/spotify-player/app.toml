@@ -39,5 +39,5 @@ normalization = false
 
 [layout]
 library = { album_percent = 40, playlist_percent = 40 }
-playback_window_position = "Bottom"
+playback_window_position = "Top"
 playback_window_height = 4
