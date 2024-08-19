@@ -40,7 +40,6 @@ imagemagick
 perl-file-mimeinfo
 
 # Images
-lutgen-git
 gthumb
 
 # PDF and document viewers

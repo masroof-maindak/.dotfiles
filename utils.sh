@@ -30,9 +30,11 @@ install_rust() {
 installList() {
 	print_yellow "Installing $1 packages"
 	for pkg in $(cat ./system/packageLists/$1); do
-		if [[ -n "$pkg" && ! "$pkg" =~ ^# ]]; then
-			paru -S --skipreview --noconfirm "$pkg"
-		fi
+    	if [[ -n "$pkg" && ! "$pkg" =~ ^# ]]; then
+    	    if ! pacman -Q "$pkg" &>/dev/null; then
+    	        paru -S --skipreview --noconfirm "$pkg"
+    	    fi
+    	fi
 	done
 }
 

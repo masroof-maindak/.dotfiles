@@ -5,19 +5,19 @@ install_paru
 
 print_yellow "Making directories"
 mkdir -p "$HOME"/{Screenshots,Desktop,Documents,Downloads,Music,Pictures/Wallpapers}
-mkdir -p "$HOME"/{.local/bin,.themes,.icons,.config/vesktop/settings}
+mkdir -p "$HOME"/{.local/bin,.themes,.icons,.fonts,.config/vesktop/settings}
 mkdir -p "$HOME"/Documents/{uni,prgrms,Vault,wrk,book}
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
-
-# Symlink dotfiles
-print_yellow "Symlinking dotfiles"
-stow .
 
 install_rust
 
 # Install packages
 installList "base"
 installList "wayland"
+
+# Symlink dotfiles
+print_yellow "Symlinking dotfiles"
+stow .
 
 # Mac Specific
 device=$(cat /sys/class/dmi/id/product_name)
@@ -42,6 +42,7 @@ fi
 
 # System files
 print_yellow "Copying system files"
+# TODO: add multilib
 sudo cp ./system/pacman.conf 							/etc/pacman.conf
 sudo cp ./system/skip-username.conf 					/etc/systemd/system/getty@tty1.service.d/skip-username.conf
 sudo cp ./system/30-touchpad.conf 						/etc/X11/xorg.conf.d/30-touchpad.conf
@@ -63,6 +64,7 @@ chmod +x "$HOME"/.config/eww/scripts/*
 chmod +x "$HOME"/.config/polybar/scripts/*
 chmod +x "$HOME"/.config/rofi/scripts/*
 chmod +x "$HOME"/.config/berry/autostart
+chmod +x "$HOME"/.config/river/*
 chmod +x "$HOME"/.local/bin/*
 
 set_up_papirus
