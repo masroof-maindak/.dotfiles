@@ -16,6 +16,7 @@ installList "base"
 installList "wayland"
 
 # Symlink dotfiles
+rm "$HOME"/.bashrc "$HOME"/.bash_profile
 print_yellow "Symlinking dotfiles"
 stow .
 
@@ -42,7 +43,6 @@ fi
 
 # System files
 print_yellow "Copying system files"
-# TODO: add multilib
 sudo cp ./system/pacman.conf 							/etc/pacman.conf
 sudo cp ./system/skip-username.conf 					/etc/systemd/system/getty@tty1.service.d/skip-username.conf
 sudo cp ./system/30-touchpad.conf 						/etc/X11/xorg.conf.d/30-touchpad.conf
