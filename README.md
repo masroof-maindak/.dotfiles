@@ -36,4 +36,3 @@ git clone https://github.com/masroof-maindak/chrome
 - [ ] `cpupower-gui` -> `cpupower` & remove desktop + package list entry
 - [ ] Fix `xdg-desktop-portal-wlr` screen-sharing
 - [ ] Clipboard manager (w/ Eww?)
-- [ ] Automate `wlsunset`
