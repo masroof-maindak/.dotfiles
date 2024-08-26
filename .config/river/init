@@ -20,20 +20,5 @@ riverctl border-width 1
 riverctl focus-follows-cursor normal
 riverctl set-cursor-warp on-output-change
 
-riverctl default-layout wideriver
-wideriver \
-	--layout                       left        \
-	--layout-alt                   monocle     \
-	--stack                        dwindle     \
-	--count-master                 1           \
-	--no-smart-gaps                            \
-	--inner-gaps                   5           \
-	--outer-gaps                   5           \
-	--border-width                 1           \
-	--border-width-monocle         0           \
-	--border-width-smart-gaps      0           \
-	--border-color-focused         "0xbf7979"  \
-	--border-color-focused-monocle "0x586e75"  \
-	--border-color-unfocused       "0xc9b9a7"  \
-	--log-threshold                info        \
-	> "/tmp/wideriver.${XDG_VTNR}.${USER}.log" 2>&1 &
+riverctl default-layout rivertile
+rivertile -view-padding 2 -outer-padding 2 -main-ratio 0.50 &

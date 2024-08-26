@@ -24,7 +24,7 @@ git clone https://github.com/masroof-maindak/chrome
 ***Source***
 
 - Source `utils.sh` and run relevant functions for whatever is required
-- Miscellaneous utilities for river: `cargo install --git https://github.com/stefur/flow flow`
+- Miscellaneous utilities for river: [flow](https://github.com/stefur/flow) & [river-bedload](https://git.sr.ht/~novakane/river-bedload)
 - lf: `env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest`
 
 ***Obsidian***
