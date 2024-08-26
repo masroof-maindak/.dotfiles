@@ -3,12 +3,12 @@
 
 # Prompts
 PROMPT_COMMAND='PS1X=$(perl -p -e "s|^${HOME}|~|;s|([^/])[^/]*/|$""1/|g" <<<${PWD})'
-PROMPT1='\[\e[91;1m\]${PS1X}\[\e[0m\] $ '
+PROMPT1='\[\e[91m\]${PS1X}\[\e[0m\] $ '
 # ---
 parse_git_branch() {
 	git branch 2>/dev/null | sed -n '/\* /s///p' | sed 's/^/ (/;s/$/)/'
 }
-PROMPT2="\[\033[01;34m\]\w\[\033[01;33m\]\$(parse_git_branch)\[\033[00m\] $ "
+PROMPT2="\[\033[34m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 export PS1=$PROMPT1
 
 # Unlimited history
