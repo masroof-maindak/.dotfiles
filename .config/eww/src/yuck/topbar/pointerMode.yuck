@@ -5,7 +5,7 @@
 
         (box
           	(label
-          	    :class "icons"
+          	    :class "icons big_icon"
           	    :text "${mode == 'move' ? '󰆾' : '󰩨'}"))))
 
 (defvar mode "resize")

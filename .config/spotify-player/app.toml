@@ -23,7 +23,7 @@ notify_streaming_only = false
 enable_cover_image_cache = true
 cover_img_width = 5
 cover_img_length = 10
-cover_img_scale = 2.2
+cover_img_scale = 2.5
 
 [notify_format]
 summary = "{track}"
