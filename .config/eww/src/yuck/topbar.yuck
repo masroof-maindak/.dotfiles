@@ -46,7 +46,8 @@
 			(volume_module)
 			(battery_module)
 			(pointer_module)
-			(blf_module))
+			;;(blf_module)
+			)
 		(sep)
   	  	(time_module)))
 

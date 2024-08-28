@@ -5,14 +5,14 @@
   all: unset;
   color: $base04;
   font-family: "CozetteHiDpi";
-  // font-family: "IBM Plex Sans";
+  font-family: "IBM Plex Sans";
   font-size: 13px;
 }
 
 tooltip {
   font-weight: 500;
   background: $base01;
-  border: 3px solid $drkHrd;
+  border: 3px solid $base03;
   padding: 10px 20px;
 }
 
