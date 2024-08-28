@@ -20,10 +20,13 @@
 }
 
 .icons {
-    font-family: "CozetteHiDpi";
-    font-size: 13px;
+    font-family: "Symbols Nerd Font";
     min-height: 18px;
     min-width: 18px;
+}
+
+.big_icon {
+    font-size: 18px;
 }
 
 @import "./topbar/music.scss";

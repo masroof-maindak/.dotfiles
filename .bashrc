@@ -1,15 +1,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Prompts
-PROMPT_COMMAND='PS1X=$(perl -p -e "s|^${HOME}|~|;s|([^/])[^/]*/|$""1/|g" <<<${PWD})'
-PROMPT1='\[\e[91m\]${PS1X}\[\e[0m\] $ '
-# ---
 parse_git_branch() {
 	git branch 2>/dev/null | sed -n '/\* /s///p' | sed 's/^/ (/;s/$/)/'
 }
-PROMPT2="\[\033[34m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
-export PS1=$PROMPT1
+
+export PS1="\[\033[34m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 # Unlimited history
 HISTSIZE=-1
@@ -35,15 +31,6 @@ serve() {
 		echo "Usage: serve <port_number>"
 		return 1
 	fi
-}
-
-toggle-prompt() {
-	if [ "$PS1" = "$PROMPT1" ]; then
-		export PS1=$PROMPT2
-	else
-		export PS1=$PROMPT1
-	fi
-	clear
 }
 
 # Fuzzy Checkout
@@ -90,10 +77,10 @@ jrnl() {
 	$EDITOR "$file_path"
 }
 
-# Find in vault
+# Find *.md file in vault
 fiv() {
 	vlt
-	file="$(fd --type f --extension md --exclude '.*' | fzf --prompt "Vault: ")"
+	file="$(fd -t f -e md -E '.*' | fzf --prompt "Vault: ")"
 	[ -n "$file" ] && $EDITOR "$file"
 	cd - >/dev/null
 }

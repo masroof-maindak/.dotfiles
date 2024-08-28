@@ -5,5 +5,3 @@ set skip-completed-text on
 
 "\e[A": history-search-backward
 "\e[B": history-search-forward
-
-Control-o: "toggle-prompt\015"
