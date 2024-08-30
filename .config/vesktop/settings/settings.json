@@ -298,7 +298,8 @@
             "enabled": false
         },
         "OpenInApp": {
-            "enabled": true
+            "enabled": true,
+            "spotify": true
         },
         "PermissionFreeWill": {
             "enabled": false
@@ -591,9 +592,6 @@
         "Summaries": {
             "enabled": false
         },
-        "ShowAllRoles": {
-            "enabled": false
-        },
         "ShowTimeoutDuration": {
             "enabled": false
         },
@@ -618,6 +616,15 @@
         },
         "YoutubeAdblock": {
             "enabled": false
+        },
+        "MentionAvatars": {
+            "enabled": false
+        },
+        "NoMaskedUrlPaste": {
+            "enabled": false
+        },
+        "AlwaysExpandRoles": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -630,6 +637,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1722549447511
+        "settingsSyncVersion": 1724958309569
     }
 }

@@ -1,7 +1,7 @@
 theme = "swamp light"
 client_id = "b60844fa1c1b48e3bc1b77f530ba02a1"
 client_port = 8080
-playback_format = "{track} • {artists}\n{album}"
+playback_format = "{status} {track} • {artists}\n{album}"
 
 tracks_playback_limit = 50
 app_refresh_duration_in_ms = 50
@@ -12,7 +12,7 @@ play_icon = "|>"
 pause_icon = "||"
 liked_icon = "<3"
 border_type = "Hidden"
-progress_bar_type = "Rectangle"
+progress_bar_type = "Line"
 
 enable_media_control = true
 enable_streaming = "Always"
