@@ -1,9 +1,49 @@
 [[themes]]
+name = "swamp light"
+[themes.palette]
+background = "#f1e3d1"
+foreground = "#64513e"
+black = "#64513e"
+red = "#993333"
+green = "#908D6A"
+yellow = "#d09700"
+blue = "#9e5581"
+magenta = "#bf7979"
+cyan = "#75858c"
+white = "#f1e3d1"
+bright_black = "#8c7b68"
+bright_red = "#993333"
+bright_green = "#908D6A"
+bright_yellow = "#d09700"
+bright_blue = "#9e5581"
+bright_magenta = "#bf7979"
+bright_cyan = "#75858c"
+bright_white = "#c9b9a7"
+[themes.component_style]
+block_title = { fg = "Magenta" }
+border = {}
+
+playback_status = { fg = "Cyan", modifiers = ["Bold"] }
+playback_track = { fg = "Cyan", modifiers = ["Bold"] }
+playback_artists = { fg = "Cyan", modifiers = ["Bold"] }
+playback_album = { fg = "Yellow", modifiers = [] }
+playback_metadata = { fg = "BrightBlack" }
+
+playback_progress_bar = { bg = "White", fg = "Green" }
+playback_progress_bar_unfilled = { bg = "White", fg = "BrightWhite" }
+
+current_playing = { fg = "Yellow" }
+page_desc = { fg = "Blue", modifiers = [] }
+
+table_header = { fg = "Magenta" }
+selection = { modifiers = ["Italic", "Bold"] }
+
+[[themes]]
 name = "swamp"
 [themes.palette]
 background = "#242015"
 foreground = "#ebe0bb"
-black = "#272316"
+black = "#242015"
 red = "#96294d"
 green = "#7a7653"
 yellow = "#db930d"
@@ -20,54 +60,18 @@ bright_magenta = "#b05d61"
 bright_cyan = "#61a0a8"
 bright_white = "#ebe0bb"
 [themes.component_style]
-block_title = { fg = "BrightYellow"  }
+block_title = { fg = "BrightYellow" }
 border = {}
 
 playback_track = { fg = "Yellow" }
 playback_artists = { fg = "Yellow" }
 playback_album = { fg = "Magenta" }
 playback_metadata = { fg = "White" }
-playback_progress_bar = { bg = "BrightBlack", fg = "Green" }
+playback_progress_bar = { bg = "Black", fg = "Green" }
+playback_progress_bar_unfilled = { bg = "Black", fg = "BrightWhite" }
 
 current_playing = { fg = "Green" }
 page_desc = { fg = "BrightRed" }
 
 table_header = { fg = "Blue" }
-selection = { modifiers = ["Reversed"] }
-
-[[themes]]
-name = "swamp light"
-[themes.palette]
-background = "#f1e3d1"
-foreground = "#64513e"
-black = "#64513e"
-red = "#993333"
-green = "#908D6A"
-yellow = "#da9e01"
-blue = "#a3697a"
-magenta = "#bf7979"
-cyan = "#75858c"
-white = "#f1e3d1"
-bright_black = "#8c7b68"
-bright_red = "#993333"
-bright_green = "#908D6A"
-bright_yellow = "#da9e01"
-bright_blue = "#a3697a"
-bright_magenta = "#bf7979"
-bright_cyan = "#75858c"
-bright_white = "#c9b9a7"
-[themes.component_style]
-block_title = { fg = "BrightYellow"  }
-border = {}
-
-playback_track = { fg = "Cyan" }
-playback_artists = { fg = "Cyan" }
-playback_album = { fg = "Yellow" }
-playback_metadata = { fg = "BrightBlack" }
-playback_progress_bar = { bg = "BrightWhite", fg = "Green" }
-
-current_playing = { fg = "Yellow" }
-page_desc = { fg = "BrightRed" }
-
-table_header = { fg = "Magenta" }
 selection = { modifiers = ["Reversed"] }
