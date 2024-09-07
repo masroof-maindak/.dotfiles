@@ -15,15 +15,15 @@
 	sort = yes
 	alignment = center
 
-	# frame_color = "#5F4E41"
-	# background = "#3A3124"
-	# foreground = "#ebe0bb"
-	frame_color = "#B5A492"
-	background = "#f1e3d1"
-	foreground = "#64513E"
+	frame_color = "#5F4E41"
+	background = "#3A3124"
+	foreground = "#ebe0bb"
+	# frame_color = "#B5A492"
+	# background = "#f1e3d1"
+	# foreground = "#64513E"
 
 [urgency_critical]
-	# frame_color = "#a82d56"
-	frame_color = "#993333"
+	frame_color = "#a82d56"
+	# frame_color = "#993333"
 
 # vim: ft=cfg
