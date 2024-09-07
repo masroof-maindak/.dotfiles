@@ -11,7 +11,7 @@ riverctl map normal Super P spawn 'grim -g "$(slurp)" - | wl-copy && wl-paste > 
 riverctl map normal Super+Shift P spawn 'grim - | wl-copy && wl-paste > ~/Screenshots/$(date +%F_%T)_full.png'
 
 # Common Software
-riverctl map normal Super W spawn 'thunar'
+riverctl map normal Super W spawn 'cosmic-files'
 riverctl map normal Super B spawn 'firefox'
 riverctl map normal Super V spawn 'code'
 

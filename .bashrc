@@ -1,12 +1,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-parse_git_branch() {
-	git branch 2>/dev/null | sed -n '/\* /s///p' | sed 's/^/ (/;s/$/)/'
-}
-
-export PS1="\[\033[34m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
-
 # Unlimited history
 HISTSIZE=-1
 HISTFILESIZE=-1
@@ -84,3 +78,10 @@ fiv() {
 	[ -n "$file" ] && $EDITOR "$file"
 	cd - >/dev/null
 }
+
+# Prompt
+parse_git_branch() {
+	git branch 2>/dev/null | sed -n '/\* /s///p' | sed 's/^/ (/;s/$/)/'
+}
+
+export PS1="\[\033[34m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
