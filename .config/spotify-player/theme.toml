@@ -63,15 +63,17 @@ bright_white = "#ebe0bb"
 block_title = { fg = "BrightYellow" }
 border = {}
 
-playback_track = { fg = "Yellow" }
-playback_artists = { fg = "Yellow" }
+playback_status = { fg = "Cyan", modifiers = ["Bold"] }
+playback_track = { fg = "Yellow", modifiers = ["Bold"] }
+playback_artists = { fg = "Yellow", modifiers = ["Bold"] }
 playback_album = { fg = "Magenta" }
 playback_metadata = { fg = "White" }
-playback_progress_bar = { bg = "Black", fg = "Green" }
-playback_progress_bar_unfilled = { bg = "Black", fg = "BrightWhite" }
 
-current_playing = { fg = "Green" }
+playback_progress_bar = { bg = "Black", fg = "BrightMagenta" }
+playback_progress_bar_unfilled = { bg = "Black", fg = "BrightBlack" }
+
+current_playing = { fg = "Yellow" }
 page_desc = { fg = "BrightRed" }
 
 table_header = { fg = "Blue" }
-selection = { modifiers = ["Reversed"] }
+selection = { modifiers = ["Reversed", "Bold"] }
