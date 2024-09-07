@@ -12,8 +12,6 @@ nnoremap <leader>w :w<CR>
 " Misc
 vnoremap < <gv
 vnoremap > >gv
-nnoremap <Esc> :noh<CR><Esc>
-tnoremap <Esc><Esc> <C-\><C-n>
 
 " Buffer
 nnoremap <leader>bd :bd<CR>
