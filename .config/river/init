@@ -14,7 +14,7 @@ riverctl rule-add -app-id gthumb tags 16                   # (tag 5)
 riverctl rule-add -app-id Spotify -title Syncthing tags 16 # (tag 5)
 
 # Miscellaenous
-riverctl xcursor-theme phinger-cursors-light 24
+riverctl xcursor-theme phinger-cursors-light 32
 riverctl attach-mode bottom
 riverctl border-width 1
 riverctl focus-follows-cursor normal

@@ -1,4 +1,4 @@
-theme = "swamp light"
+theme = "swamp"
 client_id = "b60844fa1c1b48e3bc1b77f530ba02a1"
 client_port = 8080
 playback_format = "{status} {track} • {artists}\n{album}"
