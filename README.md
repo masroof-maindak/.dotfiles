@@ -31,6 +31,10 @@ git clone https://github.com/masroof-maindak/chrome
 
 - Start `Syncthing` and set it up to sync the `~/Documents/Vault` directory with my phone.
 
+***spotify-player***
+
+- Generate client ID and write to `~/.cache/spotify_client_id`
+
 ### TODO
 
 - [ ] `cpupower-gui` -> `cpupower` & remove desktop + package list entry
