@@ -9,6 +9,8 @@ stow
 downgrade
 
 # Audio and multimedia
+mpd
+ncmpcpp
 playerctl
 alsa-utils
 pipewire
