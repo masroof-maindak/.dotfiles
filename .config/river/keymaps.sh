@@ -73,6 +73,7 @@ riverctl map -repeat normal Super I move up 10
 riverctl map -repeat normal Super O move right 10
 
 # Snap to edge
+riverctl map normal Super C snap center
 riverctl map normal Super+Alt+Control H snap left
 riverctl map normal Super+Alt+Control J snap down
 riverctl map normal Super+Alt+Control K snap up
