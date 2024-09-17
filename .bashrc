@@ -36,29 +36,6 @@ fzchk() {
 	fi
 }
 
-# Shitty bash zoxide...
-to() {
-	local base_dir=""
-	local sub_path=""
-	for arg in "$@"; do
-		if [[ -n "${DIRS[$arg]}" ]]; then
-			base_dir="${DIRS[$arg]}"
-			sub_path=""
-		else
-			sub_path+="/$arg"
-		fi
-	done
-
-	local path="$base_dir$sub_path"
-
-	if [ -d "$path" ]; then
-		cd "$path"
-	else
-		echo "Directory does not exist: $path"
-		return 1
-	fi
-}
-
 # Open today's journal entry
 jrnl() {
 	vlt
