@@ -29,7 +29,7 @@ c6='[31m'
 # Output
 printf '%s\n' "
 
-    ${c1}     .-.         
+    ${c1}     .-.
     ${c1}  __/   (         ${USER}${c0}@${c1}${host}
     ${c1}, '-.____\\        ${c6}distro${c0}    ${OS}
     ${c1} u=='/  \\         ${c6}kernel${c0}    ${KERNEL}

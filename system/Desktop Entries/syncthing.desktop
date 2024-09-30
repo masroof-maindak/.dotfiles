@@ -2,4 +2,3 @@
 Type=Application
 Name=syncthing
 Exec=foot -a Spotify -T Syncthing -e syncthing
-# Exec=st -c Syncthing -e syncthing

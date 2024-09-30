@@ -63,7 +63,7 @@ parse_git_branch() {
 	git branch 2>/dev/null | sed -n '/\* /s///p' | sed 's/^/ (/;s/$/)/'
 }
 
-export PS1="\[\033[34m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+export PS1="\[\033[34m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] ·» "
 
 osc7_cwd() {
 	local strlen=${#PWD}

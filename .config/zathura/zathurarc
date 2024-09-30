@@ -9,4 +9,4 @@ set adjust-open width
 set recolor true
 
 # include swamp-dark-rc
-include swamp-light-rc
+include swamp-dark-rc

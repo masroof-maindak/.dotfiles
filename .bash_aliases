@@ -1,13 +1,14 @@
 # Directories
 declare -A DIRS=(
 	[edu]="$HOME/Documents/wrk2/EducationVerse-App-Backend/"
-	[ind]="$HOME/Documents/prgrms/indus"
+	[ind]="$HOME/Documents/repos/indus"
 	[jlb]="$HOME/Documents/uni/OS/Jalebi"
 
 	[vlt]="$HOME/Documents/Vault"
 	[uni]="$HOME/Documents/uni"
 	[dow]="$HOME/Downloads"
 	[doc]="$HOME/Documents"
+	[rep]="$HOME/Documents/repos"
 	[des]="$HOME/Desktop"
 	[scr]="$HOME/Screenshots"
 	[mus]="$HOME/Music"
@@ -41,6 +42,7 @@ alias ls="ls -hN --color=auto --group-directories-first"
 alias c="clear"
 alias q="exit"
 alias mkdir="mkdir -p"
+alias dt="date"
 
 # Functions
 alias pubip='curl ipinfo.io/ip'
