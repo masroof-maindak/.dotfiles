@@ -26,14 +26,14 @@ cat <<EOF
 │ $(b 1)     red      $r │$(f 1)      red       $r│        hardware $u                         $r
 ├────────────────┼────────────────┤        * laptop .........macbook pro 2014
 │ $(b 2)    green     $r │$(f 2)     green      $r│        * ram ....................... 8 gb
-├────────────────┼────────────────┤        * display .......... 2560x1600 13" 
+├────────────────┼────────────────┤        * display .......... 2560x1600 13"
 │ $(b 3)    yellow    $r │$(f 3)     yellow     $r│            
 ├────────────────┼────────────────┤        software $u                         $r
-│ $(b 4)     blue     $r │$(f 4)      blue      $r│        * window manager ........... bspwm
+│ $(b 4)     blue     $r │$(f 4)      blue      $r│        * window manager ........... river
 ├────────────────┼────────────────┤        * panel ...................... eww
-│ $(b 5)     pink     $r │$(f 5)      pink     $r │        * editor ................. VS Code
+│ $(b 5)     pink     $r │$(f 5)      pink     $r │        * editor .................. neovim
 ├────────────────┼────────────────┤        * browser ................ firefox
-│ $(b 6)     cyan     $r │$(f 6)      cyan     $r │      │ * music ........... spotify_player │ 
+│ $(b 6)     cyan     $r │$(f 6)      cyan     $r │      │ * music ........... spotify_player │
 └────────────────┴────────────────┘      └───                              ───┘
 EOF
 # colors for ascii art

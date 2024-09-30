@@ -2,15 +2,21 @@ foot
 foot-terminfo
 rofi-wayland
 wl-clipboard
-grim
-slurp
-kanshi
-swww
-xdg-desktop-portal-wlr
 nwg-look
 wlsunset
-lswt
-eog
-chafa
-river
 wf-recorder
+imv
+chafa
+swww
+
+# river
+# river
+# grim
+# slurp
+# kanshi
+# xdg-desktop-portal-wlr
+
+# niri
+niri
+xdg-desktop-portal-gtk
+xdg-desktop-portal-gnome
