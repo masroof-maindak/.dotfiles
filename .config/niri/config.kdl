@@ -1,0 +1,215 @@
+input {
+    keyboard {
+		repeat-delay 300
+		repeat-rate 50
+    }
+
+    touchpad {
+        tap
+        dwt
+        natural-scroll
+        accel-speed 0.4
+        accel-profile "flat"
+        scroll-method "two-finger"
+    }
+
+    warp-mouse-to-focus
+    focus-follows-mouse max-scroll-amount="40%"
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+output "eDP-1" {
+    mode "2560x1600@59.972"
+    scale 2
+    transform "normal"
+}
+
+layout {
+    gaps 5
+    center-focused-column "on-overflow"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    // preset-window-heights { }
+    default-column-width { proportion 0.66667; }
+
+    focus-ring {
+        width 1
+        active-color "#db930d"
+        inactive-color "#3a3124"
+    }
+}
+
+spawn-at-startup "swww-daemon"
+spawn-at-startup "dunst"
+spawn-at-startup "foot" "--server"
+spawn-at-startup "wlsunset" "-l" "31.4" "-L" "74.3"
+
+prefer-no-csd
+
+screenshot-path "~/Screenshots/%Y-%m-%d_%H:%M:%S.png"
+
+animations {
+    slowdown 0.75
+}
+
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+window-rule {
+	match app-id="footclient"
+    default-column-width { proportion 0.5; }
+}
+
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+    block-out-from "screen-capture"
+	// Visible on screenshot:
+    // block-out-from "screencast"
+}
+
+binds {
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    Mod+Return { spawn "footclient"; }
+    Mod+D { spawn "~/.config/rofi/scripts/launcher.sh"; }
+    Mod+W { spawn "cosmic-files"; }
+    Mod+B { spawn "firefox"; }
+    Mod+V { spawn "code"; }
+	Mod+Z { spawn "bash" "-c" "notify-send Clipboard \"$(wl-paste)\""; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "amixer" "sset" "Master" "2%+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "amixer" "sset" "Master" "2%-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "amixer" "sset" "Master" "toggle"; }
+
+	XF86KbdBrightnessUp { spawn "bash" "-c" "brightnessctl --device=smc::kbd_backlight set 5%+"; }
+	XF86KbdBrightnessDown { spawn "bash" "-c" "brightnessctl --device=smc::kbd_backlight set 5%-"; }
+
+	XF86MonBrightnessUp { spawn "brightnessctl" "set" "5%+"; }
+	XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
+
+	XF86AudioMedia { spawn "playerctl" "play-pause"; }
+	XF86AudioPlay { spawn "playerctl" "play-pause"; }
+	XF86AudioPrev { spawn "playerctl" "previous"; }
+	XF86AudioNext { spawn "playerctl" "next"; }
+
+    Mod+Q { close-window; }
+
+    Mod+Left     { focus-column-left; }
+    Mod+Down     { focus-window-or-workspace-down; }
+    Mod+Up     { focus-window-or-workspace-up; }
+    Mod+Right     { focus-column-right; }
+    Mod+H     { focus-column-left; }
+    Mod+J     { focus-window-or-workspace-down; }
+    Mod+K     { focus-window-or-workspace-up; }
+    Mod+L     { focus-column-right; }
+
+    Mod+Shift+Left     { move-column-left; }
+    Mod+Shift+Down     { move-window-down-or-to-workspace-down; }
+    Mod+Shift+Up     { move-window-up-or-to-workspace-up; }
+    Mod+Shift+Right     { move-column-right; }
+    Mod+Shift+H     { move-column-left; }
+    Mod+Shift+J     { move-window-down-or-to-workspace-down; }
+    Mod+Shift+K     { move-window-up-or-to-workspace-up; }
+    Mod+Shift+L     { move-column-right; }
+
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Ctrl+Home { move-column-to-first; }
+    Mod+Ctrl+End  { move-column-to-last; }
+
+    Mod+Ctrl+H     { focus-monitor-left; }
+    Mod+Ctrl+J     { focus-monitor-down; }
+    Mod+Ctrl+K     { focus-monitor-up; }
+    Mod+Ctrl+L     { focus-monitor-right; }
+
+    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+
+    // Alternatively, there are commands to move just a single window:
+    // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
+    // ...
+
+    // And you can also move a whole workspace to another monitor:
+    // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
+    // ...
+
+    Mod+Ctrl+U         { move-column-to-workspace-down; }
+    Mod+Ctrl+I         { move-column-to-workspace-up; }
+
+    Mod+Shift+Page_Down { move-workspace-down; }
+    Mod+Shift+Page_Up   { move-workspace-up; }
+    Mod+Shift+U         { move-workspace-down; }
+    Mod+Shift+I         { move-workspace-up; }
+
+    // Similarly, you can bind touchpad scroll "ticks".
+    // Touchpad scrolling is continuous, so for these binds it is split into
+    // discrete intervals.
+    // These binds are also affected by touchpad's natural-scroll, so these
+    // example binds are "inverted", since we have natural-scroll enabled for
+    // touchpads by default.
+    // Mod+TouchpadScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
+    // Mod+TouchpadScrollUp   { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    // Alternatively, there are commands to move just a single window:
+    // Mod+Ctrl+1 { move-window-to-workspace 1; }
+
+    // Switches focus between the current and the previous workspace.
+    Mod+Tab { focus-workspace-previous; }
+
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+C { center-column; }
+
+	// Resize
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    Mod+P { screenshot; }
+    Mod+Shift+P { screenshot-screen; }
+    Mod+Ctrl+P { screenshot-window; }
+
+    Mod+Shift+Q { quit; }
+}

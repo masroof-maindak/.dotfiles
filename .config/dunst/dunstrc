@@ -4,16 +4,19 @@
 
 	min_icon_size = 64
 	max_icon_size = 64
+
 	padding = 8
 	horizontal_padding = 8
+
 	width = (300, 500)
-	origin = top-right
-	scale = 2
+	origin = bottom-right
+	offset = 10x10
 	frame_width = 1
+	gap_size = 5
 
 	progress_bar = true
 	sort = yes
-	alignment = center
+	alignment = left
 
 	frame_color = "#5F4E41"
 	background = "#3A3124"
