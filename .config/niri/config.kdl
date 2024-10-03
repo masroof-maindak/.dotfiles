@@ -28,7 +28,7 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 5
+    gaps 10
     center-focused-column "on-overflow"
 
     preset-column-widths {
@@ -41,9 +41,16 @@ layout {
     default-column-width { proportion 0.66667; }
 
     focus-ring {
-        width 1
-        active-color "#db930d"
+        width 2
+        active-color "#bf7979"
         inactive-color "#3a3124"
+    }
+
+	struts {
+        left 10
+        right 10
+        top 10
+        bottom 10
     }
 }
 
@@ -51,6 +58,7 @@ spawn-at-startup "swww-daemon"
 spawn-at-startup "dunst"
 spawn-at-startup "foot" "--server"
 spawn-at-startup "wlsunset" "-l" "31.4" "-L" "74.3"
+spawn-at-startup "waybar" "-c" "/home/maindak/.config/waybar/config-macbook13inch.jsonc"
 
 prefer-no-csd
 

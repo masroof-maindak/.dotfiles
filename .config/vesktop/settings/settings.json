@@ -299,7 +299,11 @@
         },
         "OpenInApp": {
             "enabled": true,
-            "spotify": true
+            "spotify": true,
+            "steam": true,
+            "epic": true,
+            "tidal": true,
+            "itunes": true
         },
         "PermissionFreeWill": {
             "enabled": false
@@ -625,6 +629,15 @@
         },
         "FullSearchContext": {
             "enabled": false
+        },
+        "AccountPanelServerProfile": {
+            "enabled": false
+        },
+        "CopyFileContents": {
+            "enabled": false
+        },
+        "StickerPaste": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -637,6 +650,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1726847905426
+        "settingsSyncVersion": 1727779898794
     }
 }

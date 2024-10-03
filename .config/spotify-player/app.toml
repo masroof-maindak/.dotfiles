@@ -1,4 +1,4 @@
-theme = "swamp"
+theme = "swamp light"
 client_id_command = "cat ~/.cache/spotify_client_id"
 client_port = 8080
 playback_format = "{status} {track} • {artists}\n{album}"
@@ -39,5 +39,5 @@ normalization = false
 
 [layout]
 library = { album_percent = 40, playlist_percent = 40 }
-playback_window_position = "Top"
+playback_window_position = "Bottom"
 playback_window_height = 4
