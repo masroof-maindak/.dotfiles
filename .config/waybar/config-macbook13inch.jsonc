@@ -1,0 +1,27 @@
+{
+	"reload_style_on_change": true,
+    "position": "left",
+    "layer": "top",
+
+    "modules-left": ["niri/workspaces"],
+
+    "modules-right": [
+		"battery",
+        "wireplumber",
+        "clock"
+    ],
+	
+	"battery": {
+		"format": "{capacity}\n<b>bt</b>",
+		"interval": 60
+	},
+
+    "clock": {"format": "{:%H\n%M}"},
+
+    "wireplumber": {
+        "format": "{volume}\n<b>vl</b>",
+        "format-muted": "<b>mut</b>",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    }
+}

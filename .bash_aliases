@@ -29,7 +29,6 @@ alias gss="git status -s"
 alias gitls="git config --list | grep alias"
 
 # Software
-alias grep="rg"
 alias dd="dragon-drop -a -s 72"
 alias v="nvim"
 alias p="pacman"
