@@ -21,6 +21,11 @@ hotkey-overlay {
     skip-at-startup
 }
 
+cursor {
+	xcursor-theme "phinger-cursors-light"
+	xcursor-size 32
+}
+
 output "eDP-1" {
     mode "2560x1600@59.972"
     scale 2
@@ -28,8 +33,9 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 10
+    gaps 12
     center-focused-column "on-overflow"
+	always-center-single-column
 
     preset-column-widths {
         proportion 0.33333
@@ -37,20 +43,24 @@ layout {
         proportion 0.66667
     }
 
-    // preset-window-heights { }
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+	}
     default-column-width { proportion 0.66667; }
 
     focus-ring {
-        width 2
+        width 3
         active-color "#bf7979"
         inactive-color "#3a3124"
     }
 
 	struts {
-        left 10
-        right 10
-        top 10
-        bottom 10
+        left 0
+        right 0
+        top 0
+        bottom 0
     }
 }
 
