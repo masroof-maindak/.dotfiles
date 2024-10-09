@@ -21,16 +21,16 @@
 .module {
 	color: @color;
 	padding: 8px;
-    border-right: 2px solid @muted;
+    border-right: 3px solid @muted;
     background-color: @background-color;
 }
 
 .modules-right {
-    border-top: 2px solid @muted;
+    border-top: 3px solid @muted;
 }
 
 .modules-left {
-    border-bottom: 2px solid @muted;
+    border-bottom: 3px solid @muted;
 }
 
 tooltip {

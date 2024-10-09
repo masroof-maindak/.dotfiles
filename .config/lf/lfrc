@@ -81,7 +81,7 @@ map R drag
 
 #___
 # Select/Jump to file/folder
-cmd fzf-jump ${{
+cmd fzf_jump ${{
   res="$(find . -maxdepth 8 | fzf --reverse --header='Jump...')"
   if [ -f "$res" ]; then
     cmd="select"
@@ -91,7 +91,7 @@ cmd fzf-jump ${{
   lf -remote "send $id $cmd \"$res\""
 }}
 
-map <c-f> :fzf-jump
+map <c-f> :fzf_jump
 
 
 #___
@@ -125,7 +125,7 @@ map D :delete
 
 
 #___
-cmd toggle-preview %{{
+cmd toggle_preview %{{
     if [ "$lf_preview" = "true" ]; then
         lf -remote "send $id :set preview false; set ratios 1:5"
     else
@@ -133,32 +133,32 @@ cmd toggle-preview %{{
     fi
 }}
 
-map P :toggle-preview
+map P :toggle_preview
 
 
 #___
-cmd edit-config ${{
+cmd edit_config ${{
     $EDITOR ~/.config/lf/lfrc
     lf -remote "send $id source ~/.config/lf/lfrc"
 }}
 
-map C :edit-config
+map C :edit_config
 
 
 #___
-cmd move-parent-dir &{{
+cmd move_parent_dir &{{
     dironly="setlocal '$(dirname "$PWD")' dironly"
     lf -remote "send $id :updir; $dironly true; $1; $dironly false; open"
 }}
 
-map J :move-parent-dir down
-map K :move-parent-dir up
+map J :move_parent_dir down
+map K :move_parent_dir up
 
 
 #___
 # Copying
-cmd yank-path $printf '%s' "$f" | wl-copy
-cmd yank-file ${{
+cmd yank_path $printf '%s' "$f" | wl-copy
+cmd yank_file ${{
     mime_type=$(file --mime-type -b $f)
 	case {mime_type} in
 		image/png) wl-copy -t image/png < "$f" ;;
@@ -168,8 +168,8 @@ cmd yank-file ${{
 	notify-send "File copied."
 }}
 
-map Y :yank-file
-map <c-c> :yank-path
+map Y :yank_file
+map <c-c> :yank_path
 
 
 #___
@@ -194,7 +194,7 @@ map <c-x> :extract
 
 #___
 # New folder with selected items
-cmd new-folder ${{
+cmd new_folder ${{
     set -f
     printf "Directory name: "
     read newd
@@ -202,7 +202,7 @@ cmd new-folder ${{
     mv -- $fx "$newd"
 }}
 
-map <a-n> :new-folder
+map <a-n> :new_folder
 
 
 #___
@@ -230,7 +230,7 @@ map ct push :tar<space>
 
 #___
 # Bulk rename files in $EDITOR
-cmd bulk-rename ${{
+cmd bulk_rename ${{
     old="$(mktemp)"
     new="$(mktemp)"
     if [ -n "$fs" ]; then
@@ -254,13 +254,13 @@ cmd bulk-rename ${{
     lf -remote "send $id unselect"
 }}
 
-map BR :bulk-rename
+map BR :bulk_rename
 
 
 #___
 # Follow symlink to original file
-cmd follow-link %{{
+cmd follow_link %{{
 	lf -remote "send $id select \"$(readlink -- "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
 }}
 
-map gl :follow-link
+map gl :follow_link
