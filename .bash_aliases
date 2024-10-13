@@ -18,7 +18,7 @@ declare -A DIRS=(
 )
 
 for key in "${!DIRS[@]}"; do
-    alias $key="cd ${DIRS[$key]}"
+	alias $key="cd ${DIRS[$key]}"
 done
 
 # Git - More in config
@@ -44,7 +44,7 @@ alias mkdir="mkdir -p"
 alias dt="date"
 
 # Functions
-alias pubip='curl ipinfo.io/ip'
+alias pubip='curl ipinfo.io/ip; echo'
 alias copy='wl-copy <'
 alias pkg="pacman -Q | wc -l"
 alias bt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage"

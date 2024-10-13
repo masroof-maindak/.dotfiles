@@ -40,22 +40,34 @@ fzchk() {
 jrnl() {
 	vlt
 	local today=$(date +'%m-%d')
-	local file_path="03 - Journal/$(date +'%m - %b')/${today}.md"
-	if [[ ! -f "$file_path" ]]; then
-		cd - >/dev/null
-		echo "File doesn't exist yet..."
-		return 1
+	local fpath="03 - Journal/$(date +'%m - %b')/${today}.md"
+	if [ -f "$fpath" ]; then
+		$EDITOR "$fpath"
 	fi
-	$EDITOR "$file_path"
 	cd - >/dev/null
 }
 
-# Find *.md file in vault
+# Find *.md files in Obsidian vault
 fiv() {
 	vlt
-	file="$(fd -t f -e md -E '.*' | fzf --prompt "Vault: ")"
-	[ -n "$file" ] && $EDITOR "$file"
+	local files="$(fd -t f -e md -E '.*' |
+		fzf \
+			--preview="bat --style=numbers --color=always --line-range=:250 {}" \
+			--multi \
+			--prompt "Vault: ")"
+	if [ -n "$files" ]; then
+		echo "$files" | xargs -d "\n" $EDITOR
+	fi
 	cd - >/dev/null
+}
+
+# Print tagged comments
+plans() {
+	rg TODO && echo
+	rg NOTE && echo
+	rg FIXME && echo
+	rg HACK && echo
+	rg CHECK && echo
 }
 
 # Prompt
@@ -63,7 +75,7 @@ parse_git_branch() {
 	git branch 2>/dev/null | sed -n '/\* /s///p' | sed 's/^/ (/;s/$/)/'
 }
 
-export PS1="\[\033[34m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] ·» "
+export PS1="\[\033[34m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 osc7_cwd() {
 	local strlen=${#PWD}
