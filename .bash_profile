@@ -7,8 +7,10 @@ export MANPAGER='nvim +Man!'
 export GOPATH="$HOME/.go"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/.ripgreprc"
 
+export FZF_DEFAULT_COMMAND="fd . --hidden --exclude \".git\""
+export FZF_DEFAULT_OPTS="--reverse --margin 2 --prompt \"fzf: \" --color=16	--preview-window=\"down,50%,border-sharp,wrap\""
+
 export ELECTRON_OZONE_PLATFORM_HINT=auto
-export FZF_DEFAULT_OPTS="--reverse --margin 2 --prompt \"fzf: \""
 export SWWW_TRANSITION=none
 export SDL_VIDEODRIVER=wayland
 
