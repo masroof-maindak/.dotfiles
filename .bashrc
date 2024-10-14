@@ -53,7 +53,6 @@ fiv() {
 	local files="$(fd -t f -e md -E '.*' |
 		fzf \
 			--preview="bat --style=numbers --color=always --line-range=:250 {}" \
-			--multi \
 			--prompt "Vault: ")"
 	if [ -n "$files" ]; then
 		echo "$files" | xargs -d "\n" $EDITOR
