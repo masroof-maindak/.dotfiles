@@ -33,7 +33,7 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 12
+    gaps 10
     center-focused-column "on-overflow"
 	always-center-single-column
 
@@ -62,6 +62,11 @@ layout {
         top 0
         bottom 0
     }
+}
+
+window-rule {
+    geometry-corner-radius 3
+    clip-to-geometry true
 }
 
 spawn-at-startup "swww-daemon"

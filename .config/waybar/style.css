@@ -18,20 +18,15 @@
     font-size: 13px;
 }
 
-.module {
-	color: @color;
-	padding: 8px;
-    border-right: 3px solid @muted;
+window#waybar {
     background-color: @background-color;
+	color: @color;
 }
 
-.modules-right {
-    border-top: 3px solid @muted;
+.module {
+	padding: 6px;
 }
 
-.modules-left {
-    border-bottom: 3px solid @muted;
-}
 
 tooltip {
 	background: @background-color-alt;
@@ -39,8 +34,16 @@ tooltip {
 	color: @color;
 }
 
+#workspaces {
+	margin: 0px -2px;
+}
+
+
 #workspaces button {
-    padding: 2px 0px;
+	margin: 0px 2px;
+	min-width: 16px;
+	min-height: 16px;
+	border: 1px solid;
 }
 
 #workspaces button {
