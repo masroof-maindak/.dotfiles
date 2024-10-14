@@ -64,6 +64,7 @@ bat
 yt-dlp
 man-pages
 lf
+poppler
 
 # Archive utilities
 unzip

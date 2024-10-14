@@ -1,27 +1,32 @@
 {
 	"reload_style_on_change": true,
-    "position": "left",
+    "position": "bottom",
     "layer": "top",
 
     "modules-left": ["niri/workspaces"],
-
+	"modules-center": ["clock"],
     "modules-right": [
 		"battery",
-        "wireplumber",
-        "clock"
+        "wireplumber"
     ],
-	
+
+	"clock": {
+		"format": "{:%H:%M}  ",
+		"format-alt": "{:%A, %b %d, %R}",
+		"interval": 60,
+		"tooltip": false
+	},	
+
 	"battery": {
-		"format": "{capacity}\n<b>bt</b>",
+		"format": "<b>bat</b> {capacity}%",
 		"interval": 60
 	},
 
-    "clock": {"format": "{:%H\n%M}"},
-
     "wireplumber": {
-        "format": "{volume}\n<b>vl</b>",
-        "format-muted": "<b>mut</b>",
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "format": "<b>vol</b> {volume}%",
+        "format-muted": "<b>muted</b>",
+        "on-click": "amixer sset Master toggle",
         "on-click-right": "pavucontrol"
     }
 }
+
