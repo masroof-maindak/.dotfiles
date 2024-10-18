@@ -38,6 +38,4 @@ git clone https://github.com/masroof-maindak/chrome
 ### TODO
 
 - [ ] `cpupower-gui` -> `cpupower` & remove desktop + package list entry
-- [-] Fix `xdg-desktop-portal-wlr` screen-sharing
-	- [ ] Shift to Niri...?
 - [ ] Clipboard manager (w/ Eww?)
