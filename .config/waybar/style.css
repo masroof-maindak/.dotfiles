@@ -12,49 +12,46 @@
 @define-color urgent #993333;
 @define-color muted #c9b9a7;
 
-*{
-    all: unset;
-    font-family: "IBM Plex Sans";
-    font-size: 13px;
+* {
+  all: unset;
+  font-family: "IBM Plex Sans";
+  font-size: 13px;
 }
 
 window#waybar {
-    background-color: @background-color;
-	color: @color;
+  color: @color;
+  background: @background-color;
 }
 
 .module {
-	padding: 6px;
+  padding: 6px;
 }
 
-
 tooltip {
-	background: @background-color-alt;
-	border: 1px solid @accent;
-	color: @color;
+  background: @background-color-alt;
+  border: 1px solid @accent;
+  color: @color;
 }
 
 #workspaces {
-	margin: 0px -2px;
-}
-
-
-#workspaces button {
-	margin: 0px 2px;
-	min-width: 16px;
-	min-height: 16px;
-	border: 1px solid;
+  margin: 0px -2px;
 }
 
 #workspaces button {
-    color: @color;
+  margin: 0px 2px;
+  min-width: 16px;
+  min-height: 16px;
+  border: 1px solid;
+}
+
+#workspaces button {
+  color: @color;
 }
 
 #workspaces button.empty {
-    color: @muted;
+  color: @muted;
 }
 
 #workspaces button.focused {
-    color: @accent;
+  color: @accent;
 }
-
