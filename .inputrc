@@ -1,7 +1,21 @@
-set completion-ignore-case on
-set show-all-if-ambiguous on
+$include etc/inputrc
+
 set mark-directories on
 set skip-completed-text on
+set completion-ignore-case on
+set show-all-if-unmodified on
+set show-all-if-ambiguous on
+set colored-stats On
+set visible-stats On
+set mark-symlinked-directories On
+set colored-completion-prefix On
+set menu-complete-display-prefix On
 
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+
+"\t": menu-complete
+"\e[Z": menu-complete-backward
+
+# Alt + S: Prefix line with 'sudo'
+"\es": "\C-asudo \C-e"

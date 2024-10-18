@@ -1,5 +1,6 @@
---theme="base16"
+--theme="ansi"
 --italic-text=always
+--style="numbers,changes,header"
 
 # Uncomment the following line to disable automatic paging:
 #--paging=never

@@ -1,6 +1,8 @@
 {
 	"reload_style_on_change": true,
     "position": "bottom",
+	"margin": "0px 10px 10px 10px",
+	// "margin": "0px",
     "layer": "top",
 
     "modules-left": ["niri/workspaces"],
