@@ -53,20 +53,8 @@ layout {
     focus-ring {
         width 3
         active-color "#bf7979"
-        inactive-color "#3a3124"
+        inactive-color "#c9b9a7"
     }
-
-	struts {
-        left 0
-        right 0
-        top 0
-        bottom 0
-    }
-}
-
-window-rule {
-    geometry-corner-radius 3
-    clip-to-geometry true
 }
 
 spawn-at-startup "swww-daemon"
