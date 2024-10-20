@@ -39,7 +39,10 @@ alias dk="docker"
 # Builtins
 alias ls="ls -hN --color=auto --group-directories-first"
 alias c="clear"
+alias clera="clear"
 alias q="exit"
+alias quit="exit"
+alias qquit="exit"
 alias mkdir="mkdir -p"
 alias dt="date"
 
@@ -47,4 +50,4 @@ alias dt="date"
 alias pubip='curl ipinfo.io/ip; echo'
 alias copy='wl-copy <'
 alias pkg="pacman -Q | wc -l"
-alias bt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage"
+alias bt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}'"

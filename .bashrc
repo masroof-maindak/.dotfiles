@@ -1,9 +1,15 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Unlimited history
-HISTSIZE=-1
-HISTFILESIZE=-1
+# History
+HISTSIZE=1024
+HISTFILE="$HOME/.cache/bash/history"
+HISTFILESIZE=4096
+HISTCONTROL=ignoreboth:erasedups
+
+# Shell options
+shopt -s histappend
+shopt -s autocd
 
 # Source aliases
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
@@ -25,6 +31,22 @@ serve() {
 		echo "Usage: serve <port_number>"
 		return 1
 	fi
+}
+
+# Ctrl + Shift + N opens new terminal at PWD
+osc7_cwd() {
+	local strlen=${#PWD}
+	local encoded=""
+	local pos c o
+	for ((pos = 0; pos < strlen; pos++)); do
+		c=${PWD:$pos:1}
+		case "$c" in
+		[-/:_.!\'\(\)~[:alnum:]]) o="${c}" ;;
+		*) printf -v o '%%%02X' "'${c}" ;;
+		esac
+		encoded+="${o}"
+	done
+	printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${encoded}"
 }
 
 # Fuzzy Checkout
@@ -70,25 +92,42 @@ plans() {
 }
 
 # Prompt
-parse_git_branch() {
-	git branch 2>/dev/null | sed -n '/\* /s///p' | sed 's/^/ (/;s/$/)/'
+e() {
+	printf "\033[$@m"
 }
 
-export PS1="\[\033[34m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
-
-osc7_cwd() {
-	local strlen=${#PWD}
-	local encoded=""
-	local pos c o
-	for ((pos = 0; pos < strlen; pos++)); do
-		c=${PWD:$pos:1}
-		case "$c" in
-		[-/:_.!\'\(\)~[:alnum:]]) o="${c}" ;;
-		*) printf -v o '%%%02X' "'${c}" ;;
-		esac
-		encoded+="${o}"
-	done
-	printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${encoded}"
+f() {
+	e "3$1;6"
 }
+
+r="$(e 0)" # reset
+
+g="$(f 2)"
+rd="$(f 1)"
+b="$(f 4)"
+p="$(f 5)"
+y="$(f 3)"
+c="$(f 6)"
+
+inverse="$(e 7)"
+bold="$(e 1)"
+
+# FIXME
+git_branch() {
+	local branch=$(git branch --show-current 2>/dev/null)
+	if [[ -n "$branch" ]]; then
+		printf "$bold "
+
+		local stats=$(git diff --shortstat 2>/dev/null | tail -n1)
+
+		if [[ -n "$stats" ]]; then
+			printf "${inverse}*"
+		fi
+
+		echo "$branch${r}"
+	fi
+}
+
+PS1="${y}\$(date +%H:%M:%S)${r}${c}\$(git_branch) ${b}\w ${r}$ "
 
 PROMPT_COMMAND=${PROMPT_COMMAND:+${PROMPT_COMMAND%;}; }osc7_cwd
