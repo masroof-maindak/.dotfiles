@@ -5,7 +5,7 @@ install_paru
 
 print_yellow "Making directories"
 mkdir -p "$HOME"/{Screenshots,Desktop,Documents,Downloads,Music,Pictures/Wallpapers}
-mkdir -p "$HOME"/{.local/bin,.themes,.icons,.fonts,.config/vesktop/settings}
+mkdir -p "$HOME"/{.local/bin,.themes,.icons,.fonts,.config/vesktop/settings,.cache/bash}
 mkdir -p "$HOME"/Documents/{uni,repos,Vault,wrk,books}
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
@@ -30,7 +30,7 @@ if echo "$device" | grep -q "MacBook"; then
 
 	# Swap keys
 	print_yellow "Copying system files"
-	sudo cp ./system/Macbook/hid_apple.conf 			/etc/modprobe.d/hid_apple.conf
+	sudo cp ./system/Macbook/hid_apple.conf /etc/modprobe.d/hid_apple.conf
 
 	print_yellow "Enabling services"
 	sudo systemctl enable mbpfan
@@ -44,9 +44,9 @@ fi
 # System files
 print_yellow "Copying system files"
 cp -r ./system/.themes ~/ # because symlinking `.themes` wasn't working for some reason
-sudo cp ./system/pacman.conf 							/etc/pacman.conf
-sudo cp ./system/skip-username.conf 					/etc/systemd/system/getty@tty1.service.d/skip-username.conf
-sudo cp ./system/30-touchpad.conf 						/etc/X11/xorg.conf.d/30-touchpad.conf
+sudo cp ./system/pacman.conf /etc/pacman.conf
+sudo cp ./system/skip-username.conf /etc/systemd/system/getty@tty1.service.d/skip-username.conf
+sudo cp ./system/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 
 # Services
 print_yellow "Enabling services"
@@ -54,9 +54,9 @@ sudo systemctl enable NetworkManager
 
 # Custom Desktop Entries
 print_yellow "Copying desktop entries"
-sudo cp ./system/Desktop\ Entries/syncthing.desktop 				/usr/share/applications/syncthing.desktop
-sudo cp ./system/Desktop\ Entries/spotify_player.desktop 			/usr/share/applications/spotify_player.desktop
-sudo cp ./system/Desktop\ Entries/org.rnd2.cpupower_gui.desktop		/usr/share/applications/org.rnd2.cpupower_gui.desktop
+sudo cp ./system/Desktop\ Entries/syncthing.desktop /usr/share/applications/syncthing.desktop
+sudo cp ./system/Desktop\ Entries/spotify_player.desktop /usr/share/applications/spotify_player.desktop
+sudo cp ./system/Desktop\ Entries/org.rnd2.cpupower_gui.desktop /usr/share/applications/org.rnd2.cpupower_gui.desktop
 
 # Make scripts executable
 print_yellow "Making scripts executable"

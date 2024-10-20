@@ -15,16 +15,18 @@ chmod +x bootstrap.sh
 - Sign in, sync bookmarks, open tabs, history and passwords
 - Add extensions and configure telemetry settings
 - Follow instructions in Firefox User-chrome repository and clone dots
+
 ```bash
 cd ~/.mozilla/firefox/*.default-release/
 git clone https://github.com/masroof-maindak/chrome
 ```
+
 - Maybe also go through [this repo](https://github.com/SpitFire-666/Firefox-Stuff)
 
 ***Source***
 
 - Source `utils.sh` and run relevant functions for whatever is required
-- Miscellaneous utilities for river: [flow](https://github.com/stefur/flow) & [river-bedload](https://git.sr.ht/~novakane/river-bedload)
+- ~~Miscellaneous utilities for river: [flow](https://github.com/stefur/flow) & [river-bedload](https://git.sr.ht/~novakane/river-bedload)~~
 - lf: `env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest`
 
 ***Obsidian***
@@ -37,5 +39,6 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO
 
+- [ ] Fix prompt bug on certain directories
 - [ ] `cpupower-gui` -> `cpupower` & remove desktop + package list entry
 - [ ] Clipboard manager (w/ Eww?)
