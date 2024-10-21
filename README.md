@@ -39,6 +39,5 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO
 
-- [ ] Fix prompt bug on certain directories
 - [ ] `cpupower-gui` -> `cpupower` & remove desktop + package list entry
 - [ ] Clipboard manager (w/ Eww?)
