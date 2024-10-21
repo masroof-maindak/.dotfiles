@@ -92,42 +92,36 @@ plans() {
 }
 
 # Prompt
-e() {
-	printf "\033[$@m"
-}
+# https://gist.github.com/hacst/4538282
+e() { echo -n "\033[$@m"; }
+f() { e "3$1;6"; }
 
-f() {
-	e "3$1;6"
-}
-
-r="$(e 0)" # reset
-
+r="$(f 1)"
 g="$(f 2)"
-rd="$(f 1)"
+y="$(f 3)"
 b="$(f 4)"
 p="$(f 5)"
-y="$(f 3)"
 c="$(f 6)"
 
-inverse="$(e 7)"
+reset="$(e 0)"
+inv="$(e 7)"
 bold="$(e 1)"
 
-# FIXME
-git_branch() {
-	local branch=$(git branch --show-current 2>/dev/null)
-	if [[ -n "$branch" ]]; then
-		printf "$bold "
-
-		local stats=$(git diff --shortstat 2>/dev/null | tail -n1)
-
-		if [[ -n "$stats" ]]; then
-			printf "${inverse}*"
-		fi
-
-		echo "$branch${r}"
+branch_info() {
+	echo -n "\[$bold\]"
+	if [[ $(git diff --shortstat 2>/dev/null | tail -n1) != "" ]]; then
+		echo -n "\[$inv\]*"
 	fi
 }
 
-PS1="${y}\$(date +%H:%M:%S)${r}${c}\$(git_branch) ${b}\w ${r}$ "
+git_branch() {
+	local branch=$(git branch --show-current 2>/dev/null)
+	[ -n "$branch" ] && echo -n " $(branch_info)$branch\[$reset\]"
+}
 
+prompt() {
+	PS1="\[$y\]\$(date +%H:%M:%S)\[$g\]$(git_branch) \[$b\]\w \[$reset\]\$ "
+}
+
+PROMPT_COMMAND=prompt
 PROMPT_COMMAND=${PROMPT_COMMAND:+${PROMPT_COMMAND%;}; }osc7_cwd
