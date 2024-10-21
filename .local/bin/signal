@@ -1,4 +1,0 @@
-#!/bin/sh
-# https://github.com/signalapp/Signal-Desktop/issues/6368
-
-jq '.window.maximized = true' ~/.config/Signal/ephemeral.json > ~/.config/Signal/ephemeral_tmp.json && mv ~/.config/Signal/ephemeral_tmp.json ~/.config/Signal/ephemeral.json && signal-desktop

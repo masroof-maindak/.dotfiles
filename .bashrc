@@ -94,7 +94,7 @@ plans() {
 # Prompt
 # https://gist.github.com/hacst/4538282
 e() { echo -n "\033[$@m"; }
-f() { e "3$1;6"; }
+f() { e "3$1"; }
 
 r="$(f 1)"
 g="$(f 2)"
