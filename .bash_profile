@@ -14,6 +14,8 @@ export ELECTRON_OZONE_PLATFORM_HINT=auto
 export SWWW_TRANSITION=none
 export SDL_VIDEODRIVER=wayland
 
+export VAULT_DIR="$HOME/Documents/Vault/"
+
 # PATH entries
 add_to_path() {
 	[[ ":$PATH:" != *":$1:"* ]] && export PATH="$1:$PATH"

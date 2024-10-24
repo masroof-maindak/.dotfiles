@@ -4,7 +4,7 @@ declare -A DIRS=(
 	[ind]="$HOME/Documents/repos/indus"
 	[jlb]="$HOME/Documents/uni/OS/Jalebi"
 
-	[vlt]="$HOME/Documents/Vault"
+	[vlt]="$VAULT_DIR"
 	[uni]="$HOME/Documents/uni"
 	[dow]="$HOME/Downloads"
 	[doc]="$HOME/Documents"
