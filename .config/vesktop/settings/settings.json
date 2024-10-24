@@ -329,9 +329,6 @@
         "PreviewMessage": {
             "enabled": false
         },
-        "PronounDB": {
-            "enabled": false
-        },
         "QuickMention": {
             "enabled": false
         },
@@ -638,6 +635,9 @@
         },
         "StickerPaste": {
             "enabled": false
+        },
+        "UserMessagesPronouns": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -650,6 +650,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1727779898794
+        "settingsSyncVersion": 1729706583301
     }
 }
