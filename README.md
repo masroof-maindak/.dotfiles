@@ -39,5 +39,4 @@ git clone https://github.com/masroof-maindak/chrome
 
 ### TODO
 
-- [ ] `cpupower-gui` -> `cpupower` & remove desktop + package list entry
 - [ ] Clipboard manager (w/ Eww?)
