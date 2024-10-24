@@ -1,25 +1,24 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# History
+# -- History --
 HISTSIZE=1024
 HISTFILE="$HOME/.cache/bash/history"
 HISTFILESIZE=4096
 HISTCONTROL=ignoreboth:erasedups
 
-# Shell options
 shopt -s histappend
 shopt -s autocd
 
-# Source aliases
+#  -- Source aliases --
 [[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
-# Functions
+# -- Functions --
 lfcd() { cd "$(command lf -print-last-dir "$@")"; }
 mkcd() { mkdir -p -- "$1" && cd -P -- "$1"; }
-
-# Ctrl + Shift + N opens new terminal at PWD
+plans() { rg 'TODO|NOTE|FIXME|HACK|CHECK' && echo; }
 osc7_cwd() {
+	# Ctrl + Shift + N opens new terminal at PWD
 	local strlen=${#PWD}
 	local encoded=""
 	local pos c o
@@ -34,16 +33,7 @@ osc7_cwd() {
 	printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${encoded}"
 }
 
-# Print tagged comments
-plans() {
-	rg TODO && echo
-	rg NOTE && echo
-	rg FIXME && echo
-	rg HACK && echo
-	rg CHECK && echo
-}
-
-# Prompt
+# -- Prompt --
 # https://gist.github.com/hacst/4538282
 e() { echo -n "\033[$@m"; }
 f() { e "3$1"; }
