@@ -1,10 +1,6 @@
-import = [
-	"~/.config/alacritty/swamp-light.toml"
-]
-
 [font]
-normal = { family = "IBM Plex Mono", style = "Regular" }
-size = 10
+normal = { family = "Fairfax Hax", style = "Regular" }
+size = 18
 
 [window]
 padding = { x = 5, y = 5 }
@@ -12,3 +8,8 @@ padding = { x = 5, y = 5 }
 [cursor]
 style = { shape = "Beam", blinking = "On" }
 unfocused_hollow = true
+
+[general]
+import = [
+	"~/.config/alacritty/swamp-light.toml"
+]

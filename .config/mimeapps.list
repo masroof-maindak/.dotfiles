@@ -1,0 +1,27 @@
+[Added Associations]
+inode/directory=com.system76.CosmicFiles.desktop;
+application/x-zerosize=nvim.desktop;
+text/x-csrc=nvim.desktop;
+
+[Default Applications]
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
+application/x-zerosize=nvim.desktop
+image/vnd.djvu+multipage=org.pwmt.zathura-pdf-mupdf.desktop
+text/plain=nvim.desktop
+application/x-shellscript=nvim.desktop
+text/english=nvim.desktop
+text/x-c=nvim.desktop
+text/x-c++=nvim.desktop
+text/x-c++hdr=nvim.desktop
+text/x-c++src=nvim.desktop
+text/x-chdr=nvim.desktop
+text/x-csrc=nvim.desktop
+text/x-java=nvim.desktop
+text/x-makefile=nvim.desktop
+text/x-readme=nvim.desktop
+text/x-tcl=nvim.desktop
+image/png=imv-dir.desktop;imv.desktop
+image/jpeg=imv-dir.desktop;imv.desktop
+video/H264=mpv.desktop
+video/mp4=mpv.desktop
+video/webm=mpv.desktop
