@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Find *.md files in Obsidian vault
+cd $VAULT_DIR
+files="$(fd -t f -e md -E '.*' |
+	fzf \
+		--preview="bat --style=numbers --color=always --line-range=:250 {}" \
+		--prompt "Vault: ")"
+if [ -n "$files" ]; then
+	echo "$files" | xargs -d "\n" $EDITOR
+fi
+cd - >/dev/null
