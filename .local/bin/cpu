@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+info() {
+	cpupower frequency-info
+}
+
+powersave() {
+	sudo cpupower frequency-set -g powersave
+}
+
+performance() {
+	sudo cpupower frequency-set -g performance
+}
+
+conservative() {
+	sudo cpupower frequency-set -g conservative
+}
+
+set_max() {
+	default="3.1GHz"
+	read -p "Enter the maximum frequency (default: $default): " max
+	max=${max:-$default}
+	sudo cpupower frequency-set -u "$max"
+	echo "Maximum frequency set to $max."
+}
+
+case "$1" in
+"info")
+	info
+	;;
+"pow")
+	powersave
+	;;
+"perf")
+	performance
+	;;
+"avg")
+	conservative
+	;;
+"max")
+	set_max
+	;;
+*)
+	echo "Usage: cpu"
+	echo -e "\tinfo"
+	echo -e "\tpow"
+	echo -e "\tperf"
+	echo -e "\tmax [freq]"
+	exit 1
+	;;
+esac
