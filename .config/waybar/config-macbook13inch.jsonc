@@ -1,8 +1,7 @@
 {
 	"reload_style_on_change": true,
     "position": "bottom",
-	"margin": "0px 10px 10px 10px",
-	// "margin": "0px",
+	"margin": "0px 150px 10px 150px",
     "layer": "top",
 
     "modules-left": ["niri/workspaces"],
@@ -13,10 +12,10 @@
     ],
 
 	"clock": {
-		"format": "{:%H:%M}  ",
-		"format-alt": "{:%A, %b %d, %R}",
-		"interval": 60,
-		"tooltip": false
+		"format": "{:%H.%M}  ",
+		"format-alt": "{:%A, %Y/%m/%d  %I:%M %p}",
+		"tooltip": false,
+		"interval": 60
 	},	
 
 	"battery": {
