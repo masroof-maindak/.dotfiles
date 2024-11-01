@@ -1,27 +1,23 @@
 #!/usr/bin/env bash
 
-info() {
-	cpupower frequency-info
-}
-
-powersave() {
-	sudo cpupower frequency-set -g powersave
-}
-
-performance() {
-	sudo cpupower frequency-set -g performance
-}
-
-conservative() {
-	sudo cpupower frequency-set -g conservative
-}
+info() { cpupower frequency-info; }
+powersave() { sudo cpupower frequency-set -g powersave; }
+performance() { sudo cpupower frequency-set -g performance; }
+conservative() { sudo cpupower frequency-set -g conservative; }
 
 set_max() {
-	default="3.1GHz"
-	read -p "Enter the maximum frequency (default: $default): " max
-	max=${max:-$default}
-	sudo cpupower frequency-set -u "$max"
-	echo "Maximum frequency set to $max."
+	local maxMhz=$(lscpu | rg "max MHz" | awk '{print int($4)}')
+	local minMhz=$(lscpu | rg "min MHz" | awk '{print int($4)}')
+	local freq=${1:-3100}
+
+	if [[ "$freq" -lt "$minMhz" || "$freq" -gt "$maxMhz" ]]; then
+		echo "Frequency must be between ${minMhz} and ${maxMhz}"
+		return 1
+	fi
+
+	freq="${freq}Mhz"
+	sudo cpupower frequency-set -u "$freq"
+	echo "Max frequency set to $freq"
 }
 
 case "$1" in
@@ -38,14 +34,10 @@ case "$1" in
 	conservative
 	;;
 "max")
-	set_max
+	set_max "$2"
 	;;
 *)
-	echo "Usage: cpu"
-	echo -e "\tinfo"
-	echo -e "\tpow"
-	echo -e "\tperf"
-	echo -e "\tmax [freq]"
+	echo "Usage: cpu {info|pow|perf|avg|max [mhz]}"
 	exit 1
 	;;
 esac
