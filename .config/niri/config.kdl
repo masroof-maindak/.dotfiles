@@ -65,7 +65,7 @@ spawn-at-startup "waybar" "-c" "/home/maindak/.config/waybar/config-macbook13inc
 
 prefer-no-csd
 
-screenshot-path "~/Screenshots/%Y-%m-%d_%H:%M:%S.png"
+screenshot-path "~/Screenshots/%Y-%m-%d_%H%M%S.png"
 
 animations {
     slowdown 0.75
