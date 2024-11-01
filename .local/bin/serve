@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-local port=${1:-8081}
+port=${1:-8081}
 if [[ $port =~ ^[0-9]+$ ]]; then
 	python -m http.server "$port"
 else
