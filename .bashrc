@@ -2,9 +2,9 @@
 [[ $- != *i* ]] && return
 
 # -- History --
-HISTSIZE=1024
+HISTSIZE=2048
 HISTFILE="$HOME/.cache/bash/history"
-HISTFILESIZE=4096
+HISTFILESIZE=8192
 HISTCONTROL=ignoreboth:erasedups
 
 shopt -s histappend
