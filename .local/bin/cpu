@@ -4,19 +4,28 @@ info() { cpupower frequency-info; }
 powersave() { sudo cpupower frequency-set -g powersave; }
 performance() { sudo cpupower frequency-set -g performance; }
 conservative() { sudo cpupower frequency-set -g conservative; }
-
 set_max() {
 	local maxMhz=$(lscpu | rg "max MHz" | awk '{print int($4)}')
 	local minMhz=$(lscpu | rg "min MHz" | awk '{print int($4)}')
-	local freq=${1:-3100}
+	local default=3100
 
+	# If an arg is provided, use it as is, else, ask the user
+	if [[ -n "$1" ]]; then
+		freq="$1"
+	else
+		read -p "Enter the maximum frequency (default: $default): " freq
+	fi
+
+	freq="${freq:-$default}"
+
+	# Check if the frequency is within the allowed range
 	if [[ "$freq" -lt "$minMhz" || "$freq" -gt "$maxMhz" ]]; then
-		echo "Frequency must be between ${minMhz} and ${maxMhz}"
+		echo "Frequency must be between ${minMhz} and ${maxMhz} Mhz"
 		return 1
 	fi
 
 	freq="${freq}Mhz"
-	sudo cpupower frequency-set -u "$freq"
+	sudo cpupower frequency-set --max "$freq"
 	echo "Max frequency set to $freq"
 }
 
