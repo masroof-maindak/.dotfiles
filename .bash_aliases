@@ -2,7 +2,7 @@
 declare -A DIRS=(
 	[edu]="$HOME/Documents/wrk2/EducationVerse-App-Backend/"
 	[ind]="$HOME/Documents/repos/indus"
-	[jlb]="$HOME/Documents/uni/OS/Jalebi"
+	[jlb]="$HOME/Documents/uni/os/Jalebi"
 
 	[vlt]="$VAULT_DIR"
 	[uni]="$HOME/Documents/uni"
