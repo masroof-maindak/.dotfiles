@@ -10,7 +10,8 @@ input {
         natural-scroll
         accel-speed 0.4
         accel-profile "flat"
-        scroll-method "two-finger"
+		// scroll-factor 0.75
+        scroll-method "edge"
     }
 
     warp-mouse-to-focus
@@ -33,8 +34,8 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 10
-    center-focused-column "on-overflow"
+    gaps 6
+    center-focused-column "never"
 	always-center-single-column
 
     preset-column-widths {
@@ -51,10 +52,19 @@ layout {
     default-column-width { proportion 0.66667; }
 
     focus-ring {
-        width 3
-        active-color "#bf7979"
+		off
+        width 1
+        // active-color "#bf7979"
+        active-color "#db930d"
         inactive-color "#c9b9a7"
     }
+
+	border {
+		width 2
+        active-color "#bf7979"
+        // active-color "#db930d"
+		inactive-color "#3a3124"
+	}
 }
 
 spawn-at-startup "swww-daemon"

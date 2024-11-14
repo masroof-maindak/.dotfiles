@@ -17,6 +17,7 @@ shopt -s autocd
 lfcd() { cd "$(command lf -print-last-dir "$@")"; }
 mkcd() { mkdir -p -- "$1" && cd -P -- "$1"; }
 plans() { rg 'TODO|NOTE|FIXME|HACK|CHECK' && echo; }
+trnt() { transmission-daemon -t -u a -v b -p 9091 -a "127.0.0.1"; }
 osc7_cwd() {
 	# Ctrl + Shift + N opens new terminal at PWD
 	local strlen=${#PWD}
