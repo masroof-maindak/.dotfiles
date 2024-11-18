@@ -10,9 +10,14 @@ input {
         natural-scroll
         accel-speed 0.4
         accel-profile "flat"
-		// scroll-factor 0.75
+		scroll-factor 0.8
         scroll-method "edge"
     }
+
+	mouse {
+        accel-speed 0.1
+		accel-profile "flat"
+	}
 
     warp-mouse-to-focus
     focus-follows-mouse max-scroll-amount="40%"
@@ -35,7 +40,7 @@ output "eDP-1" {
 
 layout {
     gaps 6
-    center-focused-column "never"
+    center-focused-column "on-overflow"
 	always-center-single-column
 
     preset-column-widths {
