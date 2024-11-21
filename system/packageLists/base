@@ -30,6 +30,9 @@ visual-studio-code-bin
 jq
 obsidian
 tldr
+valgrind
+gdb
+bc
 
 # Web browser
 firefox
