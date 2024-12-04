@@ -42,8 +42,8 @@ install_eww() {
 	print_yellow "Installing Eww"
 	git clone https://github.com/elkowar/eww "$HOME"/Documents/repos/eww
 	cd "$HOME"/Documents/repos/eww || exit
-	cargo build -r --no-default-features --features wayland
-	sudo mv target/release/eww "$HOME"/.local/bin
+	cargo build -r --no-default-features --features=wayland
+	mv target/release/eww "$HOME"/.local/bin
 	chmod +x "$HOME"/.local/bin/eww
 	cd "$HOME"/.dotfiles/ || exit
 }
