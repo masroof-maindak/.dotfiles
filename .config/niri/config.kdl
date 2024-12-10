@@ -109,7 +109,7 @@ binds {
 
     Mod+Return { spawn "footclient"; }
     Mod+D { spawn "~/.config/rofi/scripts/launcher.sh"; }
-    Mod+W { spawn "cosmic-files"; }
+    Mod+W { spawn "thunar"; }
     Mod+B { spawn "firefox"; }
     Mod+V { spawn "code"; }
 	Mod+Z { spawn "bash" "-c" "notify-send Clipboard \"$(wl-paste)\""; }
