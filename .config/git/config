@@ -1,6 +1,7 @@
 [user]
 	email = mujtaba.asim.amin@gmail.com
 	name = masroof-maindak
+	signingkey = ~/.ssh/id_ed25519.pub
 
 [init]
 	defaultBranch = main
@@ -29,3 +30,15 @@
 
 [core]
 	editor = nvim
+[submodule]
+	recurse = true
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[branch]
+	sort = -committerdate
+[column]
+	ui = auto
