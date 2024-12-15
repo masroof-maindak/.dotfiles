@@ -1,7 +1,5 @@
 foot
 foot-terminfo
-rofi-wayland
-wl-clipboard
 nwg-look
 wlsunset
 wf-recorder
@@ -19,3 +17,7 @@ swww
 niri
 xdg-desktop-portal-gtk
 xdg-desktop-portal-gnome
+
+cliphist
+wl-clipboard
+fuzzel
