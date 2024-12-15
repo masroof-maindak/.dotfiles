@@ -20,7 +20,7 @@ mpv
 
 # Networking and torrent
 networkmanager
-qbittorrent
+transmission-cli
 syncthing
 
 # Development and text editors
