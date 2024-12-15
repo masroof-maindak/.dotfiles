@@ -5,6 +5,7 @@ riverctl map normal Super Return spawn 'footclient'
 riverctl map normal Super+Shift Return spawn 'footclient -a floatyFoot'
 
 riverctl map normal Super D spawn '~/.config/rofi/scripts/launcher.sh'
+riverctl map normal Super Z spawn 'cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'
 
 # Screenshots
 riverctl map normal Super P spawn 'grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Screenshots/$(date +%F_%T).png'

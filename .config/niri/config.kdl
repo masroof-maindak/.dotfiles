@@ -77,6 +77,7 @@ spawn-at-startup "dunst"
 spawn-at-startup "foot" "--server"
 spawn-at-startup "wlsunset" "-l" "31.4" "-L" "74.3"
 spawn-at-startup "waybar" "-c" "/home/maindak/.config/waybar/config-macbook13inch.jsonc"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
 prefer-no-csd
 
@@ -108,11 +109,12 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return { spawn "footclient"; }
-    Mod+D { spawn "~/.config/rofi/scripts/launcher.sh"; }
+    // Mod+D { spawn "~/.config/rofi/scripts/launcher.sh"; }
+    Mod+D { spawn "fuzzel"; }
     Mod+W { spawn "thunar"; }
     Mod+B { spawn "firefox"; }
     Mod+V { spawn "code"; }
-	Mod+Z { spawn "bash" "-c" "notify-send Clipboard \"$(wl-paste)\""; }
+    Mod+Z { spawn "bash" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "amixer" "sset" "Master" "2%+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "amixer" "sset" "Master" "2%-"; }

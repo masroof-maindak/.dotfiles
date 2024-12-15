@@ -8,7 +8,7 @@ replace_hex_codes() {
         ["1d2021"]="211d13" # DarkHard
         ["282828"]="242015" # Dark1 / BG
         ["3c3836"]="3A3124" # Dark2
-        ["504945"]="4D3F32" # Dark3 
+        ["504945"]="4D3F32" # Dark3
         ["665c54"]="5F4E41" # Dark4
         ["7c6f64"]="725C4F" # Dark5
         ["928374"]="856a5d" # Dark6 / DarkGrey
@@ -73,6 +73,3 @@ done < "$filename"
 
 # Replace the original file with the modified file
 mv "$tempfile" "$filename"
-
-echo "Hexcode replacement completed and original file backed up as $filename.bak."
-
