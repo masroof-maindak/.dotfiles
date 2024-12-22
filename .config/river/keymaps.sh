@@ -4,7 +4,7 @@
 riverctl map normal Super Return spawn 'footclient'
 riverctl map normal Super+Shift Return spawn 'footclient -a floatyFoot'
 
-riverctl map normal Super D spawn '~/.config/rofi/scripts/launcher.sh'
+riverctl map normal Super D spawn 'fuzzel'
 riverctl map normal Super Z spawn 'cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'
 
 # Screenshots
