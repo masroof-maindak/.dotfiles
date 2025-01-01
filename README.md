@@ -6,12 +6,14 @@ cd && git clone --recurse-submodules https://github.com/masroof-maindak/.dotfile
 cd .dotfiles
 chmod +x bootstrap.sh
 ./bootstrap.sh
-
-# Optional: Create SSH keys for authentication/signing.
-# Git will attempt to use ~/.ssh/id_ed25519.pub as the signing key.
 ```
 
 ## Other
+
+***Git SSH Signing***
+
+- Git config attempts to use `~/.ssh/id_ed25519.pub` as signing key
+- Copy over previous/create new Git signing key
 
 ***Firefox***
 
@@ -29,8 +31,7 @@ git clone git@github.com:masroof-maindak/chrome.git
 ***Source***
 
 - Source `utils.sh` and run relevant functions for whatever is required.
-- ~~Miscellaneous utilities for river: [flow](https://github.com/stefur/flow) & [river-bedload](https://git.sr.ht/~novakane/river-bedload).~~
-- lf: `env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest`
+- Miscellaneous utilities for river: [flow](https://github.com/stefur/flow) & [river-bedload](https://git.sr.ht/~novakane/river-bedload).
 
 ***Obsidian***
 
