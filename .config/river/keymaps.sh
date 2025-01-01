@@ -5,6 +5,7 @@ riverctl map normal Super Return spawn 'footclient'
 riverctl map normal Super+Shift Return spawn 'footclient -a floatyFoot'
 
 riverctl map normal Super D spawn 'fuzzel'
+riverctl map normal Super E spawn 'fuzzel-emoji'
 riverctl map normal Super Z spawn 'cliphist list | fuzzel --dmenu | cliphist decode | wl-copy'
 
 # Screenshots

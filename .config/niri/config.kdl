@@ -111,6 +111,7 @@ binds {
     Mod+Return { spawn "footclient"; }
     // Mod+D { spawn "~/.config/rofi/scripts/launcher.sh"; }
     Mod+D { spawn "fuzzel"; }
+    Mod+E { spawn "fuzzel-emoji"; }
     Mod+W { spawn "thunar"; }
     Mod+B { spawn "firefox"; }
     Mod+V { spawn "code"; }
