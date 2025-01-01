@@ -72,6 +72,7 @@ poppler
 # Archive utilities
 unzip
 zip
+7zip
 atool
 tar
 
