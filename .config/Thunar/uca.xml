@@ -47,7 +47,7 @@
 	<directories/>
 </action>
 <action>
-	<icon></icon>
+	<icon>image-x-xcf</icon>
 	<name>swwwWall</name>
 	<submenu></submenu>
 	<unique-id>1706043646250169-1</unique-id>
