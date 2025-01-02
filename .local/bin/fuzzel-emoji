@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Courtesy of https://github.com/end-4/fuzzel-emoji
 
 FUZZEL_CMD="sed '1,/^### DATA ###$/d' \$0 | \

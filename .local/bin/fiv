@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
 # Find *.md files in Obsidian vault
+
 cd $VAULT_DIR
 files="$(fd -t f -e md -E '.*' |
 	fzf \
