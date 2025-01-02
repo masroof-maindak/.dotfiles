@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Start an HTTP server in the CWD
 
 port=${1:-8081}
 if [[ $port =~ ^[0-9]+$ ]]; then
