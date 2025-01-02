@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 xset s 480 dpms 600 600 600 &
 xset r rate 300 50

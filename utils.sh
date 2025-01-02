@@ -16,6 +16,7 @@ install_paru() {
 install_st() {
 	print_yellow "Installing st"
 	git clone https://github.com/siduck/st
+	git pull
 	cd st || exit
 	sudo make && sudo make install
 	cd ..
@@ -42,6 +43,7 @@ install_eww() {
 	print_yellow "Installing Eww"
 	git clone https://github.com/elkowar/eww "$HOME"/Documents/repos/eww
 	cd "$HOME"/Documents/repos/eww || exit
+	git pull
 	cargo build -r --no-default-features --features=wayland
 	mv target/release/eww "$HOME"/.local/bin
 	chmod +x "$HOME"/.local/bin/eww
@@ -52,7 +54,8 @@ install_spotify_player() {
 	print_yellow "Installing spotify-player"
 	git clone https://github.com/aome510/spotify-player.git "$HOME"/Documents/repos/spotify-player
 	cd "$HOME"/Documents/repos/spotify-player || exit
-	cargo build -r --no-default-features --features lyric-finder,notify,sixel,pulseaudio-backend,streaming,media-control
+	git pull
+	cargo build -r --no-default-features --features notify,sixel,pulseaudio-backend,streaming,media-control
 	mv target/release/spotify_player "$HOME"/.local/bin/spotify_player
 	chmod +x "$HOME"/.local/bin/spotify_player
 	cd "$HOME"/.dotfiles/ || exit

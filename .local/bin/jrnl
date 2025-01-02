@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-
 # Open today's journal entry
+
 cd $VAULT_DIR
-today=$(date +'%m-%d')
-fpath="03 - Journal/$(date +'%m - %b')/${today}.md"
+today=$(date +'%Y-%m-%d')
+fpath="03 - Journal/$(date +'%Y')/$(date +'%m - %b')/${today}.md"
 if [ -f "$fpath" ]; then
 	$EDITOR "$fpath"
 fi
