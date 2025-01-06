@@ -1,5 +1,5 @@
 theme = "swamp light"
-client_id_command = "cat ~/.cache/spotify_client_id"
+client_id_command = { command = "cat", args = ["/home/maindak/.cache/spotify_client_id"] }
 client_port = 8080
 playback_format = "{status} {track} • {artists}\n{album}\n\n{metadata}"
 
