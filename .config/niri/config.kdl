@@ -133,6 +133,8 @@ binds {
 	XF86AudioNext { spawn "playerctl" "next"; }
 
     Mod+Q { close-window; }
+	Mod+Space       { toggle-window-floating; }
+	Mod+Shift+Space   { switch-focus-between-floating-and-tiling; }
 
     Mod+Left     { focus-column-left; }
     Mod+Down     { focus-window-or-workspace-down; }
