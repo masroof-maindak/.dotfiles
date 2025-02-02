@@ -1,9 +1,6 @@
 # Directories
 declare -A DIRS=(
-	[edu]="$HOME/Documents/wrk2/EducationVerse-App-Backend/"
-	[ind]="$HOME/Documents/repos/indus"
-	[jlb]="$HOME/Documents/uni/os/jalebi"
-	[ghn]="$HOME/Documents/uni/os/ghonsla"
+	[wrk]="$HOME/Documents/wrk/"
 
 	[vlt]="$VAULT_DIR"
 	[uni]="$HOME/Documents/uni"
@@ -48,7 +45,7 @@ alias mkdir="mkdir -p"
 alias dt="date"
 
 # Functions
-alias pubip='curl ipinfo.io/ip; echo'
+alias pubip='curl ipinfo.io; echo'
 alias copy='wl-copy <'
 alias pkg="pacman -Q | wc -l"
 alias bt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}'"

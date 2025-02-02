@@ -8,7 +8,7 @@ export GOPATH="$HOME/.go"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/.ripgreprc"
 
 export FZF_DEFAULT_COMMAND="fd . --hidden --exclude \".git\""
-export FZF_DEFAULT_OPTS="--reverse --margin 1,2 --prompt \"fzf: \" --color=16	--preview-window=\"down,50%,border-sharp,wrap\" --multi"
+export FZF_DEFAULT_OPTS="--reverse --margin 1,2 --prompt \"fzf: \" --color=16 --preview-window=\"down,50%,border-sharp,wrap\" --multi"
 
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 export SWWW_TRANSITION=none
