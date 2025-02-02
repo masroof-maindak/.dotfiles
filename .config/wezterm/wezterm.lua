@@ -1,8 +1,7 @@
 local wezterm = require("wezterm")
 local config = {}
 
-config.font = wezterm.font_with_fallback({ "GohuFont", "CozetteHiDpi" })
-config.line_height = 1.25
+config.font = wezterm.font("Go Mono Nerd Font")
 config.color_scheme = "swamp-light"
 -- config.color_scheme = "swamp"
 -- config.font_size = 12
