@@ -12,8 +12,8 @@ sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 install_rust
 
 # Install packages
-installList "base"
-installList "wayland"
+install_list "base"
+install_list "wayland"
 
 # Symlink dotfiles
 rm "$HOME"/.bashrc "$HOME"/.bash_profile
@@ -56,7 +56,6 @@ sudo systemctl enable NetworkManager
 print_yellow "Copying desktop entries"
 sudo cp ./system/Desktop\ Entries/syncthing.desktop /usr/share/applications/syncthing.desktop
 sudo cp ./system/Desktop\ Entries/spotify_player.desktop /usr/share/applications/spotify_player.desktop
-sudo cp ./system/Desktop\ Entries/org.rnd2.cpupower_gui.desktop /usr/share/applications/org.rnd2.cpupower_gui.desktop
 
 # Make scripts executable
 print_yellow "Making scripts executable"
@@ -69,3 +68,5 @@ chmod +x "$HOME"/.config/river/*
 chmod +x "$HOME"/.local/bin/*
 
 set_up_papirus
+
+source ~/.bashrc

@@ -28,15 +28,15 @@ install_rust() {
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
 }
 
-installList() {
-	print_yellow "Installing $1 packages"
-	for pkg in $(cat ./system/packageLists/$1); do
-    	if [[ -n "$pkg" && ! "$pkg" =~ ^# ]]; then
-    	    if ! pacman -Q "$pkg" &>/dev/null; then
-    	        paru -S --skipreview --noconfirm "$pkg"
-    	    fi
-    	fi
-	done
+install_list() {
+    print_yellow "Installing $1 packages"
+    while read -r pkg; do
+        if [[ -n "$pkg" && ! "$pkg" =~ ^# ]]; then
+            if ! pacman -Q "$pkg" &>/dev/null; then
+                paru -S --skipreview --noconfirm "$pkg"
+            fi
+        fi
+    done < "./system/packageLists/$1"
 }
 
 install_eww() {
