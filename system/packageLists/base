@@ -20,6 +20,9 @@ mpv
 
 # Networking and torrent
 networkmanager
+inetutils
+bind
+wget
 transmission-cli
 syncthing
 
@@ -65,7 +68,6 @@ vesktop-bin
 # Command line utilities
 ripgrep
 btop
-wget
 fd
 fzf
 bat
