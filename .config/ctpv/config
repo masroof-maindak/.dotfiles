@@ -8,3 +8,7 @@ preview audio audio/* {{
 		y=$((y + $(printf '%s\n' "$meta" | wc -l)))
 	fi
 }}
+
+preview image image/* {{
+	chafa -s "${w}x${h}" -f sixels --polite on "$f"
+}}
