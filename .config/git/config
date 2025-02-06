@@ -8,10 +8,7 @@
 
 [alias]
 	a = add
-	ac = !git add . && git commit -m
-	am = commit --amend
-	c = commit -m
-	cm = commit -am
+	c = commit
 	co = checkout
 	cob = checkout -b
 	cl = clone
