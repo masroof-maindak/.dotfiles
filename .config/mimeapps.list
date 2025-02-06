@@ -25,3 +25,4 @@ image/jpeg=imv-dir.desktop;imv.desktop
 video/H264=mpv.desktop
 video/mp4=mpv.desktop
 video/webm=mpv.desktop
+x-scheme-handler/discord=vesktop.desktop
