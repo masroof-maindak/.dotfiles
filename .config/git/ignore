@@ -3,5 +3,4 @@
 node_modules/
 venv/
 a.out
-src
 main
