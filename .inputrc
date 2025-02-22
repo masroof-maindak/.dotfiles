@@ -20,4 +20,5 @@ set menu-complete-display-prefix On
 # Alt + S: Prefix line with 'sudo'
 "\es": "\C-asudo \C-e"
 
+# Alt + O: open lf
 "\eo": "lf\n"
