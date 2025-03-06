@@ -43,6 +43,7 @@ alias quit="exit"
 alias qquit="exit"
 alias mkdir="mkdir -p"
 alias dt="date"
+alias cd..="cd ../.."
 
 # Functions
 alias pubip='curl ipinfo.io; echo'
