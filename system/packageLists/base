@@ -25,6 +25,8 @@ bind
 wget
 transmission-cli
 syncthing
+wireguard-tools
+amneziawg-go
 
 # Development and text editors
 npm
@@ -41,6 +43,9 @@ bc
 
 # Web browser
 firefox
+librewolf-bin
+torbrowser-launcher
+ungoogled-chromium-bin
 
 # Notification and desktop utilities
 dunst
@@ -64,6 +69,7 @@ ttf-go-nerd
 
 # Communication
 vesktop-bin
+signal-desktop
 
 # Command line utilities
 ripgrep
