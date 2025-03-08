@@ -13,16 +13,6 @@ install_paru() {
 	rm -rf paru
 }
 
-install_st() {
-	print_yellow "Installing st"
-	git clone https://github.com/siduck/st
-	git pull
-	cd st || exit
-	sudo make && sudo make install
-	cd ..
-	rm -rf st
-}
-
 install_rust() {
 	print_yellow "Installing Rust"
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
@@ -44,10 +34,10 @@ install_eww() {
 	git clone https://github.com/elkowar/eww "$HOME"/Documents/repos/eww
 	cd "$HOME"/Documents/repos/eww || exit
 	git pull
-	cargo build -r --no-default-features --features=wayland
+	cargo build -r --no-default-features --features wayland
 	mv target/release/eww "$HOME"/.local/bin
 	chmod +x "$HOME"/.local/bin/eww
-	cd "$HOME"/.dotfiles/ || exit
+	cd - || exit
 }
 
 install_spotify_player() {
@@ -58,7 +48,17 @@ install_spotify_player() {
 	cargo build -r --no-default-features --features notify,sixel,pulseaudio-backend,streaming,media-control
 	mv target/release/spotify_player "$HOME"/.local/bin/spotify_player
 	chmod +x "$HOME"/.local/bin/spotify_player
-	cd "$HOME"/.dotfiles/ || exit
+	cd - || exit
+}
+
+install_wireguard_go() {
+	print_yellow "Installing spotify-player"
+	git clone https://git.zx2c4.com/wireguard-go "$HOME"/Documents/repos/wireguard-go
+	cd "$HOME"/Documents/repos/wireguard-go || exit
+	git pull
+	make
+	sudo mv wireguard-go /usr/local/bin
+	cd - || exit
 }
 
 set_up_papirus() {
@@ -66,3 +66,4 @@ set_up_papirus() {
 	wget -qO- https://git.io/papirus-icon-theme-install | sh
 	wget -qO- https://git.io/papirus-folders-install | sh
 }
+
