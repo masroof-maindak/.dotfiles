@@ -16,7 +16,7 @@ super + d
 
 # Applications
 super + {w, b, v}
- {thunar, firefox, code}
+ {thunar, librewolf, code}
 
 # Screenshots
 super + {_,shift + }p
