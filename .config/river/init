@@ -7,7 +7,7 @@
 
 # Initial Tags
 riverctl rule-add -app-id code-url-handler tags 1          # (tag 1)
-riverctl rule-add -app-id firefox tags 2                   # (tag 2)
+riverctl rule-add -app-id librewolf tags 2                 # (tag 2)
 riverctl rule-add -app-id Spotify -title Spotify tags 4    # (tag 3)
 riverctl rule-add -app-id vesktop tags 8                   # (tag 4)
 riverctl rule-add -app-id gthumb tags 16                   # (tag 5)

@@ -42,7 +42,6 @@ gdb
 bc
 
 # Web browser
-firefox
 librewolf-bin
 torbrowser-launcher
 ungoogled-chromium-bin

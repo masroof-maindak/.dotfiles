@@ -14,7 +14,7 @@ riverctl map normal Super+Shift P spawn 'grim - | wl-copy && wl-paste > ~/Screen
 
 # Common Software
 riverctl map normal Super W spawn 'thunar'
-riverctl map normal Super B spawn 'firefox'
+riverctl map normal Super B spawn 'librewolf'
 riverctl map normal Super V spawn 'code'
 
 ### PASSTHROUGH MODE

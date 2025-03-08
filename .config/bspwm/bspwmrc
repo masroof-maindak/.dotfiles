@@ -31,7 +31,7 @@ bspc config pointer_modifier      	mod4
 bspc config pointer_action1       	resize_corner
 
 bspc rule -a Code 					desktop='^1'
-bspc rule -a firefox 				desktop='^2'
+bspc rule -a librewolf 				desktop='^2'
 bspc rule -a Spotify 				desktop='^3'
 bspc rule -a vesktop 				desktop='^4'
 bspc rule -a Gthumb 				desktop='^5'

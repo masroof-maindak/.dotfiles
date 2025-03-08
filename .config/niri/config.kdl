@@ -113,7 +113,7 @@ binds {
     Mod+D { spawn "fuzzel"; }
     Mod+E { spawn "fuzzel-emoji"; }
     Mod+W { spawn "thunar"; }
-    Mod+B { spawn "firefox"; }
+    Mod+B { spawn "librewolf"; }
     Mod+V { spawn "code"; }
     Mod+Z { spawn "bash" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
 
