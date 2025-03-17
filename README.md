@@ -27,3 +27,7 @@ chmod +x bootstrap.sh
 ### spotify-player
 
 - Generate client ID and write to `~/.cache/spotify_client_id`.
+
+### GTK Theme
+
+- [Bluecurve](https://www.gnome-look.org/p/2191581/) or [Human](https://www.gnome-look.org/p/1313387/)
