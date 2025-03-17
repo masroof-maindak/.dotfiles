@@ -36,7 +36,7 @@ current_playing = { fg = "Yellow" }
 page_desc = { fg = "Blue", modifiers = [] }
 
 table_header = { fg = "Magenta" }
-selection = { modifiers = ["Italic", "Bold"] }
+selection = { fg = "Yellow", modifiers = ["Italic", "Bold"] }
 
 [[themes]]
 name = "swamp"

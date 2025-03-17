@@ -60,10 +60,3 @@ install_wireguard_go() {
 	sudo mv wireguard-go /usr/local/bin
 	cd - || exit
 }
-
-set_up_papirus() {
-	print_yellow "Installing Papirus Icon Theme"
-	wget -qO- https://git.io/papirus-icon-theme-install | sh
-	wget -qO- https://git.io/papirus-folders-install | sh
-}
-
