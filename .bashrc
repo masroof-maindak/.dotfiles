@@ -59,7 +59,7 @@ branch_info() {
 
 git_branch() {
 	local branch=$(git branch --show-current 2>/dev/null)
-	[ -n "$branch" ] && echo -n " $(branch_info)$branch\[$reset\]"
+	[ -n "$branch" ] && echo -n " $(branch_info)($branch)\[$reset\]"
 }
 
 prompt() {
