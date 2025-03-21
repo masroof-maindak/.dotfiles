@@ -14,8 +14,8 @@
 
 * {
   all: unset;
-  font-family: "IBM Plex Sans";
-  font-size: 13px;
+  font-family: "JetBrains Mono";
+  font-size: 14px;
 }
 
 window#waybar {
@@ -38,10 +38,9 @@ tooltip {
 }
 
 #workspaces button {
-  margin: 0px 2px;
-  min-width: 16px;
-  min-height: 16px;
-  border: 1px solid;
+  margin: 2px;
+  padding: 2px;
+  border-radius: 3px;
 }
 
 #workspaces button {
@@ -53,5 +52,6 @@ tooltip {
 }
 
 #workspaces button.focused {
-  color: @accent;
+  background: @accent;
+  color: @background-color;
 }

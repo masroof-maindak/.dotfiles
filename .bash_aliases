@@ -33,6 +33,7 @@ alias p="pacman"
 alias py="python"
 alias l="lfcd"
 alias dk="docker"
+alias z="zellij"
 
 # Builtins
 alias ls="ls -hN --color=auto --group-directories-first"
