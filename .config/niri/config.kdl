@@ -27,7 +27,7 @@ hotkey-overlay {
 }
 
 cursor {
-	xcursor-theme "phinger-cursors-light"
+    xcursor-theme "phinger-cursors-light"
 	xcursor-size 32
 }
 
@@ -38,7 +38,7 @@ output "eDP-1" {
 }
 
 layout {
-    gaps 6
+    gaps 3
     center-focused-column "on-overflow"
 	always-center-single-column
 	default-column-display "tabbed"
@@ -58,6 +58,7 @@ layout {
 
 	shadow {
 		 on
+		 spread 5
 	}
 
     preset-column-widths {
@@ -74,20 +75,17 @@ layout {
     default-column-width { proportion 0.66667; }
 
     focus-ring {
+		off
         width 2
         active-color "#bf7979"
         // active-color "#db930d"
         inactive-color "#c9b9a7"
     }
+}
 
-	border {
-		off
-		width 2
-        // active-color "#db930d"
-        active-color "#bf7979"
-		// inactive-color "#3a3124"
-		inactive-color "#c9b9a7"
-	}
+window-rule {
+    geometry-corner-radius 4
+    clip-to-geometry true
 }
 
 spawn-at-startup "swww-daemon"
