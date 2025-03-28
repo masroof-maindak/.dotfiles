@@ -2,5 +2,7 @@
 .cache/
 node_modules/
 venv/
+.venv/
+__pycache__/
 a.out
 main
