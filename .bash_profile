@@ -18,6 +18,8 @@ export VAULT_DIR="$HOME/Documents/Vault/"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
+export PYTHON_HISTORY="$HOME/.cache/python-history/hist"
+
 # PATH entries
 add_to_path() {
 	[[ ":$PATH:" != *":$1:"* ]] && export PATH="$1:$PATH"
