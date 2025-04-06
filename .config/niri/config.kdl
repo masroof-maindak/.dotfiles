@@ -42,7 +42,6 @@ layout {
     center-focused-column "on-overflow"
 	always-center-single-column
 	default-column-display "tabbed"
-	empty-workspace-above-first
 
 	tab-indicator {
 		hide-when-single-tab
