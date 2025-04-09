@@ -35,6 +35,12 @@ output "eDP-1" {
     mode "2560x1600@59.972"
     scale 2
     transform "normal"
+	// off
+}
+
+output "HDMI-A-2" {
+	mode "2560x1440"
+	scale 1.5
 }
 
 layout {

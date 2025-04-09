@@ -19,6 +19,7 @@
 	p = push
 	s = status
 	ss = status -s
+	st = stash
 	undo = reset --soft HEAD^
 	dag = log --graph --oneline --all
 	last = log -1 HEAD
