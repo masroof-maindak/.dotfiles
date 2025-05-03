@@ -17,6 +17,7 @@ pipewire-pulse
 wireplumber
 ffmpeg
 mpv
+ffmpegthumbnailer
 
 # Networking and torrent
 networkmanager

@@ -15,13 +15,13 @@
 	},	
 
 	"battery": {
-		"format": "{capacity}%\n<b>bat</b>",
+		"format": "{capacity}\n<b>bat</b>",
 		"interval": 60
 	},
 
     "wireplumber": {
-        "format": "{volume}%\n<b>vol</b>",
-        "format-muted": "<b>muted</b>",
+        "format": "{volume}\n<b>vol</b>",
+        "format-muted": "<b>mut</b>",
         "on-click": "amixer sset Master toggle",
         "on-click-right": "pavucontrol"
     }
