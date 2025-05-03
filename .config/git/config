@@ -6,6 +6,9 @@
 [init]
 	defaultBranch = main
 
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	
 [alias]
 	a = add
 	c = commit
@@ -26,8 +29,15 @@
 	fuckit = reset --hard
 	nuke = branch -D
 
+[push]
+	autoSetupRemote = true
+[log]
+	abbrevCommit = true
+[status]
+	branch = true
 [core]
 	editor = nvim
+	pager = diff-so-fancy | less --tabs=4 -RF
 [submodule]
 	recurse = true
 [gpg]
