@@ -5,5 +5,4 @@ venv/
 .venv/
 __pycache__/
 a.out
-main
 .env
