@@ -1,3 +1,10 @@
+spawn-at-startup "swww-daemon"
+spawn-at-startup "dunst"
+spawn-at-startup "foot" "--server"
+spawn-at-startup "wlsunset" "-l" "31.4" "-L" "74.3"
+spawn-at-startup "waybar" "-c" "/home/unfettered/.config/waybar/config-macbook13inch.jsonc"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+
 input {
     keyboard {
 		repeat-delay 300
@@ -44,10 +51,11 @@ output "HDMI-A-2" {
 }
 
 layout {
-    gaps 3
+    gaps 4
     center-focused-column "on-overflow"
 	always-center-single-column
 	default-column-display "tabbed"
+	background-color "transparent"
 
 	tab-indicator {
 		hide-when-single-tab
@@ -77,6 +85,7 @@ layout {
         proportion 0.5
         proportion 0.66667
 	}
+
     default-column-width { proportion 0.66667; }
 
     focus-ring {
@@ -88,17 +97,32 @@ layout {
     }
 }
 
+// Background & Overview
+layer-rule {
+    match namespace="swww"
+    place-within-backdrop true
+}
+
+overview {
+    workspace-shadow {
+        off
+    }
+}
+
+layer-rule {
+    match namespace="^launcher$"
+	shadow {
+		on
+	}
+    geometry-corner-radius 10
+    baba-is-float true
+}
+// ---
+
 window-rule {
     geometry-corner-radius 4
     clip-to-geometry true
 }
-
-spawn-at-startup "swww-daemon"
-spawn-at-startup "dunst"
-spawn-at-startup "foot" "--server"
-spawn-at-startup "wlsunset" "-l" "31.4" "-L" "74.3"
-spawn-at-startup "waybar" "-c" "/home/maindak/.config/waybar/config-macbook13inch.jsonc"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
 prefer-no-csd
 
@@ -119,6 +143,19 @@ window-rule {
 }
 
 window-rule {
+  match title=r#"^(Open File)(.*)$"#
+  match title=r#"^(Select a File)(.*)$"#
+  match title=r#"^(Choose wallpaper)(.*)$"#
+  match title=r#"^(Open Folder)(.*)$"#
+  match title=r#"^(Save As)(.*)$"#
+  match title=r#"^(Library)(.*)$"#
+  match app-id="imv"
+  match title="Picture-in-Picture"
+
+  open-floating true
+}
+
+window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
     block-out-from "screen-capture"
@@ -127,17 +164,17 @@ window-rule {
 }
 
 binds {
-    Mod+Shift+Slash { show-hotkey-overlay; }
-
+	// Apps
     Mod+Return { spawn "footclient"; }
-    // Mod+D { spawn "~/.config/rofi/scripts/launcher.sh"; }
     Mod+D { spawn "fuzzel"; }
     Mod+E { spawn "fuzzel-emoji"; }
     Mod+W { spawn "thunar"; }
     Mod+B { spawn "librewolf"; }
     Mod+V { spawn "code"; }
     Mod+Z { spawn "bash" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
+    Mod+Q { close-window; }
 
+	// Media & Other
     XF86AudioRaiseVolume allow-when-locked=true { spawn "amixer" "sset" "Master" "2%+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "amixer" "sset" "Master" "2%-"; }
     XF86AudioMute        allow-when-locked=true { spawn "amixer" "sset" "Master" "toggle"; }
@@ -153,10 +190,11 @@ binds {
 	XF86AudioPrev { spawn "playerctl" "previous"; }
 	XF86AudioNext { spawn "playerctl" "next"; }
 
-    Mod+Q { close-window; }
+	// Floating
 	Mod+Space       { toggle-window-floating; }
 	Mod+Shift+Space   { switch-focus-between-floating-and-tiling; }
 
+	// Focusing
     Mod+Left     { focus-column-left; }
     Mod+Down     { focus-window-or-workspace-down; }
     Mod+Up     { focus-window-or-workspace-up; }
@@ -166,6 +204,7 @@ binds {
     Mod+K     { focus-window-or-workspace-up; }
     Mod+L     { focus-column-right; }
 
+	// Movement
     Mod+Shift+Left     { move-column-left; }
     Mod+Shift+Down     { move-window-down-or-to-workspace-down; }
     Mod+Shift+Up     { move-window-up-or-to-workspace-up; }
@@ -174,33 +213,27 @@ binds {
     Mod+Shift+J     { move-window-down-or-to-workspace-down; }
     Mod+Shift+K     { move-window-up-or-to-workspace-up; }
     Mod+Shift+L     { move-column-right; }
-
-	Mod+T { toggle-column-tabbed-display; }
-
-    Mod+Home { focus-column-first; }
-    Mod+End  { focus-column-last; }
-    Mod+Ctrl+Home { move-column-to-first; }
-    Mod+Ctrl+End  { move-column-to-last; }
-
+	
+	// Monitor focusing
     Mod+Ctrl+H     { focus-monitor-left; }
     Mod+Ctrl+J     { focus-monitor-down; }
     Mod+Ctrl+K     { focus-monitor-up; }
     Mod+Ctrl+L     { focus-monitor-right; }
 
+	// Monitor column movement
     Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
-    // Alternatively, there are commands to move just a single window:
+	// Monitor workspace movement
     // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
-    // ...
-
     Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
     Mod+Shift+Ctrl+Right  { move-workspace-to-monitor-right; }
     Mod+Shift+Ctrl+Up  { move-workspace-to-monitor-up; }
     Mod+Shift+Ctrl+Down  { move-workspace-to-monitor-down; }
 
+	// Workspace movement
     Mod+Ctrl+U         { move-column-to-workspace-down; }
     Mod+Ctrl+I         { move-column-to-workspace-up; }
 
@@ -209,15 +242,7 @@ binds {
     Mod+Shift+U         { move-workspace-down; }
     Mod+Shift+I         { move-workspace-up; }
 
-    // Similarly, you can bind touchpad scroll "ticks".
-    // Touchpad scrolling is continuous, so for these binds it is split into
-    // discrete intervals.
-    // These binds are also affected by touchpad's natural-scroll, so these
-    // example binds are "inverted", since we have natural-scroll enabled for
-    // touchpads by default.
-    // Mod+TouchpadScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
-    // Mod+TouchpadScrollUp   { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
-
+    // Workspace movement
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -236,35 +261,60 @@ binds {
     Mod+Shift+7 { move-column-to-workspace 7; }
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
-
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+1 { move-window-to-workspace 1; }
-
-    // Switches focus between the current and the previous workspace.
+    Mod+Ctrl+1 { move-window-to-workspace 1; }
+    Mod+Ctrl+2 { move-window-to-workspace 2; }
+    Mod+Ctrl+3 { move-window-to-workspace 3; }
+    Mod+Ctrl+4 { move-window-to-workspace 4; }
+    Mod+Ctrl+5 { move-window-to-workspace 5; }
+    Mod+Ctrl+6 { move-window-to-workspace 6; }
+    Mod+Ctrl+7 { move-window-to-workspace 7; }
+    Mod+Ctrl+8 { move-window-to-workspace 8; }
+    Mod+Ctrl+9 { move-window-to-workspace 9; }
     Mod+Tab { focus-workspace-previous; }
 
+	// Column Adjustment
+	Mod+T { toggle-column-tabbed-display; }
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
-
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
-
-    Mod+R { switch-preset-column-width; }
-    Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
-    Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
     Mod+C { center-column; }
+    Mod+Shift+C { center-visible-columns; }
 
-	// Resize
+	// Fullscreen
+    Mod+Shift+F { fullscreen-window; }
+	Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
+
+	// Resizing
+    Mod+F { maximize-column; }
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
 
-    Mod+P { screenshot; }
-    Mod+Shift+P { screenshot-screen; }
+	// Screenshot
+    Mod+P { screenshot show-pointer=false; }
+    Mod+Shift+P { screenshot-screen show-pointer=false; }
     Mod+Ctrl+P { screenshot-window; }
 
+	// Other
     Mod+Shift+Q { quit; }
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+	// Unused
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Ctrl+Home { move-column-to-first; }
+    Mod+Ctrl+End  { move-column-to-last; }
+    // Similarly, you can bind touchpad scroll "ticks".
+    // Touchpad scrolling is continuous, so for these binds it is split into
+    // discrete intervals.
+    // These binds are also affected by touchpad's natural-scroll, so these
+    // example binds are "inverted", since we have natural-scroll enabled for
+    // touchpads by default.
+    // Mod+TouchpadScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
+    // Mod+TouchpadScrollUp   { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
 }

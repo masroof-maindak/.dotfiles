@@ -22,3 +22,6 @@ set menu-complete-display-prefix On
 
 # Alt + O: open lf
 "\eo": "lf\n"
+
+# Alt + N: open nvim
+"\en": "nvim\n"
