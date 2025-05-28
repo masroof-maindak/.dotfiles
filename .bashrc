@@ -39,31 +39,31 @@ osc7_cwd() {
 e() { echo -n "\033[$@m"; }
 f() { e "3$1"; }
 
-r="$(f 1)"
-g="$(f 2)"
-y="$(f 3)"
-b="$(f 4)"
-p="$(f 5)"
-c="$(f 6)"
+red="$(f 1)"
+green="$(f 2)"
+yellow="$(f 3)"
+blue="$(f 4)"
+pink="$(f 5)"
+cyan="$(f 6)"
 
 reset="$(e 0)"
-inv="$(e 7)"
 bold="$(e 1)"
+invert="$(e 7)"
 
 branch_info() {
 	echo -n "\[$bold\]"
 	if [[ $(git diff --shortstat 2>/dev/null | tail -n1) != "" ]]; then
-		echo -n "\[$inv\]*"
+		echo -n "\[$invert\]*"
 	fi
 }
 
 git_branch() {
 	local branch=$(git branch --show-current 2>/dev/null)
-	[ -n "$branch" ] && echo -n " $(branch_info)($branch)\[$reset\]"
+	[ -n "$branch" ] && echo -n " $(branch_info)(${branch})\[$reset\]"
 }
 
 prompt() {
-	PS1="\[$y\]\$(date +%H:%M:%S)\[$g\]$(git_branch) \[$b\]\w \[$reset\]\$ "
+	PS1="\[$yellow\]${USER}\[$cyan\]$(git_branch) \[$blue\]\w \[$reset\]$ "
 }
 
 PROMPT_COMMAND=prompt

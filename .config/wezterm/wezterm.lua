@@ -1,16 +1,10 @@
 local wezterm = require("wezterm")
 local config = {}
 
-config.font = wezterm.font("Go Mono Nerd Font")
+-- config.font = wezterm.font("GohuFont")
 config.color_scheme = "swamp-light"
 -- config.color_scheme = "swamp"
--- config.font_size = 12
--- config.background = {{
---         source = {File = '/home/maindak/Desktop/termTile.png'},
---         height= "36",
---         width= "36",
---     }
--- }
+config.font_size = 12
 config.window_padding = { left = 15, right = 15, top = 15, bottom = 15 }
 config.window_close_confirmation = "NeverPrompt"
 
