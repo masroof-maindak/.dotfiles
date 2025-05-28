@@ -1,3 +1,4 @@
+/* Swamp Dark */
 @define-color color #ebe0bb;
 @define-color background-color #242015;
 @define-color background-color-alt #3a3124;
@@ -5,6 +6,15 @@
 @define-color urgent #a82d56;
 @define-color muted #856a5d;
 
+/* Melange Dark */
+@define-color color #ece1d7;
+@define-color background-color #292522;
+@define-color background-color-alt #3a3124;
+@define-color accent #89b3b6;
+@define-color urgent #d47766;
+@define-color muted #867462;
+
+/* Swamp Light */
 @define-color color #64513e;
 @define-color background-color #f1e3d1;
 @define-color background-color-alt #ddcebc;

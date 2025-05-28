@@ -49,7 +49,7 @@ ungoogled-chromium-bin
 
 # Notification and desktop utilities
 dunst
-thunar
+nautilus
 imagemagick
 perl-file-mimeinfo
 
