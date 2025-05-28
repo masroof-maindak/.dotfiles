@@ -103,6 +103,16 @@ layer-rule {
     place-within-backdrop true
 }
 
+layer-rule {
+    match namespace="waybar"
+	shadow {
+		on
+		spread 1
+		softness 8
+		offset x=-4
+	}
+}
+
 overview {
     workspace-shadow {
         off
@@ -113,6 +123,7 @@ layer-rule {
     match namespace="^launcher$"
 	shadow {
 		on
+		spread -5
 	}
     geometry-corner-radius 10
     baba-is-float true
@@ -126,7 +137,7 @@ window-rule {
 
 prefer-no-csd
 
-screenshot-path "~/Screenshots/%Y-%m-%d_%H%M%S.png"
+screenshot-path "~/Screenshots/%Y-%m-%d_%H:%M:%S.png"
 
 animations {
     slowdown 0.75
@@ -138,7 +149,7 @@ window-rule {
 }
 
 window-rule {
-	match app-id="footclient"
+	match app-id="foot"
     default-column-width { proportion 0.5; }
 }
 
@@ -166,49 +177,49 @@ window-rule {
 binds {
 	// Apps
     Mod+Return { spawn "footclient"; }
-    Mod+D { spawn "fuzzel"; }
-    Mod+E { spawn "fuzzel-emoji"; }
-    Mod+W { spawn "thunar"; }
-    Mod+B { spawn "librewolf"; }
-    Mod+V { spawn "code"; }
-    Mod+Z { spawn "bash" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
-    Mod+Q { close-window; }
+    Mod+D      { spawn "fuzzel"; }
+    Mod+E      { spawn "fuzzel-emoji"; }
+    Mod+W      { spawn "nautilus"; }
+    Mod+B      { spawn "librewolf"; }
+    Mod+V      { spawn "code"; }
+    Mod+Z      { spawn "bash" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
+    Mod+Q      { close-window; }
 
 	// Media & Other
     XF86AudioRaiseVolume allow-when-locked=true { spawn "amixer" "sset" "Master" "2%+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "amixer" "sset" "Master" "2%-"; }
     XF86AudioMute        allow-when-locked=true { spawn "amixer" "sset" "Master" "toggle"; }
 
-	XF86KbdBrightnessUp { spawn "bash" "-c" "brightnessctl --device=smc::kbd_backlight set 5%+"; }
+	XF86KbdBrightnessUp   { spawn "bash" "-c" "brightnessctl --device=smc::kbd_backlight set 5%+"; }
 	XF86KbdBrightnessDown { spawn "bash" "-c" "brightnessctl --device=smc::kbd_backlight set 5%-"; }
 
-	XF86MonBrightnessUp { spawn "brightnessctl" "set" "5%+"; }
+	XF86MonBrightnessUp   { spawn "brightnessctl" "set" "5%+"; }
 	XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
 
 	XF86AudioMedia { spawn "playerctl" "play-pause"; }
-	XF86AudioPlay { spawn "playerctl" "play-pause"; }
-	XF86AudioPrev { spawn "playerctl" "previous"; }
-	XF86AudioNext { spawn "playerctl" "next"; }
+	XF86AudioPlay  { spawn "playerctl" "play-pause"; }
+	XF86AudioPrev  { spawn "playerctl" "previous"; }
+	XF86AudioNext  { spawn "playerctl" "next"; }
 
 	// Floating
 	Mod+Space       { toggle-window-floating; }
 	Mod+Shift+Space   { switch-focus-between-floating-and-tiling; }
 
 	// Focusing
-    Mod+Left     { focus-column-left; }
-    Mod+Down     { focus-window-or-workspace-down; }
-    Mod+Up     { focus-window-or-workspace-up; }
-    Mod+Right     { focus-column-right; }
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-or-workspace-down; }
+    Mod+Up    { focus-window-or-workspace-up; }
+    Mod+Right { focus-column-right; }
     Mod+H     { focus-column-left; }
     Mod+J     { focus-window-or-workspace-down; }
     Mod+K     { focus-window-or-workspace-up; }
     Mod+L     { focus-column-right; }
 
 	// Movement
-    Mod+Shift+Left     { move-column-left; }
-    Mod+Shift+Down     { move-window-down-or-to-workspace-down; }
-    Mod+Shift+Up     { move-window-up-or-to-workspace-up; }
-    Mod+Shift+Right     { move-column-right; }
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Shift+Up    { move-window-up-or-to-workspace-up; }
+    Mod+Shift+Right { move-column-right; }
     Mod+Shift+H     { move-column-left; }
     Mod+Shift+J     { move-window-down-or-to-workspace-down; }
     Mod+Shift+K     { move-window-up-or-to-workspace-up; }
@@ -229,13 +240,14 @@ binds {
 	// Monitor workspace movement
     // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
     Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
-    Mod+Shift+Ctrl+Right  { move-workspace-to-monitor-right; }
-    Mod+Shift+Ctrl+Up  { move-workspace-to-monitor-up; }
+    Mod+Shift+Ctrl+Right { move-workspace-to-monitor-right; }
+    Mod+Shift+Ctrl+Up    { move-workspace-to-monitor-up; }
     Mod+Shift+Ctrl+Down  { move-workspace-to-monitor-down; }
 
 	// Workspace movement
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
+	Mod+O      { toggle-overview; }
+    Mod+Ctrl+U { move-column-to-workspace-down; }
+    Mod+Ctrl+I { move-column-to-workspace-up; }
 
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up   { move-workspace-up; }
@@ -278,11 +290,11 @@ binds {
     Mod+Period { expel-window-from-column; }
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
-    Mod+C { center-column; }
+    Mod+C       { center-column; }
     Mod+Shift+C { center-visible-columns; }
 
 	// Fullscreen
-    Mod+Shift+F { fullscreen-window; }
+    Mod+Shift+F      { fullscreen-window; }
 	Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
 
 	// Resizing
@@ -291,9 +303,10 @@ binds {
     Mod+Equal { set-column-width "+10%"; }
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
-    Mod+R { switch-preset-column-width; }
+
+    Mod+R       { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
+    Mod+Ctrl+R  { reset-window-height; }
 
 	// Screenshot
     Mod+P { screenshot show-pointer=false; }

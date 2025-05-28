@@ -34,6 +34,8 @@ alias py="python"
 alias l="lfcd"
 alias m="make"
 alias dk="docker"
+alias uvr="uv run"
+alias uvm="uv run manage.py"
 
 # Builtins
 alias ls="ls -hN --color=auto --group-directories-first"
