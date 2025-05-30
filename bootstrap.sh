@@ -4,8 +4,8 @@ source utils.sh
 install_paru
 
 print_yellow "Making directories"
-mkdir -p "$HOME"/{Screenshots,Desktop,Documents,Downloads,Music,Pictures/Wallpapers,Videos}
-mkdir -p "$HOME"/{.local/bin,.themes,.icons,.fonts,.config,.cache/{bash/python-hist}}
+mkdir -p "$HOME"/{Screenshots,Desktop,Documents,Downloads,Music,Pictures/{Wallpapers,Image\ Transmission},Videos}
+mkdir -p "$HOME"/{.local/bin,.themes,.icons,.fonts,.config,.cache/{bash,python-history}}
 mkdir -p "$HOME"/Documents/{uni,repos,Vault,wrk,books}
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
@@ -53,8 +53,8 @@ sudo systemctl enable NetworkManager
 
 # Custom Desktop Entries
 print_yellow "Copying desktop entries"
-sudo cp ./system/Desktop\ Entries/syncthing.desktop /usr/share/applications/syncthing.desktop
-sudo cp ./system/Desktop\ Entries/spotify_player.desktop /usr/share/applications/spotify_player.desktop
+sudo cp ./system/desktop-entries/syncthing.desktop /usr/share/applications/syncthing.desktop
+sudo cp ./system/desktop-entries/spotify_player.desktop /usr/share/applications/spotify_player.desktop
 
 # Make scripts executable
 print_yellow "Making scripts executable"

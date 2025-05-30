@@ -26,7 +26,7 @@ install_list() {
                 paru -S --skipreview --noconfirm "$pkg"
             fi
         fi
-    done < "./system/packageLists/$1"
+    done < "./system/package-lists/$1"
 }
 
 install_eww() {

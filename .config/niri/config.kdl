@@ -4,6 +4,11 @@ spawn-at-startup "foot" "--server"
 spawn-at-startup "wlsunset" "-l" "31.4" "-L" "74.3"
 spawn-at-startup "waybar" "-c" "/home/unfettered/.config/waybar/config-macbook13inch.jsonc"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+spawn-at-startup "xwayland-satellite"
+
+environment {
+	DISPLAY ":0"
+}
 
 input {
     keyboard {
