@@ -1,0 +1,67 @@
+/* Swamp Dark */
+@define-color color #ebe0bb;
+@define-color background-color #242015;
+@define-color background-color-alt #3a3124;
+@define-color accent #db930d;
+@define-color urgent #a82d56;
+@define-color muted #856a5d;
+
+/* Melange Dark */
+@define-color color #ece1d7;
+@define-color background-color #292522;
+@define-color background-color-alt #3a3124;
+@define-color accent #89b3b6;
+@define-color urgent #d47766;
+@define-color muted #867462;
+
+/* Swamp Light */
+@define-color color #64513e;
+@define-color background-color #f1e3d1;
+@define-color background-color-alt #ddcebc;
+@define-color accent #bf7979;
+@define-color urgent #993333;
+@define-color muted #c9b9a7;
+
+* {
+  all: unset;
+  font-family: "JetBrains Mono";
+  font-size: 14px;
+}
+
+window#waybar {
+  color: @color;
+  background: @background-color;
+}
+
+.module {
+  padding: 6px;
+}
+
+tooltip {
+  background: @background-color-alt;
+  border: 1px solid @accent;
+  color: @color;
+}
+
+#workspaces {
+  margin: 0px -2px;
+}
+
+#workspaces button {
+  margin: 2px;
+  padding: 2px;
+  border-radius: 3px;
+}
+
+#workspaces button {
+  color: @color;
+}
+
+#workspaces button.empty {
+  color: @muted;
+}
+
+#workspaces button.focused {
+  background: @accent;
+  color: @background-color;
+}

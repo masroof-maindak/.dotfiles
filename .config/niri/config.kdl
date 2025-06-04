@@ -2,7 +2,7 @@ spawn-at-startup "swww-daemon"
 spawn-at-startup "dunst"
 spawn-at-startup "foot" "--server"
 spawn-at-startup "wlsunset" "-l" "31.4" "-L" "74.3"
-spawn-at-startup "waybar" "-c" "/home/maindak/.config/waybar/config-ultrawide.jsonc"
+spawn-at-startup "start-waybar.sh"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 // TODO: remove this when auto-xwl-s-init update drops
 spawn-at-startup "xwayland-satellite"

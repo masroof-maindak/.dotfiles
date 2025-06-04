@@ -59,9 +59,8 @@ sudo cp ./system/desktop-entries/spotify_player.desktop /usr/share/applications/
 # Make scripts executable
 print_yellow "Making scripts executable"
 chmod +x "$HOME"/.config/bspwm/*
-chmod +x "$HOME"/.config/eww/scripts/*
+chmod +x "$HOME"/.config/eww*/scripts/*
 chmod +x "$HOME"/.config/polybar/scripts/*
-chmod +x "$HOME"/.config/rofi/scripts/*
 chmod +x "$HOME"/.config/berry/autostart
 chmod +x "$HOME"/.config/river/*
 chmod +x "$HOME"/.local/bin/*
