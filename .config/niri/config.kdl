@@ -2,13 +2,15 @@ spawn-at-startup "swww-daemon"
 spawn-at-startup "dunst"
 spawn-at-startup "foot" "--server"
 spawn-at-startup "wlsunset" "-l" "31.4" "-L" "74.3"
-spawn-at-startup "waybar" "-c" "/home/unfettered/.config/waybar/config-laptop.jsonc"
+spawn-at-startup "waybar" "-c" "/home/maindak/.config/waybar/config-ultrawide.jsonc"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+// TODO: remove this when auto-xwl-s-init update drops
 spawn-at-startup "xwayland-satellite"
 
 environment {
 	DISPLAY ":0"
 }
+//---
 
 input {
     keyboard {
@@ -44,18 +46,19 @@ cursor {
 
 // Thinkpad
 output "BOE 0x0791 Unknown" {
-    scale 1.4
-    transform "normal"
 	// off
+    scale 1.4
 }
 
 // MacBook
 // TODO: get name via `niri msg outputs`
 output "eDP-1" {
-    scale 2
-    transform "normal"
 	// off
+    scale 2
 }
+
+// Personal ultrawide
+output "Dell Inc. - DELL U3415W - DP-2" {}
 
 // Work 4k
 // TODO: get proper name
@@ -68,7 +71,7 @@ layout {
     gaps 4
     center-focused-column "never"
 	always-center-single-column
-	default-column-display "tabbed"
+	default-column-display "normal"
 	background-color "transparent"
 
 	tab-indicator {

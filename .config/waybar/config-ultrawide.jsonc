@@ -1,0 +1,44 @@
+{
+	"reload_style_on_change": true,
+    "position": "bottom",
+	"margin": "0px 0px 0px 0px",
+    "layer": "top",
+
+    "modules-left": ["niri/workspaces", "custom/spr", "niri/window"],
+	"modules-center": ["mpris"],
+    "modules-right": ["wireplumber", "custom/spr", "clock"],
+
+	"niri/workspaces": {
+		"format": "{}"
+	},
+
+    "mpris": {
+      "format": "<i><b>{title}</b> <small>by</small> <b>{artist}</b></i>",
+        "ignored-players": [
+            "firefox"
+        ]
+    },
+
+	"clock": {
+		"format": "{:%Y-%m-%d %I:%M %p}",
+		"tooltip": false,
+		"interval": 60
+	},	
+
+	"battery": {
+		"format": "{capacity}<b>bat</b>",
+		"interval": 60
+	},
+
+    "custom/spr": {
+      "format": "|"
+    },
+
+    "wireplumber": {
+        "format": "<b>vol</b>: {volume}",
+        "format-muted": "<b>mut</b>",
+        "on-click": "amixer sset Master toggle",
+        "on-click-right": "pavucontrol"
+    }
+}
+

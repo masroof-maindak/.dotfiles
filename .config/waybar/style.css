@@ -25,16 +25,12 @@
 * {
   all: unset;
   font-family: "JetBrains Mono";
-  font-size: 14px;
+  font-size: 15px;
 }
 
 window#waybar {
   color: @color;
   background: @background-color;
-}
-
-.module {
-  padding: 6px;
 }
 
 tooltip {
@@ -43,13 +39,25 @@ tooltip {
   color: @color;
 }
 
+#custom-spr {
+  font-size: 18px;
+  margin: 5px 15px;
+  color: @muted;
+}
+
+#clock {
+  margin-right: 15px;
+}
+
 #workspaces {
-  margin: 0px -2px;
+  margin: 8px 0px 8px 15px;
+  border: 2px solid @background-color-alt;
+  border-radius: 5px;
+  padding: 1px;
 }
 
 #workspaces button {
-  margin: 2px;
-  padding: 2px;
+  padding: 2px 12px;
   border-radius: 3px;
 }
 
