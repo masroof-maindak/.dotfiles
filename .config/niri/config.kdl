@@ -2,7 +2,7 @@ spawn-at-startup "swww-daemon"
 spawn-at-startup "dunst"
 spawn-at-startup "foot" "--server"
 spawn-at-startup "wlsunset" "-l" "31.4" "-L" "74.3"
-spawn-at-startup "waybar" "-c" "/home/unfettered/.config/waybar/config-macbook13inch.jsonc"
+spawn-at-startup "waybar" "-c" "/home/unfettered/.config/waybar/config-laptop.jsonc"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "xwayland-satellite"
 
@@ -21,9 +21,8 @@ input {
         dwt
         natural-scroll
         accel-speed 0.4
-        accel-profile "flat"
+        accel-profile "adaptive"
 		scroll-factor 0.8
-        scroll-method "edge"
     }
 
 	mouse {
@@ -43,21 +42,31 @@ cursor {
 	xcursor-size 32
 }
 
+// Thinkpad
+output "BOE 0x0791 Unknown" {
+    scale 1.4
+    transform "normal"
+	// off
+}
+
+// MacBook
+// TODO: get name via `niri msg outputs`
 output "eDP-1" {
-    mode "2560x1600@59.972"
     scale 2
     transform "normal"
 	// off
 }
 
-output "HDMI-A-2" {
-	mode "2560x1440"
-	scale 1.5
+// Work 4k
+// TODO: get proper name
+output "DP-1" {
+	scale 2
+	mode "3840x2160"
 }
 
 layout {
     gaps 4
-    center-focused-column "on-overflow"
+    center-focused-column "never"
 	always-center-single-column
 	default-column-display "tabbed"
 	background-color "transparent"
@@ -95,10 +104,6 @@ layout {
 
     focus-ring {
 		off
-        width 2
-        active-color "#bf7979"
-        // active-color "#db930d"
-        inactive-color "#c9b9a7"
     }
 }
 
@@ -174,9 +179,22 @@ window-rule {
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
-    block-out-from "screen-capture"
-	// Visible on screenshot:
+    match app-id=r#"Bitwarden"#
+    match title=r#"[gG]mail"#
+    match title=r#".*[Ww]hats[aA]pp.*$"#
+    // TODO: block notifications
+	// Visible on deliberate screenshot:
     // block-out-from "screencast"
+
+    // block-out-from "screen-capture"
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+	shadow {
+		off
+	}
+    default-floating-position x=10 y=10 relative-to="bottom-left"
 }
 
 binds {
