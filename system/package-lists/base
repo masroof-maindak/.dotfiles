@@ -7,6 +7,8 @@ linux-headers
 cpupower
 stow
 downgrade
+pop-icon-theme
+adw-gtk-theme
 
 # Audio and multimedia
 playerctl
