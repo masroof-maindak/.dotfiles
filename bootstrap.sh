@@ -65,4 +65,10 @@ chmod +x "$HOME"/.config/berry/autostart
 chmod +x "$HOME"/.config/river/*
 chmod +x "$HOME"/.local/bin/*
 
+# Update this repo's remote
+cd
+cd .dotfiles
+git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
+
+# Source bashrc in current shell
 source ~/.bashrc
