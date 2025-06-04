@@ -1,10 +1,10 @@
+(include "./src/yuck/topbar/pointer-mode.yuck")
 (include "./src/yuck/topbar/tags-river.yuck")
-(include "./src/yuck/topbar/time_module.yuck")
-(include "./src/yuck/topbar/pointerMode.yuck")
 (include "./src/yuck/topbar/battery.yuck")
 (include "./src/yuck/topbar/window.yuck")
 (include "./src/yuck/topbar/volume.yuck")
 (include "./src/yuck/topbar/music.yuck")
+(include "./src/yuck/topbar/time.yuck")
 (include "./src/yuck/topbar/blf.yuck")
 
 (defwindow topbar []

@@ -10,7 +10,7 @@
 
 	width = (300, 500)
 	origin = bottom-right
-	offset = 10x10
+	offset = (10, 10)
 	frame_width = 1
 	gap_size = 5
 
