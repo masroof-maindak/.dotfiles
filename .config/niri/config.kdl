@@ -51,8 +51,7 @@ output "BOE 0x0791 Unknown" {
 }
 
 // MacBook
-// TODO: get name via `niri msg outputs`
-output "eDP-1" {
+output "Apple Computer Inc Color LCD Unknown" {
 	// off
     scale 2
 }
