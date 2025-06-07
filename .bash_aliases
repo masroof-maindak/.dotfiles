@@ -1,27 +1,5 @@
-# Directories
-declare -A DIRS=(
-	[wrk]="$HOME/Documents/wrk/"
-
-	[vlt]="$VAULT_DIR"
-	[uni]="$HOME/Documents/uni"
-	[dow]="$HOME/Downloads"
-	[doc]="$HOME/Documents"
-	[rep]="$HOME/Documents/repos"
-	[des]="$HOME/Desktop"
-	[scr]="$HOME/Screenshots"
-	[mus]="$HOME/Music"
-	[vid]="$HOME/Videos"
-	[dot]="$HOME/.dotfiles"
-	[cfg]="$HOME/.config"
-)
-
-for key in "${!DIRS[@]}"; do
-	alias $key="cd ${DIRS[$key]}"
-done
-
 # Git - More in config
 alias g="git"
-alias gco="fzchk"
 alias gs="git status"
 alias gss="git status -s"
 alias gitls="git config --list | grep alias"
@@ -44,9 +22,7 @@ alias clera="clear"
 alias q="exit"
 alias quit="exit"
 alias qquit="exit"
-alias mkdir="mkdir -p"
-alias dt="date"
-alias cd..="cd ../.."
+alias md="mkdir -p"
 
 # Functions
 alias pubip='curl ipinfo.io; echo'
