@@ -17,6 +17,7 @@
 	cl = clone
 	b = branch
 	ba = branch -a
+	f = fetch
 	d = diff
 	l = pull
 	p = push
