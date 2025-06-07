@@ -68,3 +68,5 @@ prompt() {
 
 PROMPT_COMMAND=prompt
 PROMPT_COMMAND=${PROMPT_COMMAND:+${PROMPT_COMMAND%;}; }osc7_cwd
+
+eval "$(zoxide init bash)"
