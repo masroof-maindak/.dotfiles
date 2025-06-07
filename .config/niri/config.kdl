@@ -77,12 +77,12 @@ layout {
 		hide-when-single-tab
         place-within-column
         gap 6
-        width 6
-        length total-proportion=0.2
+        width 10
+        length total-proportion=0.3
         position "bottom"
-        gaps-between-tabs 3
-        corner-radius 0
+        gaps-between-tabs 6
 		active-color "#db930d"
+		inactive-color "#d2c3a4"
     }
 
 	shadow {
@@ -149,7 +149,7 @@ window-rule {
 
 prefer-no-csd
 
-screenshot-path "~/Screenshots/%Y-%m-%d_%H:%M:%S.png"
+screenshot-path "~/Screenshots/%Y-%m-%d_%H-%M-%S.png"
 
 animations {
     slowdown 0.75
