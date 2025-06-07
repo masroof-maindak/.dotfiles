@@ -13,7 +13,7 @@ set relativenumber
 set number
 set tabstop 4
 set timefmt "_2 Jan '06"
-set statfmt "\033[1;31m %p |\033[33m %u;%g |\033[34m %S |\033[35m %t |\033[36m %l |\033[0m"
+set statfmt "\033[1;31m %p |\033[33m %u::%g |\033[34m %S |\033[35m %t |\033[36m %l |\033[0m"
 set promptfmt "\033[1;33m%d %S %f"
 
 
@@ -33,6 +33,32 @@ set cursorpreviewfmt "\033[7;90m"
 # execute current file (must be executable)
 map x $$f
 map X !$f # and wait for key press
+
+
+#___
+# zoxide integration (POSIX shells)
+# bash/any POSIX shell
+cmd z %{{
+    result="$(zoxide query --exclude "$PWD" "$@" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    lf -remote "send $id cd \"$result\""
+}}
+
+cmd zi ${{
+    result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    lf -remote "send $id cd \"$result\""
+}}
+
+cmd on-cd &{{
+    zoxide add "$PWD"
+}}
+
+
+#___
+# git stuff
+map gitb $fzchk
+map gitl $clear; git pull --rebase || true; echo "press ENTER"; read ENTER
+map gits $clear; git status; echo "press ENTER"; read ENTER
+map gitd $clear; git dag
 
 
 #___
@@ -96,7 +122,7 @@ map <c-f> :fzf_jump
 
 #___
 # Search contents of files inside current directory
-cmd fzf_search ${{
+cmd fzf_ripgrep_search ${{
 
     RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
     res="$(
@@ -109,7 +135,7 @@ cmd fzf_search ${{
 
 }}
 
-map gs :fzf_search
+map gs :fzf_ripgrep_search
 
 
 #___
@@ -263,4 +289,4 @@ cmd follow_link %{{
 	lf -remote "send $id select \"$(readlink -- "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
 }}
 
-map gl :follow_link
+map gL :follow_link

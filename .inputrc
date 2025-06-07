@@ -1,5 +1,4 @@
 $include etc/inputrc
-
 set mark-directories on
 set skip-completed-text on
 set completion-ignore-case on
@@ -17,11 +16,14 @@ set menu-complete-display-prefix On
 "\t": menu-complete
 "\e[Z": menu-complete-backward
 
-# Alt + S: Prefix line with 'sudo'
+# Alt + s: Prefix line with 'sudo'
 "\es": "\C-asudo \C-e"
 
-# Alt + O: open lf
-"\eo": "lf\n"
-
-# Alt + N: open nvim
+# Alt + n: open nvim
 "\en": "nvim\n"
+#
+# Alt + z: open zoxide in interactive mode
+"\ez": "zi\n"
+#
+# Alt + l: open lfcd
+"\el": "lfcd\n"
