@@ -14,6 +14,7 @@ alias m="make"
 alias dk="docker"
 alias uvr="uv run"
 alias uvm="uv run manage.py"
+alias nmt="nmtui"
 
 # Builtins
 alias ls="ls -hN --color=auto --group-directories-first"

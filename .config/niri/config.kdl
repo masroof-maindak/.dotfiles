@@ -60,8 +60,7 @@ output "Apple Computer Inc Color LCD Unknown" {
 output "Dell Inc. - DELL U3415W - DP-2" {}
 
 // Work 4k
-// TODO: get proper name
-output "DP-1" {
+output "HP Inc. HP V28 4K CNC1310ZBB" {
 	scale 2
 	mode "3840x2160"
 }
@@ -86,8 +85,8 @@ layout {
     }
 
 	shadow {
-		 on
-		 spread 5
+		on
+		spread 5
 	}
 
     preset-column-widths {
