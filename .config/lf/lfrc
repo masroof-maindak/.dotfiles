@@ -148,6 +148,7 @@ cmd delete ${{
 }}
 
 map D :delete
+map <delete> :delete
 
 
 #___
