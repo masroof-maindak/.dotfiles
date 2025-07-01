@@ -52,7 +52,7 @@ install_spotify_player() {
 }
 
 install_wireguard_go() {
-	print_yellow "Installing spotify-player"
+	print_yellow "Installing wireguard-go"
 	git clone https://git.zx2c4.com/wireguard-go "$HOME"/Documents/repos/wireguard-go
 	cd "$HOME"/Documents/repos/wireguard-go || exit
 	git pull
