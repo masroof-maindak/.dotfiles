@@ -5,7 +5,7 @@ install_paru
 
 print_yellow "Making directories"
 mkdir -p "$HOME"/{Screenshots,Desktop,Documents,Downloads,Music,Pictures/{Wallpapers,Image\ Transmission},Videos}
-mkdir -p "$HOME"/{.local/bin,.themes,.icons,.fonts,.config,.cache/{bash,python-history}}
+mkdir -p "$HOME"/{.local/bin,.themes,.icons,.fonts,.config/{x11},.cache/{bash,python-history}}
 mkdir -p "$HOME"/Documents/{uni,repos,Vault,wrk,books}
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
