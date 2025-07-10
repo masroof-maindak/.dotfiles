@@ -13,8 +13,9 @@ adw-gtk-theme
 # Audio and multimedia
 playerctl
 spotify-player
-amberol
 alsa-utils
+mpd
+rmpc
 pipewire
 pipewire-pulse
 wireplumber
