@@ -40,17 +40,6 @@ install_eww() {
 	cd - || exit
 }
 
-install_spotify_player() {
-	print_yellow "Installing spotify-player"
-	git clone https://github.com/aome510/spotify-player.git "$HOME"/Documents/repos/spotify-player
-	cd "$HOME"/Documents/repos/spotify-player || exit
-	git pull
-	cargo build -r --no-default-features --features notify,sixel,pulseaudio-backend,streaming,media-control
-	mv target/release/spotify_player "$HOME"/.local/bin/spotify_player
-	chmod +x "$HOME"/.local/bin/spotify_player
-	cd - || exit
-}
-
 install_wireguard_go() {
 	print_yellow "Installing wireguard-go"
 	git clone https://git.zx2c4.com/wireguard-go "$HOME"/Documents/repos/wireguard-go
