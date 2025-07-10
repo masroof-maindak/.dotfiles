@@ -5,7 +5,7 @@ install_paru
 
 print_yellow "Making directories"
 mkdir -p "$HOME"/{Screenshots,Desktop,Documents,Downloads,Music,Pictures/{Wallpapers,Image\ Transmission},Videos}
-mkdir -p "$HOME"/{.local/bin,.themes,.icons,.fonts,.config/{x11},.cache/{bash,python-history}}
+mkdir -p "$HOME"/{.local/bin,.themes,.icons,.fonts,.config/{x11,gtk-2.0},.cache/{bash,python-history,mpd}}
 mkdir -p "$HOME"/Documents/{uni,repos,Vault,wrk,books}
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
@@ -50,6 +50,7 @@ sudo cp ./system/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 # Services
 print_yellow "Enabling services"
 sudo systemctl enable NetworkManager
+systemctl enable --user mpd
 
 # Custom Desktop Entries
 print_yellow "Copying desktop entries"
