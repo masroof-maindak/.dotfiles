@@ -1,13 +1,19 @@
 # Env Vars
+export TERM=foot
+export TERMINAL=foot
+
 export EDITOR=nvim
 export VISUAL=nvim
 export SUDOEDITOR=nvim
+
+export BROWSER=librewolf
 export MANPAGER='nvim +Man!'
 
 # XDG
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 
 export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 export XPROFILE="$XDG_CONFIG_HOME/x11/xprofile"
