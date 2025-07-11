@@ -50,7 +50,8 @@ sudo cp ./system/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 # Services
 print_yellow "Enabling services"
 sudo systemctl enable NetworkManager
-systemctl enable --user mpd
+systemctl enable --user --now mpd
+systemctl enable --user --now mpd-mpris
 
 # Custom Desktop Entries
 print_yellow "Copying desktop entries"
