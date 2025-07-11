@@ -15,6 +15,7 @@ playerctl
 spotify-player
 alsa-utils
 mpd
+mpd-mpris
 rmpc
 pipewire
 pipewire-pulse
