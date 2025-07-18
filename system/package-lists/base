@@ -25,6 +25,7 @@ mpv
 ffmpegthumbnailer
 
 # Networking and torrent
+firewalld
 networkmanager
 inetutils
 bind
