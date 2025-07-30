@@ -40,7 +40,7 @@ hotkey-overlay {
 }
 
 cursor {
-    xcursor-theme "phinger-cursors-light"
+    xcursor-theme "phinger-cursors-light-left"
 	xcursor-size 32
 }
 
@@ -67,7 +67,7 @@ output "HP Inc. HP V28 4K CNC1310ZBB" {
 
 layout {
     gaps 4
-    center-focused-column "never"
+    center-focused-column "on-overflow"
 	always-center-single-column
 	default-column-display "normal"
 	background-color "transparent"

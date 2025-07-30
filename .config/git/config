@@ -22,6 +22,7 @@
 	l = pull
 	p = push
 	s = status
+	sw = switch
 	ss = status -s
 	st = stash
 	undo = reset --soft HEAD^

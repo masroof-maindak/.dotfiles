@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Set backuround and border color
+# Set background and border color
 # riverctl background-color 0x242015
 # riverctl border-color-focused 0xDB930D
 # riverctl border-color-unfocused 0x3A3124
