@@ -79,6 +79,7 @@ map ` !true
 map p :paste; clear
 map r :rename; reload
 map <f-2> :rename; reload
+map <c-r> reload
 map V :invert-below
 map <enter> shell
 map <backspace2> set hidden!
