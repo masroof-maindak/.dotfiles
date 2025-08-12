@@ -47,6 +47,7 @@ tldr
 valgrind
 gdb
 bc
+tree-sitter-cli
 
 # Web browser
 librewolf-bin
