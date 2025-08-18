@@ -21,13 +21,18 @@ export XRESOURCES="$XDG_CONFIG_HOME/x11/xresources"
 
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+
 export GOPATH="$XDG_DATA_HOME/go"
 export GOBIN="$GOPATH/bin"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
+
+export RUFF_CACHE_DIR="$XDG_CACHE_HOME/ruff"
 export PYTHON_HISTORY="$XDG_CACHE_HOME/python-history/hist"
-export SQLITE_HISTORY=$XDG_STATE_HOME/sqlite_history
+
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+
+export SQLITE_HISTORY=$XDG_STATE_HOME/sqlite_history
 
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"

@@ -10,6 +10,7 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 
 " Misc
+set viminfofile=$XDG_STATE_HOME/vim/viminfo
 vnoremap < <gv
 vnoremap > >gv
 
