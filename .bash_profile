@@ -28,6 +28,7 @@ export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 
 export RUFF_CACHE_DIR="$XDG_CACHE_HOME/ruff"
 export PYTHON_HISTORY="$XDG_CACHE_HOME/python-history/hist"
+export PYENV_ROOT=$XDG_DATA_HOME/pyenv
 
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
