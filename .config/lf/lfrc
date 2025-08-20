@@ -47,6 +47,7 @@ cmd zi ${{
     result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
     lf -remote "send $id cd \"$result\""
 }}
+map zi :zi
 
 cmd on-cd &{{
     zoxide add "$PWD"
