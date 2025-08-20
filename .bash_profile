@@ -1,7 +1,4 @@
 # Env Vars
-export TERM=foot
-export TERMINAL=foot
-
 export EDITOR=nvim
 export VISUAL=nvim
 export SUDOEDITOR=nvim
