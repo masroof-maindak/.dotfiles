@@ -6,7 +6,7 @@
 [init]
 	defaultBranch = main
 
-[url "git@github.com:"]
+[url "git@github.com:masroof-maindak/"]
 	insteadOf = "gh:"
 	
 [alias]
