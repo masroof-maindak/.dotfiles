@@ -12,6 +12,7 @@
 [alias]
 	a = add
 	c = commit
+	ca = commit --amend
 	co = checkout
 	cob = checkout -b
 	cl = clone
@@ -21,6 +22,7 @@
 	d = diff
 	l = pull
 	p = push
+	pf = push --force
 	s = status
 	sw = switch
 	ss = status -s
