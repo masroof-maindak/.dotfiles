@@ -21,9 +21,12 @@ set menu-complete-display-prefix On
 
 # Alt + n: open nvim
 "\en": "nvim\n"
-#
+
 # Alt + z: open zoxide in interactive mode
 "\ez": "zi\n"
-#
+
 # Alt + l: open lfcd
 "\el": "lfcd\n"
+
+# Alt + m: run make
+"\em": "make\n"
