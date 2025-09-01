@@ -66,3 +66,6 @@ set undofile
 " Syntax highlighting
 syntax enable
 colo habamax
+
+" Usable netrw
+let g:netrw_bufsettings = 'noma nomod rnu nu nobl nowrap ro'
