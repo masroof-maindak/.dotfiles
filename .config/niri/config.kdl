@@ -156,7 +156,8 @@ window-rule {
 window-rule {
 	match app-id="foot"
 
-    default-column-width { proportion 0.333333; }
+    // Set to 0.33333 on ultrawide
+    default-column-width { proportion 0.5; }
 }
 
 window-rule {
