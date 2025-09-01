@@ -1,16 +1,9 @@
-spawn-at-startup "swww-daemon"
-spawn-at-startup "dunst"
-spawn-at-startup "foot" "--server"
-spawn-at-startup "wlsunset" "-l" "31.4" "-L" "74.3"
+spawn-sh-at-startup "swww-daemon"
+spawn-sh-at-startup "dunst"
+spawn-sh-at-startup "foot --server"
+// spawn-sh-at-startup "wlsunset -l 31.4 -L 74.3"
 spawn-at-startup "start-waybar.sh"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-// TODO: remove this when auto-xwl-s-init update drops
-spawn-at-startup "xwayland-satellite"
-
-environment {
-	DISPLAY ":0"
-}
-//---
+spawn-sh-at-startup "wl-paste --watch cliphist store"
 
 input {
     keyboard {
@@ -101,6 +94,7 @@ layout {
         proportion 0.66667
 	}
 
+    // Set to 0.5 on ultrawide
     default-column-width { proportion 0.66667; }
 
     focus-ring {
@@ -161,7 +155,8 @@ window-rule {
 
 window-rule {
 	match app-id="foot"
-    default-column-width { proportion 0.5; }
+
+    default-column-width { proportion 0.333333; }
 }
 
 window-rule {
@@ -181,9 +176,9 @@ window-rule {
 
 window-rule {
 	match title="Syncthing"
+
     default-column-width { proportion 0.25; }
     default-window-height { proportion 0.25; }
-
 	open-focused false
 }
 
@@ -222,30 +217,30 @@ window-rule {
 
 binds {
 	// Apps
-    Mod+Return { spawn "footclient"; }
-    Mod+D      { spawn "fuzzel"; }
-    Mod+E      { spawn "fuzzel-emoji"; }
-    Mod+W      { spawn "nautilus"; }
-    Mod+B      { spawn "librewolf"; }
-    Mod+V      { spawn "code"; }
-    Mod+Z      { spawn "bash" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
-    Mod+Q      { close-window; }
+    Mod+Return { spawn-sh "footclient"; }
+    Mod+D      { spawn-sh "fuzzel"; }
+    Mod+E      { spawn-sh "fuzzel-emoji"; }
+    Mod+W      { spawn-sh "nautilus"; }
+    Mod+B      { spawn-sh "librewolf"; }
+    Mod+V      { spawn-sh "code"; }
+    Mod+Z      { spawn-sh "bash -c cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
+    Mod+Q repeat=false { close-window; }
 
 	// Media & Other
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "amixer" "sset" "Master" "2%+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "amixer" "sset" "Master" "2%-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "amixer" "sset" "Master" "toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "amixer sset Master 2%+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "amixer sset Master 2%-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "amixer sset Master toggle"; }
 
-	XF86KbdBrightnessUp   { spawn "bash" "-c" "brightnessctl --device=smc::kbd_backlight set 5%+"; }
-	XF86KbdBrightnessDown { spawn "bash" "-c" "brightnessctl --device=smc::kbd_backlight set 5%-"; }
+	XF86KbdBrightnessUp   { spawn-sh "bash -c brightnessctl --device=smc::kbd_backlight set 5%+"; }
+	XF86KbdBrightnessDown { spawn-sh "bash -c brightnessctl --device=smc::kbd_backlight set 5%-"; }
 
-	XF86MonBrightnessUp   { spawn "brightnessctl" "set" "5%+"; }
-	XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
+	XF86MonBrightnessUp   { spawn-sh "brightnessctl set 5%+"; }
+	XF86MonBrightnessDown { spawn-sh "brightnessctl set 5%-"; }
 
-	XF86AudioMedia { spawn "playerctl" "play-pause"; }
-	XF86AudioPlay  { spawn "playerctl" "play-pause"; }
-	XF86AudioPrev  { spawn "playerctl" "previous"; }
-	XF86AudioNext  { spawn "playerctl" "next"; }
+	XF86AudioMedia { spawn-sh "playerctl play-pause"; }
+	XF86AudioPlay  { spawn-sh "playerctl play-pause"; }
+	XF86AudioPrev  { spawn-sh "playerctl previous"; }
+	XF86AudioNext  { spawn-sh "playerctl next"; }
 
 	// Floating
 	Mod+Space       { toggle-window-floating; }
