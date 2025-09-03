@@ -224,7 +224,7 @@ binds {
     Mod+W      { spawn-sh "nautilus"; }
     Mod+B      { spawn-sh "librewolf"; }
     Mod+V      { spawn-sh "code"; }
-    Mod+Z      { spawn-sh "bash -c cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
+    Mod+Z      { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
     Mod+Q repeat=false { close-window; }
 
 	// Media & Other
