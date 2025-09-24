@@ -111,13 +111,15 @@ map R drag
 #___
 # Select/Jump to file/folder
 cmd fzf_jump ${{
-  res="$(fd . -d 8 | fzf --header='Jump...')"
-  if [ -f "$res" ]; then
-    cmd="select"
-  elif [ -d "$res" ]; then
-    cmd="cd"
-  fi
-  lf -remote "send $id $cmd \"$res\""
+	res="$(fd . -d 8 | fzf --header='Jump...')"
+
+	if [ -f "$res" ]; then
+		cmd="select"
+	elif [ -d "$res" ]; then
+		cmd="cd"
+	fi
+
+	lf -remote "send $id $cmd \"$res\""
 }}
 
 map <c-f> :fzf_jump
