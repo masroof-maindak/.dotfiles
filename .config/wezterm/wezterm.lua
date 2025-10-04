@@ -1,10 +1,10 @@
 local wezterm = require("wezterm")
 local config = {}
 
--- config.font = wezterm.font("GohuFont")
+config.font = wezterm.font("GeistMono Nerd Font")
 config.color_scheme = "swamp-light"
 -- config.color_scheme = "swamp"
-config.font_size = 12
+config.font_size = 13
 config.window_padding = { left = 15, right = 15, top = 15, bottom = 15 }
 config.window_close_confirmation = "NeverPrompt"
 
