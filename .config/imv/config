@@ -1,0 +1,13 @@
+[binds]
+
+# Image navigation
+h =
+j = next
+k = prev
+l =
+
+# Panning
+<Meta+j> = pan 0 -50
+<Meta+k> = pan 0 50
+<Meta+h> = pan 50 0
+<Meta+l> = pan -50 0
