@@ -21,7 +21,7 @@ bright_cyan = "#75858c"
 bright_white = "#c9b9a7"
 [themes.component_style]
 block_title = { fg = "Magenta" }
-border = {}
+border = { fg = "BrightWhite" }
 
 playback_status = { fg = "Cyan", modifiers = ["Bold"] }
 playback_track = { fg = "Cyan", modifiers = ["Bold"] }
@@ -61,7 +61,7 @@ bright_cyan = "#61a0a8"
 bright_white = "#ebe0bb"
 [themes.component_style]
 block_title = { fg = "BrightYellow" }
-border = {}
+border = { fg = "BrightBlack" }
 
 playback_status = { fg = "Cyan", modifiers = ["Bold"] }
 playback_track = { fg = "Yellow", modifiers = ["Bold"] }
