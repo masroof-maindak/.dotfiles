@@ -4,6 +4,7 @@ login_redirect_uri = "http://127.0.0.1:8989/login"
 client_id_command = { command = "cat", args = ["/home/maindak/.cache/spotify_client_id"] }
 client_port = 8080
 playback_format = "{status} {track} • {artists}\n{album}\n\n{metadata}"
+playback_metadata_fields = ["repeat", "shuffle", "volume"]
 
 tracks_playback_limit = 50
 app_refresh_duration_in_ms = 50
@@ -15,21 +16,24 @@ pause_icon = "||"
 liked_icon = "<3"
 border_type = "Hidden"
 progress_bar_type = "Line"
+progress_bar_position = "Bottom"
 
 enable_media_control = true
+seek_duration_secs = 5
 enable_streaming = "Always"
 enable_notify = true
 default_device = "sharktooth"
 notify_streaming_only = false
 
+genre_num = 2
 enable_cover_image_cache = true
 cover_img_width = 5
 cover_img_length = 10
-cover_img_scale = 2.5
+cover_img_scale = 3.2
 
 [notify_format]
-summary = "{track}"
-body = "{artists}"
+notify_format = { summary = "{track} • {artists}", body = "{album}" }
+notify_timeout_in_secs = 0
 
 [device]
 name = "sharktooth"
@@ -38,8 +42,9 @@ volume = 75
 bitrate = 320
 audio_cache = false
 normalization = false
+autoplay = false
 
 [layout]
-library = { album_percent = 40, playlist_percent = 40 }
+library = { album_percent = 40, playlist_percent = 30 }
 playback_window_position = "Top"
 playback_window_height = 4
