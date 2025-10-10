@@ -8,7 +8,7 @@
 
 [url "git@github.com:masroof-maindak/"]
 	insteadOf = "gh:"
-	
+
 [alias]
 	a = add
 	c = commit
@@ -45,10 +45,10 @@
 	editor = nvim
 	pager = delta
 [include]
-    path = ~/.config/delta/themes.gitconfig
+	path = ~/.config/delta/themes.gitconfig
 [delta]
-    features = swamp-light
-    tabs = 4
+	features = swamp-light
+	tabs = 4
 [submodule]
 	recurse = true
 [gpg]
