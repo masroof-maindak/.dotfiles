@@ -43,8 +43,12 @@
 	branch = true
 [core]
 	editor = nvim
-[diff]
-    external = difft --display=inline
+	pager = delta
+[include]
+    path = ~/.config/delta/themes.gitconfig
+[delta]
+    features = swamp-light
+    tabs = 4
 [submodule]
 	recurse = true
 [gpg]
