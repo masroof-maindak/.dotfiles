@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>name</key>
+    <string>Swamp Light</string>
+    <key>settings</key>
+    <array>
+        <dict>
+            <key>settings</key>
+            <dict>
+                <key>background</key>
+                <string>#F1E3D1</string> <!-- base00 -->
+                <key>foreground</key>
+                <string>#64513E</string> <!-- base05 -->
+                <key>caret</key>
+                <string>#BF7979</string> <!-- base0D -->
+                <key>selection</key>
+                <string>#DDCEBC</string> <!-- base01 -->
+                <key>lineHighlight</key>
+                <string>#A0907D</string> <!-- base04 -->
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Comment</string>
+            <key>scope</key>
+            <string>comment</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#B5A492</string> <!-- base03 -->
+                <key>fontStyle</key>
+                <string>italic</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>String</string>
+            <key>scope</key>
+            <string>string</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#908D6A</string> <!-- base0B -->
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Number</string>
+            <key>scope</key>
+            <string>constant.numeric</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#64513E</string> <!-- base09 (same as base05) -->
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Keyword</string>
+            <key>scope</key>
+            <string>keyword</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#9E5581</string> <!-- base0E -->
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Variable</string>
+            <key>scope</key>
+            <string>variable</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#D09700</string> <!-- base08 -->
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Function</string>
+            <key>scope</key>
+            <string>entity.name.function, support.function</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#BF7979</string> <!-- base0D -->
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Class</string>
+            <key>scope</key>
+            <string>entity.name.type, support.class</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#993333</string> <!-- base0A -->
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Punctuation</string>
+            <key>scope</key>
+            <string>punctuation</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#75858C</string> <!-- base0F -->
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Storage</string>
+            <key>scope</key>
+            <string>storage</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#9E5581</string> <!-- base0E -->
+            </dict>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Constant</string>
+            <key>scope</key>
+            <string>constant</string>
+            <key>settings</key>
+            <dict>
+                <key>foreground</key>
+                <string>#D09700</string> <!-- base0C (same as base08) -->
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
