@@ -19,19 +19,19 @@ mkcd() { mkdir -p -- "$1" && cd -P -- "$1"; }
 plans() { rg 'TODO|NOTE|FIXME|HACK|CHECK' && echo; }
 trnt() { transmission-daemon -t -u a -v b -p 9091 -a "127.0.0.1"; }
 osc7_cwd() {
-	# Ctrl + Shift + N opens new terminal at PWD
-	local strlen=${#PWD}
-	local encoded=""
-	local pos c o
-	for ((pos = 0; pos < strlen; pos++)); do
-		c=${PWD:$pos:1}
-		case "$c" in
-		[-/:_.!\'\(\)~[:alnum:]]) o="${c}" ;;
-		*) printf -v o '%%%02X' "'${c}" ;;
-		esac
-		encoded+="${o}"
-	done
-	printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${encoded}"
+    # Ctrl + Shift + N opens new terminal at PWD
+    local strlen=${#PWD}
+    local encoded=""
+    local pos c o
+    for ((pos = 0; pos < strlen; pos++)); do
+        c=${PWD:$pos:1}
+        case "$c" in
+        [-/:_.!\'\(\)~[:alnum:]]) o="${c}" ;;
+        *) printf -v o '%%%02X' "'${c}" ;;
+        esac
+        encoded+="${o}"
+    done
+    printf '\e]7;file://%s%s\e\\' "${HOSTNAME}" "${encoded}"
 }
 
 # -- Prompt --
@@ -51,19 +51,19 @@ bold="$(e 1)"
 invert="$(e 7)"
 
 branch_info() {
-	echo -n "\[$bold\]"
-	if [[ $(git diff --shortstat 2>/dev/null | tail -n1) != "" ]]; then
-		echo -n "\[$invert\]*"
-	fi
+    echo -n "\[$bold\]"
+    if [[ $(git diff --shortstat 2>/dev/null | tail -n1) != "" ]]; then
+        echo -n "\[$invert\]*"
+    fi
 }
 
 git_branch() {
-	local branch=$(git branch --show-current 2>/dev/null)
-	[ -n "$branch" ] && echo -n " $(branch_info)(${branch})\[$reset\]"
+    local branch=$(git branch --show-current 2>/dev/null)
+    [ -n "$branch" ] && echo -n " $(branch_info)(${branch})\[$reset\]"
 }
 
 prompt() {
-	PS1="\[$yellow\]${USER}\[$cyan\]$(git_branch) \[$blue\]\w \[$reset\]$ "
+    PS1="\[$yellow\]${USER}\[$cyan\]$(git_branch) \[$blue\]\w \[$reset\]$ "
 }
 
 PROMPT_COMMAND=prompt
