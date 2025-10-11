@@ -18,7 +18,7 @@ bright_yellow = "#d09700"
 bright_blue = "#9e5581"
 bright_magenta = "#bf7979"
 bright_cyan = "#75858c"
-bright_white = "#c9b9a7"
+bright_white = "#DDCEBC"
 [themes.component_style]
 block_title = { fg = "Magenta" }
 border = { fg = "BrightWhite" }
@@ -29,8 +29,8 @@ playback_artists = { fg = "Cyan", modifiers = ["Bold"] }
 playback_album = { fg = "Yellow", modifiers = [] }
 playback_metadata = { fg = "BrightBlack" }
 
-playback_progress_bar = { bg = "White", fg = "Green" }
-playback_progress_bar_unfilled = { bg = "White", fg = "BrightWhite" }
+playback_progress_bar = { bg = "BrightWhite", fg = "Green" } # bg = {type == line} ? White : BrightWhite
+playback_progress_bar_unfilled = { bg = "White", fg = "BrightWhite" } # only works when bar's type is line
 
 current_playing = { fg = "Yellow" }
 page_desc = { fg = "Blue", modifiers = [] }
