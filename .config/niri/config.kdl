@@ -37,12 +37,6 @@ cursor {
 	xcursor-size 32
 }
 
-// Thinkpad
-output "BOE 0x0791 Unknown" {
-	// off
-    scale 1.4
-}
-
 // MacBook
 output "Apple Computer Inc Color LCD Unknown" {
 	// off
