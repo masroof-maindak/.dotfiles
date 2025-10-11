@@ -52,12 +52,6 @@ output "Apple Computer Inc Color LCD Unknown" {
 // Personal ultrawide
 output "Dell Inc. - DELL U3415W - DP-2" {}
 
-// Work 4k
-output "HP Inc. HP V28 4K CNC1310ZBB" {
-	scale 2
-	mode "3840x2160"
-}
-
 layout {
     gaps 4
     center-focused-column "on-overflow"
@@ -131,7 +125,6 @@ layer-rule {
 		spread -5
 	}
     geometry-corner-radius 10
-    baba-is-float true
 }
 // ---
 
