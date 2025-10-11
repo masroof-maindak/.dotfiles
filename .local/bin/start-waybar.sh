@@ -1,24 +1,29 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
-HOSTNAME=`hostname`
+HOSTNAME=$(hostname)
 
-WAYBAR_LAPTOP_CONFIG=~/.config/waybar/laptop/config.jsonc
-WAYBAR_LAPTOP_STYLES=~/.config/waybar/laptop/styles.css
-WAYBAR_ULTRAWIDE_CONFIG=~/.config/waybar/ultrawide/config.jsonc
-WAYBAR_ULTRAWIDE_STYLES=~/.config/waybar/ultrawide/styles.css
+CFG_DIR="$HOME/.config/waybar"
+LAPTOP_CFG="$CFG_DIR/laptop/config.jsonc"
+LAPTOP_STYLES="$CFG_DIR/laptop/styles.css"
+ULTRAWIDE_CFG="$CFG_DIR/ultrawide/config.jsonc"
+ULTRAWIDE_STYLES="$CFG_DIR/ultrawide/styles.css"
+
+which waybar >/dev/null 2>&1 || {
+    notify-send "[Waybar] waybar not found"
+    exit 1
+}
 
 pkill -x waybar
 
-case $HOSTNAME in
-  "sharktooth" | "morningside")
-    waybar -c $WAYBAR_LAPTOP_CONFIG -s $WAYBAR_LAPTOP_STYLES &
+case "$HOSTNAME" in
+"sharktooth" | "morningside")
+    waybar -c "$LAPTOP_CFG" -s "$LAPTOP_STYLES" &
     ;;
-  "rubicon")
-    waybar -c $WAYBAR_ULTRAWIDE_CONFIG -s $WAYBAR_ULTRAWIDE_STYLES &
+"rubicon")
+    waybar -c "$ULTRAWIDE_CFG" -s "$ULTRAWIDE_STYLES" &
     ;;
-  *)
-    notify-send "[Waybar] Unknown hostname: `hostname`"
+*)
+    notify-send "[Waybar] Unknown hostname: $HOSTNAME"
     exit 1
     ;;
 esac
-
