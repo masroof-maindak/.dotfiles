@@ -1,63 +1,61 @@
 # System utilities
-reflector
-broadcom-wl
-brightnessctl
-upower
-linux-headers
-cpupower
-stow
-downgrade
-pop-icon-theme
 adw-gtk-theme
+brightnessctl
+broadcom-wl
+cpupower
+downgrade
+linux-headers
+pop-icon-theme
+reflector
+stow
+upower
 
 # Audio and multimedia
-playerctl
-spotify-player
 alsa-utils
+ffmpeg
+ffmpegthumbnailer
 mpd
 mpd-mpris
-rmpc
+mpv
 pipewire
 pipewire-pulse
+playerctl
+rmpc
+spotify-player
 wireplumber
-ffmpeg
-mpv
-ffmpegthumbnailer
 
 # Networking and torrent
 firewalld
-networkmanager
 inetutils
-bind
-wget
-transmission-cli
+networkmanager
 syncthing
+tailscale
+transmission-cli
+wget
 wireguard-tools
-amneziawg-go
 
 # Development and text editors
-npm
-neovim
-vim
-less
-visual-studio-code-bin
+fish
+gdb
+git-delta
 jq
+neovim
+npm
 obsidian
 tldr
-valgrind
-gdb
-bc
 tree-sitter-cli
+valgrind
+vim
+visual-studio-code-bin
 
 # Web browser
 librewolf-bin
-torbrowser-launcher
 ungoogled-chromium-bin
 
 # Notification and desktop utilities
 dunst
-nautilus
 imagemagick
+nautilus
 perl-file-mimeinfo
 
 # Images
@@ -71,33 +69,33 @@ zathura-pdf-mupdf
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
-ttf-nerd-fonts-symbols
 ttf-go-nerd
+ttf-nerd-fonts-symbols
 
 # Communication
-vesktop-bin
 signal-desktop
+vesktop-bin
 
 # Command line utilities
-ripgrep
+ani-cli
+bat
 btop
 fd
 fzf
-bat
-yt-dlp
-ani-cli
+lf
 man-db
 man-pages
-lf
-zoxide
 poppler
+ripgrep
+yt-dlp
+zoxide
 
 # Archive utilities
-unzip
-zip
 7zip
 atool
 tar
+unzip
+zip
 
 # Wine
 wine
@@ -105,7 +103,6 @@ wine-mono
 winetricks
 
 # Miscellaneous
-dragon-drop
 ctpv-git
+dragon-drop
 phinger-cursors
-git-delta
