@@ -6,7 +6,7 @@
     password: None,
     theme: "main",
     cache_dir: None,
-    on_song_change: None,
+    on_song_change: ["~/.local/bin/rmpc_notify.sh"],
     volume_step: 5,
     max_fps: 30,
     scrolloff: 0,
