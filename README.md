@@ -1,3 +1,7 @@
+# Dotfiles
+
+GNU Stow-managed dotfiles for an Arch-Wayland box running Niri and other TUI-focused paraphernalia.
+
 ## Initialisation
 
 ```bash
@@ -18,7 +22,6 @@ chmod +x bootstrap.sh
 ### Source
 
 - Source `utils.sh` and run relevant functions for whatever is required.
-- Miscellaneous utilities for river: [flow](https://github.com/stefur/flow) & [river-bedload](https://git.sr.ht/~novakane/river-bedload).
 
 ### Obsidian
 
