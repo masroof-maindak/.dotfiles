@@ -35,6 +35,7 @@ wget
 wireguard-tools
 
 # Development and text editors
+exa
 fish
 gdb
 git-delta
