@@ -16,6 +16,7 @@ abbr --add nmt "nmtui"
 abbr --add nmc "nmcli"
 
 abbr --add ls "ls -hN --color=auto --group-directories-first"
+abbr --add exa "exa --group-directories-first"
 abbr --add c "clear"
 abbr --add clera "clear"
 abbr --add q "exit"
