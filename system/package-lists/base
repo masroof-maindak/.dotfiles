@@ -65,6 +65,7 @@ gthumb
 # PDF and document viewers
 zathura
 zathura-pdf-mupdf
+foliate
 
 # Fonts
 noto-fonts
