@@ -30,7 +30,7 @@
 
     # Commit
     commit-style = "#64513E" bold "#DDCEBC" # FG: base05, BG: base01
-    commit-decoration-style = "#D09700" box # base08 (yellow/orange) box
+    commit-decoration-style = "#D09700" box ul # base08 (yellow/orange) box
 
     # Other
     whitespace-error-style = "#993333" reverse # base0A (red)
