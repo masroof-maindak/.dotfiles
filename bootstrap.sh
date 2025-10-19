@@ -26,22 +26,22 @@ stow .
 # Mac Specific
 device=$(cat /sys/class/dmi/id/product_name)
 if echo "$device" | grep -q "MacBook"; then
-	print_yellow "MacBook detected"
+    print_yellow "MacBook detected"
 
-	print_yellow "Installing mbpfan"
-	paru -S mbpfan-git
+    print_yellow "Installing mbpfan"
+    paru -S mbpfan-git
 
-	# Swap keys
-	print_yellow "Copying system files"
-	sudo cp ./system/Macbook/hid_apple.conf /etc/modprobe.d/hid_apple.conf
+    # Swap keys
+    print_yellow "Copying system files"
+    sudo cp ./system/Macbook/hid_apple.conf /etc/modprobe.d/hid_apple.conf
 
-	print_yellow "Enabling services"
-	sudo systemctl enable mbpfan
+    print_yellow "Enabling services"
+    sudo systemctl enable mbpfan
 
-	print_yellow "Regenerating initramfs"
-	# sudo dracut --regenerate-all --force              # Use this on non-Arch based distros
-	# mkinitcpio -p linux                               # For Arch, but didn't work for me so;
-	sudo pacman -S linux
+    print_yellow "Regenerating initramfs"
+    # sudo dracut --regenerate-all --force              # Use this on non-Arch based distros
+    # mkinitcpio -p linux                               # For Arch, but didn't work for me so;
+    sudo pacman -S linux
 fi
 
 # System files
@@ -72,9 +72,9 @@ chmod +x "$HOME"/.config/river/*
 chmod +x "$HOME"/.local/bin/*
 
 # Update this repo's remote
-cd
-cd .dotfiles
+cd ~/.dotfiles
 git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
+cd
 
 # Source bashrc in current shell
 source ~/.bashrc
