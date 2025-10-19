@@ -29,7 +29,7 @@ genre_num = 2
 enable_cover_image_cache = true
 cover_img_width = 5
 cover_img_length = 10
-cover_img_scale = 3.2
+cover_img_scale = 3
 
 [notify_format]
 notify_format = { summary = "{track} • {artists}", body = "{album}" }
