@@ -240,6 +240,8 @@ binds {
     Mod+J     { focus-window-or-workspace-down; }
     Mod+K     { focus-window-or-workspace-up; }
     Mod+L     { focus-column-right; }
+    Mod+A     { focus-column-left; }
+    Mod+S     { focus-column-right; }
 
 	// Movement
     Mod+Shift+Left  { move-column-left; }
