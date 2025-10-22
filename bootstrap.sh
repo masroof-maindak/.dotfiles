@@ -1,9 +1,9 @@
 #!/bin/bash
 source utils.sh
-
-install_paru
+source .bash_profile
 
 print_yellow "Making directories"
+# TODO: use XDG base dir env vars
 mkdir -p "$HOME"/{Screenshots,Desktop,Documents,Downloads,Music,Pictures/{Wallpapers,Image\ Transmission},Videos}
 mkdir -p "$HOME"/{.local/bin,.themes,.icons,.fonts,.config/gtk-2.0}
 mkdir -p "$HOME"/.cache/{bash,python-history,mpd,ruff,go}
@@ -13,6 +13,7 @@ mkdir -p "$HOME"/Documents/{uni,repos,Vault,wrk,books}
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
 # Install packages
+install_paru
 install_list "./system/package-lists/base"
 install_list "./system/package-lists/wayland"
 
@@ -61,21 +62,15 @@ sudo cp ./system/desktop-entries/spotify_player.desktop /usr/share/applications/
 
 # Make scripts executable
 print_yellow "Making scripts executable"
-chmod +x "$HOME"/.config/bspwm/*
-chmod +x "$HOME"/.config/eww*/scripts/*
-chmod +x "$HOME"/.config/polybar/scripts/*
-chmod +x "$HOME"/.config/berry/autostart
-chmod +x "$HOME"/.config/river/*
 chmod +x "$HOME"/.local/bin/*
 
-# Source bashrc in current shell
-source ~/.bashrc
-
 # Set up Rust tooling
+print_yellow "Setting up Rust & tools"
 rustup default stable
-# TODO: `cargo install <shit>` here, but respect relevant env vars.
-#   Iterate over ./system/package-lists/rust
+cargo install ripdrag
+# TODO: Iterate over ./system/package-lists/rust instead
 
 # Set up fish
+print_yellow "Setting up Fish shell"
 chsh -s $(which fish)
 fisher update
