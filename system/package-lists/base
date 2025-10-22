@@ -35,6 +35,7 @@ wget
 wireguard-tools
 
 # Development and text editors
+clang
 exa
 fish
 gdb
@@ -43,6 +44,7 @@ jq
 neovim
 npm
 obsidian
+rustup
 tldr
 tree-sitter-cli
 valgrind
