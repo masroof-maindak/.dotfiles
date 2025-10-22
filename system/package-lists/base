@@ -45,6 +45,7 @@ neovim
 npm
 obsidian
 rustup
+sccache
 tldr
 tree-sitter-cli
 valgrind
