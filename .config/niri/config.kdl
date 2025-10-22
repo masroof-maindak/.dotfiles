@@ -155,8 +155,19 @@ window-rule {
 window-rule {
     match app-id="vesktop"
     match app-id="Spotify"
+    match app-id="it.catboy.ripdrag"
+	match title="Syncthing"
 
     open-focused false
+}
+
+window-rule {
+    match app-id="it.catboy.ripdrag"
+
+    open-floating true
+    default-floating-position x=0 y=25 relative-to="top"
+    default-window-height {proportion 0.2;}
+    default-column-width {proportion 0.3;}
 }
 
 window-rule {
@@ -164,7 +175,6 @@ window-rule {
 
     default-column-width { proportion 0.25; }
     default-window-height { proportion 0.25; }
-	open-focused false
 }
 
 window-rule {
@@ -208,7 +218,7 @@ binds {
     Mod+W      { spawn-sh "nautilus"; }
     Mod+B      { spawn-sh "librewolf"; }
     Mod+V      { spawn-sh "code"; }
-    Mod+Z      { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
+    Mod+Z      { spawn-sh "cliphist list | fuzzel --dmenu --width 60 | cliphist decode | wl-copy"; }
     Mod+Q repeat=false { close-window; }
 
 	// Media & Other

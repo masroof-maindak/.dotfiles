@@ -3,7 +3,7 @@ abbr --add gs "git status"
 abbr --add gss "git status -s"
 abbr --add gitls "git config --list | grep alias"
 
-abbr --add dd "dragon-drop -a -s 72"
+abbr --add rd "ripdrag -a -r"
 abbr --add v "nvim"
 abbr --add p "pacman"
 abbr --add py "python"

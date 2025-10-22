@@ -104,7 +104,7 @@ map mf push :touch<space>
 
 
 #___
-cmd drag $dragon-drop -x -a -s 72 $fx
+cmd drag $ripdrag -x -a -r $fx
 map R drag
 
 
