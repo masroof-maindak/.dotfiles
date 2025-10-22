@@ -13,8 +13,8 @@ mkdir -p "$HOME"/Documents/{uni,repos,Vault,wrk,books}
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
 # Install packages
-install_list "base"
-install_list "wayland"
+install_list "./system/package-lists/base"
+install_list "./system/package-lists/wayland"
 
 # Symlink dotfiles
 rm "$HOME"/.bashrc "$HOME"/.bash_profile
