@@ -14,14 +14,14 @@ install_paru() {
 }
 
 install_list() {
-    print_yellow "Installing $1 packages"
+    print_yellow "Installing packages from $1"
     while read -r pkg; do
         if [[ -n "$pkg" && ! "$pkg" =~ ^# ]]; then
             if ! pacman -Q "$pkg" &>/dev/null; then
                 paru -S --skipreview --noconfirm "$pkg"
             fi
         fi
-    done <"./system/package-lists/$1"
+    done <"$1"
 }
 
 install_eww() {
