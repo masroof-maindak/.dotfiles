@@ -3,7 +3,7 @@
 
 # -- History --
 HISTSIZE=2048
-HISTFILE="$HOME/.cache/bash/history"
+HISTFILE="$XDG_CACHE_HOME/bash/history"
 HISTFILESIZE=8192
 HISTCONTROL=ignoreboth:erasedups
 
