@@ -12,8 +12,6 @@ mkdir -p "$HOME"/.local/share/{cargo,go}
 mkdir -p "$HOME"/Documents/{uni,repos,Vault,wrk,books}
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
-install_rust
-
 # Install packages
 install_list "base"
 install_list "wayland"

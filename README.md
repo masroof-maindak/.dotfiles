@@ -30,3 +30,10 @@ chmod +x bootstrap.sh
 ### spotify-player
 
 - Generate client ID and write to `~/.cache/spotify_client_id`.
+
+### Rustup
+
+```bash
+rustup default stable
+cargo install ripdrag
+```
