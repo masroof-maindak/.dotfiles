@@ -69,13 +69,13 @@ chmod +x "$HOME"/.config/berry/autostart
 chmod +x "$HOME"/.config/river/*
 chmod +x "$HOME"/.local/bin/*
 
-# Update this repo's remote
-cd ~/.dotfiles
-git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
-cd
-
 # Source bashrc in current shell
 source ~/.bashrc
+
+# Set up Rust tooling
+rustup default stable
+# TODO: `cargo install <shit>` here, but respect relevant env vars.
+#   Iterate over ./system/package-lists/rust
 
 # Set up fish
 chsh -s $(which fish)
