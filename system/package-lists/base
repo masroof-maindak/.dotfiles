@@ -13,7 +13,6 @@ upower
 # Audio and multimedia
 alsa-utils
 ffmpeg
-ffmpegthumbnailer
 mpd
 mpd-mpris
 mpv
@@ -111,3 +110,4 @@ winetricks
 # Miscellaneous
 ctpv-git
 phinger-cursors
+wezterm
