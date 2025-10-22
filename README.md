@@ -12,14 +12,16 @@ chmod +x bootstrap.sh
 ./bootstrap.sh
 ```
 
-## Later
+## After
 
 ### Username Hardcoding
 
-> [!caution]
-> I have [configured](system/skip-username.conf) my TTY to automatically enter my username in the virtual console when logging in. To prevent being soft-locked from your system, either modify the username in that file, or comment out the relevant line from `bootstrap.sh`.
+> [!caution] I have [configured](system/skip-username.conf) my TTY to automatically enter my
+> username in the virtual console when logging in. To prevent being soft-locked from your system,
+> either modify the username in that file, or comment out the relevant line from `bootstrap.sh`.
 
-The only other instance of username hardcoding (exluding Git configs & readmes; at least as of the moment of writing) is for the [wgetrc config file](.config/wgetrc) that prevents home-cluttering.
+The only other instance of username hardcoding (exluding Git configs & readmes; at least as of the
+moment of writing) is for the [wgetrc](.config/wgetrc) that prevents home-cluttering.
 
 ### Update Remote
 
@@ -39,7 +41,8 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
 
 ### Obsidian
 
-- Start `syncthing` and set it up to sync the `~/Documents/Vault`, `~/Pictures/Image Transmission'`, and `~/Music` directories with my phone.
+- Start `syncthing` and set it up to sync the `~/Documents/Vault`, `~/Pictures/Image Transmission'`,
+  and `~/Music` directories with my phone.
 
 ### spotify-player
 
