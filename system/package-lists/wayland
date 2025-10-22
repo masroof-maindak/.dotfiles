@@ -1,3 +1,5 @@
+# TODO: merge into 'base' and rename to package_list.txt
+
 foot
 foot-terminfo
 nwg-look
@@ -6,12 +8,6 @@ wf-recorder
 imv
 chafa
 swww
-
-# river
-# grim
-# slurp
-# kanshi
-# xdg-desktop-portal-wlr
 
 # niri
 niri
