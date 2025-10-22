@@ -5,7 +5,7 @@ GNU Stow-managed dotfiles for an Arch-Wayland box running Niri and other TUI-foc
 ## Initialisation
 
 ```bash
-# After a minimal Arch install...
+# After a 'minimal' `archinstall`...
 cd && git clone --recurse-submodules https://github.com/masroof-maindak/.dotfiles
 cd .dotfiles
 chmod +x bootstrap.sh
@@ -13,6 +13,13 @@ chmod +x bootstrap.sh
 ```
 
 ## Other
+
+### Update Remote
+
+```bash
+cd ~/.dotfiles
+git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
+```
 
 ### Git SSH Signing
 
@@ -30,10 +37,4 @@ chmod +x bootstrap.sh
 ### spotify-player
 
 - Generate client ID and write to `~/.cache/spotify_client_id`.
-
-### Rustup
-
-```bash
-rustup default stable
-cargo install ripdrag
-```
+- Follow instructions to authenticate.
