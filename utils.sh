@@ -13,11 +13,6 @@ install_paru() {
     rm -rf paru
 }
 
-install_rust() {
-    print_yellow "Installing Rust"
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
-}
-
 install_list() {
     print_yellow "Installing $1 packages"
     while read -r pkg; do
