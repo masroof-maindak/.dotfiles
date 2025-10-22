@@ -12,10 +12,6 @@ set -x XDG_CACHE_HOME "$HOME/.cache"
 set -x XDG_DATA_HOME "$HOME/.local/share"
 set -x XDG_STATE_HOME "$HOME/.local/state"
 
-set -x XINITRC "$XDG_CONFIG_HOME/x11/xinitrc"
-set -x XPROFILE "$XDG_CONFIG_HOME/x11/xprofile"
-set -x XRESOURCES "$XDG_CONFIG_HOME/x11/xresources"
-
 set -x CARGO_HOME "$XDG_DATA_HOME/cargo"
 set -x RUSTUP_HOME "$XDG_DATA_HOME/rustup"
 set -x RUSTC_WRAPPER "sccache"
