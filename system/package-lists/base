@@ -38,6 +38,7 @@ wireguard-tools
 clang
 exa
 fish
+fisher
 gdb
 git-delta
 jq
