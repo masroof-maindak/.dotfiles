@@ -13,13 +13,22 @@ install_paru() {
     rm -rf paru
 }
 
-install_list() {
+install_pacman_list() {
     print_yellow "Installing packages from $1"
     while read -r pkg; do
         if [[ -n "$pkg" && ! "$pkg" =~ ^# ]]; then
             if ! pacman -Q "$pkg" &>/dev/null; then
                 paru -S --skipreview --noconfirm "$pkg"
             fi
+        fi
+    done <"$1"
+}
+
+install_rust_list() {
+    print_yellow "Installing packages from $1"
+    while read -r pkg; do
+        if [[ -n "$pkg" && ! "$pkg" =~ ^# ]]; then
+            cargo install "$pkg"
         fi
     done <"$1"
 }
