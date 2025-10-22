@@ -14,8 +14,8 @@ sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
 # Install packages
 install_paru
-install_list "./system/package-lists/base"
-install_list "./system/package-lists/wayland"
+install_pacman_list "./system/package-lists/base"
+install_pacman_list "./system/package-lists/wayland"
 
 # Symlink dotfiles
 rm "$HOME"/.bashrc "$HOME"/.bash_profile
@@ -67,8 +67,7 @@ chmod +x "$HOME"/.local/bin/*
 # Set up Rust tooling
 print_yellow "Setting up Rust & tools"
 rustup default stable
-cargo install ripdrag
-# TODO: Iterate over ./system/package-lists/rust instead
+install_rust_list "./system/package-lists/rust"
 
 # Set up fish
 print_yellow "Setting up Fish shell"
