@@ -76,3 +76,7 @@ cd
 
 # Source bashrc in current shell
 source ~/.bashrc
+
+# Set up fish
+chsh -s $(which fish)
+fisher update
