@@ -34,8 +34,8 @@ set -x GTK2_RC_FILES "$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/.ripgreprc"
 
 # Software
-set -x FZF_DEFAULT_COMMAND "fd . --hidden --exclude ".git""
-set -x FZF_DEFAULT_OPTS "--reverse --margin 1,2 --prompt "fzf: " --color=16 --preview-window="down,50%,border-sharp,wrap" --multi"
+set -x FZF_DEFAULT_COMMAND "fd . --hidden --exclude \".git\""
+set -x FZF_DEFAULT_OPTS "--reverse --margin 1,2 --prompt "fzf: " --color=16 --preview-window=\"down,50%,border-sharp,wrap\" --multi"
 
 # Wayland
 set -x ELECTRON_OZONE_PLATFORM_HINT auto
