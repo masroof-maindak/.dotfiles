@@ -111,3 +111,24 @@ winetricks
 ctpv-git
 phinger-cursors
 wezterm
+
+# Wayland
+foot
+foot-terminfo
+nwg-look
+wlsunset
+wf-recorder
+imv
+chafa
+swww
+
+# niri
+niri
+xdg-desktop-portal-gtk
+xdg-desktop-portal-gnome
+xwayland-satellite
+
+cliphist
+wl-clipboard
+fuzzel
+wtype
