@@ -28,8 +28,7 @@ sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
 # Install packages
 install_paru
-install_pacman_list "./system/package-lists/base"
-install_pacman_list "./system/package-lists/wayland"
+install_pacman_list "./system/package-lists/package_list.txt"
 
 # Symlink dotfiles
 rm "$HOME"/.bashrc "$HOME"/.bash_profile
