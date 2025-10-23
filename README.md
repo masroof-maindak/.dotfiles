@@ -6,7 +6,7 @@ GNU Stow-managed dotfiles for an Arch-Wayland box running Niri and other TUI-foc
 
 ```bash
 # Following a 'minimal' `archinstall`:
-cd && git clone --recurse-submodules https://github.com/masroof-maindak/.dotfiles
+cd && git clone https://github.com/masroof-maindak/.dotfiles
 cd .dotfiles
 chmod +x bootstrap.sh
 ./bootstrap.sh
@@ -36,6 +36,13 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
 
 - Git config attempts to use `~/.ssh/id_ed25519.pub` as signing key
 - Copy over previous/create new Git signing key
+
+### Neovim
+
+```bash
+git clone git@github.com:masroof-maindak/nvim.git ~/.config/nvim
+nvim
+```
 
 ### Source
 
