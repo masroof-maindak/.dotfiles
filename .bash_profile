@@ -34,7 +34,7 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/.ripgreprc"
 
 # Software
 export FZF_DEFAULT_COMMAND="fd . --hidden --exclude \".git\""
-export FZF_DEFAULT_OPTS="--reverse --margin 1,2 --prompt \"fzf: \" --color=16 --preview-window=\"down,50%,border-sharp,wrap\" --multi"
+export FZF_DEFAULT_OPTS="--reverse --margin 1,2 --prompt \"fzf: \" --color=16,current-bg:0,border:0 --preview-window=\"down,50%,border-sharp,wrap\" --multi"
 
 # Wayland
 export ELECTRON_OZONE_PLATFORM_HINT=auto
