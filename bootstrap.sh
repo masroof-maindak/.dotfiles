@@ -3,13 +3,27 @@ source utils.sh
 source .bash_profile
 
 print_yellow "Making directories"
-# TODO: use XDG base dir env vars
+if [ -z "$XDG_DATA_HOME" ]; then
+    XDG_DATA_HOME="$HOME/.local/share"
+    print_yellow "WARNING: XDG_DATA_HOME not set, falling back to $XDG_DATA_HOME"
+fi
+if [ -z "$XDG_CACHE_HOME" ]; then
+    XDG_CACHE_HOME="$HOME/.cache"
+    print_yellow "WARNING: XDG_CACHE_HOME not set, falling back to $XDG_CACHE_HOME"
+fi
+if [ -z "$XDG_STATE_HOME" ]; then
+    XDG_STATE_HOME="$HOME/.local/state"
+    print_yellow "WARNING: XDG_STATE_HOME not set, falling back to $XDG_STATE_HOME"
+fi
+
 mkdir -p "$HOME"/{Screenshots,Desktop,Documents,Downloads,Music,Pictures/{Wallpapers,Image\ Transmission},Videos}
 mkdir -p "$HOME"/{.local/bin,.themes,.icons,.fonts,.config/gtk-2.0}
-mkdir -p "$HOME"/.cache/{bash,python-history,mpd,ruff,go}
-mkdir -p "$HOME"/.local/state/vim
-mkdir -p "$HOME"/.local/share/{cargo,go}
-mkdir -p "$HOME"/Documents/{uni,repos,Vault,wrk,books}
+mkdir -p "$HOME"/Documents/{uni,repos,Vault,wrk,books,projects}
+
+mkdir -p "$XDG_STATE_HOME"/vim
+mkdir -p "$XDG_CACHE_HOME"/{bash,python-history,mpd,ruff,go}
+mkdir -p "$XDG_DATA_HOME"/{cargo,go}
+
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
 # Install packages
