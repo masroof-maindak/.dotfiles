@@ -5,7 +5,7 @@ GNU Stow-managed dotfiles for an Arch-Wayland box running Niri and other TUI-foc
 ## Setup
 
 ```bash
-# After a 'minimal' `archinstall`...
+# Following a 'minimal' `archinstall`:
 cd && git clone --recurse-submodules https://github.com/masroof-maindak/.dotfiles
 cd .dotfiles
 chmod +x bootstrap.sh
@@ -16,9 +16,11 @@ chmod +x bootstrap.sh
 
 ### Username Hardcoding
 
-> [!caution] I have [configured](system/skip-username.conf) my TTY to automatically enter my
-> username in the virtual console when logging in. To prevent being soft-locked from your system,
-> either modify the username in that file, or comment out the relevant line from `bootstrap.sh`.
+> [!CAUTION]
+> 
+> I have [configured](system/skip-username.conf) my TTY to automatically enter my username in the
+> virtual console when logging in. To prevent being soft-locked from your system, either modify the
+> username in that file, or comment out the relevant line from `bootstrap.sh`.
 
 The only other instance of username hardcoding (exluding Git configs & readmes; at least as of the
 moment of writing) is for the [wgetrc](.config/wgetrc) that prevents home-cluttering.
