@@ -40,19 +40,25 @@ device=$(cat /sys/class/dmi/id/product_name)
 if echo "$device" | grep -q "MacBook"; then
     print_yellow "MacBook detected"
 
-    print_yellow "Installing mbpfan"
-    paru -S mbpfan-git
-
     # Swap keys
     print_yellow "Copying system files"
     sudo cp ./system/Macbook/hid_apple.conf /etc/modprobe.d/hid_apple.conf
 
+    # If mbpfan-git already installed, skip fan-install steps
+    if pacman -Qi mbpfan-git &>/dev/null; then
+        print_yellow "mbpfan-git already installed — skipping fan install"
+    else
+        # Fan Fix
+        print_yellow "Installing mbpfan"
+        paru -S --noconfirm mbpfan-git
+    fi
+
     print_yellow "Enabling services"
-    sudo systemctl enable mbpfan
+    sudo systemctl enable --now mbpfan
 
     print_yellow "Regenerating initramfs"
-    # sudo dracut --regenerate-all --force              # Use this on non-Arch based distros
-    # mkinitcpio -p linux                               # For Arch, but didn't work for me so;
+    # sudo dracut --regenerate-all --force     # Use this on non-Arch based distros
+    # mkinitcpio -p linux                      # For Arch, but didn't work for me so;
     sudo pacman -S linux
 fi
 
