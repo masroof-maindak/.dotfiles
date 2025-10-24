@@ -1,7 +1,6 @@
 abbr --add g "git"
 abbr --add gs "git status"
 abbr --add gss "git status -s"
-abbr --add gitls "git config --list | grep alias"
 
 abbr --add rd "ripdrag -a -r"
 abbr --add v "nvim"
