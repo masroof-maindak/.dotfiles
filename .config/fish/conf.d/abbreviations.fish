@@ -8,14 +8,19 @@ abbr --add p "pacman"
 abbr --add py "python"
 abbr --add l "lfcd"
 abbr --add m "make"
+abbr --add t "tmux"
 abbr --add dk "docker"
+
 abbr --add uvr "uv run"
 abbr --add uvm "uv run manage.py"
+
 abbr --add nmt "nmtui"
 abbr --add nmc "nmcli"
 
 abbr --add ls "ls -hN --color=auto --group-directories-first"
-abbr --add exa "exa --group-directories-first"
+abbr --add eza "eza --group-directories-first"
+abbr --add ll "exa --group-directories-first -l"
+
 abbr --add c "clear"
 abbr --add clera "clear"
 abbr --add q "exit"
@@ -25,5 +30,6 @@ abbr --add md "mkdir -p"
 
 abbr --add pubip "curl ipinfo.io; echo"
 abbr --add copy "wl-copy"
-abbr --add pkg "pacman -Q | wc -l"
+abbr --add pkg "pacman -Q | fzf"
+abbr --add fnt "fc-list | fzf"
 abbr --add bt "upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}'"
