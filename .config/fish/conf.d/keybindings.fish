@@ -1,4 +1,4 @@
-bind alt-o 'commandline -f repaint; set -l f (fd . -t f | fzf) && $EDITOR $f'
+bind alt-o 'commandline -f repaint; set -l f (fd . -t f -H --exclude ".git/**" | fzf) && $EDITOR $f'
 bind alt-l 'set old_tty (stty -g); stty sane; lfcd; stty $old_tty; commandline -f repaint'
 bind alt-m 'make; commandline -f repaint'
 bind alt-t 'tmux; commandline -f repaint'
