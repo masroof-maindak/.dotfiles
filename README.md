@@ -1,6 +1,9 @@
 # Dotfiles
 
-GNU Stow-managed dotfiles for an Arch-Wayland box running Niri and other TUI-focused paraphernalia.
+GNU Stow-managed dotfiles for an Arch-Wayland box running Niri and other TUI-focused paraphernalia
+comprising `tmux`, `fish`, `zoxide`, `fzf`, `lf`, and
+[`neovim`](https://github.com/masroof-maindak/nvim), amidst others; chock-full of tiny little
+tidbits that make my QoL in the shell ~~ever-so-slightly~~ significantly better.
 
 ## Setup
 
@@ -17,7 +20,7 @@ chmod +x bootstrap.sh
 ### Username Hardcoding
 
 > [!CAUTION]
-> 
+>
 > I have [configured](system/skip-username.conf) my TTY to automatically enter my username in the
 > virtual console when logging in. To prevent being soft-locked from your system, either modify the
 > username in that file, or comment out the relevant line from `bootstrap.sh`.
@@ -50,7 +53,7 @@ nvim
 
 ### Obsidian
 
-- Start `syncthing` and set it up to sync the `~/Documents/Vault`, `~/Pictures/Image Transmission'`,
+- Start `syncthing` and set it up to sync the `~/Documents/Vault`, `~/Pictures/Image Transmission`,
   and `~/Music` directories with my phone.
 
 ### spotify-player
