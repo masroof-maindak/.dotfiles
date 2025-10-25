@@ -67,7 +67,7 @@ transmission-cli
 wget
 curl
 
-# Audio 
+# Audio
 
 ## Stack
 
