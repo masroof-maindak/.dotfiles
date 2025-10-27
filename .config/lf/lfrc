@@ -59,7 +59,7 @@ cmd on-cd &{{
 map gitb $fzchk
 map gitl $clear; git pull --rebase || true; echo "press ENTER"; read ENTER
 map gits $clear; git status; echo "press ENTER"; read ENTER
-map gitd $clear; git dag
+map gitd $clear; git dag; echo "press ENTER"; read ENTER
 
 
 #___
