@@ -48,7 +48,7 @@ output "Dell Inc. - DELL U3415W - DP-2" {}
 
 layout {
     gaps 4
-    center-focused-column "on-overflow"
+    center-focused-column "never"
 	always-center-single-column
 	default-column-display "normal"
 	background-color "transparent"
