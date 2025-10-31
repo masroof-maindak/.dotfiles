@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 # Open today's journal entry
 
+TEXT_ED=${1:-$EDITOR}
+
 cd $VAULT_DIR
 today=$(date +'%Y-%m-%d')
 fpath="03 - Journal/$(date +'%Y')/$(date +'%m - %b')/${today}.md"
 if [ -f "$fpath" ]; then
-	$EDITOR "$fpath"
+    $TEXT_ED "$fpath"
 fi
 cd - >/dev/null
