@@ -8,5 +8,7 @@ today=$(date +'%Y-%m-%d')
 fpath="03 - Journal/$(date +'%Y')/$(date +'%m - %b')/${today}.md"
 if [ -f "$fpath" ]; then
     $TEXT_ED "$fpath"
+else
+    echo "Note file doesn't exist."
 fi
 cd - >/dev/null
