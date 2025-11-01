@@ -60,3 +60,7 @@ nvim
 
 - Generate client ID and write to `~/.cache/spotify_client_id`.
 - Follow instructions to authenticate.
+
+### Kanata
+
+- Follow the instructions in their [setup guide](https://github.com/jtroo/kanata/blob/main/docs/setup-linux.md).

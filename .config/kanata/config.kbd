@@ -1,0 +1,86 @@
+(defcfg
+  process-unmapped-keys yes
+  concurrent-tap-hold true
+)
+
+(defsrc
+  esc
+  caps a s d f g h j k l ;
+  lsft
+)
+
+(defvar
+  tap-time 120
+  hold-time 180
+  combo-timeout 20
+  tap-dance-time 200
+)
+
+;; 1-tap esc => esc ; 2tap esc => caps
+(defalias
+  esccaps (tap-dance $tap-dance-time (esc caps))
+)
+
+;; Sticky shift
+(defalias
+  shftos (one-shot-press 1000 lsft)
+)
+
+;; Combos
+(defchordsv2
+  ;; Esc + Ret
+  (j k) esc $combo-timeout all-released ()
+  (j k l) ret $combo-timeout all-released ()
+
+  ;; Parentheses
+  (s d) S-9 $combo-timeout all-released ()
+  (k l) S-0 $combo-timeout all-released ()
+
+  ;; Braces
+  (w e) S-[ $combo-timeout all-released ()
+  (i o) S-] $combo-timeout all-released ()
+
+  ;; Brackets
+  (x c) [ $combo-timeout all-released ()
+  (, .) ] $combo-timeout all-released ()
+
+  ;; Symbols
+  (q w) S-2 $combo-timeout all-released () ;; @
+  (o p) S-1 $combo-timeout all-released () ;; !
+  (f d) -   $combo-timeout all-released () ;; -
+  (u i) =   $combo-timeout all-released () ;; =
+  (e r) S-- $combo-timeout all-released () ;; _
+  (c v) S-8 $combo-timeout all-released () ;; *
+  (m ,) S-; $combo-timeout all-released () ;; :
+  (e d) S-4 $combo-timeout all-released () ;; $
+)
+
+;; Home-row mods
+(defalias
+  a (multi f24 (tap-hold $tap-time $hold-time a lalt))
+  s (multi f24 (tap-hold $tap-time $hold-time s lmet))
+  d (multi f24 (tap-hold $tap-time $hold-time d lsft))
+  f (multi f24 (tap-hold $tap-time $hold-time f lctl))
+
+  j (multi f24 (tap-hold $tap-time $hold-time j rctl))
+  k (multi f24 (tap-hold $tap-time $hold-time k rsft))
+  l (multi f24 (tap-hold $tap-time $hold-time l rmet))
+  ; (multi f24 (tap-hold $tap-time $hold-time ; ralt))
+)
+
+;; Hold tab to access arrows
+(defalias
+  tabvim (tap-hold-press $tap-time $hold-time tab (layer-toggle arrows))
+)
+
+(deflayer core
+  @esccaps
+  @tabvim @a @s @d @f _ _ @j @k @l @;
+  @shftos
+)
+
+(deflayer arrows
+  _
+  _ _ _ _ _ _ left down up right _
+  _
+)
