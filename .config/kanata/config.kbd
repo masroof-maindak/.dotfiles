@@ -10,10 +10,10 @@
 )
 
 (defvar
-  tap-time 120
-  hold-time 180
+  tap-time 80
+  hold-time 200
   combo-timeout 20
-  tap-dance-time 200
+  tap-dance-time 150
 )
 
 ;; 1-tap esc => esc ; 2tap esc => caps
