@@ -5,7 +5,7 @@ cd $VAULT_DIR
 files="$(
     fd -t f -e md -E '.*' |
         fzf \
-            --preview="bat --style=numbers --color=always --line-range=:250 {}" \
+            --preview="bat -P -p --color=always --line-range=:250 {}" \
             --prompt "Vault: " \
             --bind "ctrl-d:change-query($(date +'%Y-%m-%d'))"
 )"

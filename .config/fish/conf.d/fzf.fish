@@ -6,10 +6,11 @@ fzf --fish | source
 # Preview file w/ bat
 set -x FZF_CTRL_T_OPTS "
     --walker-skip .git,node_modules,target,.venv
-    --preview 'bat -P -p --color=always {}'
+    --preview 'bat -P -p --color=always {} --line-range=:250'
     --bind 'ctrl-/:change-preview-window(down|hidden)'
     --height=100%
 "
+
 # Disable Alt+C to CD fuzzily; already have zoxide and LF's Ctrl+F
 set -x FZF_ALT_C_COMMAND ""
 
