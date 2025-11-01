@@ -97,10 +97,27 @@ map mr mark-remove
 
 
 #___
-cmd mkdir %mkdir "$@"
-cmd touch %touch "$@"
-map md push :mkdir<space>
-map mf push :touch<space>
+cmd mkdir %{{
+    printf "directory: "
+    read -e dir
+    mkdir -p "$dir"
+    lf -remote "send $id load"$'\n'"send $id select \"$dir\""
+}}
+cmd touch %{{
+    printf "file: "
+    read -e f
+    touch "$f"
+    lf -remote "send $id load"$'\n'"send $id select \"$f\""
+}}
+cmd mkcd %{{
+    printf "directory: "
+    read -e dir
+    mkdir -p "$dir"
+    lf -remote "send $id cd \"$dir\""
+}}
+map md mkdir
+map mf touch
+map mk mkcd
 
 
 #___
