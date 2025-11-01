@@ -11,29 +11,30 @@
 
 [alias]
 	a = add
-	c = commit
-	cm = commit -m
-	ca = commit --amend
-	co = checkout
-	cob = checkout -b
-	cl = clone
-	b = branch
 	ba = branch -a
-	f = fetch
+	b = branch
+	ca = commit --amend
+	c = commit
+	cl = clone
+	cm = commit -m
+	cob = checkout -b
+	co = !fzchk
+	dag = log --graph --oneline --all
 	d = diff
 	ds = diff --staged
-	l = pull
-	p = push
-	pf = push --force
-	s = status
-	sw = switch
-	ss = status -s
-	st = stash
-	undo = reset --soft HEAD^
-	dag = log --graph --oneline --all
-	last = log -1 HEAD
+	f = fetch
 	fuckit = reset --hard
+	last = log -1 HEAD
+	l = pull
 	nuke = branch -D
+	pf = push --force
+	p = push
+	rs= = restore
+	ss = status -s
+	s = status
+	st = stash
+	sw = switch
+	undo = reset --soft HEAD^
 
 [push]
 	autoSetupRemote = true
