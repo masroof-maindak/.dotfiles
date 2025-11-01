@@ -1,5 +1,5 @@
 fish_variables
 
-conf.d/autopair.fish
+conf.d/
 
 functions/_autopair_*
