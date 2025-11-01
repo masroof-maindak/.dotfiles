@@ -1,9 +1,10 @@
 # Dotfiles
 
-GNU Stow-managed dotfiles for an Arch-Wayland box running Niri and other TUI-focused paraphernalia
-comprising `tmux`, `fish`, `zoxide`, `fzf`, `lf`, and
-[`neovim`](https://github.com/masroof-maindak/nvim), amidst others; chock-full of tiny little
-tidbits that make my QoL in the shell ~~ever-so-slightly~~ significantly better.
+GNU Stow-managed dotfiles for an Arch-Wayland box running Niri and other
+TUI-focused paraphernalia comprising `tmux`, `fish`, `zoxide`, `fzf`, `lf`, and
+[`neovim`](https://github.com/masroof-maindak/nvim), amidst others; chock-full
+of tiny little tidbits that make my QoL in the shell ~~ever-so-slightly~~
+significantly better.
 
 ## Setup
 
@@ -21,12 +22,14 @@ chmod +x bootstrap.sh
 
 > [!CAUTION]
 >
-> I have [configured](system/skip-username.conf) my TTY to automatically enter my username in the
-> virtual console when logging in. To prevent being soft-locked from your system, either modify the
-> username in that file, or comment out the relevant line from `bootstrap.sh`.
+> I have [configured](system/skip-username.conf) my TTY to automatically enter
+> my username in the virtual console when logging in. To prevent being
+> soft-locked from your system, either modify the username in that file, or
+> comment out the relevant line from `bootstrap.sh`.
 
-The only other instance of username hardcoding (exluding Git configs & readmes; at least as of the
-moment of writing) is for the [wgetrc](.config/wgetrc) that prevents home-cluttering.
+The only other instance of username hardcoding (exluding Git configs & readmes;
+at least as of the moment of writing) is for the [wgetrc](.config/wgetrc) that
+prevents home-cluttering.
 
 ### Update Remote
 
@@ -53,8 +56,8 @@ nvim
 
 ### Obsidian
 
-- Start `syncthing` and set it up to sync the `~/Documents/Vault`, `~/Pictures/Image Transmission`,
-  and `~/Music` directories with my phone.
+- Start `syncthing` and set it up to sync the `~/Documents/Vault`,
+  `~/Pictures/Image Transmission`, and `~/Music` directories with my phone.
 
 ### spotify-player
 
@@ -63,4 +66,8 @@ nvim
 
 ### Kanata
 
-- Follow the instructions in their [setup guide](https://github.com/jtroo/kanata/blob/main/docs/setup-linux.md).
+- Follow the instructions in their [setup
+  guide](https://github.com/jtroo/kanata/blob/main/docs/setup-linux.md).
+- Whilst copying over the sample SystemD service, ensure the `Environment`
+  variable under the `[Service]` heading contains the path of the `kanata`
+  installation; this should be `/home/<user>/.local/share/cargo/bin`
