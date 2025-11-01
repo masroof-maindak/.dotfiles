@@ -17,9 +17,11 @@ abbr --add uvm "uv run manage.py"
 abbr --add nmt "nmtui"
 abbr --add nmc "nmcli"
 
+# Since `ls` shows a '/' after a directory's name
 abbr --add ls "ls -hN --color=auto --group-directories-first"
-abbr --add eza "eza --group-directories-first"
-abbr --add ll "exa --group-directories-first -l"
+abbr --add ll "eza --group-directories-first -l"
+abbr --add lt "eza --group-directories-first -T -L=2"
+abbr --add lti "eza --group-directories-first -T -L=2 --icons=auto"
 
 abbr --add c "clear"
 abbr --add clera "clear"
