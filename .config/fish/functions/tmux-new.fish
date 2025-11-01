@@ -4,6 +4,11 @@ function tmux-new
         return 1
     end
 
+    if test "$TMUX"
+        echo "tmux-new: Can't created nested session." >&2
+        return 1
+    end
+
     set -l session $argv[1]
 
     if test -z "$session"
