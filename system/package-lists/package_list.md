@@ -52,15 +52,16 @@ xdg-desktop-portal-gnome
 
 ## Core
 
-firewalld
+bind # provides dig
 inetutils
+iproute2
 networkmanager
 tailscale
+ufw
 wireguard-tools
-bind # provides dig
-iproute2
 
 ## File Transfer
+
 syncthing
 croc
 transmission-cli
@@ -129,6 +130,7 @@ cmake
 mold
 
 ## Text Editors
+
 neovim
 vim
 visual-studio-code-bin

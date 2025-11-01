@@ -70,7 +70,7 @@ sudo cp ./system/skip-username.conf /etc/systemd/system/getty@tty1.service.d/ski
 # Services
 print_yellow "Enabling services"
 sudo systemctl enable --now NetworkManager
-sudo systemctl enable --now firewalld
+sudo systemctl enable --now ufw # TODO: first-time setup?
 systemctl enable --user --now mpd
 systemctl enable --user --now mpd-mpris
 
