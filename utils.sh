@@ -33,14 +33,26 @@ install_rust_list() {
     done <"$1"
 }
 
-install_eww() {
-    print_yellow "Installing Eww"
-    git clone https://github.com/elkowar/eww "$HOME"/Documents/repos/eww
-    cd "$HOME"/Documents/repos/eww || exit
-    git pull
-    cargo build -r --no-default-features --features wayland
-    mv target/release/eww "$HOME"/.local/bin
-    chmod +x "$HOME"/.local/bin/eww
+install_rust_binary() {
+    local repo_url="$1"
+    local binary_name="$2"
+    local build_args="$3"
+
+    local repo_dir="$HOME"/Documents/repos/"$(basename "$repo_url" .git)"
+
+    print_yellow "Cloning and setting up $binary_name from $repo_url"
+    if [ -d "$repo_dir" ]; then
+        print_yellow "$repo_dir already exists, pulling latest changes"
+        cd "$repo_dir" || exit
+        git pull
+    else
+        git clone "$repo_url" "$repo_dir"
+        cd "$repo_dir" || exit
+    fi
+
+    cargo build -r "$build_args"
+    mv target/release/"$binary_name" "$HOME"/.local/bin
+    chmod +x "$HOME"/.local/bin/"$binary_name"
     cd - || exit
 }
 

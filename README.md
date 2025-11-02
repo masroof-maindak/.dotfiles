@@ -51,7 +51,8 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
 - A couple of helper functions have been provided in `utils.sh`; source it and
   run what you deem fit
 - [`eww-niri-workspaces`](https://github.com/druskus21/eww-niri-workspaces) --
-  required for the workspace indicator in my Eww bar
+  required for the workspace indicator in my
+  [Eww](https://github.com/elkowar/eww) bar
 - ???
 
 ### Obsidian
