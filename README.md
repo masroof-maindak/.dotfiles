@@ -1,10 +1,11 @@
 # Dotfiles
 
-GNU Stow-managed dotfiles for an Arch-Wayland box running Niri and other
-TUI-focused paraphernalia comprising `tmux`, `fish`, `zoxide`, `fzf`, `lf`, and
-[`neovim`](https://github.com/masroof-maindak/nvim), amidst others; chock-full
-of tiny little tidbits that make my QoL in the shell ~~ever-so-slightly~~
-significantly better.
+GNU Stow-managed dots for an Arch-Wayland box running Niri, a plethora of
+TUI-focused paraphernalia comprising (non-exhaustively) `tmux`, `fish`,
+`zoxide`, `fzf`, `lf`, and [`neovim`](https://github.com/masroof-maindak/nvim),
+and a grimoire's worth of keybinds coupled w/ a cantankerous Kanata config;
+chock-full of arcane runes that render my humble digital-dwelling's QoL
+significantly more conducive to effective (and enjoyable) spell-casting.
 
 ## Setup
 
@@ -23,13 +24,15 @@ chmod +x bootstrap.sh
 > [!CAUTION]
 >
 > I have [configured](system/skip-username.conf) my TTY to automatically enter
-> my username in the virtual console when logging in. To prevent being
-> soft-locked from your system, either modify the username in that file, or
-> comment out the relevant line from `bootstrap.sh`.
+> my username in the virtual console when logging in. To prevent the egregious
+> inconvenience of always failing your first login attempt (unless your username
+> is `maindak`), either modify the username in that file, or comment out the
+> relevant line from `bootstrap.sh`.
 
 The only other instance of username hardcoding (exluding Git configs & readmes;
 at least as of the moment of writing) is for the [wgetrc](.config/wgetrc) that
-prevents home-cluttering.
+prevents home-cluttering, but maybe run a `rg maindak` after cloning just to be
+safe.
 
 ### Update Remote
 
@@ -43,16 +46,13 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
 - Git config attempts to use `~/.ssh/id_ed25519.pub` as signing key
 - Copy over previous/create new Git signing key
 
-### Neovim
+### Build From Source
 
-```bash
-git clone git@github.com:masroof-maindak/nvim.git ~/.config/nvim
-nvim
-```
-
-### Source
-
-- Source `utils.sh` and run relevant functions for whatever is required.
+- A couple of helper functions have been provided in `utils.sh`; source it and
+  run what you deem fit
+- [`eww-niri-workspaces`](https://github.com/druskus21/eww-niri-workspaces) --
+  required for the workspace indicator in my Eww bar
+- ???
 
 ### Obsidian
 

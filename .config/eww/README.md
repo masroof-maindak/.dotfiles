@@ -1,8 +1,7 @@
 # Eww
 
-Horrendously hard-coded Eww dots. Designed for my 2560x1600 13.3' MacBook Pro 2014.
+Horrendously hard-coded Eww dots. Designed for my 2560x1600 13.3' Mid 2014 MacBook Pro.
 
 ## Acknowledgements
 
-- [eww-niri-workspaces](https://github.com/druskus20/eww-niri-workspaces)
 - [Druskus' dotfiles](https://github.com/druskus20/dots)
