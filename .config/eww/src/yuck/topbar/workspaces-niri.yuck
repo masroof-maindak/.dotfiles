@@ -3,11 +3,11 @@
 (defwidget workspaces [monitor]
   (box :orientation "v"
        :class "workspaces"
+       :valign "center"
        :space-evenly false
     (for wsp in {"${workspaces-niri.outputs[monitor].workspaces}"}
       (eventbox :cursor "pointer"
         (button :onclick "niri msg action focus-workspace ${wsp.index}"
-          (box :orientation "v" :class "workspace ${wsp.is_active ? 'active' : ''} ${arraylength(wsp.columns) == 0 ? 'empty' : ''}"
+          (box :orientation "v" :valign "center" :class "workspace ${wsp.is_active ? 'active' : ''} ${arraylength(wsp.columns) == 0 ? 'empty' : ''}"
             (for col in "${wsp.columns}"
-              (box :halign "center" :valign "center" :class "column ${col.has_focused_window ? 'focused' : ''}"
-                (label :text "◆")))))))))
+              (box :halign "center" :valign "center" :class "column ${col.has_focused_window ? 'focused' : ''}"))))))))
