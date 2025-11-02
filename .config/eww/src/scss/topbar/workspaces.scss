@@ -1,0 +1,98 @@
+// TODO: fix workspace characters not being coloured
+
+$rosewater: #af3a03;
+$flamingo: #9d2b22;
+$pink: #8f3f71;
+$mauve: #8f3f71;
+$red: #b83229;
+$peach: #d65d0e;
+$yellow: #b57e22;
+$green: #7c7b20;
+$teal: #4a8568;
+$sky: #427b58;
+$sapphire: #076678;
+$blue: #1a7088;
+$lavender: #427b58;
+
+$text: #64513e;
+$subtext1: #786653;
+$subtext0: #8c7b68;
+$overlay2: #ddcebc;
+
+$surface2: #ddcebc;
+$surface1: #c9b9a7;
+$surface0: #ddcebc;
+$base: #f1e3d1;
+
+.workspaces {
+  font-size: 14px;
+
+  .workspace {
+    padding: 2px 1px;
+    border-radius: 0px;
+
+    .column {
+      padding: 0px 4px;
+    }
+  }
+
+  .workspace.empty {
+    padding: 9px 9px;
+  }
+
+  .workspace.active {
+    background-color: $surface2;
+  }
+
+  widget:nth-child(1) .workspace {
+    .column {
+      color: $red;
+    }
+  }
+
+  widget:nth-child(2) .workspace {
+    .column {
+      color: $peach;
+    }
+  }
+
+  widget:nth-child(3) .workspace {
+    .column {
+      color: $yellow;
+    }
+  }
+
+  widget:nth-child(4) .workspace {
+    .column {
+      color: $green;
+    }
+  }
+
+  widget:nth-child(5) .workspace {
+    .column {
+      color: $sky;
+    }
+  }
+
+  widget:nth-child(6) .workspace {
+    .column {
+      color: $sapphire;
+    }
+  }
+
+  widget:nth-child(7) .workspace {
+    .column {
+      color: $pink;
+    }
+  }
+
+  widget .workspace {
+    .column {
+      color: $overlay2;
+    }
+  }
+
+  widget .workspace .column.focused {
+    color: $text;
+  }
+}

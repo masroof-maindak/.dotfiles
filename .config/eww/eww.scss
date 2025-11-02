@@ -1,0 +1,18 @@
+// @import "./src/scss/Colour\ Schemes/SwampDark.scss";
+// @import "./src/scss/Colour\ Schemes/MelangeDark.scss";
+@import "./src/scss/Colour\ Schemes/SwampLight.scss";
+
+* {
+  all: unset;
+  color: $base04;
+  font-family: "MartianMono Nerd Font";
+}
+
+tooltip {
+  font-weight: 500;
+  background: $base01;
+  border: 3px solid $base03;
+  padding: 10px 20px;
+}
+
+@import "./src/scss/topbar.scss";

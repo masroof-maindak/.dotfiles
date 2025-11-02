@@ -1,0 +1,20 @@
+.music_bar {
+  margin-top: 4px
+}
+
+.album {
+  padding: 0px 0px;
+  background-size: cover;
+  background-position: center;
+  min-height: 95px;
+  min-width: 35px;
+}
+
+.overlay_layer {
+  background: $base01;
+  opacity: 0.22;
+}
+
+.song-text {
+  font-weight: bold;
+}

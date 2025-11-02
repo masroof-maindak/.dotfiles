@@ -1,0 +1,68 @@
+(include "./src/yuck/topbar/pointer-mode.yuck")
+(include "./src/yuck/topbar/workspaces-niri.yuck")
+(include "./src/yuck/topbar/battery.yuck")
+(include "./src/yuck/topbar/window.yuck")
+(include "./src/yuck/topbar/volume.yuck")
+(include "./src/yuck/topbar/music.yuck")
+(include "./src/yuck/topbar/time.yuck")
+(include "./src/yuck/topbar/blf.yuck")
+
+(defwindow topbar []
+	:monitor 0
+	:class "topbar_window"
+	:namespace "eww bar"
+	:exclusive true
+	:geometry (geometry :height 800 :anchor "left center")
+	(box
+  	  	:class "topbar_box"
+  	  	:orientation "v"
+        :halign "fill"
+		:valign "fill"
+        (left)
+        (middle)
+        (right)))
+
+(defwidget left []
+  	(box
+  	  	:orientation "v"
+  	  	:valign "start"
+  	  	:halign "start"
+		:space-evenly false
+		:spacing 4
+  	  	(time_module)
+        (sep)
+  	  	(music_bar)
+		))
+
+; TODO: make these prettier
+(defwidget right []
+  	(box
+  	  	:class "right_box"
+  	  	:space-evenly false
+  	  	:spacing 12
+  	  	:orientation "v"
+  	  	:halign "center"
+  	  	:valign "end"
+		(box
+            :orientation "v"
+			:space-evenly false
+            :spacing 10
+			(volume_module)
+			(battery_module))
+    ))
+
+(defwidget middle []
+  	(box
+  	  	:space-evenly false
+  	  	:orientation "v"
+        :valign "center"
+        :halign "center"
+		(workspaces :monitor "eDP-1")))
+
+(defwidget sep []
+	(box
+		:valign "center"
+		:orientation "v"
+		:width 2
+		:height 1
+		:class "separ"))
