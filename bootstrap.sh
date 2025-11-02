@@ -27,7 +27,9 @@ mkdir -p "$XDG_DATA_HOME"/{cargo,go}
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
 # Install packages
-install_paru
+if [ -z "$(command -v paru)" ]; then
+    install_paru
+end
 install_pacman_list "./system/package-lists/package_list.md"
 
 # Symlink dotfiles
