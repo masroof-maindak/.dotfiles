@@ -5,6 +5,7 @@
         :class "music_bar"
         :spacing 5
         :space-evenly false
+        :tooltip "${playerctl.title} - ${playerctl.artist} [${playerctl.length}s]"
         (overlay
             (box :class "album" :style "background-image: url('${albumArtLocation}');")
             (box :class "overlay_layer")

@@ -3,8 +3,6 @@
 playerctl --follow metadata --format {{title}} | while read -r _; do
     line=$(playerctl metadata --format "{\"length\":\"$(($(playerctl metadata --format '{{mpris:length}}') / 1000000))\",\"artist\":\"{{xesam:artist}}\",\"title\":\"$(playerctl metadata title | sed 's/"/\\"/g')\"}")
 
-    # CHECK: Why does this work when invoked manually but not from within eww???
-
     if [[ $(playerctl -l) == "mpd" ]]; then
         eww update albumArtLocation="/tmp/rmpc/notification_cover"
     else
