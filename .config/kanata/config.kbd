@@ -30,7 +30,7 @@
 (defchordsv2
   ;; Esc + Ret
   (j k) esc $combo-timeout all-released ()
-  (j k l) ret $combo-timeout all-released ()
+  (j i o) ret $combo-timeout all-released ()
 
   ;; Parentheses
   (s d) S-9 $combo-timeout all-released ()
