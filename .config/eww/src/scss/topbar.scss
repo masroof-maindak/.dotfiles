@@ -1,0 +1,36 @@
+.topbar_box {
+  padding: 4px 4px;
+  background-color: $mainBG;
+  border-right: 1px solid $base01;
+}
+
+.separ {
+  background-color: $base02;
+}
+
+//clock
+.main_text {
+  margin: 0px 0px;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.sub_text {
+  font-size: 11px;
+}
+
+.icons {
+  font-family: "Symbols Nerd Font";
+  min-height: 18px;
+  min-width: 18px;
+}
+
+.big_icon {
+  font-size: 18px;
+}
+
+@import "./topbar/music.scss";
+@import "./topbar/meters.scss";
+@import "./topbar/volume.scss";
+@import "./topbar/battery.scss";
+@import "./topbar/workspaces.scss";
