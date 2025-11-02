@@ -90,6 +90,10 @@ print_yellow "Setting up Rust & tools"
 rustup default stable
 install_rust_list "./system/package-lists/rust"
 
+# Install Rust programs
+install_rust_binary "https://github.com/elkowar/eww" "eww" "--no-default-features --features wayland"
+install_rust_binary "https://github.com/druskus20/eww-niri-workspaces.git" "eww-niri-workspaces" ""
+
 # Set up fish
 print_yellow "Setting up Fish shell"
 chsh -s $(which fish)
