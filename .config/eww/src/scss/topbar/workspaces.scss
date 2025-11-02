@@ -13,11 +13,12 @@
 
   .workspace.empty {
     padding: 9px 9px;
-    min-height: 8px;
+    min-height: 10px;
+    min-width: 10px;
   }
 
   .workspace.active {
-    border: 1px solid $base02;
+    border: 2px dotted $base03;
   }
 
   widget:nth-child(1) .workspace {
