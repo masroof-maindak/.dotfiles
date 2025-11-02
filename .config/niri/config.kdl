@@ -1,8 +1,7 @@
 spawn-sh-at-startup "swww-daemon"
 spawn-sh-at-startup "dunst"
 spawn-sh-at-startup "foot --server"
-// spawn-sh-at-startup "wlsunset -l 31.4 -L 74.3"
-spawn-at-startup "start-waybar.sh"
+spawn-at-startup "eww open topbar"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 
 input {
