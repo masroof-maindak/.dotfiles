@@ -3,6 +3,31 @@
   concurrent-tap-hold true
 )
 
+(defvirtualkeys
+  fasttypingstate XX
+)
+
+(deftemplate type (action)
+  (multi
+    (fork
+      (hold-for-duration 55 fasttypingstate) ;; left action
+      XX                                     ;; right action
+      (lctl rctl lalt ralt lmet rmet)        ;; if fork is activated while these are hold, run right action
+    )
+    $action
+  )
+)
+
+(deftemplate homerowmod (timeouttap timeouthold keytap keyhold)
+  (switch
+    ((input virtual fasttypingstate)) (t! type $keytap) break
+    () (tap-hold $timeouttap $timeouthold
+         (t! type $keytap)
+         $keyhold
+       ) break
+  )
+)
+
 (defsrc
   esc
   caps a s d f g h j k l ;
@@ -10,6 +35,7 @@
 )
 
 (defvar
+  tot 220
   tap-time 80
   hold-time 200
   combo-timeout 20
@@ -57,15 +83,15 @@
 
 ;; Home-row mods
 (defalias
-  a (multi f24 (tap-hold $tap-time $hold-time a lalt))
-  s (multi f24 (tap-hold $tap-time $hold-time s lmet))
-  d (multi f24 (tap-hold $tap-time $hold-time d lsft))
-  f (multi f24 (tap-hold $tap-time $hold-time f lctl))
+  a (t! homerowmod $tot 180 a lalt)
+  s (t! homerowmod $tot 160 s lmet)
+  d (t! homerowmod $tot 120 d lsft)
+  f (t! homerowmod $tot 160 f lctl)
 
-  j (multi f24 (tap-hold $tap-time $hold-time j rctl))
-  k (multi f24 (tap-hold $tap-time $hold-time k rsft))
-  l (multi f24 (tap-hold $tap-time $hold-time l rmet))
-  ; (multi f24 (tap-hold $tap-time $hold-time ; ralt))
+  j (t! homerowmod $tot 130 j rctl)
+  k (t! homerowmod $tot 140 k rsft)
+  l (t! homerowmod $tot 170 l rmet)
+  ; (t! homerowmod $tot 180 ; ralt)
 )
 
 ;; Hold tab to access arrows
