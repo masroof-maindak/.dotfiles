@@ -28,7 +28,7 @@ install_rust_list() {
     print_yellow "Installing packages from $1"
     while read -r pkg; do
         if [[ -n "$pkg" && ! "$pkg" =~ ^# ]]; then
-            cargo install "$pkg"
+            cargo binstall -y "$pkg"
         fi
     done <"$1"
 }

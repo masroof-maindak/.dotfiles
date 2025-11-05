@@ -124,10 +124,11 @@ uv
 #### Building
 
 bear
-ninja
-make
+cargo-binstall
 cmake
+make
 mold
+ninja
 
 ## Text Editors
 

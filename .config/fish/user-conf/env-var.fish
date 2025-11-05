@@ -15,6 +15,7 @@ set -x XDG_STATE_HOME "$HOME/.local/state"
 set -x CARGO_HOME "$XDG_DATA_HOME/cargo"
 set -x RUSTUP_HOME "$XDG_DATA_HOME/rustup"
 set -x RUSTC_WRAPPER "sccache"
+set -x BINSTALL_DISABLE_TELEMETRY "true"
 
 set -x GOPATH "$XDG_DATA_HOME/go"
 set -x GOBIN "$GOPATH/bin"
