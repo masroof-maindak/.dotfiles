@@ -3,12 +3,13 @@
 set shell bash
 set shellopts '-eu'
 set mouse
+set watch
 set sixel
 set info size:time
 set ratios 1:2:3
 set ifs "\n"
 set scrolloff 8
-set autoquit
+set autoquit false
 set relativenumber
 set number
 set tabstop 4
@@ -55,11 +56,28 @@ cmd on-cd &{{
 
 
 #___
+# Dynamically size columns
+cmd on-init :{{
+    cmd on-redraw %{{
+        if [ "$lf_width" -le 60 ]; then
+            lf -remote "send $id set ratios 1:2"
+        elif [ "$lf_width" -le 120 ]; then
+            lf -remote "send $id set ratios 1:2:3"
+        else
+            lf -remote "send $id set ratios 1:2:3:5"
+        fi
+    }}
+
+    on-redraw
+}}
+
+
+#___
 # git stuff
 map gitb $fzchk
 map gitl $clear; git pull --rebase || true; echo "press ENTER"; read ENTER
 map gits $clear; git status; echo "press ENTER"; read ENTER
-map gitd $clear; git dag; echo "press ENTER"; read ENTER
+map gitd $clear; git dag;
 
 
 #___
@@ -81,12 +99,26 @@ map p :paste; clear
 map r :rename; reload
 map <f-2> :rename; reload
 map <c-r> reload
-map V :invert-below
 map <enter> shell
 map <backspace2> set hidden!
-map <esc> :{{unselect; clear;}}
+map <esc> :unselect; clear
 map <c-space> :toggle; up
 map WAL $swww img "$f"
+
+#___
+# Visual Mode
+cmd visual-toggle &{{
+	while read -r file; do
+		lf -remote "send $id toggle \"$file\""
+	done <<< "$fv"
+	lf -remote "send $id visual-discard"
+}}
+
+vmap <esc> visual-discard # Default but overwritten by normal `esc` bind
+vmap T :visual-toggle
+vmap U visual-unselect
+vmap y :visual-accept; copy
+vmap d :visual-accept; cut
 
 
 #___
