@@ -125,6 +125,7 @@ uv
 
 bear
 cargo-binstall
+cargo-update
 cmake
 make
 mold
