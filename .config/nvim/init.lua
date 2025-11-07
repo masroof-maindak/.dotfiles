@@ -1,0 +1,5 @@
+require("options")
+require("keybinds")
+require("bootstrap")
+require("lsp-config")
+require("autocommands")
