@@ -3,8 +3,8 @@
 ## Appearance & Theming
 
 adw-gtk-theme
-pop-icon-theme
 phinger-cursors
+pop-icon-theme
 
 ## Hardware & Drivers
 
@@ -15,38 +15,38 @@ linux-headers
 
 ## Core System Utilities
 
-upower
 downgrade
 reflector
 stow
+upower
 
 ## General Utilities
 
+dunst
 imagemagick
 perl-file-mimeinfo
-dunst
 
 # Wayland
 
 ## Core
 
 niri
-wf-recorder
+nwg-look
 swww
+waybar
+wf-recorder
 wlsunset
 xwayland-satellite
-nwg-look
-waybar
 
 ## Launcher
 
-wtype
 fuzzel
+wtype
 
 ## XDG Portals
 
-xdg-desktop-portal-gtk
 xdg-desktop-portal-gnome
+xdg-desktop-portal-gtk
 
 # Networking
 
@@ -62,31 +62,31 @@ wireguard-tools
 
 ## File Transfer
 
-syncthing
 croc
+curl
+syncthing
 transmission-cli
 wget
-curl
 
 # Audio
 
 ## Stack
 
 alsa-utils
+pavucontrol
 pipewire
 pipewire-pulse
 wireplumber
-pavucontrol
 
 ## Media Processing & Playback
 
-mpd
-playerctl
-mpd-mpris
 ffmpeg
-spotify-player
-rmpc
+mpd
+mpd-mpris
 mpv
+playerctl
+rmpc
+spotify-player
 
 # Development
 
@@ -98,27 +98,27 @@ fisher
 ## Misc. Tools
 
 git-delta
-sccache
-tree-sitter-cli
-git-lfs
 github-cli
+git-lfs
+sccache
 tokei
+tree-sitter-cli
 
 ## Toolchain
 
 ### Debugging
 
-strace
-valgrind
 gdb
 perf
+strace
 tcpdump
+valgrind
 
 ### Compilers & Runtimes
 
+clang
 npm
 rustup
-clang
 uv
 
 #### Building
@@ -134,9 +134,9 @@ ninja
 ## Text Editors
 
 neovim
+obsidian
 vim
 visual-studio-code-bin
-obsidian
 
 # Web Browsers
 
@@ -145,35 +145,35 @@ ungoogled-chromium-bin
 
 # Terminals & Multiplexers
 
-wezterm
 foot
 foot-terminfo
 tmux
+wezterm
 
 # Viewers
 
 ## Images
 
+chafa
 gthumb
 imv
-chafa
 
 ## E-Readers
 
-zathura
-zathura-pdf-mupdf
 foliate
 poppler
+zathura
+zathura-pdf-mupdf
 
 # Fonts
 
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
-ttf-nerd-fonts-symbols
+otf-commit-mono-nerd
 ttf-ibm-plex
 ttf-martian-mono-nerd
-otf-commit-mono-nerd
+ttf-nerd-fonts-symbols
 
 # Communication
 
@@ -184,10 +184,10 @@ vesktop-bin
 
 ## File Management
 
+ctpv-git
 fd
 fzf
 lf
-ctpv-git
 
 ## Media
 
