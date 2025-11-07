@@ -1,11 +1,12 @@
 # Dotfiles
 
-GNU Stow-managed dots for an Arch-Wayland box running Niri, a plethora of
-TUI-focused paraphernalia comprising (non-exhaustively) `tmux`, `fish`,
+GNU Stow-consecrated talismans for an Arch-Wayland sanctum running Niri, a
+plethora of TUI-focused arcana comprising (non-exhaustively) `tmux`, `fish`,
 `zoxide`, `fzf`, `lf`, and [`neovim`](https://github.com/masroof-maindak/nvim),
 and a grimoire's worth of keybinds coupled w/ a cantankerous Kanata config;
-chock-full of arcane runes that render my humble digital-dwelling's QoL
-significantly more conducive to effective (and enjoyable) spell-casting.
+encrusted with eldritch runes that render mine digital sanctuary's mana
+attunement significantly more conducive to nimble (and delightfully whimsical)
+spell-casting.
 
 ## Setup
 
@@ -48,8 +49,6 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
 
 ### Build From Source
 
-- A couple of helper functions have been provided in `utils.sh`; source it and
-  run what you deem fit
 - [`eww-niri-workspaces`](https://github.com/druskus21/eww-niri-workspaces) --
   required for the workspace indicator in my
   [Eww](https://github.com/elkowar/eww) bar
@@ -67,8 +66,8 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
 
 ### Kanata
 
-- Follow the instructions in their [setup
-  guide](https://github.com/jtroo/kanata/blob/main/docs/setup-linux.md).
+- Follow the instructions in their
+  [setup guide](https://github.com/jtroo/kanata/blob/main/docs/setup-linux.md).
 - Whilst copying over the sample SystemD service, ensure the `Environment`
   variable under the `[Service]` heading contains the path of the `kanata`
   installation; this should be `/home/<user>/.local/share/cargo/bin`
