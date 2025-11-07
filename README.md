@@ -1,12 +1,13 @@
 # Dotfiles
 
+![nvim](.github/assets/nvim.png)
+
 GNU Stow-consecrated talismans for an Arch-Wayland sanctum running Niri, a
 plethora of TUI-focused arcana comprising (non-exhaustively) `tmux`, `fish`,
-`zoxide`, `fzf`, `lf`, and [`neovim`](https://github.com/masroof-maindak/nvim),
-and a grimoire's worth of keybinds coupled w/ a cantankerous Kanata config;
-encrusted with eldritch runes that render mine digital sanctuary's mana
-attunement significantly more conducive to nimble (and delightfully whimsical)
-spell-casting.
+`zoxide`, `fzf`, `lf`, and `neovim`, and a grimoire's worth of keybinds coupled
+w/ a cantankerous Kanata config; encrusted with eldritch runes that render mine
+digital swamp's mana attunement significantly more conducive to nimble (and
+delightfully whimsical) spell-casting.
 
 ## Setup
 
@@ -49,7 +50,7 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
 
 ### Build From Source
 
-- [`eww-niri-workspaces`](https://github.com/druskus21/eww-niri-workspaces) --
+- [`eww-niri-workspaces`](https://github.com/druskus20/eww-niri-workspaces) --
   required for the workspace indicator in my
   [Eww](https://github.com/elkowar/eww) bar
 - ???
