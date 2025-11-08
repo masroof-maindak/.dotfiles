@@ -16,8 +16,6 @@
 	(box
   	  	:class "topbar_box"
   	  	:orientation "v"
-        :halign "fill"
-		:valign "fill"
         (left)
         (middle)
         (right)))
@@ -26,25 +24,24 @@
   	(box
   	  	:orientation "v"
   	  	:valign "start"
-  	  	:halign "start"
+  	  	:halign "center"
 		:space-evenly false
 		:spacing 4
   	  	(time_module)
         (sep)
   	  	(music_bar)
-		))
+    ))
 
 ; TODO: make these prettier
+; FIXME: this overflows when there are many columns
 (defwidget right []
   	(box
   	  	:class "right_box"
-  	  	:space-evenly false
-  	  	:spacing 12
   	  	:orientation "v"
-  	  	:halign "center"
   	  	:valign "end"
 		(box
             :orientation "v"
+            :valign "end"
 			:space-evenly false
             :spacing 10
 			(volume_module)
@@ -53,11 +50,11 @@
 
 (defwidget middle []
   	(box
-  	  	:space-evenly false
   	  	:orientation "v"
         :valign "center"
         :halign "center"
-		(workspaces :monitor "eDP-1")))
+		(workspaces :monitor "eDP-1")
+    ))
 
 (defwidget sep []
 	(box

@@ -4,10 +4,9 @@
         (box
 			:class "meter"
             :space-evenly false
-            :spacing 2
+            :spacing 4
             :orientation "v"
-			(revealer
-				:reveal volum_reveal
+			(scale
 				:duration "350ms"
 				(scale
 					:class "${volum.icon == '' ? 'muted_bar' : 'null'} scale"
