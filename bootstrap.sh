@@ -4,15 +4,15 @@ source .bash_profile
 
 print_yellow "Making directories"
 if [ -z "$XDG_DATA_HOME" ]; then
-    XDG_DATA_HOME="$HOME/.local/share"
+    export XDG_DATA_HOME="$HOME/.local/share"
     print_yellow "WARNING: XDG_DATA_HOME not set, falling back to $XDG_DATA_HOME"
 fi
 if [ -z "$XDG_CACHE_HOME" ]; then
-    XDG_CACHE_HOME="$HOME/.cache"
+    export XDG_CACHE_HOME="$HOME/.cache"
     print_yellow "WARNING: XDG_CACHE_HOME not set, falling back to $XDG_CACHE_HOME"
 fi
 if [ -z "$XDG_STATE_HOME" ]; then
-    XDG_STATE_HOME="$HOME/.local/state"
+    export XDG_STATE_HOME="$HOME/.local/state"
     print_yellow "WARNING: XDG_STATE_HOME not set, falling back to $XDG_STATE_HOME"
 fi
 
@@ -22,14 +22,14 @@ mkdir -p "$HOME"/Documents/{uni,repos,Vault,wrk,books,projects}
 
 mkdir -p "$XDG_STATE_HOME"/vim
 mkdir -p "$XDG_CACHE_HOME"/{bash,python-history,mpd,ruff,go}
-mkdir -p "$XDG_DATA_HOME"/{cargo,go}
+mkdir -p "$XDG_DATA_HOME"/{cargo,go,pyenv}
 
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
 # Install packages
 if [ -z "$(command -v paru)" ]; then
     install_paru
-end
+fi
 install_pacman_list "./system/package-lists/package_list.md"
 
 # Symlink dotfiles
@@ -88,13 +88,13 @@ chmod +x "$HOME"/.local/bin/*
 # Set up Rust tooling
 print_yellow "Setting up Rust & tools"
 rustup default stable
-install_rust_list "./system/package-lists/rust"
 
 # Install Rust programs
+install_rust_list "./system/package-lists/rust"
 install_rust_binary "https://github.com/elkowar/eww" "eww" "--no-default-features --features wayland"
 install_rust_binary "https://github.com/druskus20/eww-niri-workspaces.git" "eww-niri-workspaces" ""
 
 # Set up fish
 print_yellow "Setting up Fish shell"
-chsh -s $(which fish)
+chsh -s "$(which fish)"
 fisher update
