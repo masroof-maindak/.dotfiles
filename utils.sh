@@ -38,7 +38,8 @@ install_rust_binary() {
     local binary_name="$2"
     local build_args="$3"
 
-    local repo_dir="$HOME"/Documents/repos/"$(basename "$repo_url" .git)"
+    local repo_dir
+    repo_dir="$HOME"/Documents/repos/"$(basename "$repo_url" .git)"
 
     print_yellow "Cloning and setting up $binary_name from $repo_url"
     if [ -d "$repo_dir" ]; then

@@ -14,6 +14,8 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export RUSTC_WRAPPER="sccache"
+export BINSTALL_DISABLE_TELEMETRY="true"
 
 export GOPATH="$XDG_DATA_HOME/go"
 export GOBIN="$GOPATH/bin"
@@ -43,10 +45,9 @@ export SDL_VIDEODRIVER=wayland
 
 export VAULT_DIR="$HOME/Documents/Vault/"
 
-
 # PATH entries
 add_to_path() {
-	[[ ":$PATH:" != *":$1:"* ]] && export PATH="$1:$PATH"
+    [[ ":$PATH:" != *":$1:"* ]] && export PATH="$1:$PATH"
 }
 
 add_to_path "$HOME/.local/bin"
