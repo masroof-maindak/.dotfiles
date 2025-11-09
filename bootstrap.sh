@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 source utils.sh
 source .bash_profile
 
@@ -33,7 +34,11 @@ fi
 install_pacman_list "./system/package-lists/package_list.md"
 
 # Symlink dotfiles
-rm "$HOME"/.bashrc "$HOME"/.bash_profile
+rm -f "$HOME"/.bashrc "$HOME"/.bash_profile
+if [ "$(pwd -P)" != "$HOME/.dotfiles" ]; then
+    print_yellow "Error: script must be run from $HOME/.dotfiles (current: $(pwd -P))"
+    exit 1
+fi
 print_yellow "Symlinking dotfiles"
 stow .
 
