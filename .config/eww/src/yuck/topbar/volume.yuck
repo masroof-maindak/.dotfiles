@@ -4,10 +4,10 @@
         (box
 			:class "meter"
             :space-evenly false
-            :spacing 4
+            :spacing 6
             :orientation "v"
-			(scale
-				:duration "350ms"
+			(box
+				:class "meter-background"
 				(scale
 					:class "${volum.icon == '' ? 'muted_bar' : 'null'} scale"
 					:onchange "./scripts/volume --set {}"
@@ -17,8 +17,9 @@
 					:max 101
 					:min 0))
             (overlay
+                :class "meter-background"
                 (label
-                    :class "icons vol_icon ${volum.value > 80 ? 'urgent_vol' : 'null'}"
+                    :class "icons vol_icon ${volum.value > 70 ? 'urgent_vol' : 'null'}"
                     :text {volum.icon})
                 (button :onclick "./scripts/volume --toggle")))))
 

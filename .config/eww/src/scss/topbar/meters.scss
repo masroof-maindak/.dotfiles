@@ -1,10 +1,20 @@
 // Volume and battery bar progress
 .scale trough {
-    min-width: 10px;
+    min-width: 11px;
     min-height: 50px;
     background-color: $base01;
+    padding: 5px;
 }
 
 .scale trough highlight {
-    background-color: $base03;
+    background-color: $base07;
+}
+
+.meter {
+    border: 1px dotted $base02;
+    padding: 5px 0px;
+}
+
+.meter .scale {
+    // margin-bottom: 5px;
 }
