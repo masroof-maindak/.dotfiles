@@ -29,7 +29,8 @@
 	nuke = branch -D
 	pf = push --force
 	p = push
-	rs= = restore
+	rs = restore
+	sh = show HEAD
 	ss = status -s
 	s = status
 	st = stash
