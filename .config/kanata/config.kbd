@@ -39,12 +39,16 @@
   tap-time 80
   hold-time 200
   combo-timeout 20
-  tap-dance-time 150
+  tap-dance-time 200
 )
 
-;; 1-tap esc => esc ; 2tap esc => caps
+#|
+1-tap esc => esc
+2-tap esc => caps word
+3-tap esc => caps lock
+|#
 (defalias
-  esccaps (tap-dance $tap-dance-time (esc caps))
+  esccaps (tap-dance $tap-dance-time (esc (caps-word-toggle 2000) caps))
 )
 
 ;; Sticky shift
