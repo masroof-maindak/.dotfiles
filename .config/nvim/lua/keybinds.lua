@@ -20,7 +20,8 @@ map("n", "<leader>m", "<CMD>Mason<CR>", { noremap = true, desc = "Mason" })
 map("v", "<", "<gv", { noremap = true, silent = true })
 map("v", ">", ">gv", { noremap = true, silent = true })
 map("n", "<Esc>", "<CMD>noh<CR><Esc>", { noremap = true, silent = true, desc = "Remove highlights" })
-map("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit insert mode in terminal" })
+-- FIXME: doesn't work w/ my Kanata config beause I use double-caps for caps-wor
+-- map("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit insert mode in terminal" })
 
 -- Buffer Management
 map("n", "<leader>bd", "<CMD>bd<CR>", { noremap = true, desc = "Delete buffer" })
