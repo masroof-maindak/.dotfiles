@@ -1,5 +1,6 @@
 # Dotfiles
 
+![rice](.github/assets/rice.png)
 ![nvim](.github/assets/nvim.png)
 
 GNU Stow-consecrated talismans for an Arch-Wayland sanctum running Niri, a
