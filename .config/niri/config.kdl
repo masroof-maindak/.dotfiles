@@ -212,14 +212,16 @@ window-rule {
 
 binds {
 	// Apps
-    Mod+Return { spawn-sh "footclient"; }
-    Mod+D      { spawn-sh "fuzzel"; }
-    Mod+E      { spawn-sh "fuzzel-emoji"; }
-    Mod+W      { spawn-sh "nautilus"; }
-    Mod+B      { spawn-sh "librewolf"; }
-    Mod+V      { spawn-sh "code"; }
-    Mod+Z      { spawn-sh "cliphist list | fuzzel --dmenu --width 60 | cliphist decode | wl-copy"; }
+    Mod+Return repeat=false { spawn-sh "footclient"; }
+    Mod+W repeat=false { spawn-sh "nautilus"; }
+    Mod+B repeat=false { spawn-sh "librewolf"; }
+    Mod+V repeat=false { spawn-sh "code"; }
     Mod+Q repeat=false { close-window; }
+
+    // Launchers
+    Mod+Z { spawn-sh "cliphist list | fuzzel --dmenu --width 60 | cliphist decode | wl-copy"; }
+    Mod+D { spawn-sh "fuzzel"; }
+    Mod+E { spawn-sh "fuzzel-emoji"; }
 
 	// Media & Other
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "amixer sset Master 2%+"; }
@@ -232,14 +234,14 @@ binds {
 	XF86MonBrightnessUp   { spawn-sh "brightnessctl set 5%+"; }
 	XF86MonBrightnessDown { spawn-sh "brightnessctl set 5%-"; }
 
-	XF86AudioMedia { spawn-sh "playerctl play-pause"; }
-	XF86AudioPlay  { spawn-sh "playerctl play-pause"; }
-	XF86AudioPrev  { spawn-sh "playerctl previous"; }
-	XF86AudioNext  { spawn-sh "playerctl next"; }
+	XF86AudioMedia repeat=false { spawn-sh "playerctl play-pause"; }
+	XF86AudioPlay  repeat=false { spawn-sh "playerctl play-pause"; }
+	XF86AudioPrev  repeat=false { spawn-sh "playerctl previous"; }
+	XF86AudioNext  repeat=false { spawn-sh "playerctl next"; }
 
 	// Floating
-	Mod+Space       { toggle-window-floating; }
-	Mod+Shift+Space   { switch-focus-between-floating-and-tiling; }
+	Mod+Space  repeat=false     { toggle-window-floating; }
+	Mod+Shift+Space  repeat=false { switch-focus-between-floating-and-tiling; }
 
 	// Focusing
     Mod+Left  { focus-column-left; }
