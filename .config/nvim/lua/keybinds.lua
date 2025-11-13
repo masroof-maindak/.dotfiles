@@ -6,8 +6,6 @@ map("n", "<C-s>", "<CMD>w<CR>", { noremap = true, silent = true, desc = ":w" })
 map("n", "<C-q>", "<CMD>qa<CR>", { noremap = true, silent = true, desc = ":qa" })
 map("n", "<leader>q", "<CMD>q<CR>", { noremap = true, silent = true, desc = ":q" })
 map("n", "<leader>w", "<CMD>w<CR>", { noremap = true, silent = true, desc = ":w" })
--- FIXME: don't work in tmux because I use alt+hjkl for pane navigation;
--- solution: vim-tmux-navigator & use ctrl+hjkl in tmux too
 map("n", "<M-j>", "5j", { noremap = true, silent = true, desc = "Big down" })
 map("n", "<M-k>", "5k", { noremap = true, silent = true, desc = "Big up" })
 
@@ -85,15 +83,3 @@ map("n", "[[", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
 map("n", "]]", vim.diagnostic.goto_prev, { desc = "Go to prev diagnostic" })
 
 map("i", "<C-h>", vim.lsp.buf.signature_help, { desc = "Show signature help" })
-
--- Window navigation
-map("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
-map("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
-map("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
-map("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
-
--- Window resizing
-map("n", "<C-left>", "<C-w><", { noremap = true, silent = true })
-map("n", "<C-down>", "<C-w>-", { noremap = true, silent = true })
-map("n", "<C-up>", "<C-w>+", { noremap = true, silent = true })
-map("n", "<C-right>", "<C-w>>", { noremap = true, silent = true })
