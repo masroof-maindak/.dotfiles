@@ -9,8 +9,8 @@ map("n", "<C-s>", "<CMD>w<CR>", { noremap = true, silent = true, desc = ":w" })
 map("n", "<C-q>", "<CMD>qa<CR>", { noremap = true, silent = true, desc = ":qa" })
 map("n", "<leader>q", "<CMD>q<CR>", { noremap = true, silent = true, desc = ":q" })
 map("n", "<leader>w", "<CMD>w<CR>", { noremap = true, silent = true, desc = ":w" })
-map("n", "<M-j>", "5j", { noremap = true, silent = true, desc = "Big down" })
-map("n", "<M-k>", "5k", { noremap = true, silent = true, desc = "Big up" })
+map("n", "<C-S-j>", "5j", { noremap = true, silent = true, desc = "Big down" })
+map("n", "<C-S-k>", "5k", { noremap = true, silent = true, desc = "Big up" })
 
 -- Plugin menus
 map("n", "<leader>kt", "<CMD>Themery<CR>", { noremap = true, desc = "Colour theme picker" })
@@ -21,8 +21,7 @@ map("n", "<leader>m", "<CMD>Mason<CR>", { noremap = true, desc = "Mason" })
 map("v", "<", "<gv", { noremap = true, silent = true })
 map("v", ">", ">gv", { noremap = true, silent = true })
 map("n", "<Esc>", "<CMD>noh<CR><Esc>", { noremap = true, silent = true, desc = "Remove highlights" })
--- FIXME: doesn't work w/ my Kanata config beause I use double-caps for caps-wor
--- map("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit insert mode in terminal" })
+map("t", "<C-[>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit terminal mode" })
 
 -- Buffer Management
 map("n", "<leader>bd", "<CMD>bd<CR>", { noremap = true, desc = "Delete buffer" })
