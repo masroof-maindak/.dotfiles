@@ -1,3 +1,6 @@
+-- NOTE: some keybinds are defined as part of lazy-loads and are thus not
+-- included here e.g mini.bufremove, conform, mini.files, etc.
+
 local map = vim.keymap.set
 
 -- Basic
@@ -25,31 +28,13 @@ map("n", "<Esc>", "<CMD>noh<CR><Esc>", { noremap = true, silent = true, desc = "
 map("n", "<leader>bd", "<CMD>bd<CR>", { noremap = true, desc = "Delete buffer" })
 map("n", "<Tab>", "<CMD>bn<CR>", { noremap = true, silent = true })
 map("n", "<S-Tab>", "<CMD>bp<CR>", { noremap = true, silent = true })
-map("n", "<leader>bc", function()
-	MiniBufremove.delete()
-end, { noremap = true, desc = "Intelligently close buffer" })
 
 -- Update Neovim's CWD to that of the current file
 map("n", "<Leader>cd", function()
 	local dir = vim.fn.expand("%:p:h")
 	vim.cmd("cd " .. dir)
 	print("Working directory: " .. vim.fn.getcwd())
-end, { silent = true })
-
--- Mini.files
-local function open_mini_files(arg)
-	if not MiniFiles.close() then
-		MiniFiles.open(arg)
-	end
-end
-
-map("n", "-", function()
-	open_mini_files(vim.api.nvim_buf_get_name(0))
-end, { desc = "Open MiniFiles in current file's directory" })
-
-map("n", "_", function()
-	open_mini_files(vim.uv.cwd())
-end, { desc = "Open MiniFiles in launch directory" })
+end, { silent = true, desc = "Change working dir" })
 
 -- Mini.pick
 map("n", "<leader>pf", "<CMD>Pick files<CR>", { noremap = true, desc = "Select file" })

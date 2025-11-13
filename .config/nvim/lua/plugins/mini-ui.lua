@@ -20,7 +20,7 @@ return {
 				},
 			})
 		end,
-		event = "VeryLazy",
+		event = "BufReadPost",
 	},
 	{
 		"nvim-mini/mini.starter",
@@ -37,7 +37,7 @@ return {
 		"nvim-mini/mini.tabline",
 		version = false,
 		opts = { tabpage_section = "right", show_icons = false },
-		event = "VeryLazy",
+		event = "BufWinEnter",
 	},
 	{
 		"nvim-mini/mini.statusline",
