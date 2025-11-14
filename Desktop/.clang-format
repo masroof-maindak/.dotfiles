@@ -1,0 +1,13 @@
+---
+BasedOnStyle: LLVM
+IndentWidth: 4
+UseTab: Never
+AlignConsecutiveAssignments: true
+AlignConsecutiveMacros: true
+---
+Language: Cpp
+ColumnLimit: 120
+---
+Language: C
+ColumnLimit: 80
+...
