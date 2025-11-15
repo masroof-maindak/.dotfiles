@@ -1,7 +1,6 @@
 return {
 	{ -- Downloads
 		"mason-org/mason.nvim",
-		cmd = { "Mason", "MasonInstall", "MasonUninstall" },
 		opts = {
 			ui = {
 				icons = {
