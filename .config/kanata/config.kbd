@@ -87,9 +87,9 @@
 
 ;; Home-row mods
 (defalias
-  a (t! homerowmod $tot 180 a lalt)
+  a (t! homerowmod $tot 200 a lalt)
   s (t! homerowmod $tot 160 s lmet)
-  d (t! homerowmod $tot 120 d lsft)
+  d (t! homerowmod $tot 100 d lsft)
   f (t! homerowmod $tot 160 f lctl)
 
   j (t! homerowmod $tot 130 j rctl)
