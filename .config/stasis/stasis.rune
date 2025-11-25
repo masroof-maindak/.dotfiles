@@ -1,0 +1,56 @@
+# Keeping this here lets vim set the ft to 'conf' which enables commenting
+
+@author "Dustin Pilgrim"
+@description "Lightweight feature packed idle manager for Wayland"
+
+stasis:
+  monitor_media true
+  ignore_remote_media true
+  respect_idle_inhibitors true
+  # Uncomment to customized debounce, default is 0
+  # debounce_seconds 4
+
+  # i.e ignore these apps' media
+  inhibit_apps [
+    "vlc"
+    r"steam_app_.*"
+  ]
+
+  # Laptop-specific
+  on_ac:
+    brightness:
+      timeout 300 # 5 minute(s)
+      command "brightnessctl set 25%"
+    end
+
+    dpms:
+      timeout 120 # 2 minute(s) after brightness
+      command "niri msg action power-off-monitors"
+      resume-command "niri msg action power-on-monitors"
+    end
+
+    lock_screen:
+      timeout 180 # 3 minute(s) after dpms
+      command "gtklock"
+    end
+  end
+
+  # Laptop-specific
+  on_battery:
+    brightness:
+      timeout 60 # 1 minute(s)
+      command "brightnessctl set 30%"
+    end
+
+    dpms:
+      timeout 30 # 30 second(s) after brightness
+      command "niri msg action power-off-monitors"
+      resume-command "niri msg action power-on-monitors"
+    end
+
+    lock_screen:
+      timeout 60 # 1 minute(s) after dpms
+      command "gtklock"
+    end
+  end
+end
