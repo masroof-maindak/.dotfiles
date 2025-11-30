@@ -28,6 +28,7 @@ mkdir -p "$XDG_DATA_HOME"/{cargo,go,pyenv}
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
 # Install packages
+sudo pacman -S --needed base-devel
 if [ -z "$(command -v paru)" ]; then
     install_paru
 fi
