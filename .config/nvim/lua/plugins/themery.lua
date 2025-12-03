@@ -34,6 +34,10 @@ return {
 				colorscheme = "oxocarbon",
 				before = [[vim.opt.background = "light"]],
 			},
+			{
+				name = "Habamax",
+				colorscheme = "habamax",
+			},
 		},
 	},
 }
