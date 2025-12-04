@@ -28,8 +28,8 @@ mkdir -p "$XDG_DATA_HOME"/{cargo,go,pyenv}
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 
 # Install packages
-sudo pacman -S --needed base-devel
 if [ -z "$(command -v paru)" ]; then
+    sudo pacman -S --needed base-devel
     install_paru
 fi
 install_pacman_list "./system/package-lists/package_list.md"
@@ -94,6 +94,11 @@ chmod +x "$HOME"/.local/bin/*
 # Set up Rust tooling
 print_yellow "Setting up Rust & tools"
 rustup default stable
+
+# Install Swamp Light for bat
+if [ -z "$(command -v bat)" ]; then
+    bat cache --build
+fi
 
 # Install Rust programs
 install_rust_list "./system/package-lists/rust"
