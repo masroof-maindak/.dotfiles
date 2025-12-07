@@ -43,7 +43,7 @@ stasis:
     end
 
     dpms:
-      timeout 30 # 30 second(s) after brightness
+      timeout 120 # 2 minute(s) after brightness
       command "niri msg action power-off-monitors"
       resume-command "niri msg action power-on-monitors"
     end
