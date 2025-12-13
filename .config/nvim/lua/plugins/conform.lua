@@ -41,6 +41,10 @@ return {
 				shfmt = {
 					prepend_args = { "-i", "2" },
 				},
+
+				typstyle = {
+					append_args = { "--wrap-text" },
+				},
 			},
 		},
 		after = "mason.nvim",
