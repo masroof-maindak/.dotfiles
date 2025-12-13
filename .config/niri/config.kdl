@@ -38,6 +38,12 @@ cursor {
 	xcursor-size 32
 }
 
+gestures {
+    hot-corners {
+        top-right
+    }
+}
+
 // MacBook
 output "Apple Computer Inc Color LCD Unknown" {
 	// off
