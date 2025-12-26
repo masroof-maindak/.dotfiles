@@ -187,6 +187,7 @@ vesktop-bin
 ctpv-git
 fd
 fzf
+gdu
 lf
 
 ## Media
