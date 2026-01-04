@@ -67,3 +67,7 @@ map("n", "[[", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
 map("n", "]]", vim.diagnostic.goto_prev, { desc = "Go to prev diagnostic" })
 
 map("i", "<C-h>", vim.lsp.buf.signature_help, { desc = "Show signature help" })
+
+-- Session Management
+map("n", "<leader>ss", "<CMD>mksession!<CR>")
+map("n", "<leader>sl", "<CMD>source Session.vim<CR>")

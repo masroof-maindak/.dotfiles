@@ -4,6 +4,7 @@ abbr --add gss "git status -s"
 
 abbr --add rd  "ripdrag -a -r"
 abbr --add v   "nvim"
+abbr --add vs  "nvim -S Session.vim"
 abbr --add p   "pacman"
 abbr --add py  "python"
 abbr --add l   "lfcd"
