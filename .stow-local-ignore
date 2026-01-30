@@ -5,6 +5,7 @@ bootstrap.sh
 utils.sh
 system
 .themes/phocus-make_colours.scss
+.prettierrc
 
 \.git
 \.gitignore
