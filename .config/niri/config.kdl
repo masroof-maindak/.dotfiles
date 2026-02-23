@@ -369,6 +369,12 @@ binds {
     Mod+Shift+Q { quit; }
     Mod+Shift+Slash { show-hotkey-overlay; }
 
+    // Screen mirroring
+    // Focus the output you want to mirror, press Mod+P and move the wl-mirror window to the
+    //  target output. Finally, fullscreen the wl-mirror window (by default, Mod + Shift + F).
+    Mod+P repeat=false { spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"; }
+
+
 	// Unused
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
