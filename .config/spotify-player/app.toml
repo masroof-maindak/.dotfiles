@@ -38,7 +38,7 @@ notify_timeout_in_secs = 0
 [device]
 name = "sharktooth"
 device_type = "computer"
-volume = 75
+volume = 85
 bitrate = 320
 audio_cache = false
 normalization = false
