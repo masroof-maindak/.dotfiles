@@ -1,5 +1,6 @@
 makefile
 ^/README.*
+.prettierrc
 
 bootstrap.sh
 utils.sh
