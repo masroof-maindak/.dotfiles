@@ -12,7 +12,8 @@
 	:class "topbar_window"
 	:namespace "eww bar"
 	:exclusive true
-	:geometry (geometry :height 800 :anchor "left center")
+    ; I have absolutely zero fucking idea how this height works...
+	:geometry (geometry :height 864 :anchor "left center")
 	(box
   	  	:class "topbar_box"
   	  	:orientation "v"
