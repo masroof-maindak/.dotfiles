@@ -49,14 +49,7 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
 - Git config attempts to use `~/.ssh/id_ed25519.pub` as signing key
 - Copy over previous/create new Git signing key
 
-### Build From Source
-
-- [`eww-niri-workspaces`](https://github.com/druskus20/eww-niri-workspaces) --
-  required for the workspace indicator in my
-  [Eww](https://github.com/elkowar/eww) bar
-- ???
-
-### Obsidian
+### Syncthing
 
 - Start `syncthing` and set it up to sync the `~/Documents/Vault`,
   `~/Pictures/Image Transmission`, and `~/Music` directories with my phone.
