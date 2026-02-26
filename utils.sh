@@ -38,6 +38,7 @@ install_rust_binary() {
     local binary_name="$2"
     local build_args="$3"
 
+    # FIXME: pass on arguments as separate arguments rather than as one big argument
     local repo_dir
     repo_dir="$HOME"/Documents/repos/"$(basename "$repo_url" .git)"
 
