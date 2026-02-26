@@ -194,6 +194,7 @@ lf
 
 ani-cli
 yt-dlp
+nicotine+
 
 ## Core
 
