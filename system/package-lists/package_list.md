@@ -64,6 +64,7 @@ wireguard-tools
 
 croc
 curl
+localsend-bin
 syncthing
 transmission-cli
 wget
@@ -100,6 +101,7 @@ fisher
 git-delta
 github-cli
 git-lfs
+ruff
 sccache
 tokei
 tree-sitter-cli
@@ -118,6 +120,7 @@ valgrind
 ### Compilers & Runtimes
 
 clang
+go
 npm
 rustup
 uv
