@@ -52,7 +52,7 @@ xdg-desktop-portal-gtk
 
 ## Core
 
-bind # provides dig
+bind
 inetutils
 iproute2
 networkmanager
@@ -103,6 +103,7 @@ git-lfs
 sccache
 tokei
 tree-sitter-cli
+zola
 
 ## Toolchain
 
