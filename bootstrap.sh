@@ -3,7 +3,12 @@
 source utils.sh
 source .bash_profile
 
+# Init XDG dirs
 print_yellow "Making directories"
+if [ -z "$XDG_CONFIG_HOME" ]; then
+    export XDG_CONFIG_HOME="$HOME/.local/share"
+    print_yellow "WARNING: XDG_CONFIG_HOME not set, falling back to $XDG_CONFIG_HOME"
+fi
 if [ -z "$XDG_DATA_HOME" ]; then
     export XDG_DATA_HOME="$HOME/.local/share"
     print_yellow "WARNING: XDG_DATA_HOME not set, falling back to $XDG_DATA_HOME"
@@ -21,18 +26,31 @@ mkdir -p "$HOME"/{Screenshots,Desktop,Documents,Downloads,Music,Pictures/{Wallpa
 mkdir -p "$HOME"/{.local/bin,.themes,.icons,.fonts,.config/gtk-2.0}
 mkdir -p "$HOME"/Documents/{uni,repos,Vault,wrk,books,projects}
 
+mkdir -p "$XDG_CONFIG_HOME"/
 mkdir -p "$XDG_STATE_HOME"/vim
 mkdir -p "$XDG_CACHE_HOME"/{bash,python-history,mpd,ruff,go}
 mkdir -p "$XDG_DATA_HOME"/{cargo,go,pyenv}
 
-sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
+sudo mkdir -p /etc/systemd/system/getty@tty1.service.d # for automatic username input
 
-# Install packages
+# Set up Rust tooling
+print_yellow "Setting up Rust & tools"
+rustup default stable
+
+# Install Paru & then packages
+# CHECK: requires sccache?
 if [ -z "$(command -v paru)" ]; then
     sudo pacman -S --needed base-devel
     install_paru
 fi
 install_pacman_list "./system/package-lists/package_list.md"
+
+# Explicitly create some files so we don't end up w/ entire directories symlinked to main;
+# but rather, only the *files* within those directories
+touch "$XDG_CONFIG_HOME"/empty
+touch "$HOME"/.local/bin/empty
+touch "$HOME"/Desktop/empty
+touch "$HOME"/.fonts/empty
 
 # Symlink dotfiles
 rm -f "$HOME"/.bashrc "$HOME"/.bash_profile
@@ -42,6 +60,12 @@ if [ "$(pwd -P)" != "$HOME/.dotfiles" ]; then
 fi
 print_yellow "Symlinking dotfiles"
 stow .
+
+# Remove the files when we're done...
+rm "$XDG_CONFIG_HOME"/empty
+rm "$HOME"/.local/bin/empty
+rm "$HOME"/Desktop/empty
+rm "$HOME"/.fonts/empty
 
 # Mac Specific
 device=$(cat /sys/class/dmi/id/product_name)
@@ -77,7 +101,7 @@ sudo cp ./system/skip-username.conf /etc/systemd/system/getty@tty1.service.d/ski
 
 # Services
 print_yellow "Enabling services"
-sudo systemctl enable --now NetworkManager
+sudo systemctl enable --now NetworkManager # NOTE: it's best to install NetworkManager as one of the third-part packages as part of `archinstall`
 sudo systemctl enable --now ufw # TODO: first-time setup?
 systemctl enable --user --now mpd
 systemctl enable --user --now mpd-mpris
@@ -91,10 +115,6 @@ sudo cp ./system/desktop-entries/spotify_player.desktop /usr/share/applications/
 print_yellow "Making scripts executable"
 chmod +x "$HOME"/.local/bin/*
 
-# Set up Rust tooling
-print_yellow "Setting up Rust & tools"
-rustup default stable
-
 # Install Swamp Light for bat
 if [ -z "$(command -v bat)" ]; then
     bat cache --build
@@ -107,5 +127,5 @@ install_rust_binary "https://github.com/druskus20/eww-niri-workspaces.git" "eww-
 
 # Set up fish
 print_yellow "Setting up Fish shell"
-chsh -s "$(which fish)"
-fisher update
+sudo chsh -s "$(which fish)"
+fish -c "fisher update"
