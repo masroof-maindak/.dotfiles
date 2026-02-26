@@ -16,7 +16,7 @@ which waybar >/dev/null 2>&1 || {
 pkill -x waybar
 
 case "$HOSTNAME" in
-"sharktooth" | "morningside")
+"sharktuth" | "morningside")
     waybar -c "$LAPTOP_CFG" -s "$LAPTOP_STYLES" &
     ;;
 "rubicon")

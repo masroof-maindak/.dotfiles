@@ -22,7 +22,7 @@ enable_media_control = true
 seek_duration_secs = 5
 enable_streaming = "Always"
 enable_notify = true
-default_device = "sharktooth"
+default_device = "sharktuth"
 notify_streaming_only = false
 
 genre_num = 2
@@ -36,7 +36,7 @@ notify_format = { summary = "{track} • {artists}", body = "{album}" }
 notify_timeout_in_secs = 0
 
 [device]
-name = "sharktooth"
+name = "sharktuth"
 device_type = "computer"
 volume = 85
 bitrate = 320
