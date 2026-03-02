@@ -5,7 +5,6 @@
 read -r host < /proc/sys/kernel/hostname
 
 # Get WM name
-# TODO: fix
 id=$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)
 id=${id##* }
 wm=$(xprop -id "$id" -notype -len 100 -f _NET_WM_NAME 8t)

@@ -33,8 +33,7 @@
   	  	(music_bar)
     ))
 
-; TODO: make these prettier
-; FIXME: this overflows when there are many columns
+; FIXME: this overflows when there are many columns in the workspace indicator
 (defwidget right []
   	(box
   	  	:class "right_box"
