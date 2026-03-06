@@ -1,7 +1,6 @@
 # Dotfiles
 
-![rice](.github/assets/rice.png)
-![nvim](.github/assets/nvim.png)
+![rice](.github/assets/rice.png) ![nvim](.github/assets/nvim.png)
 
 GNU Stow-consecrated talismans for an Arch-Wayland sanctum running Niri, a
 plethora of TUI-focused arcana comprising (non-exhaustively) `tmux`, `fish`,
@@ -66,3 +65,9 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
 - Whilst copying over the sample SystemD service, ensure the `Environment`
   variable under the `[Service]` heading contains the path of the `kanata`
   installation; this should be `/home/<user>/.local/share/cargo/bin`
+
+### Tailscale
+
+```bash
+sudo tailscale up
+```
