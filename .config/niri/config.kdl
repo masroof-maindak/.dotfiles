@@ -234,6 +234,7 @@ binds {
     Mod+Z { spawn-sh "cliphist list | fuzzel --dmenu --width 60 | cliphist decode | wl-copy"; }
     Mod+D { spawn-sh "fuzzel"; }
     Mod+E { spawn-sh "fuzzel-emoji"; }
+    Mod+G { spawn-sh "fuzzel-pwrmenu"; }
 
 	// Media & Other
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "amixer sset Master 2%+"; }

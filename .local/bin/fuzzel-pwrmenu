@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Courtesy of https://codeberg.org/phmcc/fuzzel-scripts
+
+SELECTION="$(printf "Lock\nLog out\nReboot\nShutdown" | fuzzel --dmenu -l 4)"
+
+case $SELECTION in
+*"Lock")
+    gtklock
+    ;;
+*"Log out")
+    niri msg action quit
+    ;;
+*"Reboot")
+    reboot
+    ;;
+*"Shutdown")
+    poweroff
+    ;;
+esac
