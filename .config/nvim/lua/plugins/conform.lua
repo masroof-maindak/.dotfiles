@@ -30,6 +30,7 @@ return {
 				python = { "ruff_organize_imports", "ruff_format", stop_after_first = false },
 				rust = { "rustfmt" },
 				scss = { "prettier" },
+				sh = { "shfmt" },
 				typescript = { "prettier" },
 				typst = { "typstyle" },
 				yaml = { "prettier" },
