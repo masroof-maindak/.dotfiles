@@ -102,7 +102,8 @@ sudo cp ./system/skip-username.conf /etc/systemd/system/getty@tty1.service.d/ski
 # Services
 print_yellow "Enabling services"
 sudo systemctl enable --now NetworkManager # NOTE: it's best to install NetworkManager as one of the third-part packages as part of `archinstall`
-sudo systemctl enable --now ufw # TODO: first-time setup?
+sudo systemctl enable --now ufw            # TODO: first-time setup?
+sudo systemctl enable --now sshd
 sudo systemctl enable --now tailscaled
 systemctl enable --user --now mpd
 systemctl enable --user --now mpd-mpris

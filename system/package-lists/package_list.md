@@ -56,6 +56,7 @@ bind
 inetutils
 iproute2
 networkmanager
+openssh
 tailscale
 ufw
 wireguard-tools
