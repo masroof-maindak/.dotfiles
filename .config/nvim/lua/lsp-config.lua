@@ -1,5 +1,4 @@
 local servers = {
-	"basedpyright",
 	"bashls",
 	"clangd",
 	"gopls",
@@ -8,6 +7,7 @@ local servers = {
 	"ruff",
 	"rust_analyzer",
 	"tinymist",
+	"ty",
 	"vtsls",
 }
 
