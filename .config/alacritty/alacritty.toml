@@ -1,6 +1,6 @@
 [font]
-normal = { family = "Fairfax Hax", style = "Regular" }
-size = 18
+normal = { family = "Cozette", style = "Regular" }
+size = 14
 
 [window]
 padding = { x = 5, y = 5 }
