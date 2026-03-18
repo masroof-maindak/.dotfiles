@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+# Minimal controller for wlsunset using process name (pkill/pgrep)
+# Usage: wlsctl start|stop|force-day|force-night|auto|status
+WLS_CMD='wlsunset -s 23:00 -S 07:00 -d 480 -t 4200'
+NAME='wlsunset'
+
+is_running() { pgrep -x "$NAME" >/dev/null; }
+
+start() {
+    if is_running; then
+        echo "$NAME already running"
+        return 0
+    fi
+    nohup sh -c "$WLS_CMD" >/dev/null 2>&1 &
+    sleep 0.1
+    if is_running; then
+        echo "$NAME started"
+    else
+        echo "Failed to start $NAME"
+        return 1
+    fi
+}
+
+stop() {
+    if is_running; then
+        pkill -x "$NAME" && echo "$NAME stopped" || echo "Failed to stop $NAME"
+    else
+        echo "$NAME not running"
+    fi
+}
+
+force_day() {
+    if is_running; then
+        pkill -USR1 -x "$NAME" && echo "Sent SIGUSR1 to $NAME (cycle modes)" || echo "Failed to send SIGUSR1"
+    else
+        echo "$NAME not running"
+    fi
+}
+
+force_night() {
+    if is_running; then
+        # send twice to ensure forced-low (mode 2)
+        pkill -USR1 -x "$NAME"
+        sleep 0.1
+        pkill -USR1 -x "$NAME"
+        echo "Sent SIGUSR1 twice to force night"
+    else
+        echo "$NAME not running"
+    fi
+}
+
+auto() {
+    if is_running; then
+        # send up to 3 signals to return to automatic mode
+        for i in 1 2 3; do
+            pkill -USR1 -x "$NAME"
+            sleep 0.1
+        done
+        echo "Sent SIGUSR1 up to 3 times to restore automatic mode"
+    else
+        echo "$NAME not running"
+    fi
+}
+
+status() {
+    if pids=$(pgrep -x "$NAME"); then
+        echo "$NAME running, pids: $pids"
+    else
+        echo "$NAME not running"
+    fi
+}
+
+case "$1" in
+start) start ;;
+stop) stop ;;
+force-day) force_day ;;
+force-night) force_night ;;
+auto) auto ;;
+status) status ;;
+*)
+    echo "Usage: $0 {start|stop|force-day|force-night|auto|status}"
+    exit 2
+    ;;
+esac

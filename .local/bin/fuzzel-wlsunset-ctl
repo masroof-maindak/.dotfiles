@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# fuzzel menu to control wlsunset via wlsunset-ctl
+WLSCTL="${HOME}/.local/bin/wlsunset-ctl"
+
+SELECTION="$(printf "Start\nStop\nForce Day\nForce Night\nAuto\nStatus" | fuzzel --dmenu -l 6)"
+
+case "$SELECTION" in
+*"Start")
+    "$WLSCTL" start
+    ;;
+*"Stop")
+    "$WLSCTL" stop
+    ;;
+*"Force Day")
+    "$WLSCTL" force-day
+    ;;
+*"Force Night")
+    "$WLSCTL" force-night
+    ;;
+*"Auto")
+    "$WLSCTL" auto
+    ;;
+*"Status")
+    "$WLSCTL" status
+    ;;
+esac

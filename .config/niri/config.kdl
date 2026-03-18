@@ -5,6 +5,7 @@ spawn-sh-at-startup "lf -server"
 spawn-sh-at-startup "stasis"
 spawn-sh-at-startup "swww-daemon"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
+spawn-sh-at-startup "wlsunset-ctl start"
 
 input {
     keyboard {
@@ -235,6 +236,7 @@ binds {
     Mod+D { spawn-sh "fuzzel"; }
     Mod+E { spawn-sh "fuzzel-emoji"; }
     Mod+G { spawn-sh "fuzzel-pwrmenu"; }
+    Mod+Shift+W { spawn-sh "fuzzel-wlsunset-ctl"; }
 	Mod+Shift+T repeat=false { spawn-sh "notify-send $(date +%Y-%m-%d) $(date +%A) -t 1250 -e"; }
 
 	// Media & Other
