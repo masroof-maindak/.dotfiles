@@ -26,6 +26,7 @@ default:
     r".*\.exe"
     r"steam_app_.*"
     r"firefox.*"
+    r"librewolf.*"
   ]
 
   # Desktop Plan
