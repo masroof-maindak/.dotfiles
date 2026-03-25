@@ -40,7 +40,7 @@ set -x FZF_DEFAULT_OPTS "--reverse --margin 1,2 --prompt \"fzf: \" --color=16,cu
 
 # Wayland
 set -x ELECTRON_OZONE_PLATFORM_HINT auto
-set -x SWWW_TRANSITION none
+set -x AWWW_TRANSITION none
 set -x SDL_VIDEODRIVER wayland
 
 # PATH entries

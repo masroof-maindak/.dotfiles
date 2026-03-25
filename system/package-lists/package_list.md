@@ -30,9 +30,9 @@ perl-file-mimeinfo
 
 ## Core
 
+awww
 niri
 nwg-look
-swww
 waybar
 wf-recorder
 wlsunset

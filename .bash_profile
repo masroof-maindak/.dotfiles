@@ -40,7 +40,7 @@ export FZF_DEFAULT_OPTS="--reverse --margin 1,2 --prompt \"fzf: \" --color=16,cu
 
 # Wayland
 export ELECTRON_OZONE_PLATFORM_HINT=auto
-export SWWW_TRANSITION=none
+export AWWW_TRANSITION=none
 export SDL_VIDEODRIVER=wayland
 
 export VAULT_DIR="$HOME/Documents/Vault/"

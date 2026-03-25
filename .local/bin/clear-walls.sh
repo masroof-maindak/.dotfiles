@@ -1,4 +1,4 @@
 #!/bin/sh
 
-swww clear-cache
-swww clear
+awww clear-cache
+awww clear

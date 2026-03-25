@@ -3,7 +3,7 @@ spawn-sh-at-startup "eww open topbar"
 spawn-sh-at-startup "foot --server"
 spawn-sh-at-startup "lf -server"
 spawn-sh-at-startup "stasis"
-spawn-sh-at-startup "swww-daemon"
+spawn-sh-at-startup "awww-daemon"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-sh-at-startup "wlsunset-ctl start"
 
@@ -100,7 +100,7 @@ layout {
 
 // Background & Overview
 layer-rule {
-    match namespace="swww"
+    match namespace="awww"
     place-within-backdrop true
 }
 
@@ -365,6 +365,7 @@ binds {
     Mod+Ctrl+R  { reset-window-height; }
 
 	// Screenshot
+    // TODO: stop notification?
     Mod+P { screenshot show-pointer=false; }
     Mod+Shift+P { screenshot-screen show-pointer=false; }
     Mod+Ctrl+P { screenshot-window; }

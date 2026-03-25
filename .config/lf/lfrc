@@ -103,7 +103,7 @@ map <enter> shell
 map <backspace2> set hidden!
 map <esc> :unselect; clear
 map <c-space> :toggle; up
-map WAL $swww img "$f"
+map WAL $awww img "$f"
 
 #___
 # Visual Mode
