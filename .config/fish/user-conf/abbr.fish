@@ -26,6 +26,7 @@ abbr --add lt  "eza --group-directories-first -T -L=2"
 abbr --add lti "eza --group-directories-first -T -L=2 --icons=auto"
 
 abbr --add c     "clear"
+abbr --add cler  "clear"
 abbr --add clera "clear"
 abbr --add q     "exit"
 abbr --add qq    "exit"
