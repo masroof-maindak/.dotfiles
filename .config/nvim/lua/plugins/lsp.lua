@@ -11,8 +11,6 @@ return {
 			},
 		},
 	},
-	{ -- Default LSP configs
-		"neovim/nvim-lspconfig",
-		event = "BufReadPre",
-	},
+	-- Default LSP configs
+	"neovim/nvim-lspconfig",
 }
