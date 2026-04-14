@@ -35,7 +35,6 @@ vim.lsp.config("clangd", {
 		completeUnimported = true,
 		clangdFileStatus = true,
 	},
-	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "hpp" }, -- Remove proto from default
 })
 
 vim.lsp.config("lua_ls", {

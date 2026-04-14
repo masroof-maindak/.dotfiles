@@ -5,5 +5,4 @@ return {
 		lazy = false,
 		priority = 1000,
 	},
-	{ "savq/melange-nvim" },
 }
