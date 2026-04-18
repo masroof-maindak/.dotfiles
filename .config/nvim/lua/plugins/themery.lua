@@ -5,16 +5,6 @@ return {
 		livePreview = true,
 		themes = {
 			{
-				name = "Melange Dark",
-				colorscheme = "melange",
-				before = [[vim.opt.background = "dark"]],
-			},
-			{
-				name = "Melange Light",
-				colorscheme = "melange",
-				before = [[vim.opt.background = "light"]],
-			},
-			{
 				name = "Swamp Dark",
 				colorscheme = "swamp",
 				before = [[vim.opt.background = "dark"]],

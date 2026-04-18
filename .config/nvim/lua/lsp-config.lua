@@ -11,14 +11,8 @@ local servers = {
 	"vtsls",
 }
 
-local on_attach = function(client, bufnr)
-	vim.api.nvim_exec_autocmds("LspAttach", {
-		buffer = bufnr,
-		data = { client_id = client.id },
-	})
-end
-
--- Additional configurations for each client other than the defaults
+-- Additional configurations for each client other than the defaults (provided
+-- by nvim-lspconfig)
 
 vim.lsp.config("clangd", {
 	cmd = {
@@ -46,20 +40,6 @@ vim.lsp.config("lua_ls", {
 	},
 })
 
-vim.lsp.config("basedpyright", {
-	settings = {
-		basedpyright = {
-			disableOrganizeImports = true,
-			analysis = {
-				typeCheckingMode = "basic",
-				useLibraryCodeForTypes = false,
-				diagnosticMode = "openFilesOnly",
-			},
-		},
-	},
-})
-
 for _, server in ipairs(servers) do
-	vim.lsp.config(server, { on_attach = on_attach })
 	vim.lsp.enable(server)
 end
