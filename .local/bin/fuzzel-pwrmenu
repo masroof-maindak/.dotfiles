@@ -1,19 +1,11 @@
 #!/usr/bin/env bash
-# Courtesy of https://codeberg.org/phmcc/fuzzel-scripts
 
-SELECTION="$(printf "Lock\nLog out\nReboot\nShutdown" | fuzzel --dmenu -l 4)"
+declare -A actions=(
+    ["Lock screen"]="gtklock"
+    ["Log out // Quit Niri"]="niri msg action quit"
+    ["Reboot // Restart"]="reboot"
+    ["Shutdown // Poweroff"]="poweroff"
+)
 
-case $SELECTION in
-*"Lock")
-    gtklock
-    ;;
-*"Log out")
-    niri msg action quit
-    ;;
-*"Reboot")
-    reboot
-    ;;
-*"Shutdown")
-    poweroff
-    ;;
-esac
+SELECTION=$(printf "%s\n" "${!actions[@]}" | fuzzel --dmenu -l 4) || exit 0
+eval "${actions[$SELECTION]}"
