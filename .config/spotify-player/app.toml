@@ -14,7 +14,7 @@ page_size_in_rows = 20
 play_icon = "|>"
 pause_icon = "||"
 liked_icon = "<3"
-border_type = "Hidden"
+border_type = "Plain"
 progress_bar_type = "Rectangle"
 progress_bar_position = "Bottom"
 
@@ -38,7 +38,7 @@ notify_timeout_in_secs = 0
 [device]
 name = "sharktuth"
 device_type = "computer"
-volume = 85
+volume = 100
 bitrate = 320
 audio_cache = false
 normalization = false

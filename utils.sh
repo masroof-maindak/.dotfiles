@@ -8,7 +8,7 @@ install_paru() {
     print_yellow "Installing paru"
     git clone https://aur.archlinux.org/paru.git
     cd paru || exit
-    makepkg -si
+    RUSTC_WRAPPER="" makepkg -si
     cd ..
     rm -rf paru
 }
@@ -55,15 +55,5 @@ install_rust_binary() {
     cargo build -r "$build_args"
     mv target/release/"$binary_name" "$HOME"/.local/bin
     chmod +x "$HOME"/.local/bin/"$binary_name"
-    cd - || exit
-}
-
-install_wireguard_go() {
-    print_yellow "Installing wireguard-go"
-    git clone https://git.zx2c4.com/wireguard-go "$HOME"/Documents/repos/wireguard-go
-    cd "$HOME"/Documents/repos/wireguard-go || exit
-    git pull
-    make
-    sudo mv wireguard-go /usr/local/bin
     cd - || exit
 }
