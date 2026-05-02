@@ -9,6 +9,9 @@
 [url "git@github.com:masroof-maindak/"]
 	insteadOf = "gh:"
 
+[url "git@github.com:bnm-ai/"]
+	insteadOf = "bnm:"
+
 [alias]
 	a = add
 	ba = branch -a
