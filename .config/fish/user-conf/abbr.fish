@@ -10,6 +10,7 @@ abbr --add py  "python"
 abbr --add l   "lfcd"
 abbr --add m   "make"
 abbr --add dk  "docker"
+abbr --add dkc "docker compose"
 abbr --add bat "bat -p"
 
 abbr --add uvr "uv run"
