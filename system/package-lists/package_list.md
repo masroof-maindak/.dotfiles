@@ -205,6 +205,7 @@ nicotine+
 
 bat
 btop
+duf
 eza
 hexyl
 jq
