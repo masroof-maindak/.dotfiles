@@ -28,10 +28,12 @@
 	f = fetch
 	fuckit = reset --hard
 	last = log -1 HEAD
+	l3 = log -n 3
 	l = pull
 	nuke = branch -D
 	pf = push --force
 	p = push
+	po = push origin
 	rs = restore
 	sh = show HEAD
 	ss = status -s
