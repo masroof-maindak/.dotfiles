@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+BAT_FILE="/org/freedesktop/UPower/devices/battery_BAT0"
+
+BAT_PERC=$(upower -i "$BAT_FILE" | awk '/percentage/ {print $2}' | tr -d '% ')
+BAT_STATUS=$(upower -i "$BAT_FILE" | awk '/state/ {print $2}')
+
+CURR_DATE=$(date +"%Y-%m-%d")
+CURR_DAY=$(date +%A)
+
+notify-send "System Info" "<u>Battery:</u> $BAT_PERC% | $BAT_STATUS\n<u>Date:</u> $CURR_DATE\n<u>Day:</u> $CURR_DAY" -t 5000

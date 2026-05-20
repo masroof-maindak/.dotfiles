@@ -237,7 +237,7 @@ binds {
     Mod+E { spawn-sh "fuzzel-emoji"; }
     Mod+G { spawn-sh "fuzzel-pwrmenu"; }
     Mod+Shift+W { spawn-sh "fuzzel-wlsunset-ctl"; }
-	Mod+Shift+T repeat=false { spawn-sh "notify-send $(date +%Y-%m-%d) $(date +%A) -t 1250 -e"; }
+	Mod+Shift+T repeat=false { spawn-sh "sysinfo"; }
 
 	// Media & Other
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "amixer sset Master 2%+"; }
