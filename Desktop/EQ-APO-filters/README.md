@@ -2,6 +2,13 @@
 
 ## Tangzu Wan'er
 
+- Honestly, I think these might just be more fun w/o any EQ, and just reducing
+  the bass ever so slightly would be more fruitful
+- After a couple of days w/ them, I like stock more than even Serenade or Harman
+  IE 2019
+  - What I need to achieve is the 'average' of Harman IE 2019 (or Serenade) and
+    stock
+
 ### Super22
 
 - Didn't like it at all
