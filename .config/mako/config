@@ -1,0 +1,26 @@
+font=IBM Plex Sans
+
+max-icon-size=64
+
+padding=8
+margin=5
+outer-margin=10
+
+width=300
+anchor=bottom-right
+
+border-size=1
+text-alignment=left
+
+# border-color=#5F4E41
+# background-color=#3A3124
+# text-color=#ebe0bb
+background-color=#f1e3d1
+text-color=#64513E
+border-color=#B5A492
+
+sort=-time
+
+[urgency=critical]
+# border-color=#a82d56
+border-color=#993333

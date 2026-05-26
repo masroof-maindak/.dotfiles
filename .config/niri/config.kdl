@@ -5,7 +5,7 @@ spawn-sh-at-startup "wl-paste --watch cliphist store"
 spawn-sh-at-startup "wlsunset-ctl start"
 
 spawn-at-startup "awww-daemon"
-spawn-at-startup "dunst"
+spawn-at-startup "mako"
 spawn-at-startup "stasis"
 spawn-at-startup "/usr/lib/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
 

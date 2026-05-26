@@ -22,8 +22,8 @@ upower
 
 ## General Utilities
 
-dunst
 imagemagick
+mako
 perl-file-mimeinfo
 
 # Wayland
