@@ -33,6 +33,7 @@ perl-file-mimeinfo
 awww
 niri
 nwg-look
+pantheon-polkit-agent
 waybar
 wf-recorder
 wlsunset
@@ -43,10 +44,11 @@ xwayland-satellite
 fuzzel
 wtype
 
-## XDG Portals
+## Portals
 
 xdg-desktop-portal-gnome
 xdg-desktop-portal-gtk
+gnome-keyring
 
 # Networking
 
@@ -106,7 +108,6 @@ ruff
 sccache
 tokei
 tree-sitter-cli
-zola
 
 ## Toolchain
 
