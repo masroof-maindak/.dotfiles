@@ -6,11 +6,13 @@ padding=8
 margin=5
 outer-margin=10
 
-width=300
+width=350
+height=120
 anchor=bottom-right
 
 border-size=1
 text-alignment=left
+default-timeout=5000
 
 # border-color=#5F4E41
 # background-color=#3A3124
@@ -24,3 +26,7 @@ sort=-time
 [urgency=critical]
 # border-color=#a82d56
 border-color=#993333
+
+[app-name=niri summary="Screenshot captured"]
+# Open screenshot w/ latest name in directory, in imv
+on-button-left=exec file="$(ls -t "$HOME"/Screenshots/*.png 2>/dev/null | head -n 1)"; [ -n "$file" ] && imv "$file"
