@@ -240,6 +240,7 @@ binds {
     Mod+G { spawn-sh "fuzzel-pwrmenu"; }
     Mod+Shift+W { spawn-sh "fuzzel-wlsunset-ctl"; }
 	Mod+Shift+T repeat=false { spawn-sh "sysinfo"; }
+	Mod+Shift+N repeat=false { spawn-sh "networkmanager_dmenu"; }
 
 	// Media & Other
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "amixer sset Master 2%+"; }

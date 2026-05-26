@@ -58,6 +58,7 @@ bind
 inetutils
 iproute2
 networkmanager
+networkmanager-dmenu
 openssh
 tailscale
 ufw
