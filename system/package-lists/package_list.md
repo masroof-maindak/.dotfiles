@@ -191,7 +191,7 @@ vesktop-bin
 
 ## File Management
 
-ctpv-git
+ctpv
 fd
 fzf
 gdu
