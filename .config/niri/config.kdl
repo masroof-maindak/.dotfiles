@@ -227,20 +227,20 @@ window-rule {
 
 binds {
 	// Apps
-    Mod+Return repeat=false { spawn-sh "footclient"; }
-    Mod+W repeat=false { spawn-sh "nautilus"; }
-    Mod+B repeat=false { spawn-sh "librewolf"; }
-    Mod+V repeat=false { spawn-sh "code"; }
+    Mod+Return repeat=false { spawn "footclient"; }
+    Mod+W repeat=false { spawn "nautilus"; }
+    Mod+B repeat=false { spawn "librewolf"; }
+    Mod+V repeat=false { spawn "code"; }
     Mod+Q repeat=false { close-window; }
 
     // Launchers
-    Mod+Z { spawn-sh "cliphist list | fuzzel --dmenu --width 60 | cliphist decode | wl-copy"; }
-    Mod+D { spawn-sh "fuzzel"; }
-    Mod+E { spawn-sh "fuzzel-emoji"; }
-    Mod+G { spawn-sh "fuzzel-pwrmenu"; }
-    Mod+Shift+W { spawn-sh "fuzzel-wlsunset-ctl"; }
-	Mod+Shift+T repeat=false { spawn-sh "sysinfo"; }
-	Mod+Shift+N repeat=false { spawn-sh "networkmanager_dmenu"; }
+    Mod+D { spawn-sh "fuzzel --no-icons"; }
+    Mod+Z { spawn "cliphist-fuzzel-img"; }
+    Mod+E { spawn "fuzzel-emoji"; }
+    Mod+G { spawn "fuzzel-pwrmenu"; }
+    Mod+Shift+W { spawn "fuzzel-wlsunset-ctl"; }
+	Mod+Shift+T repeat=false { spawn "sysinfo"; }
+	Mod+Shift+N repeat=false { spawn "networkmanager_dmenu"; }
 
 	// Media & Other
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "amixer sset Master 2%+"; }
