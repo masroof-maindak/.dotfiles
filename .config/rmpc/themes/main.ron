@@ -19,13 +19,13 @@
         active_style: (fg: "black", bg: "blue", modifiers: "Bold"),
         inactive_style: (),
     ),
-    highlighted_item_style: (fg: "blue", modifiers: "Bold"),
-    current_item_style: (fg: "black", bg: "blue", modifiers: "Bold"),
+    highlighted_item_style: (fg: "yellow"),
+    current_item_style: (fg: "yellow", modifiers: "Bold | Italic"),
     borders_style: (fg: "blue"),
     highlight_border_style: (fg: "blue"),
     symbols: (
-        song: "[S]",
-        dir: "[D]",
+        song: "-",
+        dir: "+",
         playlist: "[P]",
         marker: "* ",
         ellipsis: "...",
@@ -41,42 +41,29 @@
         trace: (fg: "magenta", bg: "black"),
     ),
     progress_bar: (
-        symbols: ["█", "█", "█", "█", "█"],
-        track_style: (fg: "black"),
-        elapsed_style: (fg: "blue"),
-        thumb_style: (fg: "blue", bg: "#1e2030"),
+        symbols: ["-", "-", "x", " ", " "],
     ),
     scrollbar: (
-        symbols: ["│", "█", "↑", "↓"],
+        symbols: ["│", "░", "▲", "▼"],
         track_style: (),
         ends_style: (),
         thumb_style: (fg: "blue"),
     ),
     song_table_format: [
         (
-            prop: (kind: Property(Artist),
-                default: (kind: Text("Unknown"))
+            prop: (
+                kind: Group([
+                    (kind: Property(Artist)),
+                    (kind: Text(" - ")),
+                    (kind: Property(Title)),
+                ]),
+                default: (kind: Property(Filename))
             ),
-            width: "20%",
+            width: "90%",
         ),
         (
-            prop: (kind: Property(Title),
-                default: (kind: Text("Unknown"))
-            ),
-            width: "35%",
-        ),
-        (
-            prop: (kind: Property(Album), style: (fg: "white"),
-                default: (kind: Text("Unknown Album"), style: (fg: "white"))
-            ),
-            width: "30%",
-        ),
-        (
-            prop: (kind: Property(Duration),
-                default: (kind: Text("-"))
-            ),
-            width: "15%",
-            alignment: Right,
+            prop: (kind: Property(Duration)),
+            width: "10%",
         ),
     ],
     components: {},
@@ -84,23 +71,19 @@
         direction: Vertical,
         panes: [
             (
-				borders: "NONE",
-                pane: Pane(Tabs),
-                size: "1",
-            ),
-            (
                 pane: Pane(TabContent),
-				borders: "TOP",
+				borders: "NONE",
                 size: "100%",
             ),
             (
-                size: "4",
-				borders: "ALL",
-                pane: Pane(Header),
+                pane: Pane(ProgressBar),
+				borders: "NONE",
+                size: "1",
             ),
             (
-                pane: Pane(ProgressBar),
                 size: "1",
+				borders: "NONE",
+                pane: Pane(Header),
             ),
         ],
     ),
@@ -108,46 +91,48 @@
         rows: [
             (
                 left: [
-                    (kind: Text("["), style: (fg: "yellow", modifiers: "Bold")),
-                    (kind: Property(Status(StateV2(playing_label: "Playing", paused_label: "Paused", stopped_label: "Stopped"))), style: (fg: "yellow", modifiers: "Bold")),
-                    (kind: Text("]"), style: (fg: "yellow", modifiers: "Bold"))
+                    (kind: Text("["), style: (fg: "yellow")),
+                    (kind: Property(Status(Elapsed)), style: (fg: "yellow")),
+                    (kind: Text("/"), style: (fg: "yellow")),
+                    (kind: Property(Status(Duration)), style: (fg: "yellow")),
+                    (kind: Text("]"), style: (fg: "yellow"))
                 ],
                 center: [
-                    (kind: Property(Song(Title)), style: (modifiers: "Bold"),
-                        default: (kind: Text("No Song"), style: (modifiers: "Bold"))
-                    )
+                    (kind: Text(" "), style: (fg: "magenta", modifiers: "Reversed")),
+                    (kind: Property(Status(ActiveTab)), style: (fg: "magenta", modifiers: "Reversed")),
+                    (kind: Text(" "), style: (fg: "magenta", modifiers: "Reversed"))
                 ],
                 right: [
-                    (kind: Property(Widget(ScanStatus)), style: (fg: "blue")),
-                    (kind: Property(Widget(Volume)), style: (fg: "blue"))
-                ]
-            ),
-            (
-                left: [
-                    (kind: Property(Status(Elapsed))),
-                    (kind: Text(" / ")),
-                    (kind: Property(Status(Duration))),
-                    (kind: Text(" (")),
-                    (kind: Property(Status(Bitrate))),
-                    (kind: Text(" kbps)"))
-                ],
-                center: [
-                    (kind: Property(Song(Artist)), style: (fg: "yellow", modifiers: "Bold"),
-                        default: (kind: Text("Unknown"), style: (fg: "yellow", modifiers: "Bold"))
-                    ),
-                    (kind: Text(" - ")),
-                    (kind: Property(Song(Album)),
-                        default: (kind: Text("Unknown Album"))
-                    )
-                ],
-                right: [
-                    (
-                        kind: Property(Widget(States(
-                            active_style: (fg: "white", modifiers: "Bold"),
-                            separator_style: (fg: "white")))
-                        ),
-                        style: (fg: "dark_gray")
-                    ),
+                    (kind: Text("["), style: (fg: "blue")),
+                    (kind: Property(Status(RepeatV2(
+                        on_label: "rep ",
+                        off_label: "rep ",
+                        on_style: (fg: "yellow", modifiers: "Bold"),
+                        off_style: (fg: "blue", modifiers: "Dim"),
+                    )))),
+                    (kind: Property(Status(RandomV2(
+                        on_label: "rnd ",
+                        off_label: "rnd ",
+                        on_style: (fg: "yellow", modifiers: "Bold"),
+                        off_style: (fg: "blue", modifiers: "Dim"),
+                    )))),
+                    (kind: Property(Status(ConsumeV2(
+                        on_label: "eat ",
+                        off_label: "eat ",
+                        oneshot_label: "eat(1) ",
+                        on_style: (fg: "yellow", modifiers: "Bold"),
+                        off_style: (fg: "blue", modifiers: "Dim"),
+                        oneshot_style: (fg: "red", modifiers: "Dim"),
+                    )))),
+                    (kind: Property(Status(SingleV2(
+                        on_label: "one",
+                        off_label: "one",
+                        oneshot_label: "one(1)",
+                        on_style: (fg: "yellow", modifiers: "Bold"),
+                        off_style: (fg: "blue", modifiers: "Dim"),
+                        oneshot_style: (fg: "red", modifiers: "Bold"),
+                    )))),
+                    (kind: Text("]"), style: (fg: "blue")),
                 ]
             ),
         ],
