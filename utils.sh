@@ -36,9 +36,8 @@ install_rust_list() {
 install_rust_binary() {
     local repo_url="$1"
     local binary_name="$2"
-    local build_args="$3"
-
-    # FIXME: pass on arguments as separate arguments rather than as one big argument
+    shift 2
+    local build_args=("$@")
     local repo_dir
     repo_dir="$HOME"/Documents/repos/"$(basename "$repo_url" .git)"
 
@@ -52,7 +51,11 @@ install_rust_binary() {
         cd "$repo_dir" || exit
     fi
 
-    cargo build -r "$build_args"
+    if [ ${#build_args[@]} -gt 0 ]; then
+        cargo build -r "${build_args[@]}"
+    else
+        cargo build -r
+    fi
     mv target/release/"$binary_name" "$HOME"/.local/bin
     chmod +x "$HOME"/.local/bin/"$binary_name"
     cd - || exit

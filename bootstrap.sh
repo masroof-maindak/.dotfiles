@@ -123,8 +123,8 @@ fi
 
 # Install Rust programs
 install_rust_list "./system/package-lists/rust"
-install_rust_binary "https://github.com/elkowar/eww" "eww" "--no-default-features --features wayland"
-install_rust_binary "https://github.com/druskus20/eww-niri-workspaces.git" "eww-niri-workspaces" ""
+install_rust_binary "https://github.com/elkowar/eww" "eww" --no-default-features --features wayland
+install_rust_binary "https://github.com/druskus20/eww-niri-workspaces.git" "eww-niri-workspaces"
 
 # Set up fish
 print_yellow "Setting up Fish shell"
