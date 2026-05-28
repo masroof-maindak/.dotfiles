@@ -1,10 +1,11 @@
 set -x EDITOR nvim
 set -x VISUAL nvim
 set -x SUDOEDITOR nvim
+set -x TERMINAL foot
 
 set -x BROWSER librewolf
 set -x MANPAGER 'nvim +Man!'
-set -x VAULT_DIR "$HOME/Documents/Vault/"
+set -x VAULT_DIR "$HOME/Documents/Vault"
 
 # XDG
 set -x XDG_CONFIG_HOME "$HOME/.config"
