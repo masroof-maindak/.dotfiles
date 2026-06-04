@@ -7,5 +7,7 @@ BAT_STATUS=$(upower -i "$BAT_FILE" | awk '/state/ {print $2}')
 
 CURR_DATE=$(date +"%Y-%m-%d")
 CURR_DAY=$(date +%A)
+CURR_TIME=$(date +"%I:%M %p")
 
-notify-send "System Info" "<u>Battery:</u> $BAT_PERC% | $BAT_STATUS\n<u>Date:</u> $CURR_DATE\n<u>Day:</u> $CURR_DAY" -t 5000
+notify-send "System Info" \
+    "<u>Battery:</u> $BAT_PERC% | $BAT_STATUS\n<u>Date:</u> $CURR_DATE | $CURR_DAY\n<u>Time:</u> $CURR_TIME" -t 5000
