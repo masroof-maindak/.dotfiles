@@ -6,8 +6,11 @@
   the bass ever so slightly would be more fruitful
 - After a couple of days w/ them, I like stock more than even Serenade or Harman
   IE 2019
-  - What I need to achieve is the 'average' of Harman IE 2019 (or Serenade) and
-    stock
+  - What I need to achieve is the 'average' of (the delta produce by EQ-ing to)
+    Harman IE 2019 (or Serenade) and stock, in the sense that the either of
+    those filters raise the treble/air way too high, and diminish the bass a bit
+    too much; or perhaps it just gets less pronounced because of the other
+    ranges getting more dominant
 
 ### Super22
 
@@ -34,12 +37,13 @@
 > J-Pop
 
 - LGTM
+- Never mind, the high frequencies need to go down
 
 ## AKG K371
 
 - Tried Harman, via Oratory1990's
   [Wiki](https://www.dropbox.com/scl/fi/gxl0ndm8ng8iwwl2fynmm/AKG-K371-Brainwavz-oval-earpads.pdf?rlkey=xnxr1p5ie6tnirxhbxwyrjsk6&e=NaN),
-  and stuck with it
+  and stuck with it; better than stock across the board
 
 ## Acknowledgements
 
