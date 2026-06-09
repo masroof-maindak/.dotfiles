@@ -71,3 +71,12 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
 ```bash
 sudo tailscale up
 ```
+
+# TODO
+
+- [ ] Windows LF config; see:
+  - <https://ahrm.github.io/jekyll/update/2022/04/02/using-lf-file-manager-on-windows.html>
+  - <https://konfekt.github.io/blog/2024/09/15/lf-linux-windows>
+- [ ] Nvim: detect TTY, and if true, change to dark theme
+- [ ] Nvim: auto search-replace (%s) on word under cursor (e.g selected via
+  `viw`)
