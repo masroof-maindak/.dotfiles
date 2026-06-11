@@ -3,10 +3,10 @@
     syntax-theme = base16
 
     # Core diff colors
-    minus-style = "#BF7979"
-    minus-emph-style = "#BF7979"
-    plus-style = "#75858C"
-    plus-emph-style = "#75858C"
+    minus-style = red
+    minus-emph-style = red
+    plus-style = green
+    plus-emph-style = green
 
     # Line gutter
     line-numbers = true
@@ -14,26 +14,25 @@
     line-numbers-right-format = "{np:>1}│"
     line-numbers-left-style = black
     line-numbers-right-style = black
-    line-numbers-minus-style = "#BF7979"
-    line-numbers-plus-style = "#75858C"
-    line-numbers-zero-style = "#A0907D"
+    line-numbers-minus-style = red
+    line-numbers-plus-style = green
+    line-numbers-zero-style = bright-black
 
     # File header
-    file-style = "#64513E" bold "#DDCEBC" # FG: base05, BG: base01
-    file-decoration-style = "#D09700" box # base08 (yellow/orange) box
+    file-style = white bold black
+    file-decoration-style = yellow box
 
     # Hunk header
-    hunk-header-style = file line-number bold "#9E5581"
-    hunk-header-file-style = bold "#9E5581" # base0E (purple)
-    hunk-header-line-number-style = bold "#9E5581" # base0E (purple)
-    hunk-header-decoration-style = none
+    hunk-header-style = line-number bold magenta
+    hunk-header-line-number-style = bold magenta
+    hunk-header-decoration-style = box magenta
 
     # Commit
-    commit-style = "#64513E" bold "#DDCEBC" # FG: base05, BG: base01
-    commit-decoration-style = "#D09700" box ul # base08 (yellow/orange) box
+    commit-style = white bold black
+    commit-decoration-style = yellow box ul
 
     # Other
-    whitespace-error-style = "#993333" reverse # base0A (red)
+    whitespace-error-style = red reverse
 
     # Labels
     file-added-label = [+]

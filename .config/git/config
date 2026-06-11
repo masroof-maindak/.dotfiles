@@ -51,11 +51,19 @@
 [core]
 	editor = nvim
 	pager = delta
+[interactive]
+    diffFilter = delta --color-only
 [include]
 	path = ~/.config/delta/themes.gitconfig
 [delta]
+    true-color = always
+	navigate = true
 	features = swamp-light
+	hyperlinks = true
+	hyperlinks-file-link-format = "vscode://file/{path}:{line}"
 	tabs = 4
+[merge]
+	conflictStyle = zdiff3
 [submodule]
 	recurse = true
 [gpg]
