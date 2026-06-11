@@ -97,6 +97,7 @@ fi
 print_yellow "Copying system files"
 sudo cp ./system/pacman.conf /etc/pacman.conf
 sudo cp ./system/skip-username.conf /etc/systemd/system/getty@tty1.service.d/skip-username.conf
+sudo cp ./system/nm-conf/wifi_backend.conf /etc/NetworkManager/conf.d/wifi_backend.conf
 
 # Services
 print_yellow "Enabling services"

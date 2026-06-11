@@ -55,8 +55,10 @@ gnome-keyring
 ## Core
 
 bind
+impala
 inetutils
 iproute2
+iwd
 networkmanager
 networkmanager-dmenu
 openssh
