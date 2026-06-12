@@ -10,13 +10,13 @@
 
     # Line gutter
     line-numbers = true
-    line-numbers-left-format = "{nm:>1}│"
-    line-numbers-right-format = "{np:>1}│"
+    line-numbers-left-format = "{nm:>1} "
+    line-numbers-right-format = "{np:>1} "
     line-numbers-left-style = black
     line-numbers-right-style = black
     line-numbers-minus-style = red
     line-numbers-plus-style = green
-    line-numbers-zero-style = bright-black
+    line-numbers-zero-style = black
 
     # File header
     file-style = white bold black
