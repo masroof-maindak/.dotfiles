@@ -37,6 +37,7 @@ abbr --add qquit "exit"
 abbr --add md    "mkdir -p"
 abbr --add oing  "ping"
 abbr --add pig   "ping"
+abbr --add cal   "cal -m"
 
 abbr --add pubip "curl ipinfo.io; echo"
 abbr --add copy  "wl-copy"
