@@ -108,10 +108,10 @@ map WAL $awww img "$f"
 #___
 # Visual Mode
 cmd visual-toggle &{{
-	while read -r file; do
-		lf -remote "send $id toggle \"$file\""
-	done <<< "$fv"
-	lf -remote "send $id visual-discard"
+    while read -r file; do
+        lf -remote "send $id toggle \"$file\""
+    done <<< "$fv"
+    lf -remote "send $id visual-discard"
 }}
 
 vmap <esc> visual-discard # Default but overwritten by normal `esc` bind
@@ -160,15 +160,17 @@ map R drag
 #___
 # Select/Jump to file/folder
 cmd fzf_jump ${{
-	res="$(fd . -d 8 | fzf --header='Jump...')"
+    opts="$(fish -c 'echo $FZF_CTRL_T_OPTS')"
+    fzf_cmd="fzf --header='Jump' $opts"
+    res="$(fd . -d 8 | eval $fzf_cmd)"
 
-	if [ -f "$res" ]; then
-		cmd="select"
-	elif [ -d "$res" ]; then
-		cmd="cd"
-	fi
+    if [ -f "$res" ]; then
+        cmd="select"
+    elif [ -d "$res" ]; then
+        cmd="cd"
+    fi
 
-	lf -remote "send $id $cmd \"$res\""
+    lf -remote "send $id $cmd \"$res\""
 }}
 
 map <c-f> :fzf_jump
@@ -177,13 +179,12 @@ map <c-f> :fzf_jump
 #___
 # Search contents of files inside current directory
 cmd fzf_ripgrep_search ${{
-
     RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
     res="$(
-        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" 			  	\
-		fzf --bind "change:reload:$RG_PREFIX {q} || true" 	\
-		--ansi --layout=reverse --header='Search in files'	\
-		| cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
+        FZF_DEFAULT_COMMAND="$RG_PREFIX ''"                 \
+        fzf --bind "change:reload:$RG_PREFIX {q} || true"   \
+        --ansi --layout=reverse --header='Search in files'  \
+        | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
     )"
     [ -n "$res" ] && lf -remote "send $id select \"$res\""
 
@@ -241,12 +242,12 @@ map K :move_parent_dir up
 cmd yank_path $printf '%s' "$f" | wl-copy
 cmd yank_file ${{
     mime_type=$(file --mime-type -b $f)
-	case {mime_type} in
-		image/png) wl-copy -t image/png < "$f" ;;
-		image/*) magick "$f" png:- | wl-copy -t image/png ;;
-		*) wl-copy < "$f" ;;
-	esac
-	notify-send "File copied."
+    case {mime_type} in
+        image/png) wl-copy -t image/png < "$f" ;;
+        image/*) magick "$f" png:- | wl-copy -t image/png ;;
+        *) wl-copy < "$f" ;;
+    esac
+    notify-send "File copied."
 }}
 
 map Y :yank_file
@@ -256,18 +257,18 @@ map <c-c> :yank_path
 #___
 # extract
 cmd extract ${{
-	set -f
-	case $f in
-		*.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf "$f" ;;
-		*.tar.gz|*.tgz) tar xzvf "$f" ;;
-		*.tar.xz|*.txz) tar xJvf "$f" ;;
-		*.tar.zst|*.tzst) tar -xvf "$f" ;;
-		*.zip) unzip "$f" ;;
-		*.rar) unrar x "$f" ;;
-		*.7z) 7z x "$f" ;;
-		*) notify-send "Failed to extract '$f'..." ;;
-	esac
-	[ $? -eq 0 ] && lf -remote "send $id :reload"
+    set -f
+    case $f in
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf "$f" ;;
+        *.tar.gz|*.tgz) tar xzvf "$f" ;;
+        *.tar.xz|*.txz) tar xJvf "$f" ;;
+        *.tar.zst|*.tzst) tar -xvf "$f" ;;
+        *.zip) unzip "$f" ;;
+        *.rar) unrar x "$f" ;;
+        *.7z) 7z x "$f" ;;
+        *) notify-send "Failed to extract '$f'..." ;;
+    esac
+    [ $? -eq 0 ] && lf -remote "send $id :reload"
 }}
 
 map <c-x> :extract
@@ -297,12 +298,12 @@ cmd tar ${{
 }}
 
 cmd zip ${{
-	set -f
-	echo $1
-	mkdir $1
-	cp -r $fx $1
-	zip -r $1.zip $1
-	rm -rf $1
+    set -f
+    echo $1
+    mkdir $1
+    cp -r $fx $1
+    zip -r $1.zip $1
+    rm -rf $1
 }}
 
 map c
@@ -341,7 +342,7 @@ map BR :bulk_rename
 #___
 # Follow symlink to original file
 cmd follow_link %{{
-	lf -remote "send $id select \"$(readlink -- "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+    lf -remote "send $id select \"$(readlink -- "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
 }}
 
 map gL :follow_link
