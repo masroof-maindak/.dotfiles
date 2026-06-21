@@ -79,4 +79,6 @@ sudo tailscale up
   - <https://konfekt.github.io/blog/2024/09/15/lf-linux-windows>
 - [ ] Nvim: detect TTY, and if true, change to dark theme
 - [ ] Nvim: auto search-replace (%s) on word under cursor (e.g selected via
-  `viw`)
+      `viw`)
+- [ ] Need a way to only selectively install dots, e.g a 'minimal' profile
+      comprising, say, tmux, fish, nvim, vim and lf for remote servers
