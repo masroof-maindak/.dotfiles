@@ -104,6 +104,8 @@ map <backspace2> set hidden!
 map <esc> :unselect; clear
 map <c-space> :toggle; up
 map WAL $awww img "$f"
+map Q %lf -remote "send $id :cd \"$OLDPWD\"; quit"
+map . :read; cmd-history-prev; cmd-enter
 
 #___
 # Visual Mode
