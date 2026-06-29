@@ -82,3 +82,4 @@ sudo tailscale up
       `viw`)
 - [ ] Need a way to only selectively install dots, e.g a 'minimal' profile
       comprising, say, tmux, fish, nvim, vim and lf for remote servers
+- [ ] `toggle-recorder.sh` -> Shell script to open and close wf-recorder
