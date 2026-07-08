@@ -9,7 +9,6 @@ pop-icon-theme
 ## Hardware & Drivers
 
 brightnessctl
-broadcom-wl
 cpupower
 linux-headers
 

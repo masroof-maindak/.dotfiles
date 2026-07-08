@@ -16,6 +16,7 @@ abbr --add bat "bat -p"
 abbr --add uvr "uv run"
 abbr --add uvm "uv run manage.py"
 
+abbr --add imp "impala"
 abbr --add nmt "nmtui"
 abbr --add nmc "nmcli"
 
