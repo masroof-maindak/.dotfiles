@@ -12,11 +12,15 @@ delightfully whimsical) spell-casting.
 ## Setup
 
 ```bash
-# Following a 'minimal' `archinstall`:
+# Full desktop (following a 'minimal' archinstall)
 cd && git clone https://github.com/masroof-maindak/.dotfiles
 cd .dotfiles
 chmod +x bootstrap.sh
 ./bootstrap.sh
+make stow-all
+
+# Remote/minimal server (only tmux, fish, nvim, vim, lf)
+make stow-remote
 ```
 
 ## After
@@ -80,6 +84,4 @@ sudo tailscale up
 - [ ] Nvim: detect TTY, and if true, change to dark theme
 - [ ] Nvim: auto search-replace (%s) on word under cursor (e.g selected via
       `viw`)
-- [ ] Need a way to only selectively install dots, e.g a 'minimal' profile
-      comprising, say, tmux, fish, nvim, vim and lf for remote servers
 - [ ] `toggle-recorder.sh` -> Shell script to open and close wf-recorder

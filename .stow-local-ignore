@@ -2,6 +2,7 @@ makefile
 ^/README.*
 .prettierrc
 
+^/remote
 bootstrap.sh
 utils.sh
 system
