@@ -84,4 +84,3 @@ sudo tailscale up
 - [ ] Nvim: detect TTY, and if true, change to dark theme
 - [ ] Nvim: auto search-replace (%s) on word under cursor (e.g selected via
       `viw`)
-- [ ] `toggle-recorder.sh` -> Shell script to open and close wf-recorder

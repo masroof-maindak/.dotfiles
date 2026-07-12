@@ -1,0 +1,35 @@
+#!/usr/bin/env fish
+# Ref: https://axlefublr.github.io/screen-recording/
+# Toggle wf-recorder on/off using a lockfile
+# Records to ~/Screenshots/recording-<timestamp>.mp4
+# Compresses with ffmpeg after recording stops
+
+set LOCKFILE /tmp/screen-record.lock
+set OUTDIR $HOME/Screenshots
+
+if test -f $LOCKFILE
+    kill -s INT (pgrep -x wf-recorder)
+    exit
+end
+
+set TIMESTAMP (date '+%Y%m%d-%H%M%S')
+set ORIGINAL $OUTDIR/original-$TIMESTAMP.mkv
+set COMPRESSED $OUTDIR/recording-$TIMESTAMP.mp4
+
+mkdir -p $OUTDIR
+touch $LOCKFILE
+notify-send "Recording" "Started"
+
+wf-recorder -Dyf $ORIGINAL
+
+notify-send "Recording" "Compressing..."
+ffmpeg -y -i $ORIGINAL \
+    -an \
+    -c:v libx264 -preset medium -crf 21 \
+    -movflags +faststart \
+    -b:v 3M -maxrate 4.5M -bufsize 6M \
+    -vf scale=-1:1080 \
+    $COMPRESSED
+
+and notify-send "Recording" "Saved "(basename $COMPRESSED)
+rm -f $LOCKFILE

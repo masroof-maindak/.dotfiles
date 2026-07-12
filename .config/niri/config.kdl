@@ -372,6 +372,7 @@ binds {
     Mod+P { screenshot show-pointer=false; }
     Mod+Shift+P { screenshot-screen show-pointer=false; }
     Mod+Ctrl+P { screenshot-window; }
+    ALt+Mod+Shift+R repeat=false { spawn "toggle-recorder"; }
 
 	// Other
     Mod+Shift+Q { quit; }
