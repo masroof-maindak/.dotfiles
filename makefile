@@ -1,5 +1,5 @@
-REMOTE_DIR  := remote
-REMOTE_PKGS := tmux fish nvim vim lf
+REMOTE_DIR   := remote
+REMOTE_PATHS := $(shell grep -v '^\s*#' system/package-lists/remote-manifest | grep -v '^\s*$$')
 
 .PHONY: stow-all stow-remote install-stow clean-remote
 
@@ -18,19 +18,22 @@ install-stow:
 	    fi \
 	fi
 
-$(REMOTE_DIR):
-	@mkdir -p $(REMOTE_DIR)/.config
-	@for pkg in $(REMOTE_PKGS); do \
-	    if [ -d ".config/$$pkg" ]; then \
-	        ln -sf ../.config/$$pkg $(REMOTE_DIR)/.config/$$pkg; \
+stow-remote: install-stow
+	@if [ -d $(REMOTE_DIR) ]; then \
+	    stow -D --dir=$(REMOTE_DIR) --target=$(HOME) . 2>/dev/null; \
+	    rm -rf $(REMOTE_DIR); \
+	fi
+	@for p in $(REMOTE_PATHS); do \
+	    if [ -e "$$p" ]; then \
+	        mkdir -p $(REMOTE_DIR)/$$(dirname "$$p"); \
+	        ln -sfr "$$p" "$(REMOTE_DIR)/$$p"; \
 	    fi; \
 	done
-
-stow-remote: install-stow $(REMOTE_DIR)
 	stow --dir=$(REMOTE_DIR) --target=$(HOME) .
 
 stow-all: install-stow
 	stow --dir=. --target=$(HOME) .
 
 clean-remote:
+	-stow -D --dir=$(REMOTE_DIR) --target=$(HOME) . 2>/dev/null
 	rm -rf $(REMOTE_DIR)

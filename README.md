@@ -12,14 +12,14 @@ delightfully whimsical) spell-casting.
 ## Setup
 
 ```bash
-# Full desktop (following a 'minimal' archinstall)
 cd && git clone https://github.com/masroof-maindak/.dotfiles
 cd .dotfiles
+
+# Full desktop (following a 'minimal' archinstall)
 chmod +x bootstrap.sh
 ./bootstrap.sh
-make stow-all
 
-# Remote/minimal server (only tmux, fish, nvim, vim, lf)
+# Remote/minimal server
 make stow-remote
 ```
 

@@ -1,0 +1,21 @@
+# Remote/minimal profile — paths relative to repo root
+
+# Shell
+.bash_aliases
+.bash_profile
+.bashrc
+.inputrc
+
+# Tool configs
+.config/tmux
+.config/fish
+.config/nvim
+.config/vim
+.config/lf
+.config/git
+.config/delta
+.config/ripgrep
+.config/bat
+
+# Scripts
+.local/bin
