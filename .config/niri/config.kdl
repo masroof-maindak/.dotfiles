@@ -120,6 +120,7 @@ overview {
     workspace-shadow {
         off
     }
+    zoom 0.33
 }
 
 layer-rule {
@@ -232,6 +233,7 @@ binds {
     Mod+B repeat=false { spawn "librewolf"; }
     Mod+V repeat=false { spawn "code"; }
     Mod+Q repeat=false { close-window; }
+    Mod+Alt+R repeat=false { spawn-sh "Handy --toggle-transcription"; }
 
     // Launchers
     Mod+D { spawn-sh "fuzzel --no-icons"; }
@@ -367,8 +369,7 @@ binds {
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R  { reset-window-height; }
 
-	// Screenshot
-    // TODO: stop notification?
+	// Screenshot & Recording
     Mod+P { screenshot show-pointer=false; }
     Mod+Shift+P { screenshot-screen show-pointer=false; }
     Mod+Ctrl+P { screenshot-window; }
@@ -379,8 +380,9 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Screen mirroring
-    // Focus the output you want to mirror, press Mod+P and move the wl-mirror window to the
-    //  target output. Finally, fullscreen the wl-mirror window (by default, Mod + Shift + F).
+    // Focus the output you want to mirror, press this bind, and move the
+    // wl-mirror window to the target output. Finally, fullscreen the wl-mirror
+    // window (by default, Mod + Shift + F).
     Mod+Ctrl+Shift+P repeat=false { spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"; }
 
 
