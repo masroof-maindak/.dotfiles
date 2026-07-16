@@ -20,7 +20,14 @@ mkdir -p $OUTDIR
 touch $LOCKFILE
 notify-send "Recording" "Started"
 
-wf-recorder -Dyf $ORIGINAL
+set OUTPUT (wf-recorder -L | awk '/Name:/ {print $3}' | fuzzel --dmenu)
+
+if test -z "$OUTPUT"
+    rm -f $LOCKFILE
+    exit 1
+end
+
+wf-recorder -o "$OUTPUT" -Dyf $ORIGINAL
 
 notify-send "Recording" "Compressing..."
 ffmpeg -y -i $ORIGINAL \
