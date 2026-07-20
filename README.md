@@ -78,9 +78,13 @@ sudo tailscale up
 
 # TODO
 
+- [ ] Modify the click-notif-to-open-screenshot script to open recent video
+      recordings too
+- [ ] Nvim: auto search-replace (%s) on word under cursor (e.g selected via
+      `viw`)
+- [ ] `lf` no longer recommends `ctpv`; what's the alternative?
 - [ ] Windows LF config; see:
   - <https://ahrm.github.io/jekyll/update/2022/04/02/using-lf-file-manager-on-windows.html>
   - <https://konfekt.github.io/blog/2024/09/15/lf-linux-windows>
+  - Or maybe just go to Yazi instead?
 - [ ] Nvim: detect TTY, and if true, change to dark theme
-- [ ] Nvim: auto search-replace (%s) on word under cursor (e.g selected via
-      `viw`)
