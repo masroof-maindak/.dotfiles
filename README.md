@@ -79,7 +79,6 @@ sudo tailscale up
 ## TODO
 
 - [ ] `lf` no longer recommends `ctpv`; what's the alternative?
-- [ ] Some manner of low-battery notification script; `dbus-monitor --system` (?)
 - [ ] Windows LF config; see:
   - <https://ahrm.github.io/jekyll/update/2022/04/02/using-lf-file-manager-on-windows.html>
   - <https://konfekt.github.io/blog/2024/09/15/lf-linux-windows>

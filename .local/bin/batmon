@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Lightweight battery monitor — polls upower every 60s
+# Notifies at 25% (low) and 10% (critical) while discharging
+# AI Slop
+
+SLEEP=60
+
+notified_low=0
+notified_crit=0
+
+while :; do
+    for bat in $(upower -e 2>/dev/null | grep -i bat); do
+        [ -n "$bat" ] || continue
+        read -r status _ <<< "$(upower -i "$bat" | awk '/state/ {print $2}')"
+        capacity="$(upower -i "$bat" | awk '/percentage/ {print $2}' | tr -d '%')"
+        [ -n "$capacity" ] || continue
+
+        if [ "$status" != "discharging" ]; then
+            notified_low=0
+            notified_crit=0
+            continue
+        fi
+
+        if [ "$capacity" -gt 25 ]; then
+            notified_low=0
+        fi
+        if [ "$capacity" -gt 10 ]; then
+            notified_crit=0
+        fi
+
+        if [ "$capacity" -le 10 ] && [ "$notified_crit" -eq 0 ]; then
+            notify-send -u critical "Battery critical" "${capacity}% — charge now"
+            notified_crit=1
+            notified_low=1
+        elif [ "$capacity" -le 25 ] && [ "$notified_low" -eq 0 ]; then
+            notify-send -u normal "Battery low" "${capacity}% — plug in soon"
+            notified_low=1
+        fi
+    done
+    sleep "$SLEEP"
+done
