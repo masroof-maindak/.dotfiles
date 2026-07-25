@@ -1,5 +1,6 @@
 set -g fish_prompt_pwd_dir_length 0
 set -g fish_transient_prompt 1
+set -g __fish_prompt_hostname (hostname -s)
 
 # Reference:
 #   https://fishshell.com/docs/current/prompt.html
@@ -10,6 +11,7 @@ set -g __fish_git_prompt_showdirtystate 1
 set -g __fish_git_prompt_showuntrackedfiles 1
 
 function fish_prompt
+    set -l last_status $status
     set -l prompt_content
 
     if contains -- --final-rendering $argv
@@ -17,7 +19,13 @@ function fish_prompt
         set prompt_content (set_color blue)(basename (prompt_pwd))
     else
         # Final
-        set prompt_content (set_color blue)(prompt_pwd)
+        set prompt_content (set_color red)"$__fish_prompt_hostname "
+
+        if test $last_status -ne 0
+            set prompt_content "$prompt_content"(set_color red --bold)"[$last_status] "
+        end
+
+        set prompt_content "$prompt_content"(set_color blue)(prompt_pwd)
         set -l branch (fish_git_prompt)
         set prompt_content "$prompt_content"(set_color cyan --bold)"$branch"
     end
