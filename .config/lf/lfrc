@@ -164,7 +164,7 @@ map R drag
 cmd fzf_jump ${{
     opts="$(fish -c 'echo $FZF_CTRL_T_OPTS')"
     fzf_cmd="fzf --header='Jump' $opts"
-    res="$(fd . -d 8 | eval $fzf_cmd)"
+    res="$("${_fd:-fd}" . -d 8 | eval $fzf_cmd)"
 
     if [ -f "$res" ]; then
         cmd="select"
