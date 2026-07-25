@@ -18,7 +18,7 @@ set COMPRESSED $OUTDIR/recording-$TIMESTAMP.mp4
 
 mkdir -p $OUTDIR
 touch $LOCKFILE
-notify-send "Recording" "Started"
+notify-send -a toggle-recorder "Recording" "Started"
 
 set OUTPUT (wf-recorder -L | awk '/Name:/ {print $3}' | fuzzel --dmenu)
 
@@ -29,7 +29,7 @@ end
 
 wf-recorder -o "$OUTPUT" -Dyf $ORIGINAL
 
-notify-send "Recording" "Compressing..."
+notify-send -a toggle-recorder "Recording" "Compressing..."
 ffmpeg -y -i $ORIGINAL \
     -an \
     -c:v libx264 -preset medium -crf 21 \
@@ -38,5 +38,5 @@ ffmpeg -y -i $ORIGINAL \
     -vf scale=-1:1080 \
     $COMPRESSED
 
-and notify-send "Recording" "Saved "(basename $COMPRESSED)
+and notify-send -a toggle-recorder "Recording saved" (basename $COMPRESSED)
 rm -f $LOCKFILE

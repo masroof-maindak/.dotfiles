@@ -76,10 +76,8 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
 sudo tailscale up
 ```
 
-# TODO
+## TODO
 
-- [ ] Modify the click-notif-to-open-screenshot script to open recent video
-      recordings too
 - [ ] `lf` no longer recommends `ctpv`; what's the alternative?
 - [ ] Some manner of low-battery notification script; `dbus-monitor --system` (?)
 - [ ] Windows LF config; see:
