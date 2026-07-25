@@ -1,5 +1,6 @@
 return {
 	"zaldih/themery.nvim",
+	cond = function() return vim.env.TERM ~= "linux" end, -- TTY
 	lazy = false,
 	opts = {
 		livePreview = true,

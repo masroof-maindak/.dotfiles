@@ -18,8 +18,10 @@ o.shiftwidth = 4
 -- Convert tabs to spaces
 o.expandtab = true
 
--- 24 bit colours
-o.termguicolors = true
+-- TTY
+if vim.env.TERM ~= "linux" then
+    o.termguicolors = true
+end
 
 -- Enable mouse support for all modes
 o.mouse = "a"

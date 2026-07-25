@@ -22,6 +22,12 @@ map("v", "<", "<gv", { noremap = true, silent = true })
 map("v", ">", ">gv", { noremap = true, silent = true })
 map("n", "<Esc>", "<CMD>noh<CR><Esc>", { noremap = true, silent = true, desc = "Remove highlights" })
 map("t", "<C-[>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit terminal mode" })
+map(
+	"n",
+	"<leader>sr",
+	":%s/\\<<C-r><C-w>\\>/",
+	{ noremap = true, silent = false, desc = "Substitute word under cursor" }
+)
 
 -- Buffer Management
 map("n", "<leader>bd", "<CMD>bd<CR>", { noremap = true, desc = "Delete buffer" })
