@@ -35,8 +35,13 @@ set -x WGETRC "$XDG_CONFIG_HOME/wgetrc"
 set -x GTK2_RC_FILES "$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/.ripgreprc"
 
-# Software
-set -x FZF_DEFAULT_COMMAND "fd . --hidden --exclude \".git\""
+if type -q fdfind
+    set -gx _fd fdfind
+else
+    set -gx _fd fd
+end
+
+set -x FZF_DEFAULT_COMMAND "$_fd . --hidden --exclude \".git\""
 set -x FZF_DEFAULT_OPTS "--reverse --margin 1,2 --prompt \"fzf: \" --color=16,current-bg:0,border:0 --preview-window=\"down,50%,border-sharp,wrap\" --multi"
 
 # Wayland
