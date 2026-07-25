@@ -12,6 +12,11 @@ abbr --add m   "make"
 abbr --add dk  "docker"
 abbr --add dkc "docker compose"
 abbr --add bat "bat -p"
+abbr --add oc  "opencode"
+
+if type -q bat
+    abbr --add cat "bat -p"
+end
 
 abbr --add uvr "uv run"
 abbr --add uvm "uv run manage.py"
@@ -20,12 +25,17 @@ abbr --add imp "impala"
 abbr --add nmt "nmtui"
 abbr --add nmc "nmcli"
 
-# abbr --add ls  "ls -hN --color=auto --group-directories-first"
-abbr --add ls  "eza --group-directories-first -F"
-abbr --add eza "eza --group-directories-first -F"
-abbr --add ll  "eza --group-directories-first -l"
-abbr --add lt  "eza --group-directories-first -T -L=2"
-abbr --add lti "eza --group-directories-first -T -L=2 --icons=auto"
+if type -q eza
+    abbr --add ls  "eza --group-directories-first -F"
+    abbr --add eza "eza --group-directories-first -F"
+    abbr --add ll  "eza --group-directories-first -l"
+    abbr --add lt  "eza --group-directories-first -T -L=2"
+    abbr --add lti "eza --group-directories-first -T -L=2 --icons=auto"
+else
+    abbr --add ls  "ls -hN --color=auto --group-directories-first"
+    abbr --add ll  "ls -lhN --color=auto --group-directories-first"
+    abbr --add lt  "tree -L 2 -C --dirsfirst"
+end
 
 abbr --add c     "clear"
 abbr --add cler  "clear"
@@ -36,6 +46,7 @@ abbr --add qq    "exit"
 abbr --add quit  "exit"
 abbr --add qquit "exit"
 abbr --add md    "mkdir -p"
+abbr --add mk    "mkcd"
 abbr --add oing  "ping"
 abbr --add pig   "ping"
 abbr --add cal   "cal -m"
