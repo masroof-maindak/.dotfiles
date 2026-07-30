@@ -53,3 +53,4 @@ set -x SDL_VIDEODRIVER wayland
 fish_add_path "$HOME/.local/bin"
 fish_add_path "$CARGO_HOME/bin"
 fish_add_path "$GOBIN"
+fish_add_path "$HOME/.opencode/bin"
