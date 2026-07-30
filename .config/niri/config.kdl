@@ -45,6 +45,7 @@ cursor {
 gestures {
     hot-corners {
         top-right
+        bottom-right
     }
 }
 
