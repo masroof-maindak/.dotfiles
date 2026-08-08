@@ -105,8 +105,6 @@ sudo systemctl enable --now NetworkManager # NOTE: it's best to install NetworkM
 sudo systemctl enable --now ufw            # TODO: first-time setup?
 sudo systemctl enable --now sshd
 sudo systemctl enable --now tailscaled
-systemctl enable --user --now mpd
-systemctl enable --user --now mpd-mpris
 
 # Custom Desktop Entries
 print_yellow "Copying desktop entries"
@@ -124,8 +122,6 @@ fi
 
 # Install Rust programs
 install_rust_list "./system/package-lists/rust"
-install_rust_binary "https://github.com/elkowar/eww" "eww" --no-default-features --features wayland
-install_rust_binary "https://github.com/druskus20/eww-niri-workspaces.git" "eww-niri-workspaces"
 
 # Set up fish
 print_yellow "Setting up Fish shell"

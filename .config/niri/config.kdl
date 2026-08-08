@@ -1,4 +1,3 @@
-spawn-sh-at-startup "eww open topbar"
 spawn-sh-at-startup "foot --server"
 spawn-sh-at-startup "lf -server"
 spawn-sh-at-startup "wl-paste --watch cliphist store"
@@ -7,6 +6,7 @@ spawn-sh-at-startup "wlsunset-ctl start"
 spawn-at-startup "awww-daemon"
 spawn-at-startup "batmon"
 spawn-at-startup "mako"
+spawn-at-startup "quickshell"
 spawn-at-startup "stasis"
 spawn-at-startup "/usr/lib/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
 
@@ -59,7 +59,7 @@ output "Apple Computer Inc Color LCD Unknown" {
 output "Dell Inc. - DELL U3415W - DP-2" {}
 
 layout {
-    gaps 4
+    gaps 8
     center-focused-column "never"
 	always-center-single-column
 	default-column-display "normal"

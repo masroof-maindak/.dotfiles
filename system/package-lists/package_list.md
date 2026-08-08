@@ -5,6 +5,7 @@
 adw-gtk-theme
 phinger-cursors
 pop-icon-theme
+quickshell
 
 ## Hardware & Drivers
 
@@ -87,11 +88,9 @@ wireplumber
 ## Media Processing & Playback
 
 ffmpeg
-mpd
-mpd-mpris
+feishin
 mpv
 playerctl
-rmpc
 spotify-player
 
 # Development

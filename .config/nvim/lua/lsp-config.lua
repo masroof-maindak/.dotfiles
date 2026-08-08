@@ -4,6 +4,7 @@ local servers = {
 	"gopls",
 	"lua_ls",
 	"neocmakelsp",
+    "qmlls",
 	"ruff",
 	"rust_analyzer",
 	"tinymist",

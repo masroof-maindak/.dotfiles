@@ -32,31 +32,3 @@ install_rust_list() {
         fi
     done <"$1"
 }
-
-install_rust_binary() {
-    local repo_url="$1"
-    local binary_name="$2"
-    shift 2
-    local build_args=("$@")
-    local repo_dir
-    repo_dir="$HOME"/Documents/repos/"$(basename "$repo_url" .git)"
-
-    print_yellow "Cloning and setting up $binary_name from $repo_url"
-    if [ -d "$repo_dir" ]; then
-        print_yellow "$repo_dir already exists, pulling latest changes"
-        cd "$repo_dir" || exit
-        git pull
-    else
-        git clone "$repo_url" "$repo_dir"
-        cd "$repo_dir" || exit
-    fi
-
-    if [ ${#build_args[@]} -gt 0 ]; then
-        cargo build -r "${build_args[@]}"
-    else
-        cargo build -r
-    fi
-    mv target/release/"$binary_name" "$HOME"/.local/bin
-    chmod +x "$HOME"/.local/bin/"$binary_name"
-    cd - || exit
-}
