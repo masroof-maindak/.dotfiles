@@ -38,14 +38,15 @@ Scope {
 		if (muted) return "Volume-mute-outline"
 		if (vol <= 0.01) return "Volume-off-outline"
 		if (vol < 0.5) return "Volume-medium-outline"
-		return "Volume-high-outline"
+		if (vol <= 0.85) return "Volume-high-outline"
+		return "Volume-high"
 	}
 
 	property bool shouldShowOsd: false
 
 	Timer {
 		id: hideTimer
-		interval: 1000
+		interval: 1500
 		onTriggered: root.shouldShowOsd = false
 	}
 

@@ -32,7 +32,9 @@ Item {
             return "Volume-off-outline";
         if (vol < 0.5)
             return "Volume-medium-outline";
-        return "Volume-high-outline";
+        if (vol <= 0.85)
+            return "Volume-high-outline";
+        return "Volume-high";
     }
 
     Row {
