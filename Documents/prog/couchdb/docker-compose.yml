@@ -1,0 +1,23 @@
+services:
+  couchdb:
+    image: couchdb:3
+    container_name: couchdb
+    restart: unless-stopped
+    env_file: ".env"
+    expose:
+      - "5984"
+    volumes:
+      - couchdb_data:/opt/couchdb/data
+      - ./config/cors.ini:/opt/couchdb/etc/local.d/cors.ini
+
+    networks:
+      proxy:
+        aliases:
+          - couchdb
+
+volumes:
+  couchdb_data:
+
+networks:
+  proxy:
+    external: true

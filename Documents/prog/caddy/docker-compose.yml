@@ -1,0 +1,15 @@
+services:
+  caddy:
+    image: caddy:2
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "5984:5984"
+    volumes:
+      - ./conf:/etc/caddy/:ro
+      - /var/lib/tailscale/certs:/certs:ro
+    networks:
+      - proxy
+networks:
+  proxy:
+    external: true

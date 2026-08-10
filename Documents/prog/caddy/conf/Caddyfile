@@ -1,0 +1,9 @@
+{
+    auto_https off
+}
+
+https://titli.tailf46a02.ts.net:5984 {
+    tls /certs/tls.crt /certs/tls.key
+
+    reverse_proxy couchdb:5984
+}

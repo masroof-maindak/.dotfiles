@@ -1,0 +1,14 @@
+services:
+  slskd:
+    image: slskd/slskd
+    container_name: slskd
+    user: "1000:1000"
+    ports:
+      - "5030:5030"
+      - "5031:5031"
+      - "50300:50300"
+    env_file: ".env"
+    volumes:
+      - ~/Documents/prog/slskd/data:/app
+      - ~/Music:/music:ro
+    restart: always

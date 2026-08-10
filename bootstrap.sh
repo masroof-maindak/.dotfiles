@@ -24,7 +24,7 @@ fi
 
 mkdir -p "$HOME"/{Screenshots,Desktop,Documents,Downloads,Music,Pictures/{Wallpapers,Image\ Transmission},Videos}
 mkdir -p "$HOME"/{.local/bin,.themes,.icons,.fonts,.config/gtk-2.0}
-mkdir -p "$HOME"/Documents/{uni,repos,Vault,wrk,books,projects}
+mkdir -p "$HOME"/Documents/{uni,repos,Vault,wrk,books,projects,prog}
 
 mkdir -p "$XDG_CONFIG_HOME"/
 mkdir -p "$XDG_STATE_HOME"/vim
@@ -44,12 +44,12 @@ if [ -z "$(command -v paru)" ]; then
 fi
 install_pacman_list "./system/package-lists/package_list.md"
 
-# Explicitly create some files so we don't end up w/ entire directories symlinked to main;
-# but rather, only the *files* within those directories
-touch "$XDG_CONFIG_HOME"/empty
-touch "$HOME"/.local/bin/empty
-touch "$HOME"/Desktop/empty
-touch "$HOME"/.fonts/empty
+# Explicitly create these directories so the files _within_ those directories
+# get symlinked to, as opposed to the directories themselves.
+mkdir -p "$XDG_CONFIG_HOME"
+mkdir -p "$HOME"/.local/bin
+mkdir -p "$HOME"/Desktop/
+mkdir -p "$HOME"/.fonts/
 
 # Symlink dotfiles
 rm -f "$HOME"/.bashrc "$HOME"/.bash_profile
@@ -59,12 +59,6 @@ if [ "$(pwd -P)" != "$HOME/.dotfiles" ]; then
 fi
 print_yellow "Symlinking dotfiles"
 stow .
-
-# Remove the files when we're done...
-rm "$XDG_CONFIG_HOME"/empty
-rm "$HOME"/.local/bin/empty
-rm "$HOME"/Desktop/empty
-rm "$HOME"/.fonts/empty
 
 # Mac Specific
 device=$(cat /sys/class/dmi/id/product_name)

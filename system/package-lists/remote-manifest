@@ -1,9 +1,8 @@
-# Remote/minimal profile — paths relative to repo root
+# Remote/minimal profile - paths relative to repo root
 
 # Shell
 .bash_aliases
 .bash_profile
-.bashrc
 .inputrc
 
 # Tool configs
