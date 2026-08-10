@@ -100,7 +100,7 @@ map r :rename; reload
 map <f-2> :rename; reload
 map <c-r> reload
 map <enter> shell
-map <backspace2> set hidden!
+map <backspace> set hidden!
 map <esc> :unselect; clear
 map <c-space> :toggle; up
 map WAL $awww img "$f"
