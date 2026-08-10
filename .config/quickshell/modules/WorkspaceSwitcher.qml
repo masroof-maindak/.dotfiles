@@ -13,6 +13,7 @@ Item {
     readonly property int sideGap: 20
 
     property string screenName: ""
+    property real screenH: 0
 
     property var _rows: ({})
     property var leftTiles: []
@@ -146,6 +147,7 @@ Item {
                 anchors.centerIn: parent
                 visible: !root.curEmpty
                 screenName: root.screenName
+                screenH: root.screenH
             }
 
             WorkspaceTile {

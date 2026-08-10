@@ -62,6 +62,7 @@ ShellRoot {
                     verticalCenter: parent.verticalCenter
                 }
                 screenName: modelData.name
+                screenH: modelData.height - barWindow.height
             }
 
             Battery {

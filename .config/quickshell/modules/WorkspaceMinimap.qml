@@ -11,6 +11,11 @@ Item {
     readonly property int gap: 5
 
     property string screenName: ""
+    // Logical tiled-region height of the output this minimap is shown on: the
+    // output's height minus the space reserved by the bar. niri tiles windows
+    // to exactly this height, while each screen reports it for itself, so
+    // windows fill the map edge-to-edge here without cross-screen drift.
+    property real screenH: 0
     property var rects: []
     property int hoveredId: -1
     property string hoveredTitle: ""
@@ -25,6 +30,10 @@ Item {
     // Live per-window snapshot, keyed by window id. Kept in lockstep with the
     // window model via delegate role bindings, so no plugin changes are needed.
     property var _rows: ({})
+    // Height of the fixed tiled region for this output, in logical pixels.
+    // Constant per output, so the tallest column extent seen is cached and the
+    // same scale is always applied to the workspaces of this output.
+    property real regionH: 0
 
     function _registerRow(item) {
         root._rows[item._k] = item;
@@ -102,29 +111,37 @@ Item {
             return;
         }
 
-        // Absolute column offsets = sum of preceding column widths.
-        // When the map is heavily compressed, enforce a minimum *visual* gap
-        // between silhouettes so windows never read as touching.
-        const wsExtentH = order.reduce((acc, c) => {
-            const col = cols[c];
-            col.items.sort((a, b) => a._r - b._r);
-            return Math.max(acc, col.items.reduce((y, r) => y + r._h, 0));
-        }, 0);
-
-        if (wsExtentH <= 0) {
+        // Sort each column's windows from top to bottom. The tallest single tile
+        // is a stable reference for the tiled-region height: a tile never
+        // exceeds it even mid-animation or when tabs overlap, so caching it
+        // can't be inflated by momentary column sums.
+        let maxSingle = 0;
+        for (const c of order) {
+            cols[c].items.sort((a, b) => a._r - b._r);
+            for (const r of cols[c].items)
+                maxSingle = Math.max(maxSingle, r._h);
+        }
+        if (maxSingle <= 0) {
             root.rects = [];
             root.visible = false;
             return;
         }
 
-        const compressed = wsExtentH > root.mapHeight;
-        const nVGaps = order.reduce((n, c) => n + Math.max(0, cols[c].items.length - 1), 0);
-        const vGap = compressed ? Math.min(root.minGap, (root.mapHeight * 0.5) / Math.max(1, nVGaps)) : 0;
-        const hGap = compressed ? root.minGap : 0;
+        // Tile sizes are real logical pixels and every default column of the
+        // workspace sums to the same fixed tiled-region height. Prefer the
+        // screen's own height as that reference: it is exact and can't be
+        // inflated by tiles mid-animation or by windows of the shared workspace
+        // that physically sit on a taller monitor. Falling back to a measured
+        // cache keeps a self-contained default for unusual setups.
+        if (root.screenH > 0)
+            root.regionH = root.screenH;
+        else
+            root.regionH = Math.max(root.regionH, maxSingle);
+        const s = root.mapHeight / Math.max(1, root.regionH);
 
-        // Full workspace height maps to the bar height. Min gaps are added on
-        // top of the layout, so columns without internal gaps stay at 100%.
-        const s = root.mapHeight / wsExtentH;
+        // Minimum internal gap between silhouettes: 2px between stacked tiles
+        // in a column and between neighbouring columns.
+        const hGap = root.minGap;
 
         const colX = {};
         let cx = 0;
@@ -133,22 +150,45 @@ Item {
             cx += cols[order[i]].width * s + hGap;
         }
 
-        // Layout rows in scaled pixels. Columns with stacked tiles get their own
-        // vertical scale so rows + min gaps just fit inside the column's
-        // height budget; columns without internal gaps stay at full size.
+        // Stacked tiles are laid out top-to-bottom at their real height, with a
+        // minimum gap between them. If a column overflows the map height once
+        // the gaps are added, scale the tiles back so the gap is preserved.
         const out = [];
         let totalW = 0;
         for (let i = 0; i < order.length; i++) {
             const ord = order[i];
             const items = cols[ord].items;
-            let colY = s;
-            let cy = 0;
             const gaps = items.length - 1;
-            if (gaps > 0 && compressed) {
-                const rawReal = items.reduce((y, r) => y + r._h, 0);
-                const room = rawReal * s - gaps * vGap;
-                if (room > 0)
-                    colY = room / rawReal;
+
+            // A column whose tiles all sit at ~full region height is tabbed:
+            // the tiles overlap, so only the visible (focused) tab is drawn.
+            const tabbed = items.length > 1 &&
+                items.every(r => r._h >= root.regionH * 0.8);
+            if (tabbed) {
+                const r = items.find(x => x._f) || items[0];
+                out.push({
+                    id: r._k,
+                    wx: colX[ord] + (r._w - cols[ord].width) * s * 0.5,
+                    wy: 0,
+                    ww: r._w * s,
+                    wh: r._h * s,
+                    focused: r._f,
+                    title: r._title,
+                    cx: ord
+                });
+                totalW = Math.max(totalW, colX[ord] + cols[ord].width * s);
+                continue;
+            }
+
+            const rawH = items.reduce((y, r) => y + r._h, 0) * s;
+            // Columns are top-aligned to the tiled region, matching niri.
+            let cy = 0;
+            let vSpacing = 0;
+            let colY = 1;
+            if (items.length > 1) {
+                vSpacing = Math.min(root.minGap, rawH / (gaps + 1));
+                if (rawH > 0)
+                    colY = (rawH - gaps * vSpacing) / rawH;
             }
             for (let j = 0; j < items.length; j++) {
                 const r = items[j];
@@ -157,12 +197,12 @@ Item {
                     wx: colX[ord] + (r._w - cols[ord].width) * s * 0.5,
                     wy: cy,
                     ww: r._w * s,
-                    wh: r._h * colY,
+                    wh: r._h * s * colY,
                     focused: r._f,
                     title: r._title,
                     cx: ord
                 });
-                cy += r._h * colY + vGap;
+                cy += r._h * s * colY + vSpacing;
             }
             totalW = Math.max(totalW, colX[ord] + cols[ord].width * s);
         }
@@ -182,7 +222,7 @@ Item {
                     x: o.wx - trans,
                     y: o.wy,
                     w: Math.max(1, o.ww),
-                    h: Math.max(1, o.wh),
+                    h: Math.max(1, Math.min(o.wh, root.mapHeight)),
                     focused: o.focused,
                     title: o.title,
                     cx: o.cx
