@@ -1,0 +1,76 @@
+directory: ~/Music
+library: ~/.config/beets/library.db
+
+import:
+  autotag: yes
+  write: yes
+  move: yes
+  group_albums: yes
+  default_action: skip
+  resume: yes
+  incremental: yes
+  delete: no
+
+match:
+  strong_rec_thresh: 0.10
+  medium_rec_thresh: 0.25
+  rec_gap_thresh: 0.25
+
+paths:
+  default: $albumartist/$album ($year)/$track. $title
+  singleton: Non-Album/$artist/$title
+#   comp: Compilations/$album/$track. $title
+
+plugins: convert
+  deezer
+  edit
+  embedart
+  fetchart
+  fish
+  fromfilename
+  info
+  lastgenre
+  missing
+  musicbrainz
+  replaygain
+  scrub
+  spotify
+
+musicbrainz:
+  data_source_mismatch_penalty: 0.3
+
+spotify:
+  data_source_mismatch_penalty: 0.0
+
+convert:
+  format: opus
+  dest: ~/Music-converted
+  auto: no
+  embed: yes
+  threads: 2
+  never_convert_lossy_files: yes
+  delete_originals: yes
+  keep_new: yes
+  album_art_maxwidth: 1000
+  formats:
+    opus:
+      command: opusenc --quiet --music --bitrate 160 $source $dest
+      extension: opus
+
+replaygain:
+  backend: ffmpeg
+  overwrite: no
+  threads: 3
+  auto: yes
+
+fetchart:
+  sources:
+    - filesystem
+    - coverart: release
+    - itunes
+    - coverart: releasegroup
+    - "*"
+
+lastgenre:
+  auto: yes
+  count: 3
