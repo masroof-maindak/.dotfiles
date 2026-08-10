@@ -6,15 +6,20 @@ import "./themes"
 ShellRoot {
     id: root
 
-    PanelWindow {
-        id: barWindow
-        implicitHeight: 50
-        anchors {
-            top: true
-            left: true
-            right: true
-        }
-        color: Theme.palette.barBg
+    Variants {
+        model: Quickshell.screens
+
+        PanelWindow {
+            required property var modelData
+            id: barWindow
+            screen: modelData
+            implicitHeight: 50
+            anchors {
+                top: true
+                left: true
+                right: true
+            }
+            color: Theme.palette.barBg
 
         Item {
             id: bar
@@ -47,6 +52,7 @@ ShellRoot {
                     leftMargin: 12
                 }
                 maxWidth: 250
+                screenName: modelData.name
             }
 
             WorkspaceSwitcher {
@@ -55,6 +61,7 @@ ShellRoot {
                     horizontalCenter: parent.horizontalCenter
                     verticalCenter: parent.verticalCenter
                 }
+                screenName: modelData.name
             }
 
             Battery {
@@ -97,5 +104,6 @@ ShellRoot {
                 }
             }
         }
+    }
     }
 }

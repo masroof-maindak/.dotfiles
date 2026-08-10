@@ -12,6 +12,8 @@ Item {
 
     readonly property int sideGap: 20
 
+    property string screenName: ""
+
     property var _rows: ({})
     property var leftTiles: []
     property var rightTiles: []
@@ -68,6 +70,7 @@ Item {
         const n = niri.workspaces.count
         for (let i = 0; i < n; i++) {
             const ws = niri.workspaces.get(i)
+            if (root.screenName !== "" && ws.output !== root.screenName) continue
             if (ws.isFocused) return ws.index
         }
         return 1
@@ -94,6 +97,7 @@ Item {
         let curWs = null
         for (let i = 0; i < n; i++) {
             const ws = niri.workspaces.get(i)
+            if (root.screenName !== "" && ws.output !== root.screenName) continue
             const c = counts[ws.id] || 0
 
             if (ws.index === cur) { curWs = ws; continue }
@@ -141,6 +145,7 @@ Item {
                 id: minimap
                 anchors.centerIn: parent
                 visible: !root.curEmpty
+                screenName: root.screenName
             }
 
             WorkspaceTile {

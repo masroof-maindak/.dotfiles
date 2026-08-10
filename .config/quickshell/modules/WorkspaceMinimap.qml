@@ -10,6 +10,7 @@ Item {
     readonly property int minGap: 2
     readonly property int gap: 5
 
+    property string screenName: ""
     property var rects: []
     property int hoveredId: -1
     property string hoveredTitle: ""
@@ -39,15 +40,31 @@ Item {
         root._recompute();
     }
 
+    function _wsOutput(wsId) {
+        const idx = niri.workspaces.indexOfId(wsId);
+        if (idx === -1)
+            return "";
+        return niri.workspaces.get(idx).output;
+    }
+
     function currentWorkspaceId() {
         const count = niri.workspaces.count;
         for (let i = 0; i < count; i++) {
             const ws = niri.workspaces.get(i);
+            if (root.screenName !== "" && ws.output !== root.screenName)
+                continue;
             if (ws.isFocused)
                 return ws.id;
         }
         const fw = niri.focusedWindow;
-        return fw ? fw.workspaceId : 0;
+        if (fw && (root.screenName === "" || root._wsOutput(fw.workspaceId) === root.screenName))
+            return fw.workspaceId;
+        for (const k in root._rows) {
+            const wsId = root._rows[k]._ws;
+            if (root.screenName === "" || root._wsOutput(wsId) === root.screenName)
+                return wsId;
+        }
+        return 0;
     }
 
     function _recompute() {
