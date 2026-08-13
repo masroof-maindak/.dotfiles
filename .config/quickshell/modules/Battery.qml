@@ -14,7 +14,8 @@ Item {
     property color textColor: Theme.palette.text
     property color lowBatteryColor: Theme.palette.red
     property color warningColor: Theme.palette.accent
-    property int iconSize: 25
+    property color highColor: Theme.palette.green
+    property int iconSize: 21
     property int fontHeight: 14
 
     readonly property var battery: UPower.displayDevice.ready ? UPower.displayDevice : null
@@ -25,19 +26,24 @@ Item {
 
     // Red when critically low, yellow when getting low, normal otherwise.
     readonly property color batteryColor: {
-        if (!present || charging) return textColor
+        if (!present) return textColor
+        if (charging && pct > 85) return highColor
         if (pct < 10) return lowBatteryColor
         if (pct < 25) return warningColor
         return textColor
     }
 
     readonly property string iconFile: {
-        if (!present)
-            return "../assets/Battery-dead.svg";
-        if (charging)
-            return "../assets/Battery-charging.svg";
-        return "../assets/Battery-half.svg";
+        if (!root.present)
+            return "";
+        const base = root.charging ? "Battery-charging-" : "Battery-";
+        return "../assets/" + base + root.level + ".svg";
     }
+
+    // Rounded to the nearest 10% within [10, 100], matching the icon set.
+    readonly property int level: Math.max(10, Math.round(root.pct / 10) * 10)
+
+    visible: root.present
 
     Row {
         id: content
