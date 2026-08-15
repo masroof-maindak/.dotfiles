@@ -1,3 +1,4 @@
 singleton SwampLight 1.0 SwampLight.qml
 singleton SwampDark 1.0 SwampDark.qml
+singleton Darkman 1.0 Darkman.qml
 singleton Theme 1.0 Theme.qml

@@ -13,6 +13,7 @@ abbr --add dk  "docker"
 abbr --add dkc "docker compose"
 abbr --add bat "bat -p"
 abbr --add oc  "opencode"
+abbr --add dm  "darkman"
 
 if type -q bat
     abbr --add cat "bat -p"

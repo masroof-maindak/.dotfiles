@@ -2,6 +2,7 @@ import QtQuick
 
 pragma Singleton
 QtObject {
-    // change this line to switch the active colour scheme
-    readonly property var palette: SwampLight
+    // Active colour scheme follows darkman's current mode (light/dark),
+    // streamed by the Darkman singleton.
+    readonly property var palette: Darkman.dark ? SwampDark : SwampLight
 }

@@ -32,3 +32,12 @@ install_rust_list() {
         fi
     done <"$1"
 }
+
+install_python_list() {
+    print_yellow "Installing packages from $1"
+    while read -r pkg; do
+        if [[ -n "$pkg" && ! "$pkg" =~ ^# ]]; then
+            uv tool install "$pkg"
+        fi
+    done <"$1"
+}

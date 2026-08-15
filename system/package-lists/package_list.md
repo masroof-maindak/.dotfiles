@@ -3,6 +3,7 @@
 ## Appearance & Theming
 
 adw-gtk-theme
+darkman
 phinger-cursors
 pop-icon-theme
 quickshell

@@ -23,7 +23,8 @@ if [ -z "$XDG_STATE_HOME" ]; then
 fi
 
 mkdir -p "$HOME"/{Screenshots,Desktop,Documents,Downloads,Music,Pictures/{Wallpapers,Image\ Transmission},Videos}
-mkdir -p "$HOME"/{.local/bin,.themes,.icons,.fonts,.config/gtk-2.0}
+mkdir -p "$HOME"/{.themes,.icons,.fonts,.config/gtk-2.0}
+mkdir -p "$HOME"/.local/{bin,share}
 mkdir -p "$HOME"/Documents/{uni,repos,Vault,wrk,books,projects,prog}
 
 mkdir -p "$XDG_CONFIG_HOME"/
@@ -99,6 +100,7 @@ sudo systemctl enable --now NetworkManager # NOTE: it's best to install NetworkM
 sudo systemctl enable --now ufw            # TODO: first-time setup?
 sudo systemctl enable --now sshd
 sudo systemctl enable --now tailscaled
+systemctl enable --user --now darkman
 
 # Custom Desktop Entries
 print_yellow "Copying desktop entries"
@@ -114,8 +116,9 @@ if [ -z "$(command -v bat)" ]; then
     bat cache --build
 fi
 
-# Install Rust programs
+# Install external programs
 install_rust_list "./system/package-lists/rust"
+install_rust_list "./system/package-lists/python"
 
 # Set up fish
 print_yellow "Setting up Fish shell"
