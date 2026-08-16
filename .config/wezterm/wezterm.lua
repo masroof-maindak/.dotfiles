@@ -1,9 +1,13 @@
 local wezterm = require("wezterm")
+local appearance = require("appearance")
 local config = {}
 
 config.font = wezterm.font("CommitMono Nerd Font")
-config.color_scheme = "swamp-light"
--- config.color_scheme = "swamp"
+if appearance.is_dark() then
+	config.color_scheme = "swamp-dark"
+else
+	config.color_scheme = "swamp-light"
+end
 config.font_size = 12
 config.window_padding = { left = 15, right = 15, top = 15, bottom = 15 }
 config.window_close_confirmation = "NeverPrompt"
@@ -16,72 +20,7 @@ config.show_new_tab_button_in_tab_bar = false
 config.tab_bar_at_bottom = true
 config.tab_max_width = 50
 
-local BG = "#f1e3d1"
-local activeFG = "#c9b9a7"
-local activeBG = "#786653"
-local inactiveFG = "#786653"
-local inactiveBG = "#ddcebc"
-if config.color_scheme == "swamp" then
-	BG = "#242015"
-	activeFG = "#242015"
-	activeBG = "#db930d"
-	inactiveFG = "#d2c3a4"
-	inactiveBG = "#3a3124"
-end
-
-config.colors = {
-	tab_bar = {
-		background = BG,
-
-		active_tab = {
-			bg_color = activeBG,
-			fg_color = activeFG,
-			intensity = "Normal", -- "Half", "Normal" or "Bold"
-			underline = "None", -- "None", "Single" or "Double"
-			italic = false,
-			strikethrough = false,
-		},
-
-		inactive_tab = {
-			fg_color = inactiveFG,
-			bg_color = inactiveBG,
-			intensity = "Normal",
-		},
-
-		inactive_tab_hover = {
-			bg_color = "#ebe0bb",
-			fg_color = "#db930d",
-			italic = true,
-		},
-	},
-}
-
-config.color_schemes = {
-	["swamp-light"] = {
-		background = "#f1e3d1",
-		foreground = "#64513E",
-		cursor_fg = "#C9B9A7",
-		cursor_border = "#A0907D",
-		cursor_bg = "#8C7B68",
-		selection_fg = "#A0907D",
-		selection_bg = "#DDCEBC",
-
-		ansi = { "#DDCEBC", "#a73838", "#8d8851", "#da9e01", "#bf7979", "#9e5581", "#75858c", "#c9b9a7" },
-		brights = { "#f1e3d1", "#a73838", "#8d8851", "#da9e01", "#bf7979", "#9e5581", "#75858c", "#64513E" },
-	},
-	["swamp"] = {
-		foreground = "#ebe0bb",
-		background = "#242015",
-		cursor_bg = "#b8a58C",
-		cursor_border = "#d2c3a4",
-		cursor_fg = "#211d13",
-		selection_bg = "#d2c3a4",
-		selection_fg = "#3a3124",
-
-		ansi = { "#ebe0bb", "#96294d", "#736f4e", "#e69a0e", "#80465f", "#b05d61", "#A8663C", "#d2c3a4" },
-		brights = { "#211d13", "#a93b5c", "#6f682c", "#db930d", "#91506c", "#d45d67", "#A8663C", "#d2c3a4" },
-	},
-}
+config.color_schemes = require("swamp")
 
 config.inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 }
 
