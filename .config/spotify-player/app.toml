@@ -1,4 +1,4 @@
-theme = "swamp light"
+theme = "swamp dark"
 client_id = "65b708073fc0480ea92a077233ca87bd"
 login_redirect_uri = "http://127.0.0.1:8989/login"
 client_id_command = { command = "bash", args = ["-c", "cat $XDG_CACHE_HOME/spotify_client_id"] }

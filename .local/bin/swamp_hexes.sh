@@ -28,17 +28,17 @@ replace_hex_codes() {
 		["458588"]="91506c" # DarkBlue
 		["83a598"]="80465f" # Blue
 
-		["98971a"]="7a7653" # DarkGreen
+		["98971a"]="6f682c" # DarkGreen
 		["b8bb26"]="736f4e" # Green
 
-		["b16286"]="c1666b" # DarkMagenta
+		["b16286"]="d45d67" # DarkMagenta
 		["d3869b"]="b05d61" # Magenta
 
 		["cc241d"]="96294d" # DarkRed
-		["fb4934"]="a82d56" # Red
+		["fb4934"]="a93b5c" # Red
 
 		["689d6a"]="508991" # DarkCyan
-		["8ec07c"]="61a0a8" # Cyan
+		["8ec07c"]="A8663C" # Cyan
 	)
 
 	for hex in "${!color_replacements[@]}"; do

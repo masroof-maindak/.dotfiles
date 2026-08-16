@@ -12,8 +12,8 @@ if vim.o.background == "light" then
 		base07 = "#8C7B68",
 		base08 = "#D09700", -- Variables
 		base09 = "#64513E", -- numbers
-		base0A = "#993333", -- Classes
-		base0B = "#908D6A", -- Strings
+		base0A = "#a73838", -- Classes
+		base0B = "#8d8851", -- Strings
 		base0C = "#d09700", -- Support
 		base0D = "#BF7979", -- Functions
 		base0E = "#9E5581", -- Keywords
@@ -33,12 +33,12 @@ if vim.o.background == "dark" then
 		base07 = "#F1E9D0",
 		base08 = "#DB930D",
 		base09 = "#EBE0BB",
-		base0A = "#A82D56",
-		base0B = "#7A7653",
+		base0A = "#a93b5c",
+		base0B = "#6f682c",
 		base0C = "#DB930D",
-		base0D = "#C1666B",
+		base0D = "#d45d67",
 		base0E = "#91506C",
-		base0F = "#61A0A8",
+		base0F = "#A8663C",
 	}
 end
 

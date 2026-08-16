@@ -42,7 +42,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#908D6A</string> <!-- base0B -->
+                <string>#8d8851</string> <!-- base0B -->
             </dict>
         </dict>
         <dict>
@@ -97,7 +97,7 @@
             <key>settings</key>
             <dict>
                 <key>foreground</key>
-                <string>#993333</string> <!-- base0A -->
+                <string>#a73838</string> <!-- base0A -->
             </dict>
         </dict>
         <dict>

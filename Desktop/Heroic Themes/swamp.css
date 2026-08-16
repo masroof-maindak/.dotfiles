@@ -1,6 +1,6 @@
 body.swamp {
     --neutral-06: #d2c3a4;
-    --text-log: #a82d56;
+    --text-log: #a93b5c;
     --accent: #b57614;
     --accent-overlay: #db930d;
     --navbar-accent: #ebe0bb;
@@ -18,12 +18,12 @@ body.swamp {
     --input-background: #3A3124;
     --modal-background: var(--body-background);
     --modal-border: var(--body-background);
-    --success: #7a7653;
+    --success: #6f682c;
     --success-hover: #736f4e;
     --primary: #91506c;
     --primary-hover: #80465f;
     --danger: #96294d;
-    --danger-hover: #a82d56;
+    --danger-hover: #a93b5c;
     --anticheat-denied: #9d0006;
     --anticheat-broken: #af3a03;
     --anticheat-running: #508991;
@@ -37,7 +37,7 @@ body.swamp {
 
     --icons-background: #3A3124;
     --action-icon: #ebe0bb;
-    --action-icon-hover: #c1666b;
-    --action-icon-active: #61a0a8;
+    --action-icon-hover: #d45d67;
+    --action-icon-active: #A8663C;
     --icon-disabled: #4d3f32;
 }

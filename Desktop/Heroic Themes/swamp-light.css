@@ -1,6 +1,6 @@
 body.swamp-light {
     --neutral-06: #786653;
-    --text-log: #993333;
+    --text-log: #a73838;
     --accent: #D09700;
     --accent-overlay: #D09700;
     --navbar-accent: #64513E;
@@ -18,16 +18,16 @@ body.swamp-light {
     --input-background: #ddcebc;
     --modal-background: var(--body-background);
     --modal-border: var(--body-background);
-    --success: #908D6A;
-    --success-hover: #908D6A;
+    --success: #8d8851;
+    --success-hover: #8d8851;
     --primary: #9E5581;
     --primary-hover: #9E5581;
-    --danger: #993333;
-    --danger-hover: #993333;
-    --anticheat-denied: #993333;
+    --danger: #a73838;
+    --danger-hover: #a73838;
+    --anticheat-denied: #a73838;
     --anticheat-broken: #D09700;
     --anticheat-running: #75858C;
-    --anticheat-supported: #908D6A;
+    --anticheat-supported: #8d8851;
     --anticheat-planned: #BF7979;
     --text-title: #64513E;
     --text-default: var(--text-title);
