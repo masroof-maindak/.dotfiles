@@ -13,13 +13,24 @@ Rectangle {
 
     color: Theme.palette.barBg
 
+    Image {
+        anchors.fill: parent
+        source: Qt.resolvedUrl(
+            Darkman.dark
+                ? "./lockscreen-bg.png"
+                : "./lockscreen-bg-light.png")
+        fillMode: Image.PreserveAspectCrop
+        clip: true
+        smooth: true
+    }
+
     readonly property color textColor: Theme.palette.text
     readonly property color secondaryColor: Theme.palette.textSecondary
     readonly property color dimColor: Theme.palette.textDim
     readonly property color accentColor: Theme.palette.accent
     readonly property color borderColor: Theme.palette.barBorder
     readonly property color errorColor: Theme.palette.red
-    readonly property string fontFamily: Theme.palette.fontFamily
+    readonly property string fontFamily: "Roboto"
 
     // ---- now playing state (same selection logic as the bar's Media module)
 
@@ -90,7 +101,8 @@ Rectangle {
             text: Qt.formatDateTime(clock.date, "dddd, MMMM d")
             color: root.secondaryColor
             font.family: root.fontFamily
-            font.pixelSize: 18
+            font.pixelSize: 22
+            font.weight: Font.Bold
         }
 
         Text {
@@ -281,7 +293,7 @@ Rectangle {
                 Text {
                     anchors.centerIn: parent
                     text: "Unlock"
-                    color: Theme.palette.text
+                    color: Theme.palette.barBg
                     font.family: root.fontFamily
                     font.pixelSize: 15
                     font.weight: Font.Bold
