@@ -249,28 +249,13 @@ Column {
                     maximumLineCount: 1
                 }
 
-                Rectangle {
-                    id: bigSlider
+                MediaProgress {
                     width: parent.width
-                    height: 16
-                    color: root.cardBorder
-
-                    Rectangle {
-                        width: parent.width * (root.len > 0 ? root.pos / root.len : 0)
-                        height: parent.height
-                        color: root.thumbColor
-                    }
-
-                    MouseArea {
-                        anchors.fill: parent
-                        cursorShape: Qt.PointingHandCursor
-                        onClicked: (mouse) => {
-                            if (!root.player || root.len <= 0) return
-                            const fraction = mouse.x / width
-                            const target = fraction * root.len
-                            root.player.seek(target - root.pos)
-                        }
-                    }
+                    player: root.player
+                    position: root.pos
+                    length: root.len
+                    trackColor: root.cardBorder
+                    fillColor: root.thumbColor
                 }
 
                 Row {

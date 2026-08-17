@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 declare -A actions=(
-    ["Lock screen"]="gtklock"
+    ["Lock screen"]="qs -p ~/.config/quickshell/lockscreen.qml"
     ["Log out // Quit Niri"]="niri msg action quit"
     ["Reboot // Restart"]="reboot"
     ["Shutdown // Poweroff"]="poweroff"
