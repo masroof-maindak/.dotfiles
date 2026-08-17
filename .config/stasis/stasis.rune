@@ -4,15 +4,17 @@
 @description "Lightweight feature packed idle manager for Wayland"
 
 default:
-  enable_loginctl false
+  enable_loginctl_integration false
   enable_dbus_inhibit true
   pre_suspend_command None
   monitor_media true
   ignore_remote_media true
 
-  respect_idle_inhibitors true
-  notify_on_unpause true
+  # Media sources that allow lock/DPMS but block automatic suspend while playing.
+  suspend_inhibit_media [ ]
   debounce_seconds 4
+  notify_on_unpause true
+  notify_before_action true
 
   # Laptop Options
   lid_close_action "gtklock && niri msg action power-off-monitors"
@@ -29,11 +31,14 @@ default:
     r"librewolf.*"
   ]
 
+  # App/process patterns that block only automatic suspend.
+  suspend_inhibit_apps [ ]
+
   # Desktop Plan
   early_dpms:
     timeout 300
     command "niri msg action power-off-monitors"
-    resume-command "niri msg action power-on-monitors"
+    resume_command "niri msg action power-on-monitors"
   end
 
   lock_screen:
@@ -46,7 +51,7 @@ default:
   dpms:
     timeout 60
     command "niri msg action power-off-monitors"
-    resume-command "niri msg action power-on-monitors"
+    resume_command "niri msg action power-on-monitors"
   end
 
   # Charging (Laptop-specific)
@@ -59,7 +64,7 @@ default:
     dpms:
       timeout 120 # 2 minute(s) after brightness
       command "niri msg action power-off-monitors"
-      resume-command "niri msg action power-on-monitors"
+      resume_command "niri msg action power-on-monitors"
     end
 
     lock_screen:
@@ -78,7 +83,7 @@ default:
     dpms:
       timeout 120 # 2 minute(s) after brightness
       command "niri msg action power-off-monitors"
-      resume-command "niri msg action power-on-monitors"
+      resume_command "niri msg action power-on-monitors"
     end
 
     lock_screen:
