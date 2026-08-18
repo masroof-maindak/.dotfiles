@@ -1,4 +1,5 @@
 import QtQuick
+import Quickshell
 import Niri
 import "../themes"
 
@@ -49,6 +50,18 @@ Item {
         root._recompute();
     }
 
+    function _hide() {
+        root.rects = [];
+        root.width = 0;
+        root.height = 0;
+        root.visible = false;
+    }
+
+    // True when a workspace belongs to the output this widget is on.
+    function _onScreen(ws) {
+        return root.screenName === "" || ws.output === root.screenName;
+    }
+
     function _wsOutput(wsId) {
         const idx = niri.workspaces.indexOfId(wsId);
         if (idx === -1)
@@ -60,19 +73,17 @@ Item {
         const count = niri.workspaces.count;
         for (let i = 0; i < count; i++) {
             const ws = niri.workspaces.get(i);
-            if (root.screenName !== "" && ws.output !== root.screenName)
+            if (!root._onScreen(ws))
                 continue;
             if (ws.isFocused)
                 return ws.id;
         }
+        // Focus lives on another output: show nothing here. The focused
+        // window fallback only covers the race where the workspace model
+        // hasn't caught up yet; if it isn't on this screen we hide.
         const fw = niri.focusedWindow;
         if (fw && (root.screenName === "" || root._wsOutput(fw.workspaceId) === root.screenName))
             return fw.workspaceId;
-        for (const k in root._rows) {
-            const wsId = root._rows[k]._ws;
-            if (root.screenName === "" || root._wsOutput(wsId) === root.screenName)
-                return wsId;
-        }
         return 0;
     }
 
@@ -80,8 +91,7 @@ Item {
         const target = currentWorkspaceId();
         const keys = Object.keys(root._rows);
         if (!target || keys.length === 0) {
-            root.rects = [];
-            root.visible = false;
+            root._hide();
             return;
         }
 
@@ -106,8 +116,7 @@ Item {
 
         const order = Object.keys(cols).map(Number).sort((a, b) => a - b);
         if (order.length === 0) {
-            root.rects = [];
-            root.visible = false;
+            root._hide();
             return;
         }
 
@@ -122,8 +131,7 @@ Item {
                 maxSingle = Math.max(maxSingle, r._h);
         }
         if (maxSingle <= 0) {
-            root.rects = [];
-            root.visible = false;
+            root._hide();
             return;
         }
 
@@ -172,8 +180,7 @@ Item {
                     ww: r._w * s,
                     wh: r._h * s,
                     focused: r._f,
-                    title: r._title,
-                    cx: ord
+                    title: r._title
                 });
                 totalW = Math.max(totalW, colX[ord] + cols[ord].width * s);
                 continue;
@@ -198,8 +205,7 @@ Item {
                     ww: r._w * s,
                     wh: r._h * s * colY,
                     focused: r._f,
-                    title: r._title,
-                    cx: ord
+                    title: r._title
                 });
                 cy += r._h * s * colY + vSpacing;
             }
@@ -223,8 +229,7 @@ Item {
                     w: Math.max(1, o.ww),
                     h: Math.max(1, Math.min(o.wh, root.mapHeight)),
                     focused: o.focused,
-                    title: o.title,
-                    cx: o.cx
+                    title: o.title
                 }));
 
         root.width = Math.round(viewW) + root.gap * 2;
@@ -284,19 +289,14 @@ Item {
         }
     }
 
-    // Hover tooltip (sits just below the bar)
-    Rectangle {
+    // Hover tooltip: a separate popup window anchored below the map, so it
+    // isn't clipped to the height of the bar.
+    PopupWindow {
         id: tooltip
         visible: root.hoveredId !== -1
-        z: 20
-        width: tipText.implicitWidth + 14
-        height: tipText.implicitHeight + 6
-        radius: 3
         color: Theme.palette.barBg
-        border.color: Theme.palette.minimapBg
-        border.width: 1
-
-        x: {
+        anchor.item: root
+        anchor.rect.x: {
             const hi = root.hoveredId;
             if (hi === -1)
                 return 0;
@@ -310,17 +310,27 @@ Item {
             if (idx === -1)
                 return 0;
             const r = root.rects[idx];
-            return Math.max(0, Math.min(root.width - width, r.x + r.w / 2 - width / 2));
+            return Math.max(0, Math.min(root.width - tooltip.implicitWidth, r.x + r.w / 2 - tooltip.implicitWidth / 2));
         }
-        y: root.height + 3
+        anchor.rect.y: root.height + 3
+        implicitWidth: tipText.implicitWidth + 14
+        implicitHeight: tipText.implicitHeight + 6
 
-        Text {
-            id: tipText
-            anchors.centerIn: parent
-            text: root.hoveredTitle
-            color: Theme.palette.text
-            font.family: Theme.palette.fontFamily
-            font.pixelSize: 10
+        Rectangle {
+            anchors.fill: parent
+            radius: 3
+            color: Theme.palette.barBg
+            border.color: Theme.palette.minimapBg
+            border.width: 1
+
+            Text {
+                id: tipText
+                anchors.centerIn: parent
+                text: root.hoveredTitle
+                color: Theme.palette.text
+                font.family: Theme.palette.fontFamily
+                font.pixelSize: 12
+            }
         }
     }
 

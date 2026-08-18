@@ -1,4 +1,5 @@
 import QtQuick
+import Quickshell
 import Niri
 import "../themes"
 
@@ -10,8 +11,8 @@ Item {
 
     property var meta: null
 
-    readonly property int tileH: 39
-    readonly property int radius: 15
+    readonly property int tileH: 28
+    readonly property int radius: 5
     readonly property int slotGap: 3
     readonly property int cellSize: 14
 
@@ -24,11 +25,12 @@ Item {
     // Grid metrics for the window squircles: a single centered row. Squircles
     // stay fixed size; the tile widens to fit, never shrinking them.
     readonly property int _cols: root._hasMeta ? Math.max(1, root.meta.count) : 0
-    readonly property int _rows: root._hasMeta ? 1 : 0
-    readonly property real _cell: root.cellSize
-    readonly property real _gridW: root._cols * root._cell + root.slotGap * (root._cols - 1)
-    readonly property real _gridH: root._rows * root._cell + root.slotGap * (root._rows - 1)
-    readonly property int tileW: Math.max(root.tileH, root._gridW + 6)
+    readonly property real _gridW: root._cols * root.cellSize + root.slotGap * (root._cols - 1)
+    // Inset around the window grid. The single row is centered vertically, so
+    // this is the top/bottom gap; the tile widens to give the squircles the
+    // same left/right gap instead of the previous fixed 3px.
+    readonly property real _pad: (root.tileH - root.cellSize) / 2
+    readonly property int tileW: Math.max(root.tileH, root._gridW + root._pad * 2)
 
     width: root.tileW
     height: root.tileH
@@ -84,12 +86,12 @@ Item {
     Repeater {
         model: root._count
         delegate: Rectangle {
-            width: root._cell
-            height: root._cell
-            radius: root._cell * 0.2
+            width: root.cellSize
+            height: root.cellSize
+            radius: root.cellSize * 0.2
             color: root._focused ? Theme.palette.accent : root.curColor
-            x: (root.tileW - root._gridW) / 2 + (index % root._cols) * (root._cell + root.slotGap)
-            y: (root.tileH - root._gridH) / 2 + Math.floor(index / root._cols) * (root._cell + root.slotGap)
+            x: (root.tileW - root._gridW) / 2 + (index % root._cols) * (root.cellSize + root.slotGap)
+            y: (root.tileH - root.cellSize) / 2 + Math.floor(index / root._cols) * (root.cellSize + root.slotGap)
         }
     }
 
@@ -128,28 +130,33 @@ Item {
     property int hoveredId: -1
     property string hoveredLabel: ""
 
-    // Hover tooltip (sits just below the bar)
-    Rectangle {
+    // Hover tooltip: a separate popup window anchored just below the tile, so
+    // it isn't clipped to the height of the bar.
+    PopupWindow {
         id: tip
         visible: root.hoveredId !== -1
-        z: 20
-        width: tipText.implicitWidth + 14
-        height: tipText.implicitHeight + 6
-        radius: 3
         color: Theme.palette.barBg
-        border.color: Theme.palette.minimapBg
-        border.width: 1
+        anchor.item: root
+        anchor.rect.x: Math.max(0, (root.width - tip.implicitWidth) / 2)
+        anchor.rect.y: root.height + 2
+        implicitWidth: tipText.implicitWidth + 14
+        implicitHeight: tipText.implicitHeight + 6
 
-        x: Math.max(0, Math.min(parent.width - width, (parent.width - width) / 2))
-        y: parent.height + 2
+        Rectangle {
+            anchors.fill: parent
+            radius: 3
+            color: Theme.palette.barBg
+            border.color: Theme.palette.minimapBg
+            border.width: 1
 
-        Text {
-            id: tipText
-            anchors.centerIn: parent
-            text: root.hoveredLabel
-            color: Theme.palette.text
-            font.family: Theme.palette.fontFamily
-            font.pixelSize: 10
+            Text {
+                id: tipText
+                anchors.centerIn: parent
+                text: root.hoveredLabel
+                color: Theme.palette.text
+                font.family: Theme.palette.fontFamily
+                font.pixelSize: 12
+            }
         }
     }
 }
