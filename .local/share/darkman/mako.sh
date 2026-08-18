@@ -2,10 +2,12 @@
 
 pgrep mako || exit 1
 
+config="$HOME/.config/mako/config"
+
 case "$1" in
-dark) OTHER=light ;;
-light) OTHER=dark ;;
+dark)   sed -i 's|^include=.*|include=~/.config/mako/swamp-dark|' "$config" ;;
+light)  sed -i 's|^include=.*|include=~/.config/mako/swamp-light|' "$config" ;;
 default) exit 1 ;;
 esac
 
-makoctl mode -a "$1" -r "$OTHER"
+makoctl reload

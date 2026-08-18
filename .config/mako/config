@@ -1,4 +1,5 @@
 font=IBM Plex Sans
+include=~/.config/mako/swamp-light
 
 max-icon-size=64
 
@@ -22,14 +23,4 @@ on-button-left=exec file="$(ls -t "$HOME"/Screenshots/*.png 2>/dev/null | head -
 
 [app-name=toggle-recorder summary="Recording saved"]
 on-button-left=exec f="$(ls -t "$HOME"/Screenshots/recording-*.mp4 2>/dev/null | head -1)"; [ -n "$f" ] && mpv "$f" & makoctl dismiss
-
-[mode=dark]
-border-color=#5F4E41
-background-color=#3A3124
-text-color=#ebe0bb
-
-[mode=light]
-background-color=#f1e3d1
-text-color=#64513E
-border-color=#B5A492
 
