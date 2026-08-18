@@ -14,7 +14,7 @@ page_size_in_rows = 20
 play_icon = "|>"
 pause_icon = "||"
 liked_icon = "<3"
-border_type = "Plain"
+border_type = "Hidden"
 progress_bar_type = "Rectangle"
 progress_bar_position = "Bottom"
 

@@ -117,64 +117,65 @@ Rectangle {
         Column {
             id: mediaBlock
             Layout.alignment: Qt.AlignHCenter
-            Layout.topMargin: 12
+            Layout.topMargin: 4
             Layout.bottomMargin: 12
-            spacing: 10
+            spacing: 14
             visible: root.hasTrack
+
+            Rectangle {
+                id: mediaArt
+                width: 200
+                height: 200
+                radius: 16
+                anchors.horizontalCenter: parent.horizontalCenter
+                color: root.borderColor
+                clip: true
+
+                Image {
+                    width: mediaArt.width
+                    height: mediaArt.height
+                    anchors.centerIn: parent
+                    source: root.artUrl
+                    fillMode: Image.PreserveAspectCrop
+                    smooth: true
+                    onStatusChanged: if (status === Image.Error)
+                        artFallback.visible = true
+                }
+
+                MultiEffect {
+                    id: artFallback
+                    anchors.centerIn: parent
+                    width: 80
+                    height: 80
+                    source: Image {
+                        width: 80
+                        height: 80
+                        source: Qt.resolvedUrl("./assets/Musical-notes.svg")
+                        sourceSize.width: 80
+                        sourceSize.height: 80
+                    }
+                    colorization: 1
+                    colorizationColor: root.dimColor
+                    visible: root.artUrl === ""
+                }
+            }
 
             Row {
                 id: mediaRow
                 anchors.horizontalCenter: parent.horizontalCenter
                 spacing: 12
 
-                Rectangle {
-                    id: mediaArt
-                    width: 44
-                    height: 44
-                    radius: 6
-                    color: root.borderColor
-                    clip: true
-
-                    Image {
-                        width: mediaArt.width
-                        height: mediaArt.height
-                        anchors.centerIn: parent
-                        source: root.artUrl
-                        fillMode: Image.PreserveAspectCrop
-                        smooth: true
-                        onStatusChanged: if (status === Image.Error)
-                            artFallback.visible = true
-                    }
-
-                    MultiEffect {
-                        id: artFallback
-                        anchors.centerIn: parent
-                        width: 20
-                        height: 20
-                        source: Image {
-                            width: 20
-                            height: 20
-                            source: Qt.resolvedUrl("./assets/Musical-notes.svg")
-                            sourceSize.width: 20
-                            sourceSize.height: 20
-                        }
-                        colorization: 1
-                        colorizationColor: root.dimColor
-                        visible: root.artUrl === ""
-                    }
-                }
-
                 Column {
-                    width: 200
+                    width: 260
                     anchors.verticalCenter: parent.verticalCenter
-                    spacing: 2
+                    spacing: 4
 
                     Text {
                         width: parent.width
                         text: root.title || "Unknown Title"
                         color: root.textColor
                         font.family: root.fontFamily
-                        font.pixelSize: 15
+                        font.pixelSize: 20
                         font.weight: Font.Bold
                         elide: Text.ElideRight
                         maximumLineCount: 1
@@ -185,7 +186,7 @@ Rectangle {
                         text: root.artist || "Unknown Artist"
                         color: root.secondaryColor
                         font.family: root.fontFamily
-                        font.pixelSize: 13
+                        font.pixelSize: 18
                         elide: Text.ElideRight
                         maximumLineCount: 1
                     }
@@ -193,20 +194,20 @@ Rectangle {
 
                 Item {
                     id: playButton
-                    width: 30
-                    height: 30
+                    width: 44
+                    height: 44
                     anchors.verticalCenter: parent.verticalCenter
 
                     MultiEffect {
                         anchors.centerIn: parent
-                        width: 18
-                        height: 18
+                        width: 28
+                        height: 28
                         source: Image {
-                            width: 18
-                            height: 18
+                            width: 28
+                            height: 28
                             source: Qt.resolvedUrl(root.playing ? "./assets/Pause.svg" : "./assets/Play.svg")
-                            sourceSize.width: 18
-                            sourceSize.height: 18
+                            sourceSize.width: 28
+                            sourceSize.height: 28
                         }
                         colorization: 1
                         colorizationColor: root.accentColor
