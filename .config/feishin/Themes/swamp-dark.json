@@ -1,0 +1,52 @@
+{
+  "mode": "dark",
+  "colors": {
+    "background": "#242015",
+    "background-alternate": "#211D13",
+    "surface": "#4D3F32",
+    "surface-foreground": "#EBE0BB",
+    "foreground": "#EBE0BB",
+    "foreground-muted": "#B8A58C",
+    "primary": "#DB930D",
+    "black": "#000000",
+    "white": "#FFFFFF",
+    "state-error": "#A93B5C",
+    "state-info": "#91506C",
+    "state-success": "#6F682C",
+    "state-warning": "#DB930D"
+  },
+  "app": {
+    "overlay-header": "linear-gradient(transparent 0%, #242015d9 100%), var(--theme-background-noise)",
+    "overlay-subheader": "linear-gradient(180deg, #2420150d 0%, var(--theme-colors-background) 100%), var(--theme-background-noise)",
+    "scrollbar-handle-background": "#B8A58C33",
+    "scrollbar-handle-hover-background": "#B8A58C66"
+  },
+  "mantineOverride": {
+    "colors": {
+      "dark": [
+        "#F1E9D0",
+        "#EBE0BB",
+        "#D2C3A4",
+        "#B8A58C",
+        "#725C4F",
+        "#5F4E41",
+        "#4D3F32",
+        "#3A3124",
+        "#242015",
+        "#211D13"
+      ],
+      "gray": [
+        "#EBE0BB",
+        "#D2C3A4",
+        "#B8A58C",
+        "#9F8875",
+        "#725C4F",
+        "#5F4E41",
+        "#4D3F32",
+        "#3A3124",
+        "#242015",
+        "#211D13"
+      ]
+    }
+  }
+}
