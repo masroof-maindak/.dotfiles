@@ -40,3 +40,27 @@ vim.api.nvim_create_autocmd("FileType", {
 		end
 	end,
 })
+
+-- Follow the terminal's light/dark mode
+if vim.env.TERM ~= "linux" then -- Not in the TTY.
+	local colorscheme_by_mode = vim.g.colorscheme
+
+	local function apply_colorscheme(mode)
+		local colorscheme = colorscheme_by_mode[mode]
+		if colorscheme then
+			vim.cmd.colorscheme(colorscheme)
+		end
+	end
+
+	vim.api.nvim_create_autocmd("OptionSet", {
+		pattern = "background",
+		group = vim.api.nvim_create_augroup("user_theme", { clear = true }),
+		callback = function()
+			if vim.v.option_old ~= vim.v.option_new then
+				apply_colorscheme(vim.v.option_new)
+			end
+		end,
+	})
+
+	apply_colorscheme(vim.o.background)
+end

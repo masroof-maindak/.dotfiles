@@ -20,7 +20,7 @@ o.expandtab = true
 
 -- TTY
 if vim.env.TERM ~= "linux" then
-    o.termguicolors = true
+	o.termguicolors = true
 end
 
 -- Enable mouse support for all modes
@@ -82,3 +82,9 @@ o.cursorline = false
 
 -- Better scrolling
 o.scrolloff = 6
+
+-- Colour scheme for each terminal mode
+vim.g.colorscheme = {
+	dark = "swamp",
+	light = "swamp",
+}

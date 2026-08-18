@@ -13,7 +13,6 @@ map("n", "<C-S-j>", "5j", { noremap = true, silent = true, desc = "Big down" })
 map("n", "<C-S-k>", "5k", { noremap = true, silent = true, desc = "Big up" })
 
 -- Plugin menus
-map("n", "<leader>kt", "<CMD>Themery<CR>", { noremap = true, desc = "Colour theme picker" })
 map("n", "<leader>l", "<CMD>Lazy<CR>", { noremap = true, desc = "Lazy" })
 map("n", "<leader>m", "<CMD>Mason<CR>", { noremap = true, desc = "Mason" })
 
