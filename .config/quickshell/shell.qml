@@ -39,6 +39,7 @@ ShellRoot {
                         verticalCenter: parent.verticalCenter
                         leftMargin: 4
                     }
+                    anchorWindow: barWindow
                 }
 
                 Titles {
@@ -100,6 +101,7 @@ ShellRoot {
                         verticalCenter: parent.verticalCenter
                         rightMargin: 16
                     }
+                    anchorWindow: barWindow
                 }
             }
         }

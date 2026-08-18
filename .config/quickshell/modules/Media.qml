@@ -5,6 +5,10 @@ import "../themes"
 Item {
     id: root
 
+    // Bar window the media popup is anchored to, so it drops below the bar
+    // rather than hugging the album art inside it.
+    property var anchorWindow: null
+
     // Popup card height, driven by the card content so a short title (single
     // line) hugs the buttons instead of leaving dead space.
     property int popupHeight: 370
@@ -115,9 +119,10 @@ Item {
         id: popup
         visible: false
         color: "transparent"
-        anchor.item: art
-        anchor.rect.x: art.width + 8
-        anchor.rect.y: art.height + 8
+        // Below the bar's bottom edge, 8px off it and the screen's left edge.
+        anchor.window: root.anchorWindow
+        anchor.rect.x: root.anchorWindow ? 8 : 0
+        anchor.rect.y: root.anchorWindow ? root.anchorWindow.height + 8 : 0
         implicitWidth: 300
         implicitHeight: root.popupHeight
 
@@ -127,7 +132,7 @@ Item {
             color: root.cardBg
             border.color: root.cardBorder
             border.width: 1
-            radius: 10
+            radius: 4
 
             MouseArea {
                 id: popupHover
@@ -197,7 +202,8 @@ Item {
                 }
 
                 MediaProgress {
-                    width: parent.width
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width - 40
                     player: np.player
                     position: np.pos
                     length: np.len
