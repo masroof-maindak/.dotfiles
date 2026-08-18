@@ -2,6 +2,7 @@ import QtQuick
 import Quickshell
 import Niri
 import "../themes"
+import "utils.js" as Utils
 
 Item {
     id: root
@@ -12,10 +13,8 @@ Item {
     readonly property int gap: 5
 
     property string screenName: ""
-    // Logical tiled-region height of the output this minimap is shown on: the
-    // output's height minus the space reserved by the bar. niri tiles windows
-    // to exactly this height, while each screen reports it for itself, so
-    // windows fill the map edge-to-edge here without cross-screen drift.
+    // Tiled-region height of this output (its height minus the bar), so niri's
+    // windows fill the map edge-to-edge without cross-screen drift.
     property real screenH: 0
     property var rects: []
     property int hoveredId: -1
@@ -31,9 +30,7 @@ Item {
     // Live per-window snapshot, keyed by window id. Kept in lockstep with the
     // window model via delegate role bindings, so no plugin changes are needed.
     property var _rows: ({})
-    // Height of the fixed tiled region for this output, in logical pixels.
-    // Constant per output, so the tallest column extent seen is cached and the
-    // same scale is always applied to the workspaces of this output.
+    // Cached tiled-region height for scaling when screenH is unavailable.
     property real regionH: 0
 
     function _registerRow(item) {
@@ -46,10 +43,6 @@ Item {
         root._recompute();
     }
 
-    function _bump() {
-        root._recompute();
-    }
-
     function _hide() {
         root.rects = [];
         root.width = 0;
@@ -57,23 +50,11 @@ Item {
         root.visible = false;
     }
 
-    // True when a workspace belongs to the output this widget is on.
-    function _onScreen(ws) {
-        return root.screenName === "" || ws.output === root.screenName;
-    }
-
-    function _wsOutput(wsId) {
-        const idx = niri.workspaces.indexOfId(wsId);
-        if (idx === -1)
-            return "";
-        return niri.workspaces.get(idx).output;
-    }
-
     function currentWorkspaceId() {
         const count = niri.workspaces.count;
         for (let i = 0; i < count; i++) {
             const ws = niri.workspaces.get(i);
-            if (!root._onScreen(ws))
+            if (!Utils.onScreen(ws, root.screenName))
                 continue;
             if (ws.isFocused)
                 return ws.id;
@@ -82,7 +63,7 @@ Item {
         // window fallback only covers the race where the workspace model
         // hasn't caught up yet; if it isn't on this screen we hide.
         const fw = niri.focusedWindow;
-        if (fw && (root.screenName === "" || root._wsOutput(fw.workspaceId) === root.screenName))
+        if (fw && (root.screenName === "" || Utils.wsOutput(niri.workspaces, fw.workspaceId) === root.screenName))
             return fw.workspaceId;
         return 0;
     }
@@ -120,10 +101,8 @@ Item {
             return;
         }
 
-        // Sort each column's windows from top to bottom. The tallest single tile
-        // is a stable reference for the tiled-region height: a tile never
-        // exceeds it even mid-animation or when tabs overlap, so caching it
-        // can't be inflated by momentary column sums.
+        // Sort each column top to bottom; the tallest single tile is the stable
+        // reference for the tiled-region height (never inflated by column sums).
         let maxSingle = 0;
         for (const c of order) {
             cols[c].items.sort((a, b) => a._r - b._r);
@@ -135,12 +114,9 @@ Item {
             return;
         }
 
-        // Tile sizes are real logical pixels and every default column of the
-        // workspace sums to the same fixed tiled-region height. Prefer the
-        // screen's own height as that reference: it is exact and can't be
-        // inflated by tiles mid-animation or by windows of the shared workspace
-        // that physically sit on a taller monitor. Falling back to a measured
-        // cache keeps a self-contained default for unusual setups.
+        // Prefer the screen's own height as the tiled-region reference: it is
+        // exact and immune to mid-animation tiles or shared-workspace windows on
+        // a taller monitor. The measured cache is the fallback.
         if (root.screenH > 0)
             root.regionH = root.screenH;
         else
@@ -158,9 +134,8 @@ Item {
             cx += cols[order[i]].width * s + hGap;
         }
 
-        // Stacked tiles are laid out top-to-bottom at their real height, with a
-        // minimum gap between them. If a column overflows the map height once
-        // the gaps are added, scale the tiles back so the gap is preserved.
+        // Stack tiles top-to-bottom at real height; if a column overflows the
+        // map with gaps added, scale tiles back to preserve the gap.
         const out = [];
         let totalW = 0;
         for (let i = 0; i < order.length; i++) {
@@ -354,15 +329,15 @@ Item {
             readonly property bool _f: model.isFocused
             readonly property string _title: model.title
 
-            on_KChanged: root._bump()
-            on_CChanged: root._bump()
-            on_RChanged: root._bump()
-            on_WChanged: root._bump()
-            on_HChanged: root._bump()
-            on_WsChanged: root._bump()
-            on_FlChanged: root._bump()
-            on_FChanged: root._bump()
-            on_TitleChanged: root._bump()
+            on_KChanged: root._recompute()
+            on_CChanged: root._recompute()
+            on_RChanged: root._recompute()
+            on_WChanged: root._recompute()
+            on_HChanged: root._recompute()
+            on_WsChanged: root._recompute()
+            on_FlChanged: root._recompute()
+            on_FChanged: root._recompute()
+            on_TitleChanged: root._recompute()
 
             Component.onCompleted: root._registerRow(this)
             Component.onDestruction: root._unregisterRow(_k)

@@ -4,8 +4,6 @@ import "./modules"
 import "./themes"
 
 ShellRoot {
-    id: root
-
     Variants {
         model: Quickshell.screens
 
@@ -22,7 +20,6 @@ ShellRoot {
             color: Theme.palette.barBg
 
             Item {
-                id: bar
                 anchors.fill: parent
 
                 Rectangle {

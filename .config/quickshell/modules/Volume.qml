@@ -1,15 +1,13 @@
 import QtQuick
-import QtQuick.Effects
 import Quickshell.Services.Pipewire
 import "../themes"
+import "utils.js" as Utils
 
 Item {
     id: root
 
     implicitWidth: content.implicitWidth
     implicitHeight: content.implicitHeight
-    width: implicitWidth
-    height: implicitHeight
 
     property color textColor: Theme.palette.text
     property int iconSize: 25
@@ -25,36 +23,19 @@ Item {
         objects: root.sink ? [root.sink] : []
     }
 
-    readonly property string iconName: {
-        if (muted)
-            return "Volume-mute-outline";
-        if (vol <= 0.01)
-            return "Volume-off-outline";
-        if (vol < 0.5)
-            return "Volume-medium-outline";
-        if (vol <= 0.85)
-            return "Volume-high-outline";
-        return "Volume-high";
-    }
+    readonly property string iconName: Utils.volumeIcon(root.vol, root.muted)
 
     Row {
         id: content
         spacing: 6
         anchors.verticalCenter: parent.verticalCenter
 
-        MultiEffect {
+        Icon {
             width: root.iconSize
             height: root.iconSize
             anchors.verticalCenter: parent.verticalCenter
-            source: Image {
-                width: root.iconSize
-                height: root.iconSize
-                source: Qt.resolvedUrl("../assets/" + root.iconName + ".svg")
-                sourceSize.width: root.iconSize
-                sourceSize.height: root.iconSize
-            }
-            colorization: 1
-            colorizationColor: root.textColor
+            icon: Qt.resolvedUrl("../assets/" + root.iconName + ".svg")
+            color: root.textColor
         }
 
         Text {

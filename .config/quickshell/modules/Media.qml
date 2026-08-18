@@ -1,7 +1,5 @@
 import QtQuick
-import QtQuick.Effects
 import Quickshell
-import Quickshell.Services.Mpris
 import "../themes"
 
 Item {
@@ -21,64 +19,19 @@ Item {
     property color trackColor: Theme.palette.barBorder
     property color thumbColor: Theme.palette.accent
 
-    // Player selection is fully reactive: the MPRIS object model reports
-    // player additions/removals, and each player reports play-state changes.
-    property var player: null
-
-    Connections {
-        target: Mpris.players
-        function onValuesChanged() {
-            root._reselect();
-        }
+    NowPlaying {
+        id: np
     }
-
-    Connections {
-        target: root.player
-        function onIsPlayingChanged() {
-            root._reselect();
-        }
-    }
-
-    Component.onCompleted: root._reselect()
-
-    function _reselect() {
-        let playing = null;
-        let last = null;
-        for (const p of Mpris.players.values) {
-            last = p;
-            if (p.isPlaying)
-                playing = p;
-        }
-        root.player = playing ?? last;
-    }
-
-    readonly property bool hasTrack: !!player && (player.isPlaying || player.length > 0)
-
-    readonly property string title: player?.trackTitle ?? ""
-    readonly property string artist: player?.trackArtist ?? ""
-    readonly property string artUrl: player?.trackArtUrl ?? ""
-    readonly property real pos: player?.position ?? 0
-    readonly property real len: player?.length ?? 0
-    readonly property bool playing: player?.isPlaying ?? false
 
     readonly property int artSize: 42
     readonly property int sliderHeight: artSize
 
-    width: hasTrack ? implicitWidth : 0
-    height: hasTrack ? implicitHeight : 0
-    visible: hasTrack
-
-    // MPRIS doesn't push position continuously, so we emit the change
-    // ourselves to keep the progress sliders moving (only while playing).
-    Timer {
-        interval: 500
-        repeat: true
-        running: root.player?.isPlaying ?? false
-        onTriggered: root.player?.positionChanged()
-    }
+    width: np.hasTrack ? implicitWidth : 0
+    height: np.hasTrack ? implicitHeight : 0
+    visible: np.hasTrack
 
     function recalcPopupHeight() {
-        if (typeof cardCol === "undefined" || cardCol === null)
+        if (!cardCol)
             return;
         root.popupHeight = cardCol.implicitHeight + 34;
     }
@@ -101,28 +54,21 @@ Item {
                 width: art.width * 1.428
                 height: art.height * 1.428
                 anchors.centerIn: parent
-                source: root.artUrl
+                source: np.artUrl
                 fillMode: Image.PreserveAspectCrop
                 onStatusChanged: if (status === Image.Error)
                     fallback.visible = true
                 smooth: true
             }
 
-            MultiEffect {
+            Icon {
                 id: fallback
                 anchors.centerIn: parent
                 width: 20
                 height: 20
-                source: Image {
-                    width: 20
-                    height: 20
-                    source: Qt.resolvedUrl("../assets/Musical-notes.svg")
-                    sourceSize.width: 20
-                    sourceSize.height: 20
-                }
-                colorization: 1
-                colorizationColor: root.dimTextColor
-                visible: root.artUrl === ""
+                icon: Qt.resolvedUrl("../assets/Musical-notes.svg")
+                color: root.dimTextColor
+                visible: np.artUrl === ""
             }
 
             MouseArea {
@@ -133,13 +79,13 @@ Item {
 
                 onEntered: {
                     hideTimer.stop();
-                    if (root.hasTrack)
+                    if (np.hasTrack)
                         popup.visible = true;
                 }
                 onExited: hideTimer.start()
                 onClicked: mouse => {
                     if (mouse.button === Qt.LeftButton)
-                        root.player?.togglePlaying();
+                        np.player?.togglePlaying();
                     else if (mouse.button === Qt.MiddleButton) {
                         popup.visible = !popup.visible;
                         hideTimer.stop();
@@ -156,7 +102,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
 
             Rectangle {
-                height: parent.height * (root.len > 0 ? root.pos / root.len : 0)
+                height: parent.height * (np.len > 0 ? np.pos / np.len : 0)
                 width: parent.width
                 color: root.thumbColor
                 anchors.bottom: parent.bottom
@@ -212,25 +158,18 @@ Item {
                     Image {
                         // full-size, unzoomed
                         anchors.fill: parent
-                        source: root.artUrl
+                        source: np.artUrl
                         fillMode: Image.PreserveAspectCrop
                         smooth: true
                     }
 
-                    MultiEffect {
+                    Icon {
                         anchors.centerIn: parent
                         width: 56
                         height: 56
-                        source: Image {
-                            width: 56
-                            height: 56
-                            source: Qt.resolvedUrl("../assets/Musical-notes.svg")
-                            sourceSize.width: 56
-                            sourceSize.height: 56
-                        }
-                        colorization: 1
-                        colorizationColor: root.dimTextColor
-                        visible: root.artUrl === ""
+                        icon: Qt.resolvedUrl("../assets/Musical-notes.svg")
+                        color: root.dimTextColor
+                        visible: np.artUrl === ""
                     }
                 }
 
@@ -238,7 +177,7 @@ Item {
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width
                     horizontalAlignment: Text.AlignHCenter
-                    text: root.title || "Unknown Title"
+                    text: np.title || "Unknown Title"
                     font.family: Theme.palette.fontFamily
                     font.pixelSize: 15
                     font.weight: Font.Bold
@@ -249,7 +188,7 @@ Item {
 
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text: root.artist || "Unknown Artist"
+                    text: np.artist || "Unknown Artist"
                     font.family: Theme.palette.fontFamily
                     font.pixelSize: 13
                     color: Theme.palette.textSecondary
@@ -259,9 +198,9 @@ Item {
 
                 MediaProgress {
                     width: parent.width
-                    player: root.player
-                    position: root.pos
-                    length: root.len
+                    player: np.player
+                    position: np.pos
+                    length: np.len
                     trackColor: root.cardBorder
                     fillColor: root.thumbColor
                 }
@@ -292,21 +231,14 @@ Item {
                             width: 30
                             height: 30
 
-                            readonly property string resolvedIcon: modelData.icon === "" ? (root.playing ? "Pause" : "Play") : modelData.icon
+                            readonly property string resolvedIcon: modelData.icon === "" ? (np.playing ? "Pause" : "Play") : modelData.icon
 
-                            MultiEffect {
+                            Icon {
                                 anchors.centerIn: parent
                                 width: 22
                                 height: 22
-                                source: Image {
-                                    width: 22
-                                    height: 22
-                                    source: Qt.resolvedUrl("../assets/" + btn.resolvedIcon + ".svg")
-                                    sourceSize.width: 22
-                                    sourceSize.height: 22
-                                }
-                                colorization: 1
-                                colorizationColor: root.textColor
+                                icon: Qt.resolvedUrl("../assets/" + btn.resolvedIcon + ".svg")
+                                color: root.textColor
                             }
 
                             MouseArea {
@@ -314,11 +246,11 @@ Item {
                                 cursorShape: Qt.PointingHandCursor
                                 onClicked: {
                                     if (modelData.action === "prev")
-                                        root.player?.previous();
+                                        np.player?.previous();
                                     else if (modelData.action === "next")
-                                        root.player?.next();
+                                        np.player?.next();
                                     else
-                                        root.player?.togglePlaying();
+                                        np.player?.togglePlaying();
                                 }
                             }
                         }

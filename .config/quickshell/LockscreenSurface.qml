@@ -1,8 +1,6 @@
 import QtQuick
-import QtQuick.Effects
 import QtQuick.Layouts
 import Quickshell
-import Quickshell.Services.Mpris
 import "./modules"
 import "./themes"
 
@@ -29,52 +27,8 @@ Rectangle {
     readonly property color errorColor: Theme.palette.red
     readonly property string fontFamily: "Roboto"
 
-    // ---- now playing state (same selection logic as the bar's Media module)
-
-    property var player: null
-
-    Connections {
-        target: Mpris.players
-        function onValuesChanged() {
-            root._reselect();
-        }
-    }
-
-    Connections {
-        target: root.player
-        function onIsPlayingChanged() {
-            root._reselect();
-        }
-    }
-
-    Component.onCompleted: root._reselect()
-
-    function _reselect() {
-        let playing = null;
-        let last = null;
-        for (const p of Mpris.players.values) {
-            last = p;
-            if (p.isPlaying)
-                playing = p;
-        }
-        root.player = playing ?? last;
-    }
-
-    readonly property bool hasTrack: !!player && (player.isPlaying || player.length > 0)
-    readonly property string title: player?.trackTitle ?? ""
-    readonly property string artist: player?.trackArtist ?? ""
-    readonly property string artUrl: player?.trackArtUrl ?? ""
-    readonly property real pos: player?.position ?? 0
-    readonly property real len: player?.length ?? 0
-    readonly property bool playing: player?.isPlaying ?? false
-
-    // MPRIS doesn't push position continuously, so we emit the change ourselves
-    // to keep the progress bar moving (only while playing).
-    Timer {
-        interval: 200
-        repeat: true
-        running: root.player?.isPlaying ?? false
-        onTriggered: root.player?.positionChanged()
+    NowPlaying {
+        id: np
     }
 
     SystemClock {
@@ -120,7 +74,7 @@ Rectangle {
             Layout.topMargin: 4
             Layout.bottomMargin: 12
             spacing: 14
-            visible: root.hasTrack
+            visible: np.hasTrack
 
             Rectangle {
                 id: mediaArt
@@ -135,28 +89,21 @@ Rectangle {
                     width: mediaArt.width
                     height: mediaArt.height
                     anchors.centerIn: parent
-                    source: root.artUrl
+                    source: np.artUrl
                     fillMode: Image.PreserveAspectCrop
                     smooth: true
                     onStatusChanged: if (status === Image.Error)
                         artFallback.visible = true
                 }
 
-                MultiEffect {
+                Icon {
                     id: artFallback
                     anchors.centerIn: parent
                     width: 80
                     height: 80
-                    source: Image {
-                        width: 80
-                        height: 80
-                        source: Qt.resolvedUrl("./assets/Musical-notes.svg")
-                        sourceSize.width: 80
-                        sourceSize.height: 80
-                    }
-                    colorization: 1
-                    colorizationColor: root.dimColor
-                    visible: root.artUrl === ""
+                    icon: Qt.resolvedUrl("./assets/Musical-notes.svg")
+                    color: root.dimColor
+                    visible: np.artUrl === ""
                 }
             }
 
@@ -172,7 +119,7 @@ Rectangle {
 
                     Text {
                         width: parent.width
-                        text: root.title || "Unknown Title"
+                        text: np.title || "Unknown Title"
                         color: root.textColor
                         font.family: root.fontFamily
                         font.pixelSize: 20
@@ -183,7 +130,7 @@ Rectangle {
 
                     Text {
                         width: parent.width
-                        text: root.artist || "Unknown Artist"
+                        text: np.artist || "Unknown Artist"
                         color: root.secondaryColor
                         font.family: root.fontFamily
                         font.pixelSize: 18
@@ -198,25 +145,18 @@ Rectangle {
                     height: 44
                     anchors.verticalCenter: parent.verticalCenter
 
-                    MultiEffect {
+                    Icon {
                         anchors.centerIn: parent
                         width: 28
                         height: 28
-                        source: Image {
-                            width: 28
-                            height: 28
-                            source: Qt.resolvedUrl(root.playing ? "./assets/Pause.svg" : "./assets/Play.svg")
-                            sourceSize.width: 28
-                            sourceSize.height: 28
-                        }
-                        colorization: 1
-                        colorizationColor: root.accentColor
+                        icon: Qt.resolvedUrl(np.playing ? "./assets/Pause.svg" : "./assets/Play.svg")
+                        color: root.accentColor
                     }
 
                     MouseArea {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
-                        onClicked: root.player?.togglePlaying()
+                        onClicked: np.player?.togglePlaying()
                     }
                 }
             }
@@ -224,9 +164,9 @@ Rectangle {
             MediaProgress {
                 id: progressBar
                 width: mediaRow.implicitWidth
-                player: root.player
-                position: root.pos
-                length: root.len
+                player: np.player
+                position: np.pos
+                length: np.len
                 trackColor: root.borderColor
                 fillColor: root.accentColor
             }

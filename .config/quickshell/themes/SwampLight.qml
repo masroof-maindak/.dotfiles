@@ -2,7 +2,6 @@ pragma Singleton
 import QtQuick
 
 QtObject {
-    readonly property string palette: "SwampLight"
     readonly property string fontFamily: "Roboto Black"
     readonly property color barBg: "#f1e3d1"
     readonly property color barBorder: "#ddcebc"

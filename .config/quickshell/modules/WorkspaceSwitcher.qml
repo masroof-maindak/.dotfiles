@@ -2,11 +2,12 @@ import QtQuick
 import Niri
 import "../themes"
 import "."
+import "utils.js" as Utils
 
 // Workspace widget: the full-size minimap of the current workspace, framed by
-// the mini thumbnails of the workspaces that lie immediately before (left) and
-// after (right) it. Each side holds a single WorkspaceTile, or nothing when
-// that neighbour index does not exist.
+// the mini thumbnails of the open workspaces before (left) and after (right)
+// it. The centre shows a plain tile when the current workspace has no windows
+// or the output lacks focus.
 Item {
     id: root
 
@@ -23,8 +24,6 @@ Item {
 
     implicitWidth: childrenRect.width
     implicitHeight: root.barH
-    width: implicitWidth
-    height: implicitHeight
 
     Niri {
         id: niri
@@ -78,18 +77,6 @@ Item {
         root._refresh();
     }
 
-    // True when a workspace belongs to the output this widget is on.
-    function _onScreen(ws) {
-        return root.screenName === "" || ws.output === root.screenName;
-    }
-
-    function _wsOutput(wsId) {
-        const idx = niri.workspaces.indexOfId(wsId);
-        if (idx === -1)
-            return "";
-        return niri.workspaces.get(idx).output;
-    }
-
     // True while focus lives on this output: either a workspace of this screen
     // is focused, or the focused window still points here (covers the race
     // where the workspace model hasn't caught up with a focus change yet).
@@ -97,13 +84,13 @@ Item {
         const count = niri.workspaces.count;
         for (let i = 0; i < count; i++) {
             const ws = niri.workspaces.get(i);
-            if (!root._onScreen(ws))
+            if (!Utils.onScreen(ws, root.screenName))
                 continue;
             if (ws.isFocused)
                 return true;
         }
         const fw = niri.focusedWindow;
-        if (fw && (root.screenName === "" || root._wsOutput(fw.workspaceId) === root.screenName))
+        if (fw && (root.screenName === "" || Utils.wsOutput(niri.workspaces, fw.workspaceId) === root.screenName))
             return true;
         return false;
     }
@@ -112,7 +99,7 @@ Item {
         const n = niri.workspaces.count;
         for (let i = 0; i < n; i++) {
             const ws = niri.workspaces.get(i);
-            if (!root._onScreen(ws))
+            if (!Utils.onScreen(ws, root.screenName))
                 continue;
             if (ws.isFocused)
                 return ws.index;
@@ -122,7 +109,7 @@ Item {
         // stays visible instead of arbitrarily picking the first.
         for (let i = 0; i < n; i++) {
             const ws = niri.workspaces.get(i);
-            if (!root._onScreen(ws))
+            if (!Utils.onScreen(ws, root.screenName))
                 continue;
             if (ws.isActive)
                 return ws.index;
@@ -156,7 +143,7 @@ Item {
         let curWs = null;
         for (let i = 0; i < n; i++) {
             const ws = niri.workspaces.get(i);
-            if (!root._onScreen(ws))
+            if (!Utils.onScreen(ws, root.screenName))
                 continue;
             const c = counts[ws.id] || 0;
 

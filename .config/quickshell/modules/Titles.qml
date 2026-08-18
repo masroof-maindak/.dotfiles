@@ -1,11 +1,11 @@
 import QtQuick
 import Niri
 import "../themes"
+import "utils.js" as Utils
 
 Item {
     id: root
 
-    property alias niri: niri
     property int maxWidth: 280
     property string screenName: ""
 
@@ -22,42 +22,32 @@ Item {
     Connections {
         target: niri
         function onConnected() {
-            root._bump();
+            root._pick();
         }
         function onFocusedWindowChanged() {
-            root._bump();
+            root._pick();
         }
     }
     Connections {
         target: niri.windows
         function onCountChanged() {
-            root._bump();
+            root._pick();
         }
     }
     Connections {
         target: niri.workspaces
         function onCountChanged() {
-            root._bump();
+            root._pick();
         }
     }
 
     function _set(id, d) {
         root._rows[id] = d;
-        root._bump();
+        root._pick();
     }
     function _del(id) {
         delete root._rows[id];
-        root._bump();
-    }
-    function _bump() {
         root._pick();
-    }
-
-    function _wsOutput(wsId) {
-        const idx = niri.workspaces.indexOfId(wsId);
-        if (idx === -1)
-            return "";
-        return niri.workspaces.get(idx).output;
     }
 
     function _pick() {
@@ -65,7 +55,7 @@ Item {
             const r = root._rows[k];
             if (!r._f)
                 continue;
-            if (root.screenName !== "" && root._wsOutput(r._ws) !== root.screenName)
+            if (root.screenName !== "" && Utils.wsOutput(niri.workspaces, r._ws) !== root.screenName)
                 continue;
             root.fw = r;
             return;
@@ -93,7 +83,6 @@ Item {
 
     width: Math.min(maxWidth, Math.max(appLine.implicitWidth, titleLine.implicitWidth))
     implicitHeight: column.implicitHeight
-    height: implicitHeight
 
     Column {
         id: column

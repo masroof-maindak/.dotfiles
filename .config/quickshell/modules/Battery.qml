@@ -1,5 +1,4 @@
 import QtQuick
-import QtQuick.Effects
 import Quickshell.Services.UPower
 import "../themes"
 
@@ -8,8 +7,6 @@ Item {
 
     implicitWidth: content.implicitWidth
     implicitHeight: content.implicitHeight
-    width: implicitWidth
-    height: implicitHeight
 
     property color textColor: Theme.palette.text
     property color lowBatteryColor: Theme.palette.red
@@ -54,19 +51,12 @@ Item {
         spacing: 6
         anchors.verticalCenter: parent.verticalCenter
 
-        MultiEffect {
+        Icon {
             width: root.iconSize
             height: root.iconSize
             anchors.verticalCenter: parent.verticalCenter
-            source: Image {
-                width: root.iconSize
-                height: root.iconSize
-                source: Qt.resolvedUrl(root.iconFile)
-                sourceSize.width: root.iconSize
-                sourceSize.height: root.iconSize
-            }
-            colorization: 1
-            colorizationColor: root.batteryColor
+            icon: Qt.resolvedUrl(root.iconFile)
+            color: root.batteryColor
         }
 
         Text {

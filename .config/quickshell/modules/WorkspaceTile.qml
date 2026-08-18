@@ -26,9 +26,8 @@ Item {
     // stay fixed size; the tile widens to fit, never shrinking them.
     readonly property int _cols: root._hasMeta ? Math.max(1, root.meta.count) : 0
     readonly property real _gridW: root._cols * root.cellSize + root.slotGap * (root._cols - 1)
-    // Inset around the window grid. The single row is centered vertically, so
-    // this is the top/bottom gap; the tile widens to give the squircles the
-    // same left/right gap instead of the previous fixed 3px.
+    // Inset around the window grid: the top/bottom gap of the centered row; the
+    // tile widens to give the squircles the same left/right gap.
     readonly property real _pad: (root.tileH - root.cellSize) / 2
     readonly property int tileW: Math.max(root.tileH, root._gridW + root._pad * 2)
 

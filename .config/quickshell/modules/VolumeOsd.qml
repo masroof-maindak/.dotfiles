@@ -1,9 +1,9 @@
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Effects
 import Quickshell
 import Quickshell.Services.Pipewire
 import "../themes"
+import "utils.js" as Utils
 
 Scope {
     id: root
@@ -40,17 +40,7 @@ Scope {
     readonly property real vol: Pipewire.defaultAudioSink?.audio?.volume ?? 0
     readonly property bool muted: Pipewire.defaultAudioSink?.audio?.muted ?? false
 
-    readonly property string iconName: {
-        if (muted)
-            return "Volume-mute-outline";
-        if (vol <= 0.01)
-            return "Volume-off-outline";
-        if (vol < 0.5)
-            return "Volume-medium-outline";
-        if (vol <= 0.85)
-            return "Volume-high-outline";
-        return "Volume-high";
-    }
+    readonly property string iconName: Utils.volumeIcon(root.vol, root.muted)
 
     property bool shouldShowOsd: false
 
@@ -60,9 +50,7 @@ Scope {
         onTriggered: root.shouldShowOsd = false
     }
 
-    // The OSD window will be created and destroyed based on shouldShowOsd.
-    // PanelWindow.visible could be set instead of using a loader, but using
-    // a loader will reduce the memory overhead when the window isn't open.
+    // The OSD window is created on demand so its memory overhead is dropped when hidden.
     LazyLoader {
         active: root.shouldShowOsd
 
@@ -95,18 +83,11 @@ Scope {
                         rightMargin: 16
                     }
 
-                    MultiEffect {
+                    Icon {
                         Layout.preferredWidth: 24
                         Layout.preferredHeight: 24
-                        source: Image {
-                            width: 24
-                            height: 24
-                            source: Qt.resolvedUrl("../assets/" + root.iconName + ".svg")
-                            sourceSize.width: 24
-                            sourceSize.height: 24
-                        }
-                        colorization: 1
-                        colorizationColor: Theme.palette.text
+                        icon: Qt.resolvedUrl("../assets/" + root.iconName + ".svg")
+                        color: Theme.palette.text
                     }
 
                     Rectangle {
