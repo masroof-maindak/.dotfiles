@@ -15,10 +15,7 @@ Rectangle {
 
     Image {
         anchors.fill: parent
-        source: Qt.resolvedUrl(
-            Darkman.dark
-                ? "./lockscreen-bg.png"
-                : "./lockscreen-bg-light.png")
+        source: Qt.resolvedUrl(Darkman.dark ? "./lockscreen-bg.png" : "./lockscreen-bg-light.png")
         fillMode: Image.PreserveAspectCrop
         clip: true
         smooth: true
@@ -38,28 +35,32 @@ Rectangle {
 
     Connections {
         target: Mpris.players
-        function onValuesChanged() { root._reselect() }
+        function onValuesChanged() {
+            root._reselect();
+        }
     }
 
     Connections {
         target: root.player
-        function onIsPlayingChanged() { root._reselect() }
+        function onIsPlayingChanged() {
+            root._reselect();
+        }
     }
 
     Component.onCompleted: root._reselect()
 
     function _reselect() {
-        let playing = null
-        let last = null
+        let playing = null;
+        let last = null;
         for (const p of Mpris.players.values) {
-            last = p
-            if (p.isPlaying) playing = p
+            last = p;
+            if (p.isPlaying)
+                playing = p;
         }
-        root.player = playing ?? last
+        root.player = playing ?? last;
     }
 
-    readonly property bool hasTrack: !!player
-        && (player.isPlaying || player.length > 0)
+    readonly property bool hasTrack: !!player && (player.isPlaying || player.length > 0)
     readonly property string title: player?.trackTitle ?? ""
     readonly property string artist: player?.trackArtist ?? ""
     readonly property string artUrl: player?.trackArtUrl ?? ""
@@ -141,7 +142,8 @@ Rectangle {
                         source: root.artUrl
                         fillMode: Image.PreserveAspectCrop
                         smooth: true
-                        onStatusChanged: if (status === Image.Error) artFallback.visible = true
+                        onStatusChanged: if (status === Image.Error)
+                            artFallback.visible = true
                     }
 
                     MultiEffect {
@@ -202,8 +204,7 @@ Rectangle {
                         source: Image {
                             width: 18
                             height: 18
-                            source: Qt.resolvedUrl(
-                                root.playing ? "./assets/Pause.svg" : "./assets/Play.svg")
+                            source: Qt.resolvedUrl(root.playing ? "./assets/Pause.svg" : "./assets/Play.svg")
                             sourceSize.width: 18
                             sourceSize.height: 18
                         }
@@ -269,7 +270,9 @@ Rectangle {
                 // shows up on all of them.
                 Connections {
                     target: root.context
-                    function onCurrentTextChanged() { passwordInput.text = root.context.currentText }
+                    function onCurrentTextChanged() {
+                        passwordInput.text = root.context.currentText;
+                    }
                 }
             }
 
@@ -325,7 +328,7 @@ Rectangle {
         target: root.Window.window
         function onActiveChanged() {
             if (root.Window.window.active)
-                passwordInput.forceActiveFocus()
+                passwordInput.forceActiveFocus();
         }
     }
 
@@ -334,7 +337,7 @@ Rectangle {
         target: root.context
         function onUnlockInProgressChanged() {
             if (!root.context.unlockInProgress)
-                passwordInput.forceActiveFocus()
+                passwordInput.forceActiveFocus();
         }
     }
 }

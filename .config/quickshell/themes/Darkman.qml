@@ -20,20 +20,22 @@ Item {
         stdout: SplitParser {
             splitMarker: "\n"
             onRead: data => {
-                const s = String(data).trim()
+                const s = String(data).trim();
                 if (s === "dark" || s === "light")
-                    root._dark = s === "dark"
+                    root._dark = s === "dark";
             }
         }
-        onExited: { restartTimer.restart() }
+        onExited: {
+            restartTimer.restart();
+        }
     }
 
     Timer {
         id: restartTimer
         interval: 10000
         onTriggered: {
-            watcher.running = false
-            watcher.running = true
+            watcher.running = false;
+            watcher.running = true;
         }
     }
 }

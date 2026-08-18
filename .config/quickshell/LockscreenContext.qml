@@ -8,7 +8,7 @@ import Quickshell.Services.Pam
 Scope {
     id: root
 
-    signal unlocked()
+    signal unlocked
 
     // Current user being authenticated. pam defaults to the logged-in user,
     // which is what the surface displays.
@@ -22,10 +22,10 @@ Scope {
     onCurrentTextChanged: showFailure = false
 
     function tryUnlock() {
-        if (root.currentText === "") return
-
-        root.unlockInProgress = true
-        pam.start()
+        if (root.currentText === "")
+            return;
+        root.unlockInProgress = true;
+        pam.start();
     }
 
     PamContext {
@@ -40,7 +40,7 @@ Scope {
         // pam_unix asks for a response for the password prompt.
         onPamMessage: {
             if (this.responseRequired) {
-                this.respond(root.currentText)
+                this.respond(root.currentText);
             }
         }
 
@@ -48,13 +48,13 @@ Scope {
         // completion status.
         onCompleted: result => {
             if (result == PamResult.Success) {
-                root.unlocked()
+                root.unlocked();
             } else {
-                root.currentText = ""
-                root.showFailure = true
+                root.currentText = "";
+                root.showFailure = true;
             }
 
-            root.unlockInProgress = false
+            root.unlockInProgress = false;
         }
     }
 }

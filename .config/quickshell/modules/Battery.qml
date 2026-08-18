@@ -26,11 +26,15 @@ Item {
 
     // Red when critically low, yellow when getting low, normal otherwise.
     readonly property color batteryColor: {
-        if (!present) return textColor
-        if (charging && pct > 85) return highColor
-        if (pct < 10) return lowBatteryColor
-        if (pct < 25) return warningColor
-        return textColor
+        if (!present)
+            return textColor;
+        if (charging && pct > 85)
+            return highColor;
+        if (pct < 10)
+            return lowBatteryColor;
+        if (pct < 25)
+            return warningColor;
+        return textColor;
     }
 
     readonly property string iconFile: {

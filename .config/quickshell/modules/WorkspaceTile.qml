@@ -19,11 +19,7 @@ Item {
     readonly property bool _focused: root._hasMeta && root.meta.isFocused
     readonly property int _count: root._hasMeta ? root.meta.count : 0
 
-    readonly property color curColor: root._hasMeta
-        ? (root.meta.isUrgent
-            ? Theme.palette.workspaceUrgent
-            : Theme.palette.workspaceColors[(root.meta.index - 1) % Theme.palette.workspaceColors.length])
-        : Theme.palette.workspaceColors[0]
+    readonly property color curColor: root._hasMeta ? (root.meta.isUrgent ? Theme.palette.workspaceUrgent : Theme.palette.workspaceColors[(root.meta.index - 1) % Theme.palette.workspaceColors.length]) : Theme.palette.workspaceColors[0]
 
     // Grid metrics for the window squircles: a single centered row. Squircles
     // stay fixed size; the tile widens to fit, never shrinking them.
@@ -46,20 +42,10 @@ Item {
     Rectangle {
         anchors.fill: parent
         radius: root.radius
-        color: root._count === 0
-            ? "transparent"
-            : (root._focused
-                ? Qt.rgba(1, 1, 1, 0.06)
-                : (root._hasMeta && root.meta.isActive ? Qt.rgba(1, 1, 1, 0.03) : "transparent"))
+        color: root._count === 0 ? "transparent" : (root._focused ? Qt.rgba(1, 1, 1, 0.06) : (root._hasMeta && root.meta.isActive ? Qt.rgba(1, 1, 1, 0.03) : "transparent"))
         border.width: 1
-        border.color: root._count === 0
-            ? "transparent"
-            : (root._focused
-                ? Theme.palette.text
-                : (root._hasMeta && root.meta.isActive ? root.curColor : "transparent"))
-        opacity: root._count === 0
-            ? 1
-            : (root._focused ? 1 : (root._hasMeta && root.meta.isActive ? 0.7 : 1))
+        border.color: root._count === 0 ? "transparent" : (root._focused ? Theme.palette.text : (root._hasMeta && root.meta.isActive ? root.curColor : "transparent"))
+        opacity: root._count === 0 ? 1 : (root._focused ? 1 : (root._hasMeta && root.meta.isActive ? 0.7 : 1))
     }
 
     // Focused squircle gets a dotted outline (only when it has windows).
@@ -70,26 +56,26 @@ Item {
         onWidthChanged: requestPaint()
         onHeightChanged: requestPaint()
         onPaint: {
-            const ctx = getContext("2d")
-            ctx.reset()
-            const w = width, h = height
-            const r = root.radius - 0.5
-            ctx.lineWidth = 1.2
-            ctx.strokeStyle = Theme.palette.accent
-            ctx.setLineDash([1, 2])
-            ctx.lineCap = "round"
-            ctx.beginPath()
-            ctx.moveTo(r, 0)
-            ctx.lineTo(w - r, 0)
-            ctx.arcTo(w, 0, w, r, r)
-            ctx.lineTo(w, h - r)
-            ctx.arcTo(w, h, w - r, h, r)
-            ctx.lineTo(r, h)
-            ctx.arcTo(0, h, 0, h - r, r)
-            ctx.lineTo(0, r)
-            ctx.arcTo(0, 0, r, 0, r)
-            ctx.closePath()
-            ctx.stroke()
+            const ctx = getContext("2d");
+            ctx.reset();
+            const w = width, h = height;
+            const r = root.radius - 0.5;
+            ctx.lineWidth = 1.2;
+            ctx.strokeStyle = Theme.palette.accent;
+            ctx.setLineDash([1, 2]);
+            ctx.lineCap = "round";
+            ctx.beginPath();
+            ctx.moveTo(r, 0);
+            ctx.lineTo(w - r, 0);
+            ctx.arcTo(w, 0, w, r, r);
+            ctx.lineTo(w, h - r);
+            ctx.arcTo(w, h, w - r, h, r);
+            ctx.lineTo(r, h);
+            ctx.arcTo(0, h, 0, h - r, r);
+            ctx.lineTo(0, r);
+            ctx.arcTo(0, 0, r, 0, r);
+            ctx.closePath();
+            ctx.stroke();
         }
     }
 
@@ -124,16 +110,18 @@ Item {
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
         onClicked: {
-            if (root._hasMeta) niri.focusWorkspaceById(root.meta.id)
+            if (root._hasMeta)
+                niri.focusWorkspaceById(root.meta.id);
         }
         onEntered: {
-            if (!root._hasMeta) return
-            root.hoveredId = root.meta.id
-            root.hoveredLabel = (root.meta.name ? root.meta.name : "Workspace " + root.meta.index)
-                + " · " + root.meta.count + (root.meta.count === 1 ? " window" : " windows")
+            if (!root._hasMeta)
+                return;
+            root.hoveredId = root.meta.id;
+            root.hoveredLabel = (root.meta.name ? root.meta.name : "Workspace " + root.meta.index) + " · " + root.meta.count + (root.meta.count === 1 ? " window" : " windows");
         }
         onExited: {
-            if (root.hoveredId === root.meta.id) root.hoveredId = -1
+            if (root.hoveredId === root.meta.id)
+                root.hoveredId = -1;
         }
     }
 

@@ -162,8 +162,7 @@ Item {
 
             // A column whose tiles all sit at ~full region height is tabbed:
             // the tiles overlap, so only the visible (focused) tab is drawn.
-            const tabbed = items.length > 1 &&
-                items.every(r => r._h >= root.regionH * 0.8);
+            const tabbed = items.length > 1 && items.every(r => r._h >= root.regionH * 0.8);
             if (tabbed) {
                 const r = items.find(x => x._f) || items[0];
                 out.push({

@@ -21,37 +21,56 @@ Item {
 
     Connections {
         target: niri
-        function onConnected() { root._bump() }
-        function onFocusedWindowChanged() { root._bump() }
+        function onConnected() {
+            root._bump();
+        }
+        function onFocusedWindowChanged() {
+            root._bump();
+        }
     }
     Connections {
         target: niri.windows
-        function onCountChanged() { root._bump() }
+        function onCountChanged() {
+            root._bump();
+        }
     }
     Connections {
         target: niri.workspaces
-        function onCountChanged() { root._bump() }
+        function onCountChanged() {
+            root._bump();
+        }
     }
 
-    function _set(id, d) { root._rows[id] = d; root._bump() }
-    function _del(id) { delete root._rows[id]; root._bump() }
-    function _bump() { root._pick() }
+    function _set(id, d) {
+        root._rows[id] = d;
+        root._bump();
+    }
+    function _del(id) {
+        delete root._rows[id];
+        root._bump();
+    }
+    function _bump() {
+        root._pick();
+    }
 
     function _wsOutput(wsId) {
-        const idx = niri.workspaces.indexOfId(wsId)
-        if (idx === -1) return ""
-        return niri.workspaces.get(idx).output
+        const idx = niri.workspaces.indexOfId(wsId);
+        if (idx === -1)
+            return "";
+        return niri.workspaces.get(idx).output;
     }
 
     function _pick() {
         for (const k in root._rows) {
-            const r = root._rows[k]
-            if (!r._f) continue
-            if (root.screenName !== "" && root._wsOutput(r._ws) !== root.screenName) continue
-            root.fw = r
-            return
+            const r = root._rows[k];
+            if (!r._f)
+                continue;
+            if (root.screenName !== "" && root._wsOutput(r._ws) !== root.screenName)
+                continue;
+            root.fw = r;
+            return;
         }
-        root.fw = null
+        root.fw = null;
     }
 
     Repeater {

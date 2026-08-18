@@ -10,8 +10,8 @@ ShellRoot {
         model: Quickshell.screens
 
         PanelWindow {
-            required property var modelData
             id: barWindow
+            required property var modelData
             screen: modelData
             implicitHeight: 50
             anchors {
@@ -21,90 +21,90 @@ ShellRoot {
             }
             color: Theme.palette.barBg
 
-        Item {
-            id: bar
-            anchors.fill: parent
+            Item {
+                id: bar
+                anchors.fill: parent
 
-            Rectangle {
-                anchors {
-                    bottom: parent.bottom
-                    left: parent.left
-                    right: parent.right
+                Rectangle {
+                    anchors {
+                        bottom: parent.bottom
+                        left: parent.left
+                        right: parent.right
+                    }
+                    height: 1
+                    color: Theme.palette.barBorder
                 }
-                height: 1
-                color: Theme.palette.barBorder
-            }
 
-            Media {
-                id: mediaCard
-                anchors {
-                    left: parent.left
-                    verticalCenter: parent.verticalCenter
-                    leftMargin: 4
+                Media {
+                    id: mediaCard
+                    anchors {
+                        left: parent.left
+                        verticalCenter: parent.verticalCenter
+                        leftMargin: 4
+                    }
                 }
-            }
 
-            Titles {
-                id: titlesCard
-                anchors {
-                    left: mediaCard.right
-                    verticalCenter: parent.verticalCenter
-                    leftMargin: 12
+                Titles {
+                    id: titlesCard
+                    anchors {
+                        left: mediaCard.right
+                        verticalCenter: parent.verticalCenter
+                        leftMargin: 12
+                    }
+                    maxWidth: 250
+                    screenName: modelData.name
                 }
-                maxWidth: 250
-                screenName: modelData.name
-            }
 
-            WorkspaceSwitcher {
-                id: switcherCard
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    verticalCenter: parent.verticalCenter
+                WorkspaceSwitcher {
+                    id: switcherCard
+                    anchors {
+                        horizontalCenter: parent.horizontalCenter
+                        verticalCenter: parent.verticalCenter
+                    }
+                    screenName: modelData.name
+                    screenH: modelData.height - barWindow.height
                 }
-                screenName: modelData.name
-                screenH: modelData.height - barWindow.height
-            }
 
-            Battery {
-                id: batteryCard
-                anchors {
-                    right: volumeCard.left
-                    verticalCenter: parent.verticalCenter
-                    rightMargin: 22
+                Battery {
+                    id: batteryCard
+                    anchors {
+                        right: volumeCard.left
+                        verticalCenter: parent.verticalCenter
+                        rightMargin: 22
+                    }
                 }
-            }
 
-            Volume {
-                id: volumeCard
-                anchors {
-                    right: clockCard.left
-                    verticalCenter: parent.verticalCenter
-                    rightMargin: 32
+                Volume {
+                    id: volumeCard
+                    anchors {
+                        right: clockCard.left
+                        verticalCenter: parent.verticalCenter
+                        rightMargin: 32
+                    }
                 }
-            }
 
-            Rectangle {
-                width: 1
-                height: 26
-                color: Theme.palette.minimapWindow
-                anchors {
-                    right: clockCard.left
-                    verticalCenter: parent.verticalCenter
-                    rightMargin: 14
+                Rectangle {
+                    width: 1
+                    height: 26
+                    color: Theme.palette.minimapWindow
+                    anchors {
+                        right: clockCard.left
+                        verticalCenter: parent.verticalCenter
+                        rightMargin: 14
+                    }
                 }
-            }
 
-            VolumeOsd {}
+                VolumeOsd {}
 
-            Clock {
-                id: clockCard
-                anchors {
-                    right: parent.right
-                    verticalCenter: parent.verticalCenter
-                    rightMargin: 16
+                Clock {
+                    id: clockCard
+                    anchors {
+                        right: parent.right
+                        verticalCenter: parent.verticalCenter
+                        rightMargin: 16
+                    }
                 }
             }
         }
-    }
     }
 }

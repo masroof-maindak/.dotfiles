@@ -10,9 +10,9 @@ ShellRoot {
         onUnlocked: {
             // Unlock the screen before exiting, or the compositor will display
             // a fallback lock you can't interact with.
-            lock.locked = false
+            lock.locked = false;
 
-            Qt.quit()
+            Qt.quit();
         }
     }
 

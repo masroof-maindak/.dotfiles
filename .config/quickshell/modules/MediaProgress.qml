@@ -24,11 +24,12 @@ Rectangle {
     MouseArea {
         anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
-        onClicked: (mouse) => {
-            if (!root.player || root.length <= 0) return
-            const fraction = mouse.x / width
-            const target = fraction * root.length
-            root.player.seek(target - root.position)
+        onClicked: mouse => {
+            if (!root.player || root.length <= 0)
+                return;
+            const fraction = mouse.x / width;
+            const target = fraction * root.length;
+            root.player.seek(target - root.position);
         }
     }
 }

@@ -34,16 +34,24 @@ Item {
 
     Connections {
         target: niri
-        function onConnected() { root._refresh() }
-        function onFocusedWindowChanged() { root._refresh() }
+        function onConnected() {
+            root._refresh();
+        }
+        function onFocusedWindowChanged() {
+            root._refresh();
+        }
     }
     Connections {
         target: niri.windows
-        function onCountChanged() { root._refresh() }
+        function onCountChanged() {
+            root._refresh();
+        }
     }
     Connections {
         target: niri.workspaces
-        function onCountChanged() { root._refresh() }
+        function onCountChanged() {
+            root._refresh();
+        }
     }
 
     // Track which workspace each window lives on (no plugin changes needed).
@@ -59,66 +67,79 @@ Item {
     }
 
     function _set(id, ws) {
-        root._rows[id] = ws
-        root._refresh()
+        root._rows[id] = ws;
+        root._refresh();
     }
     function _del(id) {
-        delete root._rows[id]
-        root._refresh()
+        delete root._rows[id];
+        root._refresh();
     }
 
     function currentIndex() {
-        const n = niri.workspaces.count
+        const n = niri.workspaces.count;
         for (let i = 0; i < n; i++) {
-            const ws = niri.workspaces.get(i)
-            if (root.screenName !== "" && ws.output !== root.screenName) continue
-            if (ws.isFocused) return ws.index
+            const ws = niri.workspaces.get(i);
+            if (root.screenName !== "" && ws.output !== root.screenName)
+                continue;
+            if (ws.isFocused)
+                return ws.index;
         }
-        return 1
+        return 1;
     }
 
     function _refresh() {
         // Rebuild the workspace -> window count map.
-        const counts = {}
+        const counts = {};
         for (const id in root._rows) {
-            const w = root._rows[id]
-            counts[w] = (counts[w] || 0) + 1
+            const w = root._rows[id];
+            counts[w] = (counts[w] || 0) + 1;
         }
 
-        const cur = root.currentIndex()
-        const n = niri.workspaces.count
+        const cur = root.currentIndex();
+        const n = niri.workspaces.count;
 
         const mk = (ws, c) => ({
-            id: ws.id, index: ws.index, name: ws.name, count: c,
-            isActive: ws.isActive, isFocused: ws.isFocused, isUrgent: ws.isUrgent
-        })
+                    id: ws.id,
+                    index: ws.index,
+                    name: ws.name,
+                    count: c,
+                    isActive: ws.isActive,
+                    isFocused: ws.isFocused,
+                    isUrgent: ws.isUrgent
+                });
 
-        const left = []
-        const right = []
-        let curWs = null
+        const left = [];
+        const right = [];
+        let curWs = null;
         for (let i = 0; i < n; i++) {
-            const ws = niri.workspaces.get(i)
-            if (root.screenName !== "" && ws.output !== root.screenName) continue
-            const c = counts[ws.id] || 0
+            const ws = niri.workspaces.get(i);
+            if (root.screenName !== "" && ws.output !== root.screenName)
+                continue;
+            const c = counts[ws.id] || 0;
 
-            if (ws.index === cur) { curWs = ws; continue }
+            if (ws.index === cur) {
+                curWs = ws;
+                continue;
+            }
 
-            const isOpen = ws.isActive || c > 0
-            if (!isOpen) continue
-
-            const item = mk(ws, c)
-            if (ws.index < cur) left.push(item)
-            else right.push(item)
+            const isOpen = ws.isActive || c > 0;
+            if (!isOpen)
+                continue;
+            const item = mk(ws, c);
+            if (ws.index < cur)
+                left.push(item);
+            else
+                right.push(item);
         }
 
-        left.sort((a, b) => a.index - b.index)
-        right.sort((a, b) => a.index - b.index)
+        left.sort((a, b) => a.index - b.index);
+        right.sort((a, b) => a.index - b.index);
 
-        root.leftTiles = left
-        root.rightTiles = right
+        root.leftTiles = left;
+        root.rightTiles = right;
 
-        root.curEmpty = !!curWs && (counts[curWs.id] || 0) === 0
-        root.curMeta = root.curEmpty ? mk(curWs, 0) : null
+        root.curEmpty = !!curWs && (counts[curWs.id] || 0) === 0;
+        root.curMeta = root.curEmpty ? mk(curWs, 0) : null;
     }
 
     Row {

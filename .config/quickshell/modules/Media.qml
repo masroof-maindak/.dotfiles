@@ -27,28 +27,32 @@ Item {
 
     Connections {
         target: Mpris.players
-        function onValuesChanged() { root._reselect() }
+        function onValuesChanged() {
+            root._reselect();
+        }
     }
 
     Connections {
         target: root.player
-        function onIsPlayingChanged() { root._reselect() }
+        function onIsPlayingChanged() {
+            root._reselect();
+        }
     }
 
     Component.onCompleted: root._reselect()
 
     function _reselect() {
-        let playing = null
-        let last = null
+        let playing = null;
+        let last = null;
         for (const p of Mpris.players.values) {
-            last = p
-            if (p.isPlaying) playing = p
+            last = p;
+            if (p.isPlaying)
+                playing = p;
         }
-        root.player = playing ?? last
+        root.player = playing ?? last;
     }
 
-    readonly property bool hasTrack: !!player
-        && (player.isPlaying || player.length > 0)
+    readonly property bool hasTrack: !!player && (player.isPlaying || player.length > 0)
 
     readonly property string title: player?.trackTitle ?? ""
     readonly property string artist: player?.trackArtist ?? ""
@@ -67,15 +71,16 @@ Item {
     // MPRIS doesn't push position continuously, so we emit the change
     // ourselves to keep the progress sliders moving (only while playing).
     Timer {
-        interval: 200
+        interval: 500
         repeat: true
         running: root.player?.isPlaying ?? false
         onTriggered: root.player?.positionChanged()
     }
 
     function recalcPopupHeight() {
-        if (typeof cardCol === "undefined" || cardCol === null) return
-        root.popupHeight = cardCol.implicitHeight + 34
+        if (typeof cardCol === "undefined" || cardCol === null)
+            return;
+        root.popupHeight = cardCol.implicitHeight + 34;
     }
 
     Row {
@@ -98,7 +103,8 @@ Item {
                 anchors.centerIn: parent
                 source: root.artUrl
                 fillMode: Image.PreserveAspectCrop
-                onStatusChanged: if (status === Image.Error) fallback.visible = true
+                onStatusChanged: if (status === Image.Error)
+                    fallback.visible = true
                 smooth: true
             }
 
@@ -126,15 +132,17 @@ Item {
                 cursorShape: Qt.PointingHandCursor
 
                 onEntered: {
-                    hideTimer.stop()
-                    if (root.hasTrack) popup.visible = true
+                    hideTimer.stop();
+                    if (root.hasTrack)
+                        popup.visible = true;
                 }
                 onExited: hideTimer.start()
-                onClicked: (mouse) => {
-                    if (mouse.button === Qt.LeftButton) root.player?.togglePlaying()
+                onClicked: mouse => {
+                    if (mouse.button === Qt.LeftButton)
+                        root.player?.togglePlaying();
                     else if (mouse.button === Qt.MiddleButton) {
-                        popup.visible = !popup.visible
-                        hideTimer.stop()
+                        popup.visible = !popup.visible;
+                        hideTimer.stop();
                     }
                 }
             }
@@ -183,7 +191,7 @@ Item {
                 onExited: hideTimer.start()
             }
 
-Column {
+            Column {
                 id: cardCol
                 anchors.fill: parent
                 anchors.margins: 14
@@ -264,9 +272,18 @@ Column {
 
                     Repeater {
                         model: [
-                            { icon: "Play-back", action: "prev" },
-                            { icon: "", action: "toggle" },
-                            { icon: "Play-forward", action: "next" },
+                            {
+                                icon: "Play-back",
+                                action: "prev"
+                            },
+                            {
+                                icon: "",
+                                action: "toggle"
+                            },
+                            {
+                                icon: "Play-forward",
+                                action: "next"
+                            },
                         ]
 
                         delegate: Item {
@@ -275,9 +292,7 @@ Column {
                             width: 30
                             height: 30
 
-                            readonly property string resolvedIcon: modelData.icon === ""
-                                ? (root.playing ? "Pause" : "Play")
-                                : modelData.icon
+                            readonly property string resolvedIcon: modelData.icon === "" ? (root.playing ? "Pause" : "Play") : modelData.icon
 
                             MultiEffect {
                                 anchors.centerIn: parent
@@ -298,9 +313,12 @@ Column {
                                 anchors.fill: parent
                                 cursorShape: Qt.PointingHandCursor
                                 onClicked: {
-                                    if (modelData.action === "prev") root.player?.previous()
-                                    else if (modelData.action === "next") root.player?.next()
-                                    else root.player?.togglePlaying()
+                                    if (modelData.action === "prev")
+                                        root.player?.previous();
+                                    else if (modelData.action === "next")
+                                        root.player?.next();
+                                    else
+                                        root.player?.togglePlaying();
                                 }
                             }
                         }
