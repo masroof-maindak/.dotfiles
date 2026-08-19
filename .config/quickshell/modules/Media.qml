@@ -193,6 +193,8 @@ Item {
 
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width
+                    horizontalAlignment: Text.AlignHCenter
                     text: np.artist || "Unknown Artist"
                     font.family: Theme.palette.fontFamily
                     font.pixelSize: 13
