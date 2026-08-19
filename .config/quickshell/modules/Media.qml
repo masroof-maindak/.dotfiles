@@ -54,14 +54,13 @@ Item {
             clip: true
 
             Image {
+                id: artImage
                 // zoomed in ~43% so ~15% is cropped off each side
                 width: art.width * 1.428
                 height: art.height * 1.428
                 anchors.centerIn: parent
                 source: np.artUrl
                 fillMode: Image.PreserveAspectCrop
-                onStatusChanged: if (status === Image.Error)
-                    fallback.visible = true
                 smooth: true
             }
 
@@ -72,7 +71,7 @@ Item {
                 height: 20
                 icon: Qt.resolvedUrl("../assets/Musical-notes.svg")
                 color: root.dimTextColor
-                visible: np.artUrl === ""
+                visible: np.artUrl === "" || artImage.status === Image.Error
             }
 
             MouseArea {
