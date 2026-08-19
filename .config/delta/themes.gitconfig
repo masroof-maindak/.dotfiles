@@ -1,6 +1,6 @@
 [delta "swamp-dark"]
     dark = true
-    syntax-theme = base16
+    syntax-theme = swamp-dark
 
     # Core diff colors (bg tints = accent alpha-blended ~18%/30% into the theme background)
     minus-style = red "#3C2522"
@@ -43,7 +43,7 @@
 
 [delta "swamp-light"]
     light = true
-    syntax-theme = base16
+    syntax-theme = swamp-light
 
     # Core diff colors
     minus-style = red "#E4C4B5"

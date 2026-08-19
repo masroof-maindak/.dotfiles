@@ -1,4 +1,5 @@
---theme="swamp-light"
+--theme-dark="swamp-dark"
+--theme-light="swamp-light"
 --italic-text=always
 --style="header-filesize,header-filename,header,grid"
 

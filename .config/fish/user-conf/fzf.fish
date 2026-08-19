@@ -6,7 +6,7 @@ fzf --fish | source
 # Preview file w/ bat
 set -x FZF_CTRL_T_OPTS "
     --walker-skip .git,node_modules,target,.venv
-    --preview 'bat -P -p --color=always {} --line-range=:250'
+    --preview 'bat --theme=swamp-\$(darkman get) -P -p --color=always {} --line-range=:250'
     --bind 'ctrl-/:change-preview-window(down|hidden)'
     --height=100%
 "
