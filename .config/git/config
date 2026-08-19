@@ -55,10 +55,10 @@
     diffFilter = delta --color-only
 [include]
 	path = ~/.config/delta/themes.gitconfig
+	path = ~/.config/delta/active.gitconfig
 [delta]
     true-color = always
 	navigate = true
-	features = swamp-light
 	hyperlinks = true
 	hyperlinks-file-link-format = "vscode://file/{path}:{line}"
 	tabs = 4

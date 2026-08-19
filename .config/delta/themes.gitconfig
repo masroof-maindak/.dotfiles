@@ -1,12 +1,55 @@
+[delta "swamp-dark"]
+    dark = true
+    syntax-theme = base16
+
+    # Core diff colors (bg tints = accent alpha-blended ~18%/30% into the theme background)
+    minus-style = red "#3C2522"
+    minus-emph-style = red bold "#4C282A"
+    plus-style = green "#322D19"
+    plus-emph-style = green bold "#3A361C"
+
+    # Line gutter
+    line-numbers = true
+    line-numbers-left-format = "{nm:>1} "
+    line-numbers-right-format = "{np:>1} "
+    line-numbers-left-style = brightblack
+    line-numbers-right-style = brightblack
+    line-numbers-minus-style = red
+    line-numbers-plus-style = green
+    line-numbers-zero-style = brightblack
+
+    # File header
+    file-style = brightwhite bold black
+    file-decoration-style = yellow box
+
+    # Hunk header
+    hunk-header-style = line-number bold cyan
+    hunk-header-line-number-style = bold cyan
+    hunk-header-decoration-style = box cyan
+
+    # Commit
+    commit-style = brightwhite bold black
+    commit-decoration-style = yellow box ul
+
+    # Other
+    whitespace-error-style = red reverse
+
+    # Labels
+    file-added-label = [+]
+    file-copied-label = [C]
+    file-modified-label = [~]
+    file-removed-label = [-]
+    file-renamed-label = [R]
+
 [delta "swamp-light"]
     light = true
     syntax-theme = base16
 
     # Core diff colors
-    minus-style = red
-    minus-emph-style = red
-    plus-style = green
-    plus-emph-style = green
+    minus-style = red "#E4C4B5"
+    minus-emph-style = red bold "#DBB0A3"
+    plus-style = green "#DFD3BA"
+    plus-emph-style = green bold "#D3C8AB"
 
     # Line gutter
     line-numbers = true

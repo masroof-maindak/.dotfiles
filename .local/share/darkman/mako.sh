@@ -2,11 +2,11 @@
 
 pgrep mako || exit 1
 
-config="$HOME/.config/mako/config"
+active="$HOME/.config/mako/active"
 
 case "$1" in
-dark)   sed -i 's|^include=.*|include=~/.config/mako/swamp-dark|' "$config" ;;
-light)  sed -i 's|^include=.*|include=~/.config/mako/swamp-light|' "$config" ;;
+dark) printf 'include=~/.config/mako/swamp-dark\n' >"$active" ;;
+light) printf 'include=~/.config/mako/swamp-light\n' >"$active" ;;
 default) exit 1 ;;
 esac
 

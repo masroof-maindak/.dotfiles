@@ -1,9 +1,9 @@
 #!/bin/sh
 
-config="$HOME/.config/fuzzel/fuzzel.ini"
+active="$HOME/.config/fuzzel/active.ini"
 
 case "$1" in
-dark)   sed -i 's|^include=.*|include=~/.config/fuzzel/swamp-dark.ini|' "$config" ;;
-light)  sed -i 's|^include=.*|include=~/.config/fuzzel/swamp-light.ini|' "$config" ;;
+dark) printf 'include=~/.config/fuzzel/swamp-dark.ini\n' >"$active" ;;
+light) printf 'include=~/.config/fuzzel/swamp-light.ini\n' >"$active" ;;
 default) exit 1 ;;
 esac

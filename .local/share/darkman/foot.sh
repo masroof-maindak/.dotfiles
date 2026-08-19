@@ -1,18 +1,17 @@
 #!/bin/sh
 
-config="$HOME/.config/foot/foot.ini"
+active="$HOME/.config/foot/active.ini"
 
 case "$1" in
 dark)
+    printf 'initial-color-theme=dark\n' >"$active"
     NUM=1
-    THEME=dark
     ;;
 light)
+    printf 'initial-color-theme=light\n' >"$active"
     NUM=2
-    THEME=light
     ;;
 default) exit 1 ;;
 esac
 
-sed -i "s|^initial-color-theme=.*|initial-color-theme=$THEME|" "$config"
 killall -SIGUSR$NUM foot
