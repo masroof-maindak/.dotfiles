@@ -62,7 +62,7 @@ Item {
         anchors.fill: parent
         onClicked: root.toggleMute()
         onWheel: wheel => {
-            const delta = wheel.angleDelta.y > 0 ? 0.05 : -0.05;
+            const delta = wheel.angleDelta.y > 0 ? 0.01 : -0.01;
             root.setVolume(root.vol + delta);
         }
     }

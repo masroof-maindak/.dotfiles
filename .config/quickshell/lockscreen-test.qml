@@ -10,8 +10,8 @@ ShellRoot {
     }
 
     FloatingWindow {
-        width: 1000
-        height: 700
+        implicitWidth: 1000
+        implicitHeight: 700
         color: "transparent"
 
         LockscreenSurface {

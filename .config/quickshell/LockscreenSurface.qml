@@ -19,6 +19,24 @@ Rectangle {
         smooth: true
     }
 
+    Volume {
+        id: lockVolume
+        anchors {
+            right: parent.right
+            top: parent.top
+            margins: 16
+        }
+        iconSize: 21
+    }
+
+    Battery {
+        anchors {
+            right: lockVolume.left
+            verticalCenter: lockVolume.verticalCenter
+            rightMargin: 18
+        }
+    }
+
     readonly property color textColor: Theme.palette.text
     readonly property color secondaryColor: Theme.palette.textSecondary
     readonly property color dimColor: Theme.palette.textDim
