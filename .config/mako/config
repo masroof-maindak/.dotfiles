@@ -4,12 +4,13 @@ include=~/.config/mako/active
 max-icon-size=64
 
 padding=8
-margin=5
-outer-margin=10
+# top, right, bottom, left
+margin=10,0,0,0
+outer-margin=0,10,10,0
+anchor=bottom-right
 
 width=350
 height=150
-anchor=bottom-right
 
 border-size=1
 text-alignment=left
