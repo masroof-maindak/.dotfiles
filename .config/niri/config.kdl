@@ -314,8 +314,8 @@ binds {
 
     Mod+Page_Down repeat=false { move-workspace-down; }
     Mod+Page_Up   repeat=false { move-workspace-up; }
-    Mod+U         repeat=false { move-workspace-down; }
-    Mod+I         repeat=false { move-workspace-up; }
+    Mod+I         repeat=false { move-workspace-down; }
+    Mod+U         repeat=false { move-workspace-up; }
 
     // Workspace movement
     Mod+1 { focus-workspace 1; }
