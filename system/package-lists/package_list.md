@@ -53,6 +53,12 @@ gnome-keyring
 
 # Networking
 
+## Bluetooth
+
+bluetui
+bluez
+bluez-utils
+
 ## Core
 
 bind
