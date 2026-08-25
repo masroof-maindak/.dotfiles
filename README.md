@@ -1,6 +1,6 @@
 # Dotfiles
 
-![rice](.github/assets/rice.png) ![nvim](.github/assets/nvim.png)
+![light](.github/assets/light.jpg) ![dark](.github/assets/dark.jpg)
 
 GNU Stow-consecrated talismans for an Arch-Wayland sanctum running Niri, a
 plethora of TUI-focused arcana comprising (non-exhaustively) `tmux`, `fish`,
