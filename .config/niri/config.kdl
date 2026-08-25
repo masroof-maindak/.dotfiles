@@ -73,8 +73,6 @@ layout {
         length total-proportion=0.3
         position "bottom"
         gaps-between-tabs 6
-		active-color "#db930d"
-		inactive-color "#d2c3a4"
     }
 
 	shadow {
@@ -101,6 +99,8 @@ layout {
 		off
     }
 }
+
+include "active.kdl"
 
 // Background & Overview
 layer-rule {

@@ -1,0 +1,6 @@
+layout {
+    tab-indicator {
+        active-color "#d09700"
+        inactive-color "#B5A492"
+    }
+}
