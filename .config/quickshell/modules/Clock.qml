@@ -45,7 +45,7 @@ Item {
     MouseArea {
         anchors.fill: parent
         hoverEnabled: true
-        onEntered: popup.visible = true
+        onEntered: PopupManager.open(popup)
         onExited: hideTimer.start()
     }
 
@@ -85,6 +85,6 @@ Item {
     Timer {
         id: hideTimer
         interval: 150
-        onTriggered: popup.visible = false
+        onTriggered: PopupManager.close(popup)
     }
 }

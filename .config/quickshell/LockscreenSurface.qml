@@ -19,6 +19,23 @@ Rectangle {
         smooth: true
     }
 
+    // Hover catchers for the indicator popups. Declared before the
+    // indicators so their own click handling stays on top; those don't
+    // enable hover, so these still receive it.
+    MouseArea {
+        anchors.fill: lockVolume
+        hoverEnabled: true
+        onEntered: PopupManager.open(volCard)
+        onExited: volHide.start()
+    }
+
+    MouseArea {
+        anchors.fill: lockBattery
+        hoverEnabled: true
+        onEntered: PopupManager.open(batCard)
+        onExited: batHide.start()
+    }
+
     Volume {
         id: lockVolume
         anchors {
@@ -27,14 +44,87 @@ Rectangle {
             margins: 16
         }
         iconSize: 21
+        popupEnabled: false
     }
 
     Battery {
+        id: lockBattery
         anchors {
             right: lockVolume.left
             verticalCenter: lockVolume.verticalCenter
             rightMargin: 18
         }
+        popupEnabled: false
+    }
+
+    // The cards render directly inside the lock surface: a session-lock
+    // surface cannot host child popup windows.
+    Rectangle {
+        id: volCard
+
+        visible: false
+        z: 1
+        x: Math.max(8, Math.min(parent.width - width - 8, lockVolume.x + lockVolume.width / 2 - width / 2))
+        y: lockVolume.y + lockVolume.height + 8
+        width: 300
+        height: mixerContent.implicitHeight + 40
+        radius: 4
+        color: Theme.palette.barBg
+        border.color: Theme.palette.barBorder
+        border.width: 1
+
+        MouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+            onEntered: volHide.stop()
+            onExited: volHide.start()
+        }
+
+        MixerContent {
+            id: mixerContent
+            anchors.centerIn: parent
+            width: 260
+        }
+    }
+
+    Rectangle {
+        id: batCard
+
+        visible: false
+        z: 1
+        x: Math.max(8, Math.min(parent.width - width - 8, lockBattery.x + lockBattery.width / 2 - width / 2))
+        y: lockVolume.y + lockVolume.height + 8
+        width: 280
+        height: batteryContent.implicitHeight + 40
+        radius: 4
+        color: Theme.palette.barBg
+        border.color: Theme.palette.barBorder
+        border.width: 1
+
+        MouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+            onEntered: batHide.stop()
+            onExited: batHide.start()
+        }
+
+        BatteryContent {
+            id: batteryContent
+            anchors.centerIn: parent
+            width: 240
+        }
+    }
+
+    Timer {
+        id: volHide
+        interval: 150
+        onTriggered: PopupManager.close(volCard)
+    }
+
+    Timer {
+        id: batHide
+        interval: 150
+        onTriggered: PopupManager.close(batCard)
     }
 
     readonly property color textColor: Theme.palette.text

@@ -83,14 +83,17 @@ Item {
                 onEntered: {
                     hideTimer.stop();
                     if (np.hasTrack)
-                        popup.visible = true;
+                        PopupManager.open(popup);
                 }
                 onExited: hideTimer.start()
                 onClicked: mouse => {
                     if (mouse.button === Qt.LeftButton)
                         np.player?.togglePlaying();
                     else if (mouse.button === Qt.MiddleButton) {
-                        popup.visible = !popup.visible;
+                        if (popup.visible)
+                            PopupManager.close(popup);
+                        else
+                            PopupManager.open(popup);
                         hideTimer.stop();
                     }
                 }
@@ -270,6 +273,6 @@ Item {
     Timer {
         id: hideTimer
         interval: 200
-        onTriggered: popup.visible = false
+        onTriggered: PopupManager.close(popup)
     }
 }

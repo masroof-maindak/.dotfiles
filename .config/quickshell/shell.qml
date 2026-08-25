@@ -4,6 +4,8 @@ import "./modules"
 import "./themes"
 
 ShellRoot {
+    ReloadPopup {}
+
     Variants {
         model: Quickshell.screens
 

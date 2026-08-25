@@ -1,0 +1,17 @@
+singleton PopupManager 1.0 PopupManager.qml
+BatteryContent 1.0 BatteryContent.qml
+Battery 1.0 Battery.qml
+Calendar 1.0 Calendar.qml
+Clock 1.0 Clock.qml
+Icon 1.0 Icon.qml
+MediaProgress 1.0 MediaProgress.qml
+Media 1.0 Media.qml
+MixerContent 1.0 MixerContent.qml
+MixerEntry 1.0 MixerEntry.qml
+NowPlaying 1.0 NowPlaying.qml
+Titles 1.0 Titles.qml
+VolumeOsd 1.0 VolumeOsd.qml
+Volume 1.0 Volume.qml
+WorkspaceMinimap 1.0 WorkspaceMinimap.qml
+WorkspaceSwitcher 1.0 WorkspaceSwitcher.qml
+WorkspaceTile 1.0 WorkspaceTile.qml

@@ -10,6 +10,10 @@ Item {
     // Bar window the mixer popup is anchored to, so it drops below the bar.
     property var anchorWindow: null
 
+    // Off where child popup windows can't exist (e.g. the lockscreen), so
+    // hover falls through to an external handler instead.
+    property bool popupEnabled: true
+
     implicitWidth: content.implicitWidth
     implicitHeight: content.implicitHeight
 
@@ -64,9 +68,9 @@ Item {
 
     MouseArea {
         anchors.fill: parent
-        hoverEnabled: true
+        hoverEnabled: root.popupEnabled
         onClicked: root.toggleMute()
-        onEntered: mixer.visible = true
+        onEntered: PopupManager.open(mixer)
         onExited: hideTimer.start()
         onWheel: wheel => {
             const delta = wheel.angleDelta.y > 0 ? 0.01 : -0.01;
@@ -85,12 +89,7 @@ Item {
         anchor.rect.x: root.anchorWindow ? Math.max(8, Math.min(root.anchorWindow.width - width - 8, root.x + root.width / 2 - width / 2)) : 0
         anchor.rect.y: root.anchorWindow ? root.anchorWindow.height + 8 : 0
         implicitWidth: 300
-        implicitHeight: mixerCol.implicitHeight + 40
-
-        PwNodeLinkTracker {
-            id: linkTracker
-            node: root.sink
-        }
+        implicitHeight: mixerContent.implicitHeight + 40
 
         Rectangle {
             anchors.fill: parent
@@ -106,42 +105,10 @@ Item {
                 onExited: hideTimer.start()
             }
 
-            Column {
-                id: mixerCol
-                anchors.fill: parent
-                anchors.margins: 20
-                spacing: 14
-
-                MixerEntry {
-                    width: parent.width
-                    node: root.sink
-                }
-
-                Rectangle {
-                    width: parent.width
-                    height: 1
-                    color: Theme.palette.barBorder
-                }
-
-                Repeater {
-                    id: streams
-                    model: linkTracker.linkGroups
-
-                    delegate: MixerEntry {
-                        required property var modelData
-
-                        width: parent.width
-                        node: modelData.source
-                    }
-                }
-
-                Text {
-                    visible: streams.count === 0
-                    text: "No active apps"
-                    font.family: Theme.palette.fontFamily
-                    font.pixelSize: 14
-                    color: Theme.palette.textDim
-                }
+            MixerContent {
+                id: mixerContent
+                anchors.centerIn: parent
+                width: 260
             }
         }
     }
@@ -149,6 +116,6 @@ Item {
     Timer {
         id: hideTimer
         interval: 150
-        onTriggered: mixer.visible = false
+        onTriggered: PopupManager.close(mixer)
     }
 }

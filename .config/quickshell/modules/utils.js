@@ -22,3 +22,17 @@ function volumeIcon(vol, muted) {
         return "Volume-high-outline";
     return "Volume-high";
 }
+
+// Shared charge-level tiers: green when nearly full and charging, red
+// below 10%, amber below 25%.
+function batteryColor(pct, charging, high, warning, low, normal) {
+    if (pct < 0)
+        return normal;
+    if (charging && pct > 85)
+        return high;
+    if (pct < 10)
+        return low;
+    if (pct < 25)
+        return warning;
+    return normal;
+}
