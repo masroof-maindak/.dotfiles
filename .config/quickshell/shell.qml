@@ -80,6 +80,7 @@ ShellRoot {
                         verticalCenter: parent.verticalCenter
                         rightMargin: 32
                     }
+                    anchorWindow: barWindow
                 }
 
                 Rectangle {
