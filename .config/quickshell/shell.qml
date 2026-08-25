@@ -70,6 +70,7 @@ ShellRoot {
                         verticalCenter: parent.verticalCenter
                         rightMargin: 22
                     }
+                    anchorWindow: barWindow
                 }
 
                 Volume {
