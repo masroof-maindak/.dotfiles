@@ -3,10 +3,17 @@ import Quickshell
 import Quickshell.Services.SystemTray
 
 // StatusNotifier tray icons. Left click activates, right click opens the
-// app's menu (or secondary action when there is no menu). The row hugs the
-// right edge of the width supplied by the host.
+// app's menu via display() at explicit coordinates (QsMenuAnchor can't
+// anchor off an item inside a popup window). The row hugs the right edge
+// of the width supplied by the host.
 Item {
     id: root
+
+    // Host window the menus are positioned against, plus this row's offset
+    // within it.
+    property var anchorWindow: null
+    property real originX: 0
+    property real originY: 0
 
     implicitHeight: iconRow.height
 
@@ -49,27 +56,21 @@ Item {
                 onClicked: mouse => {
                     if (mouse.button === Qt.RightButton) {
                         if (entry.modelData.hasMenu)
-                            entry.menu.open();
+                            entry.openMenu();
                         else if (!entry.modelData.onlyMenu)
                             entry.modelData.secondaryActivate();
                     } else {
                         if (!entry.modelData.onlyMenu)
                             entry.modelData.activate();
                         else if (entry.modelData.hasMenu)
-                            entry.menu.open();
+                            entry.openMenu();
                     }
                 }
             }
 
-            QsMenuAnchor {
-                id: menu
-
-                menu: entry.modelData.menu
-                anchor.item: entry
-                anchor.edges: Edges.Bottom
-                anchor.gravity: Edges.Bottom
-                anchor.margins.top: 4
-                anchor.adjustment: PopupAdjustment.Flip
+            function openMenu() {
+                const pos = mapToItem(null, 0, 0);
+                modelData.display(root.anchorWindow, root.originX + pos.x + width / 2, root.originY + pos.y + height + 4);
             }
         }
     }

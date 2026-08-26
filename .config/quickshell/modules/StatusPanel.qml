@@ -155,6 +155,11 @@ Scope {
                             verticalCenter: parent.verticalCenter
                         }
                         width: parent.width - lockButton.width - 8
+                        anchorWindow: root.anchorWindow
+                        // Popup position within the bar window, so display()
+                        // coordinates resolve correctly.
+                        originX: root.panelX
+                        originY: root.panelY
                     }
                 }
             }
