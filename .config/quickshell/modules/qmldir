@@ -11,6 +11,7 @@ Clock 1.0 Clock.qml
 Icon 1.0 Icon.qml
 MediaProgress 1.0 MediaProgress.qml
 Media 1.0 Media.qml
+MicMute 1.0 MicMute.qml
 MixerContent 1.0 MixerContent.qml
 MixerEntry 1.0 MixerEntry.qml
 NetworkContent 1.0 NetworkContent.qml

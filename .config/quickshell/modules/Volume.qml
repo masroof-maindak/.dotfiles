@@ -89,7 +89,7 @@ Item {
         anchor.rect.x: root.anchorWindow ? Math.max(8, Math.min(root.anchorWindow.width - width - 8, root.x + root.width / 2 - width / 2)) : 0
         anchor.rect.y: root.anchorWindow ? root.anchorWindow.height + 8 : 0
         implicitWidth: 300
-        implicitHeight: mixerContent.implicitHeight + 40
+        implicitHeight: popupCol.implicitHeight + 40
 
         Rectangle {
             anchors.fill: parent
@@ -105,10 +105,25 @@ Item {
                 onExited: hideTimer.start()
             }
 
-            MixerContent {
-                id: mixerContent
+            Column {
+                id: popupCol
                 anchors.centerIn: parent
                 width: 260
+                spacing: 12
+
+                MicMute {
+                    width: parent.width
+                }
+
+                Rectangle {
+                    width: parent.width
+                    height: 1
+                    color: Theme.palette.barBorder
+                }
+
+                MixerContent {
+                    width: parent.width
+                }
             }
         }
     }

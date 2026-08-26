@@ -3,7 +3,7 @@ import "../themes"
 import "utils.js" as Utils
 
 // CPU / RAM / network utilisation rows. The sparkline spans all remaining
-// width; the current value is overlaid on its top-right corner.
+// width; current values are overlaid on its right edge.
 Column {
     id: root
 
@@ -52,11 +52,12 @@ Column {
             Text {
                 anchors {
                     right: parent.right
-                    top: parent.top
+                    verticalCenter: parent.verticalCenter
                 }
                 text: row.valueText
+                horizontalAlignment: Text.AlignRight
                 font.family: Theme.palette.fontFamily
-                font.pixelSize: 13
+                font.pixelSize: row.valueText.indexOf("\n") === -1 ? 13 : 11
                 font.weight: Font.Bold
                 color: row.graphColor
             }
@@ -84,6 +85,6 @@ Column {
         label: "NET"
         graphColor: Theme.palette.magenta
         series: SystemStats.netHistory
-        valueText: "RX:" + Utils.formatRate(SystemStats.netDownRate) + " TX:" + Utils.formatRate(SystemStats.netUpRate)
+        valueText: "RX:" + Utils.formatRate(SystemStats.netDownRate) + "\nTX:" + Utils.formatRate(SystemStats.netUpRate)
     }
 }
