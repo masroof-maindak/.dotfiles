@@ -1,0 +1,650 @@
+{
+  "dashboard": {
+    "Add": {
+      "keys": [
+        "a"
+      ],
+      "help": "add download"
+    },
+    "AddFromClipboard": {
+      "keys": [
+        "A"
+      ],
+      "help": "add from clipboard"
+    },
+    "BatchImport": {
+      "keys": [
+        "b",
+        "B"
+      ],
+      "help": "batch import"
+    },
+    "CategoryFilter": {
+      "keys": [
+        "c"
+      ],
+      "help": "category"
+    },
+    "Delete": {
+      "keys": [
+        "x"
+      ],
+      "help": "delete"
+    },
+    "Down": {
+      "keys": [
+        "down",
+        "j"
+      ],
+      "help": "down"
+    },
+    "ForceQuit": {
+      "keys": [
+        "ctrl+c"
+      ],
+      "help": "force quit"
+    },
+    "Log": {
+      "keys": [
+        "l"
+      ],
+      "help": "toggle log"
+    },
+    "LogBottom": {
+      "keys": [
+        "G"
+      ],
+      "help": "bottom"
+    },
+    "LogClose": {
+      "keys": [
+        "esc"
+      ],
+      "help": "close log"
+    },
+    "LogDown": {
+      "keys": [
+        "down"
+      ],
+      "help": "scroll down"
+    },
+    "LogTop": {
+      "keys": [
+        "g"
+      ],
+      "help": "top"
+    },
+    "LogUp": {
+      "keys": [
+        "up"
+      ],
+      "help": "scroll up"
+    },
+    "NextTab": {
+      "keys": [
+        "tab",
+        "right"
+      ],
+      "help": "next tab"
+    },
+    "OpenFile": {
+      "keys": [
+        "o"
+      ],
+      "help": "open file"
+    },
+    "OpenFolder": {
+      "keys": [
+        "O"
+      ],
+      "help": "open folder"
+    },
+    "Pause": {
+      "keys": [
+        "p"
+      ],
+      "help": "pause/resume"
+    },
+    "PinTab": {
+      "keys": [
+        "t"
+      ],
+      "help": "pin tab"
+    },
+    "PrevTab": {
+      "keys": [
+        "shift+tab",
+        "left"
+      ],
+      "help": "prev tab"
+    },
+    "PurgeFile": {
+      "keys": [
+        "X",
+        "shift+x"
+      ],
+      "help": "delete+purge"
+    },
+    "Quit": {
+      "keys": [
+        "ctrl+c",
+        "ctrl+q"
+      ],
+      "help": "quit"
+    },
+    "Refresh": {
+      "keys": [
+        "r"
+      ],
+      "help": "refresh url"
+    },
+    "ReportBug": {
+      "keys": [
+        "?"
+      ],
+      "help": "bug report"
+    },
+    "Search": {
+      "keys": [
+        "f"
+      ],
+      "help": "search"
+    },
+    "Settings": {
+      "keys": [
+        "s"
+      ],
+      "help": "settings"
+    },
+    "SpeedLimits": {
+      "keys": [
+        "T"
+      ],
+      "help": "speed limits"
+    },
+    "TabActive": {
+      "keys": [
+        "w"
+      ],
+      "help": "active tab"
+    },
+    "TabDone": {
+      "keys": [
+        "e"
+      ],
+      "help": "done tab"
+    },
+    "TabQueued": {
+      "keys": [
+        "q"
+      ],
+      "help": "queued tab"
+    },
+    "ToggleHelp": {
+      "keys": [
+        "h"
+      ],
+      "help": "toggle help"
+    },
+    "Up": {
+      "keys": [
+        "up",
+        "k"
+      ],
+      "help": "up"
+    }
+  },
+  "input": {
+    "Cancel": {
+      "keys": [
+        "esc"
+      ],
+      "help": "cancel"
+    },
+    "Down": {
+      "keys": [
+        "down"
+      ],
+      "help": "next"
+    },
+    "Enter": {
+      "keys": [
+        "enter"
+      ],
+      "help": "confirm/next"
+    },
+    "Esc": {
+      "keys": [
+        "esc"
+      ],
+      "help": "cancel"
+    },
+    "Tab": {
+      "keys": [
+        "tab"
+      ],
+      "help": "browse/next"
+    },
+    "Up": {
+      "keys": [
+        "up"
+      ],
+      "help": "previous"
+    }
+  },
+  "file_picker": {
+    "Back": {
+      "keys": [
+        "left"
+      ],
+      "help": "back"
+    },
+    "Cancel": {
+      "keys": [
+        "esc"
+      ],
+      "help": "cancel"
+    },
+    "Forward": {
+      "keys": [
+        "right"
+      ],
+      "help": "open"
+    },
+    "GotoHome": {
+      "keys": [
+        "h",
+        "H"
+      ],
+      "help": "home"
+    },
+    "Jump": {
+      "keys": [
+        "a-z",
+        "0-9"
+      ],
+      "help": "jump to file"
+    },
+    "Open": {
+      "keys": [
+        "."
+      ],
+      "help": "select highlighted"
+    },
+    "UseDir": {
+      "keys": [
+        "enter"
+      ],
+      "help": "use current"
+    }
+  },
+  "duplicate": {
+    "Cancel": {
+      "keys": [
+        "x",
+        "X",
+        "esc",
+        "q"
+      ],
+      "help": "cancel"
+    },
+    "Continue": {
+      "keys": [
+        "c",
+        "C",
+        "enter"
+      ],
+      "help": "continue"
+    },
+    "Focus": {
+      "keys": [
+        "f",
+        "F",
+        "down",
+        "j"
+      ],
+      "help": "focus existing"
+    }
+  },
+  "extension": {
+    "Browse": {
+      "keys": [
+        "tab"
+      ],
+      "help": "browse path"
+    },
+    "Cancel": {
+      "keys": [
+        "esc"
+      ],
+      "help": "cancel"
+    },
+    "Confirm": {
+      "keys": [
+        "enter"
+      ],
+      "help": "confirm"
+    },
+    "Next": {
+      "keys": [
+        "down",
+        "j",
+        "tab"
+      ],
+      "help": "next field"
+    },
+    "Prev": {
+      "keys": [
+        "up",
+        "k",
+        "shift+tab"
+      ],
+      "help": "prev field"
+    }
+  },
+  "settings": {
+    "Browse": {
+      "keys": [
+        "tab"
+      ],
+      "help": "browse dir"
+    },
+    "Close": {
+      "keys": [
+        "esc",
+        "q"
+      ],
+      "help": "save \u0026 close"
+    },
+    "Down": {
+      "keys": [
+        "down",
+        "j"
+      ],
+      "help": "down"
+    },
+    "Edit": {
+      "keys": [
+        "enter"
+      ],
+      "help": "edit"
+    },
+    "NextTab": {
+      "keys": [
+        "right",
+        "l"
+      ],
+      "help": "next tab"
+    },
+    "PrevTab": {
+      "keys": [
+        "left",
+        "h"
+      ],
+      "help": "prev tab"
+    },
+    "ReportBug": {
+      "keys": [
+        "?"
+      ],
+      "help": "bug report"
+    },
+    "Reset": {
+      "keys": [
+        "r",
+        "R"
+      ],
+      "help": "reset"
+    },
+    "Tab1": {
+      "keys": [
+        "1"
+      ],
+      "help": "general"
+    },
+    "Tab2": {
+      "keys": [
+        "2"
+      ],
+      "help": "network"
+    },
+    "Tab3": {
+      "keys": [
+        "3"
+      ],
+      "help": "performance"
+    },
+    "Tab4": {
+      "keys": [
+        "4"
+      ],
+      "help": "categories"
+    },
+    "Tab5": {
+      "keys": [
+        "5"
+      ],
+      "help": "extension"
+    },
+    "Up": {
+      "keys": [
+        "up",
+        "k"
+      ],
+      "help": "up"
+    }
+  },
+  "settings_editor": {
+    "Cancel": {
+      "keys": [
+        "esc"
+      ],
+      "help": "cancel"
+    },
+    "Confirm": {
+      "keys": [
+        "enter"
+      ],
+      "help": "confirm"
+    }
+  },
+  "batch_confirm": {
+    "Cancel": {
+      "keys": [
+        "n",
+        "N",
+        "esc"
+      ],
+      "help": "cancel"
+    },
+    "Confirm": {
+      "keys": [
+        "y",
+        "Y",
+        "enter"
+      ],
+      "help": "confirm"
+    }
+  },
+  "update": {
+    "IgnoreNow": {
+      "keys": [
+        "i",
+        "I",
+        "esc"
+      ],
+      "help": "later"
+    },
+    "Install": {
+      "keys": [
+        "enter",
+        "u",
+        "U"
+      ],
+      "help": "install update"
+    },
+    "OpenGitHub": {
+      "keys": [
+        "o",
+        "O"
+      ],
+      "help": "open on github"
+    }
+  },
+  "bug_report": {
+    "Cancel": {
+      "keys": [
+        "esc",
+        "q"
+      ],
+      "help": "cancel"
+    },
+    "Core": {
+      "keys": [
+        "1",
+        "c",
+        "C"
+      ],
+      "help": "core report"
+    },
+    "Extension": {
+      "keys": [
+        "2",
+        "e",
+        "E"
+      ],
+      "help": "extension report"
+    }
+  },
+  "category_mgr": {
+    "Add": {
+      "keys": [
+        "a"
+      ],
+      "help": "add"
+    },
+    "Close": {
+      "keys": [
+        "esc",
+        "q"
+      ],
+      "help": "save \u0026 close"
+    },
+    "Delete": {
+      "keys": [
+        "x"
+      ],
+      "help": "delete"
+    },
+    "Down": {
+      "keys": [
+        "down",
+        "j"
+      ],
+      "help": "down"
+    },
+    "Edit": {
+      "keys": [
+        "enter"
+      ],
+      "help": "edit"
+    },
+    "Tab": {
+      "keys": [
+        "tab"
+      ],
+      "help": "next field"
+    },
+    "Toggle": {
+      "keys": [
+        "t"
+      ],
+      "help": "toggle"
+    },
+    "Up": {
+      "keys": [
+        "up",
+        "k"
+      ],
+      "help": "up"
+    }
+  },
+  "speed_limits": {
+    "Close": {
+      "keys": [
+        "esc"
+      ],
+      "help": "cancel/close"
+    },
+    "Down": {
+      "keys": [
+        "down"
+      ],
+      "help": "down"
+    },
+    "Edit": {
+      "keys": [
+        "enter"
+      ],
+      "help": "edit"
+    },
+    "Reset": {
+      "keys": [
+        "r"
+      ],
+      "help": "reset"
+    },
+    "Up": {
+      "keys": [
+        "up"
+      ],
+      "help": "up"
+    }
+  },
+  "quit_confirm": {
+    "Cancel": {
+      "keys": [
+        "esc",
+        "ctrl+c",
+        "ctrl+q"
+      ],
+      "help": "cancel"
+    },
+    "Left": {
+      "keys": [
+        "left",
+        "h"
+      ],
+      "help": ""
+    },
+    "No": {
+      "keys": [
+        "n",
+        "N"
+      ],
+      "help": ""
+    },
+    "Right": {
+      "keys": [
+        "right",
+        "l",
+        "tab"
+      ],
+      "help": ""
+    },
+    "Select": {
+      "keys": [
+        "enter",
+        "space"
+      ],
+      "help": "confirm"
+    },
+    "Yes": {
+      "keys": [
+        "y",
+        "Y"
+      ],
+      "help": ""
+    }
+  }
+}

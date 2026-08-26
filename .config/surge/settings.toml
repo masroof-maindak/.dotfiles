@@ -1,0 +1,82 @@
+[categories]
+category_enabled = false
+
+[[categories.categories]]
+description = 'MP4s, MKVs, AVIs, and other video files.'
+name = 'Videos'
+path = '/home/maindak/Videos'
+pattern = '(?i)\.(mp4|mkv|avi|mov|wmv|flv|webm|m4v|mpg|mpeg|3gp)$'
+
+[[categories.categories]]
+description = 'MP3s, FLACs, and other audio files.'
+name = 'Music'
+path = '/home/maindak/Music'
+pattern = '(?i)\.(mp3|flac|wav|aac|ogg|wma|m4a|opus)$'
+
+[[categories.categories]]
+description = 'ZIPs, RARs, and other archive files.'
+name = 'Compressed'
+path = '/home/maindak/Downloads'
+pattern = '(?i)\.(zip|rar|7z|tar|gz|bz2|xz|zst|tgz)$'
+
+[[categories.categories]]
+description = 'PDFs, Word docs, spreadsheets, etc.'
+name = 'Documents'
+path = '/home/maindak/Documents'
+pattern = '(?i)\.(pdf|doc|docx|xls|xlsx|ppt|pptx|odt|ods|txt|rtf|csv|epub)$'
+
+[[categories.categories]]
+description = 'Executables, installers, and scripts.'
+name = 'Programs'
+path = '/home/maindak/Downloads'
+pattern = '(?i)\.(exe|msi|deb|rpm|appimage|dmg|pkg|flatpak|snap|sh|run|bin)$'
+
+[[categories.categories]]
+description = 'JPEGs, PNGs, and other image files.'
+name = 'Images'
+path = '/home/maindak/Pictures'
+pattern = '(?i)\.(jpg|jpeg|png|gif|bmp|svg|webp|ico|tiff|psd)$'
+
+[extension]
+auth_token = ''
+chrome_extension_url = 'https://chromewebstore.google.com/detail/surge-download-manager/cakjmkhlofkhjmfkjlclgbfdklhdnkgl'
+extension_prompt = true
+firefox_extension_url = 'https://addons.mozilla.org/en-US/firefox/addon/surge/'
+instructions_url = 'https://github.com/SurgeDM/Surge#browser-extension'
+
+[general]
+allow_remote_open_actions = false
+auto_resume = false
+auto_shutdown_after_downloads = false
+auto_start = false
+clipboard_monitor = true
+default_download_dir = '/home/maindak/Downloads'
+download_complete_notification = true
+live_speed_graph = false
+log_retention_count = 5
+show_speed_graph = true
+skip_update_check = false
+theme = 0
+theme_path = 'swamp'
+warn_on_duplicate = true
+
+[network]
+custom_dns = ''
+default_download_rate_limit = '0'
+dial_hedge_count = 4
+global_rate_limit = '0'
+max_concurrent_downloads = 3
+max_concurrent_probes = 3
+max_connections_per_host = 32
+min_chunk_size = 2097152
+proxy_url = ''
+sequential_download = false
+user_agent = ''
+worker_buffer_size = 524288
+
+[performance]
+max_task_retries = 3
+slow_worker_grace_period = '5s'
+slow_worker_threshold = 0.3
+speed_ema_alpha = 0.3
+stall_timeout = '3s'

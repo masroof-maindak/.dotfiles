@@ -1,0 +1,54 @@
+[colors]
+name = "swamp"
+
+[colors.dark]
+
+[colors.dark.primary]
+background = "#242015" # base00
+foreground = "#EBE0BB" # base06
+
+[colors.dark.normal]
+black   = "#5F4E41" # base01
+red     = "#A93B5C" # base0A
+green   = "#6F682C" # base0B
+yellow  = "#DB930D" # base08
+blue    = "#A8663C" # base0F
+magenta = "#91506C" # base0E
+cyan    = "#DB930D" # base0C
+white   = "#EBE0BB" # base06
+
+[colors.dark.bright]
+black   = "#b8a58c" # base03
+red     = "#D45D67" # base0D
+green   = "#6F682C" # base0B
+yellow  = "#DB930D" # base08
+blue    = "#A8663C" # base0F
+magenta = "#91506C" # base0E
+cyan    = "#DB930D" # base0C
+white   = "#F1E9D0" # base07
+
+[colors.light]
+
+[colors.light.primary]
+background = "#F1E3D1" # base00
+foreground = "#64513E" # base05
+
+[colors.light.normal]
+black   = "#b5a492" # base02
+red     = "#A73838" # base0A
+green   = "#8D8851" # base0B
+yellow  = "#D09700" # base08
+blue    = "#75858C" # base0F
+magenta = "#9E5581" # base0E
+cyan    = "#D09700" # base0C
+white   = "#64513E" # base05
+
+[colors.light.bright]
+black   = "#8c7b68" # base03
+red     = "#BF7979" # base0D
+green   = "#8D8851" # base0B
+yellow  = "#D09700" # base08
+blue    = "#75858C" # base0F
+magenta = "#9E5581" # base0E
+cyan    = "#D09700" # base0C
+white   = "#64513E" # base05
