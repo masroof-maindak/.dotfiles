@@ -1,15 +1,26 @@
 singleton PopupManager 1.0 PopupManager.qml
+singleton SystemStats 1.0 SystemStats.qml
+BluetoothContent 1.0 BluetoothContent.qml
 BatteryContent 1.0 BatteryContent.qml
 Battery 1.0 Battery.qml
+BlueLight 1.0 BlueLight.qml
 Calendar 1.0 Calendar.qml
+Caffeine 1.0 Caffeine.qml
+Chevron 1.0 Chevron.qml
 Clock 1.0 Clock.qml
 Icon 1.0 Icon.qml
 MediaProgress 1.0 MediaProgress.qml
 Media 1.0 Media.qml
 MixerContent 1.0 MixerContent.qml
 MixerEntry 1.0 MixerEntry.qml
+NetworkContent 1.0 NetworkContent.qml
 NowPlaying 1.0 NowPlaying.qml
+Sparkline 1.0 Sparkline.qml
+StatusPanel 1.0 StatusPanel.qml
+SystemGraphs 1.0 SystemGraphs.qml
 Titles 1.0 Titles.qml
+Toggle 1.0 Toggle.qml
+Tray 1.0 Tray.qml
 VolumeOsd 1.0 VolumeOsd.qml
 Volume 1.0 Volume.qml
 WorkspaceMinimap 1.0 WorkspaceMinimap.qml

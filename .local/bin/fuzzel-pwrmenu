@@ -7,5 +7,5 @@ declare -A actions=(
     ["Shutdown // Poweroff"]="poweroff"
 )
 
-SELECTION=$(printf "%s\n" "${!actions[@]}" | fuzzel --dmenu -l 4) || exit 0
+SELECTION=$(printf "%s\n" "${!actions[@]}" | fuzzel --placeholder="Power Menu" --dmenu -l 4) || exit 0
 eval "${actions[$SELECTION]}"

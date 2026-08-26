@@ -36,3 +36,42 @@ function batteryColor(pct, charging, high, warning, low, normal) {
         return warning;
     return normal;
 }
+
+function clamp01(v) {
+    return Math.min(Math.max(v, 0), 1);
+}
+
+// Signal-strength quartile (1..4), 0 when the radio reports nothing.
+function wifiLevel(strength) {
+    if (strength <= 0)
+        return 0;
+    if (strength >= 75)
+        return 4;
+    if (strength >= 50)
+        return 3;
+    if (strength >= 25)
+        return 2;
+    return 1;
+}
+
+// Matches the MDI assets: WifiStrength-<level>[Lock], or the empty/off
+// variants at level 0.
+function wifiIcon(strength, secured, enabled) {
+    if (!enabled)
+        return "WifiStrengthOffOutline";
+    const level = wifiLevel(strength);
+    if (level === 0)
+        return secured ? "WifiStrength-1Lock" : "WifiStrengthOutline";
+    return "WifiStrength-" + level + (secured ? "Lock" : "");
+}
+
+// Human readable byte rate, e.g. 12 B/s, 45 KB/s, 1.2 MB/s.
+function formatRate(bytesPerSec) {
+    if (bytesPerSec < 1024)
+        return Math.round(bytesPerSec) + "B";
+    if (bytesPerSec < 1048576)
+        return (bytesPerSec / 1024).toFixed(bytesPerSec < 10240 ? 1 : 0) + "K";
+    if (bytesPerSec < 1073741824)
+        return (bytesPerSec / 1048576).toFixed(1) + "M";
+    return (bytesPerSec / 1073741824).toFixed(2) + "G";
+}

@@ -55,6 +55,16 @@ ShellRoot {
                     screenName: modelData.name
                 }
 
+                Chevron {
+                    id: chevronCard
+                    anchors {
+                        left: titlesCard.right
+                        verticalCenter: parent.verticalCenter
+                        leftMargin: 8
+                    }
+                    anchorWindow: barWindow
+                }
+
                 WorkspaceSwitcher {
                     id: switcherCard
                     anchors {
