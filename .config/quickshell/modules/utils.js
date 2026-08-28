@@ -12,8 +12,11 @@ function onScreen(ws, screenName) {
 }
 
 function volumeIcon(vol, muted) {
-    if (muted)
+    if (muted) {
+        if (vol > 0.85)
+            return "Volume-mute";
         return "Volume-mute-outline";
+    }
     if (vol <= 0.01)
         return "Volume-off-outline";
     if (vol < 0.5)
