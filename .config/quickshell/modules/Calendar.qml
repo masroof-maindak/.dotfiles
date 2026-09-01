@@ -63,7 +63,7 @@ Item {
                         text: modelData
                         font.family: Theme.palette.fontFamily
                         font.pixelSize: 11
-                        color: Theme.palette.textDim
+                        color: Theme.palette.accent
                     }
                 }
             }
