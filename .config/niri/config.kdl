@@ -49,10 +49,9 @@ gestures {
     }
 }
 
-// MacBook
-output "Apple Computer Inc Color LCD Unknown" {
+// Laptop
+output "California Institute of Technology 0x144A Unknown" {
 	// off
-    scale 2
 }
 
 // Personal ultrawide
