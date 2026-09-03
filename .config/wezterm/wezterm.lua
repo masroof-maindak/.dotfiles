@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local appearance = require("appearance")
 local config = {}
 
-config.font = wezterm.font("CommitMono Nerd Font")
+config.font = wezterm.font("Berkeley Mono Condensed")
 if appearance.is_dark() then
 	config.color_scheme = "swamp-dark"
 else
