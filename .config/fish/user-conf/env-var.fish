@@ -41,8 +41,8 @@ else
     set -gx _fd fd
 end
 
-set -x FZF_DEFAULT_COMMAND "$_fd . --hidden --exclude \".git\""
-set -x FZF_DEFAULT_OPTS "--reverse --margin 1,2 --prompt \"fzf: \" --color=16,current-bg:0,border:0 --preview-window=\"down,50%,border-sharp,wrap\" --multi"
+set -x FZF_DEFAULT_COMMAND "$_fd . --hidden --exclude '.git'"
+set -x FZF_DEFAULT_OPTS "--reverse --margin 1,2 --prompt 'fzf: ' --color=16,current-bg:0,border:0 --preview-window='down,50%,border-sharp,wrap' --multi"
 
 # Wayland
 set -x ELECTRON_OZONE_PLATFORM_HINT auto

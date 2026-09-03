@@ -56,8 +56,8 @@ abbr --add cal   "cal -m"
 
 abbr --add pubip "curl ipinfo.io; echo"
 abbr --add copy  "wl-copy"
-abbr --add pkg   "pacman -Q | fzf"
-abbr --add fnt   "fc-list | fzf"
+abbr --add pkg   "pacman -Q | _fzf --no-preview"
+abbr --add fnt   "fc-list | _fzf --no-preview"
 abbr --add bt    "upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}'"
 
 # https://foo.zone/gemfeed/2025-05-02-terminal-multiplexing-with-tmux-fish-edition.html

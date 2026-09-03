@@ -1,16 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
 # Find *.md files in Obsidian vault
 
 cd $VAULT_DIR
-files="$(
-    fd -t f -e md -E '.*' |
-        fzf \
-            --preview="bat --theme=\"swamp-\$(darkman get)\" -P -p --color=always --line-range=:250 {}" \
-            --prompt "Vault: " \
-            --bind "ctrl-d:change-query($(date +'%Y-%m-%d'))"
-)"
+set -l files (
+    fd -t f -e md -E '.*' | _fzf --prompt "Vault: " --bind "ctrl-d:change-query($(date +'%Y-%m-%d'))"
+)
 
-if [ -n "$files" ]; then
+if [ -n "$files" ]
     echo "$files" | xargs -d "\n" $EDITOR
-fi
+end
 cd - >/dev/null
