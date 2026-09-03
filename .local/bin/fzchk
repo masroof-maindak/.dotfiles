@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 # Fuzzily checkout a Git branch
 
-if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-	git checkout $(git branch | fzf)
+if command -v delta >/dev/null 2>&1; then
+    _preview_cmd='git show --color=always {-1} | delta'
 else
-	echo "Not a git repository"
+    preview_cmd='git show --color=always {-1}'
 fi
+
+git branch --all |
+    grep -vE '^[*+]|HEAD' |
+    awk '{print $1}' |
+    fzf -0 --preview="$preview_cmd" --preview-window='bottom:80%' |
+    xargs -r git checkout

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Fuzzily edit a dirty file
+
+git ls-files --modified --other --exclude-standard |
+    sort -u |
+    fzf -0 --multi --preview 'git diff --color {}' |
+    xargs -r $EDITOR
