@@ -43,7 +43,7 @@ if [ -z "$(command -v paru)" ]; then
     sudo pacman -S --needed base-devel
     install_paru
 fi
-install_pacman_list "./system/package-lists/package_list.md"
+install_pacman_list "./system/package-lists/package-list.md"
 
 # Explicitly create these directories so the files _within_ those directories
 # get symlinked to, as opposed to the directories themselves.
@@ -111,7 +111,7 @@ sudo cp ./system/desktop-entries/spotify_player.desktop /usr/share/applications/
 print_yellow "Making scripts executable"
 chmod +x "$HOME"/.local/bin/*
 
-# Install Swamp Light for bat
+# Install Swamp for bat
 if [ -z "$(command -v bat)" ]; then
     bat cache --build
 fi
@@ -119,6 +119,9 @@ fi
 # Install external programs
 install_rust_list "./system/package-lists/rust"
 install_rust_list "./system/package-lists/python"
+
+# Start Tailscale
+sudo tailscale up
 
 # Set up fish
 print_yellow "Setting up Fish shell"

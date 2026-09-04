@@ -15,17 +15,19 @@ delightfully whimsical) spell-casting.
 cd && git clone https://github.com/masroof-maindak/.dotfiles
 cd .dotfiles
 
-# Full desktop (following a 'minimal' archinstall)
+# Personal machine: (following a 'minimal' archinstall)
 chmod +x bootstrap.sh
 ./bootstrap.sh
 
-# Remote/minimal server
+# OR
+
+# Remote/minimal server:
 make stow-remote
 ```
 
-## After
+## After: Personal Machine
 
-### Username Hardcoding
+### Username Hard-coding
 
 > [!CAUTION]
 >
@@ -35,10 +37,10 @@ make stow-remote
 > is `maindak`), either modify the username in that file, or comment out the
 > relevant line from `bootstrap.sh`.
 
-The only other instance of username hardcoding (exluding Git configs & readmes;
-at least as of the moment of writing) is for the [wgetrc](.config/wgetrc) that
-prevents home-cluttering, but maybe run a `rg maindak` after cloning just to be
-safe.
+The only other instance of username hard-coding (excluding Git configs &
+readmes; at least as of the moment of writing) is for the
+[wgetrc](.config/wgetrc) that prevents home-cluttering, but maybe run a
+`rg maindak` after cloning just to be safe.
 
 ### Update Remote
 
@@ -54,8 +56,7 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
 
 ### Syncthing
 
-- Start `syncthing` and set it up to sync the `~/Documents/Vault`,
-  `~/Pictures/Image Transmission`, and `~/Music` directories with my phone.
+- Start `syncthing` and configure it to sync relevant directories w/ my phone.
 
 ### spotify-player
 
@@ -70,15 +71,40 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
   variable under the `[Service]` heading contains the path of the `kanata`
   installation; this should be `/home/<user>/.local/share/cargo/bin`
 
-### Tailscale
+## After: Ubuntu/Debian Remote Machine
+
+### Install what you need
 
 ```bash
-sudo tailscale up
+# Pre-requisites
+sudo apt install vim sccache tmux
+
+# Neovim
+sudo snap install nvim --classic
+## Tree-sitter (if older distro)
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+cargo install tree-sitter-cli --locked
+
+# fzf
+mkcd ~/Documents/repos
+git clone https://github.com/junegunn/fzf.git
+cd fzf
+./install # TODO: feed `y` or `n` to stdin
+
+
+# delta
+curl -LO <latest-release>
+dpkg -i git-delta<version>.deb
+
+# lf
+sudo snap install go --classic
+env CGO_ENABLED=0 go install -trimpath -ldflags="-s -w" github.com/gokcehan/lf@latest
 ```
 
 ## TODO
 
 - [ ] `lf` no longer recommends `ctpv`; what's the alternative?
+  - Rawdog a previewer script...?
 - [ ] Windows LF config; see:
   - <https://ahrm.github.io/jekyll/update/2022/04/02/using-lf-file-manager-on-windows.html>
   - <https://konfekt.github.io/blog/2024/09/15/lf-linux-windows>
