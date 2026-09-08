@@ -73,16 +73,14 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
 
 ## After: Ubuntu/Debian Remote Machine
 
-### Install what you need
-
 ```bash
 # Pre-requisites
 sudo apt install vim sccache tmux
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Neovim
 sudo snap install nvim --classic
 ## Tree-sitter (if older distro)
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 cargo install tree-sitter-cli --locked
 
 # fzf
@@ -93,12 +91,17 @@ cd fzf
 
 
 # delta
+cargo install bat
+bat cache --build
 curl -LO <latest-release>
 dpkg -i git-delta<version>.deb
 
 # lf
 sudo snap install go --classic
 env CGO_ENABLED=0 go install -trimpath -ldflags="-s -w" github.com/gokcehan/lf@latest
+
+# git
+# remove `gpg` & `ssh`-related config
 ```
 
 ## TODO
