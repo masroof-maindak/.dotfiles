@@ -1,8 +1,8 @@
-set default-fg                      "#D2C3A4"
+set default-fg                      "#EBE0BB"
 set default-bg                      "#211D13"
 
 set recolor-lightcolor              "#242015"
-set recolor-darkcolor               "#D2C3A4"
+set recolor-darkcolor               "#EBE0BB"
 
 set completion-bg                   "#3A3124"
 set completion-fg                   "#D2C3A4"
