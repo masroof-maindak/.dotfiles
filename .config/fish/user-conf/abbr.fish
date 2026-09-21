@@ -15,6 +15,7 @@ abbr --add bat "bat -p"
 abbr --add oc  "opencode"
 abbr --add dm  "darkman"
 abbr --add dmt "darkman toggle"
+abbr --add ns  "niri-session"
 
 if type -q bat
     abbr --add cat "bat -p"
