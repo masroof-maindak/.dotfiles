@@ -59,7 +59,7 @@ if [ "$(pwd -P)" != "$HOME/.dotfiles" ]; then
     exit 1
 fi
 print_yellow "Symlinking dotfiles"
-stow .
+make stow-all
 
 # Mac Specific
 device=$(cat /sys/class/dmi/id/product_name)

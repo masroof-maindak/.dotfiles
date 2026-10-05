@@ -5,6 +5,7 @@ makefile
 ^/remote
 bootstrap.sh
 utils.sh
+remote-setup.sh
 system
 .themes/phocus-make_colours.scss
 

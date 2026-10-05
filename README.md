@@ -16,16 +16,16 @@ cd && git clone https://github.com/masroof-maindak/.dotfiles
 cd .dotfiles
 
 # Personal machine: (following a 'minimal' archinstall)
-chmod +x bootstrap.sh
+chmod +x *.sh
 ./bootstrap.sh
 
 # OR
 
 # Remote/minimal server:
-make stow-remote
+./remote-setup.sh
 ```
 
-## After: Personal Machine
+## After (Personal Machine)
 
 ### Username Hard-coding
 
@@ -71,37 +71,16 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
   variable under the `[Service]` heading contains the path of the `kanata`
   installation; this should be `/home/<user>/.local/share/cargo/bin`
 
-## After: Ubuntu/Debian Remote Machine
+## After (Ubuntu/Debian Remote Machine)
+
+### Git (Assuming shared device)
+
+- Remove `gpg` & `ssh`-related config fields from global config
+- Create a new password-protected SSH key, and configure Git to use it like so,
+  every time you clone a new repo
 
 ```bash
-# Pre-requisites
-sudo apt install vim sccache tmux
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# Neovim
-sudo snap install nvim --classic
-## Tree-sitter (if older distro)
-cargo install tree-sitter-cli --locked
-
-# fzf
-mkcd ~/Documents/repos
-git clone https://github.com/junegunn/fzf.git
-cd fzf
-./install # TODO: feed `y` or `n` to stdin
-
-
-# delta
-cargo install bat
-bat cache --build
-curl -LO <latest-release>
-dpkg -i git-delta<version>.deb
-
-# lf
-sudo snap install go --classic
-env CGO_ENABLED=0 go install -trimpath -ldflags="-s -w" github.com/gokcehan/lf@latest
-
-# git
-# remove `gpg` & `ssh`-related config
+git config core.sshcommand "ssh -i ~/.ssh/<fname> -o IdentitiesOnly=yes"
 ```
 
 ## TODO
