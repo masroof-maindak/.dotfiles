@@ -1,4 +1,3 @@
-# Install deps & fish
 source /etc/os-release
 
 case "$ID:$VERSION_ID" in
@@ -19,24 +18,40 @@ debian:12 | debian:13)
 esac
 
 sudo apt update
-sudo apt install fish vim sccache tmux fd-find zoxide snap snapd
+sudo apt install -y fish vim sccache tmux fd-find zoxide snap snapd
 
 # symlink configs
 ## Scrap the fish config that usually gets created by default upon install
 rm -rf ~/.config/fish
 make stow-remote
 
-# install rustup
-if ! command -v rustup >/dev/null 2>&1; then
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-fi
+# install rustup and Rust tools inside fish
+fish -c '
+    if not command -q rustup
+        curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    end
+
+    if test -f "$HOME/.cargo/env"
+        source "$HOME/.cargo/env"
+    end
+
+    if not command -q tree-sitter
+        cargo install tree-sitter-cli --locked
+    end
+
+    if not command -q bat
+        cargo install bat
+    end
+
+    if command -q bat
+        bat cache --build
+    end
+'
 
 # Neovim
 if ! command -v nvim >/dev/null 2>&1; then
     sudo snap install nvim --classic
 fi
-
-cargo install tree-sitter-cli --locked
 
 # fzf
 mkdir -p ~/Documents/repos
@@ -53,16 +68,16 @@ echo 'n\nn\nn\n' | ./install
 sudo snap install go --classic
 
 fish -c '
-  if not command -q lf
-    env CGO_ENABLED=0 go install -trimpath -ldflags="-s -w" github.com/gokcehan/lf@latest
-  end
+    if not command -q lf
+        env CGO_ENABLED=0 go install -trimpath -ldflags="-s -w" github.com/gokcehan/lf@latest
+    end
 '
 
-# bat
-cargo install bat
-bat cache --build
-
 # delta
-curl -LO https://github.com/dandavison/delta/releases/download/0.19.2/git-delta_0.19.2_arm64.deb
-sudo dpkg -i git-delta_0.19.2_arm64.deb
-rm git-delta_0.19.2_arm64.deb
+if ! command -v delta >/dev/null 2>&1; then
+    arch="$(dpkg --print-architecture)"
+    deb="git-delta_0.19.2_${arch}.deb"
+    curl -fLO "https://github.com/dandavison/delta/releases/download/0.19.2/$deb"
+    sudo apt install -y "./$deb"
+    rm "$deb"
+fi
