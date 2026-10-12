@@ -7,7 +7,7 @@ services:
       - "5984:5984"
     volumes:
       - ./conf:/etc/caddy/:ro
-      - /var/lib/tailscale/certs:/certs:ro
+      - ./certs:/certs:ro
     networks:
       - proxy
 networks:
