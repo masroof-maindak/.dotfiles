@@ -75,11 +75,17 @@ git remote set-url origin git@github.com:masroof-maindak/.dotfiles.git
 
 ### Git (Assuming shared device)
 
-- Remove `gpg` & `ssh`-related config fields from global config
-- Create a new password-protected SSH key, and configure Git to use it like so,
-  every time you clone a new repo
+- Remote devices symlink the credential-free
+  [`anon-config`](.config/git/anon-config) as the global Git config, so no
+  personal identity, signing, or `gh` credentials leak; set them per-repo when
+  needed.
+- Create a new password-protected SSH key, and configure Git to use it like so:
 
 ```bash
+# Whilst cloning
+git clone -c "core.sshCommand=ssh -i ~/.ssh/<fname>" [repo_url]
+
+# Set for future operations
 git config core.sshcommand "ssh -i ~/.ssh/<fname> -o IdentitiesOnly=yes"
 ```
 

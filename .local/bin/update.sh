@@ -2,8 +2,8 @@
 
 paru
 
-cargo install-update --all
-
 rustup update
+
+cargo install-update --all
 
 nvim --headless "+Lazy! sync" +qa

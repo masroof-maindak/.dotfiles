@@ -1,0 +1,69 @@
+[init]
+	defaultBranch = main
+
+[alias]
+	a = add
+	addm = !fzga
+	ba = branch -a
+	b = branch
+	ca = commit --amend
+	c = commit
+	cl = clone
+	cm = commit -m
+	cob = checkout -b
+	co = !fzchk
+	dag = log --graph --oneline --all
+	d = diff
+	ds = diff --staged
+	edit = !fzge
+	f = fetch
+	fuckit = reset --hard
+	l3 = log -n 3
+	last = log -1 HEAD
+	l = pull
+	nuke = branch -D
+	pf = push --force
+	po = push origin
+	p = push
+	r = restore
+	rs = restore --staged
+	sh = show HEAD
+	ss = status -s
+	s = status
+	st = stash
+	sw = switch
+	undo = reset --soft HEAD^
+
+[push]
+	autoSetupRemote = true
+[log]
+	abbrevCommit = true
+[status]
+	branch = true
+[core]
+	editor = nvim
+	pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[include]
+	path = ~/.config/delta/themes.gitconfig
+	path = ~/.config/delta/active.gitconfig
+[delta]
+    true-color = always
+	navigate = true
+	hyperlinks = true
+	hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+	tabs = 4
+[merge]
+	conflictStyle = zdiff3
+[submodule]
+	recurse = true
+[branch]
+	sort = -committerdate
+[column]
+	ui = auto
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

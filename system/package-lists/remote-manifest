@@ -11,7 +11,9 @@
 .config/nvim
 .config/vim
 .config/lf
-.config/git
+.config/git/common
+.config/git/ignore
+.config/git/anon-config:.config/git/config
 .config/delta
 .config/ripgrep
 .config/bat

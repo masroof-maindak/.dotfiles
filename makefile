@@ -23,15 +23,19 @@ stow-remote: install-stow
 	    stow -D --dir=$(REMOTE_DIR) --target=$(HOME) . 2>/dev/null; \
 	    rm -rf $(REMOTE_DIR); \
 	fi
-	@for p in $(REMOTE_PATHS); do \
-	    if [ -e "$$p" ]; then \
-	        mkdir -p $(REMOTE_DIR)/$$(dirname "$$p"); \
-	        ln -sfr "$$p" "$(REMOTE_DIR)/$$p"; \
+	@# Each manifest entry is a path, or 'src:dst' to stage the file under a
+	@#   different name (e.g. anon-config as config for the git dir).
+	@for entry in $(REMOTE_PATHS); do \
+	    src=$${entry%%:*}; dst=$${entry#*:}; \
+	    if [ -e "$$src" ]; then \
+	        mkdir -p $(REMOTE_DIR)/$$(dirname "$$dst"); \
+	        ln -sfr "$$src" "$(REMOTE_DIR)/$$dst"; \
 	    fi; \
 	done
 
-	@for p in $(REMOTE_PATHS); do \
-	    mkdir -p "$(HOME)/$$(dirname "$$p")"; \
+	@for entry in $(REMOTE_PATHS); do \
+	    dst=$${entry#*:}; \
+	    mkdir -p "$(HOME)/$$(dirname "$$dst")"; \
 	done
 	@# ^ Ensure target dirs exist (e.g. .local/bin, .config) so stow
 	@#   can create symlinks inside them, WITHOUT symlinking the dir
