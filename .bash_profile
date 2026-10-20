@@ -33,6 +33,7 @@ export SQLITE_HISTORY=$XDG_STATE_HOME/sqlite_history
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/.ripgreprc"
+export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
 
 # Software
 export FZF_DEFAULT_COMMAND="fd . --hidden --exclude \".git\""

@@ -2,7 +2,7 @@
 
 # Claude Code doesn't hot-reload the `theme` setting, but it does reload theme
 # files, so swap the contents of the selected `custom:swamp` theme instead
-themes="$HOME/.claude/themes"
+themes="${CLAUDE_CONFIG_DIR:-$HOME/.config/claude}/themes"
 active="$themes/swamp.json"
 
 case "$1" in

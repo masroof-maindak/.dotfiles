@@ -26,7 +26,7 @@ set -x RUFF_CACHE_DIR "$XDG_CACHE_HOME/ruff"
 set -x PYTHON_HISTORY "$XDG_CACHE_HOME/python-history/hist"
 set -x PYENV_ROOT "$XDG_DATA_HOME/pyenv"
 
-set -x NODE_REPL_HISTORY "$XDG_DATA_DATA/node_repl_history"
+set -x NODE_REPL_HISTORY "$XDG_DATA_HOME/node_repl_history"
 set -x _JAVA_OPTIONS "-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 
 set -x SQLITE_HISTORY "$XDG_STATE_HOME/sqlite_history"
@@ -34,6 +34,7 @@ set -x SQLITE_HISTORY "$XDG_STATE_HOME/sqlite_history"
 set -x WGETRC "$XDG_CONFIG_HOME/wgetrc"
 set -x GTK2_RC_FILES "$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/.ripgreprc"
+set -x CLAUDE_CONFIG_DIR "$XDG_CONFIG_HOME/claude"
 
 if type -q fdfind
     set -gx _fd fdfind

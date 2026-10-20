@@ -1,0 +1,5 @@
+*
+!.gitignore
+!themes/
+!themes/swamp-dark.json
+!themes/swamp-light.json
