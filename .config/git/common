@@ -42,12 +42,11 @@
 	branch = true
 [core]
 	editor = nvim
-	pager = delta
+	pager = delta --features swamp-$(swamp-mode)
 [interactive]
-    diffFilter = delta --color-only
+    diffFilter = delta --color-only --features swamp-$(swamp-mode)
 [include]
 	path = ~/.config/delta/themes.gitconfig
-	path = ~/.config/delta/active.gitconfig
 [delta]
     true-color = always
 	navigate = true

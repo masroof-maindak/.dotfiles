@@ -46,9 +46,8 @@ Every themed app has `swamp-dark` / `swamp-light` variants plus a switch script
 under `.local/share/darkman/<app>.sh`; darkman invokes each with `dark`/`light`
 and the script writes an `active.*` file (or `sed`s the config) that the app's
 main config `include`s — e.g. `.config/niri/active.kdl`,
-`.config/fuzzel/active.ini`, `.config/delta/active.gitconfig`. `active.*` is
-gitignored. To port a theme, `.local/bin/swamp_hexes.sh <file>` maps Gruvbox hex
-codes to the Swamp palette.
+`.config/fuzzel/active.ini`. `active.*` is gitignored. To port a theme,
+`.local/bin/swamp_hexes.sh <file>` maps Gruvbox hex codes to the Swamp palette.
 
 ## Editing notes
 
