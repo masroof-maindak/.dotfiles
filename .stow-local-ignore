@@ -1,5 +1,7 @@
 makefile
 ^/README.*
+^/AGENTS.md
+^/CLAUDE.md
 .prettierrc
 
 ^/remote
