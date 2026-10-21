@@ -54,7 +54,7 @@
 	hyperlinks-file-link-format = "vscode://file/{path}:{line}"
 	tabs = 4
 [merge]
-	conflictStyle = zdiff3
+	conflictStyle = diff3
 [submodule]
 	recurse = true
 [branch]
