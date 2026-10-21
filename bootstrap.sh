@@ -6,7 +6,7 @@ source .bash_profile
 # Init XDG dirs
 print_yellow "Making directories"
 if [ -z "$XDG_CONFIG_HOME" ]; then
-    export XDG_CONFIG_HOME="$HOME/.local/share"
+    export XDG_CONFIG_HOME="$HOME/.config"
     print_yellow "WARNING: XDG_CONFIG_HOME not set, falling back to $XDG_CONFIG_HOME"
 fi
 if [ -z "$XDG_DATA_HOME" ]; then
@@ -112,13 +112,13 @@ print_yellow "Making scripts executable"
 chmod +x "$HOME"/.local/bin/*
 
 # Install Swamp for bat
-if [ -z "$(command -v bat)" ]; then
+if [ -n "$(command -v bat)" ]; then
     bat cache --build
 fi
 
 # Install external programs
 install_rust_list "./system/package-lists/rust"
-install_rust_list "./system/package-lists/python"
+install_python_list "./system/package-lists/python"
 
 # Start Tailscale
 sudo tailscale up

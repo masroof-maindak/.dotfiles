@@ -17,6 +17,8 @@
 .config/delta
 .config/ripgrep
 .config/bat
+.config/claude/themes/swamp-dark.json
+.config/claude/themes/swamp-light.json
 
 # Scripts
 .local/bin
