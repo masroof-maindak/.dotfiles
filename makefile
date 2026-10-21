@@ -34,8 +34,9 @@ stow-remote: install-stow
 	done
 
 	@for entry in $(REMOTE_PATHS); do \
-	    dst=$${entry#*:}; \
-	    mkdir -p "$(HOME)/$$(dirname "$$dst")"; \
+	    src=$${entry%%:*}; dst=$${entry#*:}; \
+	    if [ -d "$$src" ]; then mkdir -p "$(HOME)/$$dst"; \
+	    else mkdir -p "$(HOME)/$$(dirname "$$dst")"; fi; \
 	done
 	@# ^ Ensure target dirs exist (e.g. .local/bin, .config) so stow
 	@#   can create symlinks inside them, WITHOUT symlinking the dir

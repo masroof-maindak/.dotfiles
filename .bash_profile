@@ -34,6 +34,8 @@ export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/.ripgreprc"
 export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
+export DISABLE_TELEMETRY=1
+export DISABLE_ERROR_REPORTING=1
 
 # Software
 export FZF_DEFAULT_COMMAND="fd . --hidden --exclude \".git\""
@@ -48,7 +50,7 @@ export VAULT_DIR="$HOME/Documents/Vault/"
 
 # PATH entries
 add_to_path() {
-    [[ ":$PATH:" != *":$1:"* ]] && export PATH="$1:$PATH"
+    [[ ":$PATH:" == *":$1:"* ]] || export PATH="$1:$PATH"
 }
 
 add_to_path "$HOME/.local/bin"
@@ -56,4 +58,4 @@ add_to_path "$CARGO_HOME/bin"
 add_to_path "$GOBIN"
 
 # Source bashrc
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+if [[ -f ~/.bashrc ]]; then . ~/.bashrc; fi

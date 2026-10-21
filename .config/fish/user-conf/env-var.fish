@@ -35,6 +35,8 @@ set -x WGETRC "$XDG_CONFIG_HOME/wgetrc"
 set -x GTK2_RC_FILES "$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/.ripgreprc"
 set -x CLAUDE_CONFIG_DIR "$XDG_CONFIG_HOME/claude"
+set -x DISABLE_TELEMETRY 1
+set -x DISABLE_ERROR_REPORTING 1
 
 if type -q fdfind
     set -gx _fd fdfind
