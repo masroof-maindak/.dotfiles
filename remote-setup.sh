@@ -20,7 +20,21 @@ debian:12 | debian:13)
 esac
 
 sudo apt update
-sudo apt install -y fish vim sccache tmux fd-find zoxide snap snapd
+sudo apt install -y fish vim sccache fd-find zoxide snap snapd
+
+# tmux (distro versions < 3.4 break swamp-mode)
+case "$(uname -m)" in
+x86_64) tmux_arch=x86_64 ;;
+aarch64 | arm64) tmux_arch=arm64 ;;
+*) tmux_arch="" ;;
+esac
+if [ -n "$tmux_arch" ]; then
+    curl -fsSL "https://github.com/tmux/tmux-builds/releases/download/v3.7c/tmux-3.7c-linux-$tmux_arch.tar.gz" |
+        sudo tar -xz -C /usr/local/bin tmux
+else
+    echo "No tmux build for $(uname -m); installing the distro package" >&2
+    sudo apt install -y tmux
+fi
 
 # symlink configs
 ## Scrap the fish config that usually gets created by default upon install

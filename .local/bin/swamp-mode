@@ -3,7 +3,7 @@
 # Print the active swamp variant: `dark` or `light`.
 #
 # Uses darkman when it's around (host machine). Otherwise, asks the terminal
-# for its background colour (OSC 11), which works through SSH and tmux (>= 3.3)
+# for its background colour (OSC 11), which works through SSH and tmux (>= 3.4)
 # since the local terminal/tmux answers. A DA1 query is sent right after; every
 # terminal answers it, so we know when to stop reading even if OSC 11 is
 # unsupported. Falls back to `dark`.
