@@ -2,7 +2,7 @@ makefile
 ^/README.*
 ^/AGENTS.md
 ^/CLAUDE.md
-.prettierrc
+.mdformat.toml
 
 ^/remote
 bootstrap.sh

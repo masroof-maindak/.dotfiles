@@ -1,3 +1,4 @@
-markitdown
+markitdown[pdf]
 netron
 tile2wall
+mdformat --with mdformat-gfm --with mdformat-wikilink --with mdformat-frontmatter

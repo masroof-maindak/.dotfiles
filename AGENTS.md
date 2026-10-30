@@ -29,9 +29,8 @@ make clean-remote  # unstow remote profile and delete ./remote
 ## Stow rules (easy to get wrong)
 
 - `.stow-local-ignore` decides what is **not** symlinked: `makefile`, `README*`,
-  the `*.sh` setup/utility scripts, `system/`, `remote/`, `.prettierrc`,
-  `.git*`. Add any new top-level setup/tooling file here, or Stow will dump a
-  symlink into `$HOME`.
+  the `*.sh` setup/utility scripts, `system/`, `remote/`, `.git*`. Add any new
+  top-level setup/tooling file here, or Stow will dump a symlink into `$HOME`.
 - `.config/`, `.local/`, `.fonts/`, `Desktop/`, `Documents/` are stowed so their
   *contents* link into `$HOME`; the dirs themselves (e.g. `~/.config`) must
   already exist and are created by `bootstrap.sh`.
@@ -91,5 +90,6 @@ main config `include`s — e.g. `.config/niri/active.kdl`,
 
 ## Formatting
 
-- Markdown is formatted per `.prettierrc`: 80-col, `proseWrap: always`,
-  2-space indent.
+- Markdown is formatted with `mdformat` (+ gfm, wikilink, frontmatter plugins;
+  see `system/package-lists/python`). `.mdformat.toml` sets `wrap = 80`; nvim's
+  `conform.lua` also passes `--number --wrap 80`.

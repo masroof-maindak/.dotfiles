@@ -35,9 +35,9 @@ install_rust_list() {
 
 install_python_list() {
     print_yellow "Installing packages from $1"
-    while read -r pkg; do
-        if [[ -n "$pkg" && ! "$pkg" =~ ^# ]]; then
-            uv tool install "$pkg"
+    while read -ra args; do
+        if [[ ${#args[@]} -gt 0 && ! "${args[0]}" =~ ^# ]]; then
+            uv tool install "${args[@]}"
         fi
     done <"$1"
 }
