@@ -1,2 +1,3 @@
 lazy-lock.json
-spell/
+spell/*
+!spell/.gitkeep

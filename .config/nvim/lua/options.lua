@@ -77,6 +77,9 @@ opt.listchars = {
 }
 opt.list = true
 
+o.spelllang = "en"
+o.spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
+
 -- Disable cursor line highlight
 o.cursorline = false
 
