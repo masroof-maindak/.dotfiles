@@ -38,6 +38,10 @@ set -x CLAUDE_CONFIG_DIR "$XDG_CONFIG_HOME/claude"
 set -x DISABLE_TELEMETRY 1
 set -x DISABLE_ERROR_REPORTING 1
 
+# darkman sets this universally; drop stale inherited copies (tmux, nested
+# shells) that would shadow it and miss live switches
+set -qU BAT_THEME; and set -eg BAT_THEME
+
 if type -q fdfind
     set -gx _fd fdfind
 else

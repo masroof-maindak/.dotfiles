@@ -1,19 +1,16 @@
 # Usage
 # Ctrl+T -> Paste selected files/directories onto command line
 
-# Inject the right bat theme. This is necessary because bat can't detect the
-# theme by itself when its run inside/by fzf or lf, even though it can when run
-# by itself. darkman is queried live per-preview; elsewhere (remote machines),
+# bat can't detect the theme when piped into fzf. Locally, darkman sets the
+# universal $BAT_THEME (see darkman/bat.sh); elsewhere (remote machines),
 # `swamp-mode` asks the terminal once, at shell startup.
 
 set -g _fzf_preview_cmd
 if command -q bat
-    if test -S "$XDG_RUNTIME_DIR/darkman/control.sock"
-        set _fzf_preview_cmd 'bat --theme="swamp-$(darkman get)" -P -p --color=always {} --line-range=:250'
-    else if command -q swamp-mode
-        set _fzf_preview_cmd "bat --theme=swamp-$(swamp-mode) -P -p --color=always {} --line-range=:250"
-    else
+    if set -q BAT_THEME; or not command -q swamp-mode
         set _fzf_preview_cmd 'bat -P -p --color=always {} --line-range=:250'
+    else
+        set _fzf_preview_cmd "bat --theme=swamp-$(swamp-mode) -P -p --color=always {} --line-range=:250"
     end
 else
     set _fzf_preview_cmd 'head {} -n 250'
