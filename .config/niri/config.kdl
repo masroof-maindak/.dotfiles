@@ -8,7 +8,7 @@ spawn-at-startup "batmon"
 spawn-at-startup "mako"
 spawn-at-startup "quickshell"
 spawn-at-startup "stasis"
-spawn-at-startup "/usr/lib/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
+spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 
 input {
     keyboard {

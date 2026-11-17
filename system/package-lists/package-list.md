@@ -34,7 +34,7 @@ perl-file-mimeinfo
 awww
 niri
 nwg-look
-pantheon-polkit-agent
+polkit-kde-agent
 waybar
 wf-recorder
 wlsunset
