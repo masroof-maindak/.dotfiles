@@ -12,6 +12,12 @@
       ],
       "help": "add from clipboard"
     },
+    "AssignCategory": {
+      "keys": [
+        "c"
+      ],
+      "help": "assign category"
+    },
     "BatchImport": {
       "keys": [
         "b",
@@ -21,9 +27,22 @@
     },
     "CategoryFilter": {
       "keys": [
-        "c"
+        "C",
+        "shift+c"
       ],
       "help": "category"
+    },
+    "CopyID": {
+      "keys": [
+        "i"
+      ],
+      "help": "copy ID"
+    },
+    "CopyURL": {
+      "keys": [
+        "u"
+      ],
+      "help": "copy URL"
     },
     "Delete": {
       "keys": [
@@ -168,6 +187,12 @@
       ],
       "help": "active tab"
     },
+    "TabAll": {
+      "keys": [
+        "0"
+      ],
+      "help": "all downloads"
+    },
     "TabDone": {
       "keys": [
         "e"
@@ -253,8 +278,8 @@
     },
     "GotoHome": {
       "keys": [
-        "h",
-        "H"
+        "H",
+        "shift+h"
       ],
       "help": "home"
     },
@@ -356,6 +381,12 @@
       ],
       "help": "save \u0026 close"
     },
+    "DeleteCategory": {
+      "keys": [
+        "d"
+      ],
+      "help": "delete category"
+    },
     "Down": {
       "keys": [
         "down",
@@ -368,6 +399,20 @@
         "enter"
       ],
       "help": "edit"
+    },
+    "MoveCategoryDown": {
+      "keys": [
+        "shift+down",
+        "J"
+      ],
+      "help": "move down"
+    },
+    "MoveCategoryUp": {
+      "keys": [
+        "shift+up",
+        "K"
+      ],
+      "help": "move up"
     },
     "NextTab": {
       "keys": [
@@ -391,10 +436,16 @@
     },
     "Reset": {
       "keys": [
-        "r",
-        "R"
+        "r"
       ],
       "help": "reset"
+    },
+    "ResetAll": {
+      "keys": [
+        "R",
+        "shift+r"
+      ],
+      "help": "reset all"
     },
     "Tab1": {
       "keys": [
@@ -406,25 +457,37 @@
       "keys": [
         "2"
       ],
-      "help": "network"
+      "help": "downloads"
     },
     "Tab3": {
       "keys": [
         "3"
       ],
-      "help": "performance"
+      "help": "appearance"
     },
     "Tab4": {
       "keys": [
         "4"
       ],
-      "help": "categories"
+      "help": "network"
     },
     "Tab5": {
       "keys": [
         "5"
       ],
+      "help": "categories"
+    },
+    "Tab6": {
+      "keys": [
+        "6"
+      ],
       "help": "extension"
+    },
+    "Tab7": {
+      "keys": [
+        "7"
+      ],
+      "help": "advanced"
     },
     "Up": {
       "keys": [
