@@ -1,27 +1,25 @@
 #!/usr/bin/env bash
-# Open today's journal entry (alternatively specify relative data via +n/-n)
+# Open journal entries for each relative day given (e.g. `jrnl -2 -1 0`); default: today
 #   Relies on GNU date
 
-REL=${1:-""}
-TEXT_ED=${2:-$EDITOR}
+[ $# -eq 0 ] && set -- 0
 
-if [ "$REL" = "" ]; then
-    target_date=$(date +'%Y-%m-%d')
-elif [[ "$REL" =~ ^[+-][0-9]+$ ]]; then
-    target_date=$(date -d "$REL days" +'%Y-%m-%d')
-else
-    echo "Invalid date token. Use +n/-n only." >&2
-    exit 1
-fi
+files=()
+for rel in "$@"; do
+    if [[ ! "$rel" =~ ^[+-]?[0-9]+$ ]]; then
+        echo "Invalid date token '$rel'. Use n/+n/-n only." >&2
+        exit 1
+    fi
+    d=$(date -d "$rel days" +'%Y-%m-%d')
+    fpath="$VAULT_DIR/03 - Journal/$(date -d "$d" +'%Y')/$(date -d "$d" +'%m - %b')/$d.md"
+    if [ -f "$fpath" ]; then
+        files+=("$fpath")
+    else
+        echo "Note file for $d doesn't exist." >&2
+    fi
+done
 
-cd $VAULT_DIR # To set it as the root in Neovim.
+[ ${#files[@]} -eq 0 ] && exit 1
 
-fpath="$VAULT_DIR/03 - Journal/$(date -d "$target_date" +'%Y')/$(date -d "$target_date" +'%m - %b')/${target_date}.md"
-
-if [ -f "$fpath" ]; then
-    $TEXT_ED "$fpath"
-else
-    echo "Note file doesn't exist."
-fi
-
-cd - >/dev/null
+cd "$VAULT_DIR" || exit 1 # To set it as the root in Neovim.
+$EDITOR "${files[@]}"
